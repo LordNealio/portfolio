@@ -154,7 +154,7 @@ export const projects: Project[] = [
       "An AI oral-history platform that guides interviews, transcribes voices, builds timelines, and exports a printable family book.",
     category: "Nonprofit & Community",
     tags: ["AI", "Oral history", "Next.js", "Supabase", "Preservation"],
-    status: "prototype",
+    status: "live",
     year: "2026",
     featured: true,
     accent: "#B4703A",
@@ -189,10 +189,10 @@ export const projects: Project[] = [
       "This is not a utility app; it is a preservation platform. Leaning into emotional resonance and archival quality (National Geographic × Apple Books) shaped every interface decision.",
     futureVision:
       "Wire up production AI keys, ship the book-export polish, and pilot with a community organization.",
-    links: [],
+    links: [{ label: "Live app", href: "https://legacybridge-one.vercel.app/", verified: true }],
     relatedProjects: ["mindvault", "creation-os"],
     note:
-      "Infrastructure and all routes are built; production AI keys are not yet set, so it runs as a functional prototype.",
+      "Deployed and usable; some AI features may run in graceful fallback until production AI keys are set.",
   },
 
   // ── 4. WORKWRITE ──────────────────────────────────────────────────────────
