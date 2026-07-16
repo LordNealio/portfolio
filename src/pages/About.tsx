@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site, experience, education, certifications, capabilities } from "../data/site";
+import { site, org, experience, education, certifications, capabilities } from "../data/site";
 import { useReveal } from "../lib/useReveal";
 
 export function About() {
@@ -42,6 +42,19 @@ export function About() {
             music, and cultural storytelling — all pointing at one goal.
           </p>
         </div>
+
+        {/* Organization callout */}
+        <a className="org-card reveal" href={org.url} target="_blank" rel="noreferrer">
+          <div className="org-card-badge">Nous</div>
+          <div className="org-card-body">
+            <p className="eyebrow">The organization behind the work</p>
+            <h2 className="h3">{org.name}</h2>
+            <p className="muted org-card-desc">{org.description}</p>
+          </div>
+          <span className="org-card-go">
+            Visit <span className="arr">↗</span>
+          </span>
+        </a>
 
         {/* Capabilities compact */}
         <div className="about-caps reveal">

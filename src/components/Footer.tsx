@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
-import { site } from "../data/site";
+import { site, org } from "../data/site";
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
+        <a className="org-strip" href={org.url} target="_blank" rel="noreferrer">
+          <span className="org-badge">Nous</span>
+          <span className="org-text">
+            <span className="org-name">An initiative of {org.name}</span>
+            <span className="org-tag muted">{org.tagline}</span>
+          </span>
+          <span className="arr" aria-hidden="true">↗</span>
+        </a>
         <div className="footer-top">
           <div>
             <p className="eyebrow">Let's build something</p>

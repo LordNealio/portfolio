@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { site, capabilities, philosophy } from "../data/site";
+import { site, org, capabilities, philosophy } from "../data/site";
 import { projects } from "../data/projects";
 import { ProjectGrid } from "../components/ProjectGrid";
 import { useReveal } from "../lib/useReveal";
@@ -44,6 +44,10 @@ export function Home() {
               The story
             </Link>
           </div>
+          <a className="hero-org reveal" href={org.url} target="_blank" rel="noreferrer">
+            <span className="hero-org-dot" /> An initiative of <strong>{org.name}</strong>
+            <span className="arr">↗</span>
+          </a>
           <dl className="hero-stats reveal">
             <div>
               <dt className="h3">{projects.length}</dt>

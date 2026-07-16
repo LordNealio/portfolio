@@ -1,6 +1,15 @@
 // Personal facts drawn from Justin Neal's résumé and project record.
 // Edit contact links here. `verified: false` = please confirm before publishing.
 
+// The nonprofit organization behind the work.
+export const org = {
+  name: "Nous Innovation Labs",
+  url: "https://nous-innovation-labs.vercel.app/",
+  tagline: "Human-Centered Learning for the Intelligence Age",
+  description:
+    "A nonprofit educational innovation organization focused on AI literacy, reflective learning, and human-centered technology that strengthens communities.",
+};
+
 export const site = {
   name: "Justin Neal",
   title: "Founder · Creative Technologist · Systems Thinker",
