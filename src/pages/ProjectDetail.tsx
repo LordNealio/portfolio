@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProject, projects, STATUS_LABEL } from "../data/projects";
-import { ProjectArt } from "../components/ProjectArt";
+import { Cover } from "../components/Cover";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
@@ -66,7 +66,7 @@ export function ProjectDetail() {
               )}
             </div>
             <div className="detail-art reveal">
-              <ProjectArt project={project} variant="hero" />
+              <Cover project={project} variant="hero" />
             </div>
           </div>
           {project.note && (

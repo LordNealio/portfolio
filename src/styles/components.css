@@ -289,6 +289,29 @@
   font-weight: 600;
 }
 
+/* ── Real cover image (matches ProjectArt aspect + framing) ── */
+.proj-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #fafaf7;
+}
+.proj-img--cover {
+  object-fit: cover;
+}
+.proj-img--contain {
+  object-fit: contain;
+  padding: clamp(0.5rem, 2vw, 1rem);
+}
+.card--feature .proj-img--card {
+  aspect-ratio: 16 / 10;
+}
+.proj-img--hero {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+}
+
 /* ── CARDS ── */
 .feature-grid {
   display: grid;

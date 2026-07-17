@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../data/projects";
 import { STATUS_LABEL } from "../data/projects";
-import { ProjectArt } from "./ProjectArt";
+import { Cover } from "./Cover";
 
 // `size="feature"` = large editorial case-study card. `size="index"` = grid tile.
 export function ProjectCard({ project, size = "index" }: { project: Project; size?: "feature" | "index" }) {
   return (
     <Link to={`/work/${project.slug}`} className={`card card--${size} reveal`}>
       <div className="card-art">
-        <ProjectArt project={project} />
+        <Cover project={project} />
       </div>
       <div className="card-body">
         <div className="card-top">

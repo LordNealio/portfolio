@@ -39,6 +39,8 @@ export interface Project {
   year: string;
   featured: boolean;
   accent?: string; // per-project accent for the placeholder art
+  image?: string; // real cover art (path in /public); falls back to generative art
+  imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   role: string;
   audience: string;
   problem: string;
@@ -76,6 +78,8 @@ export const projects: Project[] = [
     year: "2026",
     featured: true,
     accent: "#E8B84B",
+    image: "/mindvault.svg",
+    imageFit: "contain",
     role:
       "Founder, product architect, and creative director — I defined the product, designed the system, wrote the prompt architecture, and directed every iteration through AI-assisted development.",
     audience:
