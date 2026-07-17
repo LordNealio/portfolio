@@ -55,7 +55,7 @@ export function Home() {
             </div>
             <div>
               <dt className="h3">{liveCount}</dt>
-              <dd className="muted">live apps</dd>
+              <dd className="muted">live &amp; published</dd>
             </div>
             <div>
               <dt className="h3">$20MM</dt>
