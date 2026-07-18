@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="rapgod">
+  <rect width="1024" height="1024" fill="#F4F1E9"/>
+  <text x="512" y="486" font-family="'Courier New', Courier, monospace" font-weight="700"
+        font-size="188" fill="#141414" text-anchor="middle" letter-spacing="-2">rapgod</text>
+  <!-- gold crown -->
+  <g fill="none" stroke="#B4862A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M450 616 L450 566 L482 594 L512 546 L542 594 L574 566 L574 616 Z"/>
+    <line x1="452" y1="628" x2="572" y2="628"/>
+  </g>
+</svg>

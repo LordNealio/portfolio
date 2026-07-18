@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Legacy Bridge 1619 — Document. Honor. Preserve. Empower.">
+  <defs>
+    <radialGradient id="lb-glow" cx="50%" cy="34%" r="55%">
+      <stop offset="0%" stop-color="#7A5E22" stop-opacity="0.75"/>
+      <stop offset="45%" stop-color="#3A2C10" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0C0A06" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lb-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C87E"/>
+      <stop offset="100%" stop-color="#B4862A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background + border + glow -->
+  <rect width="1024" height="1024" fill="#0C0A06"/>
+  <rect x="22" y="22" width="980" height="980" rx="92" fill="none" stroke="#6E5A2E" stroke-width="3" opacity="0.7"/>
+  <rect width="1024" height="1024" fill="url(#lb-glow)"/>
+
+  <!-- ── TREE ── -->
+  <g fill="url(#lb-gold)">
+    <!-- trunk -->
+    <path d="M498 470 L526 470 C520 420 520 400 516 360 L508 360 C504 400 504 420 498 470 Z"/>
+    <!-- branches -->
+    <g stroke="url(#lb-gold)" fill="none" stroke-linecap="round">
+      <path d="M512 380 C470 330 420 320 372 300" stroke-width="11"/>
+      <path d="M512 380 C554 330 604 320 652 300" stroke-width="11"/>
+      <path d="M512 372 C500 320 500 260 512 196" stroke-width="12"/>
+      <path d="M500 340 C452 300 430 268 430 250" stroke-width="8"/>
+      <path d="M524 340 C572 300 594 268 594 250" stroke-width="8"/>
+    </g>
+  </g>
+  <!-- canopy leaves -->
+  <g fill="url(#lb-gold)">
+    <g id="lb-leaves">
+      <ellipse cx="512" cy="140" rx="24" ry="34"/>
+      <ellipse cx="452" cy="156" rx="23" ry="33" transform="rotate(-18 452 156)"/>
+      <ellipse cx="574" cy="156" rx="23" ry="33" transform="rotate(18 574 156)"/>
+      <ellipse cx="402" cy="190" rx="24" ry="34" transform="rotate(-26 402 190)"/>
+      <ellipse cx="462" cy="182" rx="23" ry="33" transform="rotate(-10 462 182)"/>
+      <ellipse cx="512" cy="180" rx="24" ry="34"/>
+      <ellipse cx="562" cy="182" rx="23" ry="33" transform="rotate(10 562 182)"/>
+      <ellipse cx="622" cy="190" rx="24" ry="34" transform="rotate(26 622 190)"/>
+      <ellipse cx="352" cy="238" rx="24" ry="34" transform="rotate(-34 352 238)"/>
+      <ellipse cx="412" cy="228" rx="24" ry="34" transform="rotate(-20 412 228)"/>
+      <ellipse cx="470" cy="224" rx="23" ry="33" transform="rotate(-8 470 224)"/>
+      <ellipse cx="512" cy="224" rx="24" ry="34"/>
+      <ellipse cx="554" cy="224" rx="23" ry="33" transform="rotate(8 554 224)"/>
+      <ellipse cx="612" cy="228" rx="24" ry="34" transform="rotate(20 612 228)"/>
+      <ellipse cx="672" cy="238" rx="24" ry="34" transform="rotate(34 672 238)"/>
+      <ellipse cx="386" cy="292" rx="23" ry="33" transform="rotate(-30 386 292)"/>
+      <ellipse cx="448" cy="298" rx="23" ry="33" transform="rotate(-16 448 298)"/>
+      <ellipse cx="512" cy="300" rx="24" ry="34"/>
+      <ellipse cx="576" cy="298" rx="23" ry="33" transform="rotate(16 576 298)"/>
+      <ellipse cx="638" cy="292" rx="23" ry="33" transform="rotate(30 638 292)"/>
+      <ellipse cx="430" cy="346" rx="22" ry="31" transform="rotate(-22 430 346)"/>
+      <ellipse cx="512" cy="352" rx="23" ry="33"/>
+      <ellipse cx="594" cy="346" rx="22" ry="31" transform="rotate(22 594 346)"/>
+    </g>
+  </g>
+
+  <!-- ── BRIDGE ── -->
+  <g>
+    <!-- deck -->
+    <path d="M176 616 Q512 452 848 616" fill="none" stroke="url(#lb-gold)" stroke-width="42" stroke-linecap="round"/>
+    <!-- railing -->
+    <path d="M196 596 Q512 446 828 596" fill="none" stroke="#B4862A" stroke-width="6" opacity="0.9"/>
+    <g stroke="#B4862A" stroke-width="6" opacity="0.9">
+      <line x1="300" y1="560" x2="300" y2="600"/>
+      <line x1="406" y1="520" x2="406" y2="560"/>
+      <line x1="512" y1="500" x2="512" y2="540"/>
+      <line x1="618" y1="520" x2="618" y2="560"/>
+      <line x1="724" y1="560" x2="724" y2="600"/>
+    </g>
+    <!-- two arch openings -->
+    <path d="M330 640 a86 78 0 0 1 172 0 Z" fill="#0C0A06"/>
+    <path d="M522 640 a86 78 0 0 1 172 0 Z" fill="#0C0A06"/>
+    <!-- base line -->
+    <path d="M188 648 Q512 690 836 648" fill="none" stroke="url(#lb-gold)" stroke-width="10" opacity="0.8"/>
+  </g>
+
+  <!-- ── FIGURES (walking generations) ── -->
+  <g fill="#080706">
+    <!-- child -->
+    <g><circle cx="372" cy="500" r="15"/><path d="M357 566 L360 528 L384 528 L387 566 Z"/></g>
+    <!-- youth -->
+    <g><circle cx="450" cy="470" r="17"/><path d="M433 552 L437 502 L463 502 L467 552 Z"/></g>
+    <!-- woman (fuller hair) -->
+    <g><circle cx="524" cy="452" r="19"/><path d="M505 452 a19 22 0 0 1 38 0 Z"/><path d="M504 542 L509 484 L539 484 L544 542 Z"/></g>
+    <!-- man -->
+    <g><circle cx="602" cy="454" r="20"/><path d="M581 552 L586 490 L618 490 L623 552 Z"/></g>
+    <!-- elder (hat + cane) -->
+    <g>
+      <circle cx="684" cy="470" r="20"/>
+      <ellipse cx="684" cy="452" rx="34" ry="8"/>
+      <path d="M666 452 a18 20 0 0 1 36 0 Z"/>
+      <path d="M662 568 L668 506 L700 506 L706 568 Z"/>
+      <line x1="712" y1="512" x2="726" y2="574" stroke="#080706" stroke-width="6" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- ── WORDMARK ── -->
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif">
+    <text x="512" y="748" font-size="150" font-weight="600" fill="#F3ECD9" letter-spacing="6">LEGACY</text>
+    <text x="512" y="828" font-size="66" fill="#C6A15B" letter-spacing="26">BRIDGE</text>
+    <g stroke="#C6A15B" stroke-width="3">
+      <line x1="250" y1="808" x2="326" y2="808"/><line x1="698" y1="808" x2="774" y2="808"/>
+    </g>
+    <text x="512" y="888" font-size="44" fill="#C6A15B" letter-spacing="14">1619</text>
+    <g stroke="#8A6E32" stroke-width="2">
+      <line x1="360" y1="874" x2="452" y2="874"/><line x1="572" y1="874" x2="664" y2="874"/>
+    </g>
+    <text x="512" y="936" font-size="25" fill="#9C7E3C" letter-spacing="3">DOCUMENT · HONOR · PRESERVE · EMPOWER</text>
+    <text x="512" y="970" font-size="25" fill="#9C7E3C" letter-spacing="3">YOUR LEGACY · OUR HISTORY</text>
+  </g>
+</svg>

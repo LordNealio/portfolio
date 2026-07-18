@@ -7,7 +7,9 @@ export function Cover({ project, variant = "card" }: { project: Project; variant
   if (project.image) {
     return (
       <img
-        className={`proj-img proj-img--${project.imageFit ?? "cover"} proj-img--${variant}`}
+        className={`proj-img proj-img--${project.imageFit ?? "cover"} proj-img--${variant}${
+          project.imageDark ? " proj-img--dark" : ""
+        }`}
         src={project.image}
         alt={`${project.title} — cover artwork`}
         decoding="async"

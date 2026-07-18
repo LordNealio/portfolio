@@ -41,6 +41,7 @@ export interface Project {
   accent?: string; // per-project accent for the placeholder art
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
+  imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
   role: string;
   audience: string;
   problem: string;
@@ -162,6 +163,9 @@ export const projects: Project[] = [
     year: "2026",
     featured: true,
     accent: "#B4703A",
+    image: "/legacybridge.svg",
+    imageFit: "contain",
+    imageDark: true,
     role:
       "Founder, product designer, and creative director — I set the archival, editorial tone and defined the full route map and AI interview experience.",
     audience:
@@ -465,6 +469,8 @@ export const projects: Project[] = [
     year: "2026",
     featured: false,
     accent: "#D4AF37",
+    image: "/rapgod.svg",
+    imageFit: "cover",
     role: "Researcher and author of the framework and the documented notes.",
     audience: "A canonical reference the other cultural projects draw from.",
     problem: "Cultural and musical symbolism is scattered and easy to fabricate; it needs a disciplined, documented archive.",
