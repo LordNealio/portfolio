@@ -3,16 +3,16 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 
 const links = [
   { to: "/work", label: "Work" },
-  { to: "/vision", label: "Vision" },
+  { to: "/store", label: "Store" },
+  { to: "/journal", label: "Journal" },
   { to: "/about", label: "About" },
-  { to: "/now", label: "Now" },
-  { to: "/contact", label: "Contact" },
+  { to: "/connect", label: "Connect" },
 ];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const loc = useLocation();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function Nav() {
   useEffect(() => setOpen(false), [loc.pathname]);
 
   function toggleTheme() {
-    const next = theme === "dark" ? "light" : "dark";
+    const next = theme === "light" ? "dark" : "light";
     setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
   }
@@ -33,9 +33,9 @@ export function Nav() {
   return (
     <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
       <div className="nav-inner wrap">
-        <Link to="/" className="brand" aria-label="Justin Neal — home">
-          <span className="brand-mark">JN</span>
-          <span className="brand-name">Justin Neal</span>
+        <Link to="/" className="brand" aria-label="NIL — Just Neal, home">
+          <span className="brand-mark">NIL</span>
+          <span className="brand-name">Just&nbsp;Neal</span>
         </Link>
 
         <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary">
@@ -44,14 +44,14 @@ export function Nav() {
               {l.label}
             </NavLink>
           ))}
-          <Link className="nav-cta btn btn-primary" to="/contact">
-            Get in touch
+          <Link className="nav-cta" to="/work">
+            Explore the Archive <span className="arr">→</span>
           </Link>
         </nav>
 
         <div className="nav-tools">
           <button className="icon-btn" onClick={toggleTheme} aria-label="Toggle light and dark theme">
-            {theme === "dark" ? "☾" : "☀"}
+            {theme === "light" ? "☾" : "☀"}
           </button>
           <button
             className={`burger ${open ? "open" : ""}`}

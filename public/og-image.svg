@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
   <defs>
-    <radialGradient id="g" cx="80%" cy="0%" r="90%">
-      <stop offset="0%" stop-color="#E8B84B" stop-opacity="0.32"/>
-      <stop offset="55%" stop-color="#E8B84B" stop-opacity="0.04"/>
-      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    <radialGradient id="g" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#c9a24b" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#c9a24b" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#f2ede1" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect width="1200" height="630" fill="#f2ede1"/>
   <rect width="1200" height="630" fill="url(#g)"/>
-  <g transform="translate(980 150)" opacity="0.5" fill="none" stroke="#E8B84B">
-    <circle r="40" stroke-opacity="0.5"/>
-    <circle r="80" stroke-opacity="0.35"/>
-    <circle r="120" stroke-opacity="0.2"/>
-  </g>
-  <text x="90" y="150" font-family="Georgia, serif" font-size="26" letter-spacing="8" fill="#7C7566">JUSTIN NEAL</text>
-  <text x="86" y="330" font-family="Georgia, serif" font-size="92" fill="#ECE7DD">I turn ideas into apps,</text>
-  <text x="86" y="430" font-family="Georgia, serif" font-size="92" fill="#ECE7DD">tools, stories &amp; <tspan fill="#E8B84B" font-style="italic">systems.</tspan></text>
-  <text x="90" y="545" font-family="Georgia, serif" font-size="30" fill="#B3AB9C">Founder · Creative Technologist · Systems Thinker</text>
+  <text x="600" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="210" font-weight="500"
+        fill="#16202b" text-anchor="middle" letter-spacing="-6">NIL</text>
+  <text x="600" y="362" font-family="Georgia, serif" font-size="40" font-style="italic"
+        fill="#9a7628" text-anchor="middle">Just Neal</text>
+  <text x="600" y="440" font-family="Georgia, serif" font-size="26" fill="#5b5546" text-anchor="middle"
+        letter-spacing="6">NAME · IMAGE · LIKENESS</text>
+  <text x="600" y="512" font-family="Georgia, serif" font-size="24" fill="#8b8370" text-anchor="middle"
+        letter-spacing="3">CREATIVE DIRECTOR · BUILDER · STORYTELLER</text>
 </svg>

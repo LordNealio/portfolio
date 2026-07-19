@@ -22,6 +22,38 @@ export type Category =
   | "Research & Writing"
   | "Business & Operations";
 
+// The NIL house disciplines — how the archive is organised.
+export type Discipline =
+  | "AI"
+  | "Apps"
+  | "Fashion"
+  | "Education"
+  | "Publishing"
+  | "Film"
+  | "Music"
+  | "Games"
+  | "Research"
+  | "Nonprofit"
+  | "Branding"
+  | "Culture"
+  | "Technology";
+
+export const DISCIPLINES: Discipline[] = [
+  "AI",
+  "Apps",
+  "Fashion",
+  "Education",
+  "Publishing",
+  "Film",
+  "Music",
+  "Games",
+  "Research",
+  "Nonprofit",
+  "Branding",
+  "Culture",
+  "Technology",
+];
+
 export interface ProjectLink {
   label: string;
   href: string;
@@ -38,6 +70,7 @@ export interface Project {
   status: Status;
   year: string;
   featured: boolean;
+  disciplines?: Discipline[]; // NIL house disciplines (archive taxonomy)
   accent?: string; // per-project accent for the placeholder art
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
@@ -65,7 +98,7 @@ export const STATUS_LABEL: Record<Status, string> = {
   archived: "Archive",
 };
 
-export const projects: Project[] = [
+const core: Project[] = [
   // ── 1. MINDVAULT ──────────────────────────────────────────────────────────
   {
     slug: "mindvault",
@@ -582,6 +615,109 @@ export const projects: Project[] = [
       "An early concept. The working name may not suit a public professional portfolio — flagged in CONTENT_NEEDED for a naming/scope decision before it is surfaced prominently.",
   },
 ];
+
+// ── Discipline mapping + house-project factory ──────────────────────────────
+const DISC_TO_CATEGORY: Record<Discipline, Category> = {
+  AI: "AI & Knowledge Tools",
+  Apps: "AI & Knowledge Tools",
+  Fashion: "Creative Media & Music",
+  Education: "Education & Learning",
+  Publishing: "Research & Writing",
+  Film: "Creative Media & Music",
+  Music: "Creative Media & Music",
+  Games: "Games & Interactive",
+  Research: "Research & Writing",
+  Nonprofit: "Nonprofit & Community",
+  Branding: "Creative Media & Music",
+  Culture: "Creative Media & Music",
+  Technology: "Business & Operations",
+};
+
+const CAT_TO_DISC: Record<Category, Discipline[]> = {
+  "Featured Products": ["Apps"],
+  "AI & Knowledge Tools": ["AI", "Apps"],
+  "Education & Learning": ["Education"],
+  "Nonprofit & Community": ["Nonprofit"],
+  "Games & Interactive": ["Games"],
+  "Creative Media & Music": ["Music", "Culture"],
+  "Research & Writing": ["Research", "Publishing"],
+  "Business & Operations": ["Technology"],
+};
+
+/** The disciplines to show/filter by — explicit if set, else derived from category. */
+export function projectDisciplines(p: Project): Discipline[] {
+  return p.disciplines ?? CAT_TO_DISC[p.category];
+}
+
+type HouseInput = Partial<Project> & {
+  slug: string;
+  title: string;
+  subtitle: string;
+  disciplines: Discipline[];
+};
+
+/** Build an honest house-project record: known bits filled, the rest left as clean placeholders. */
+function house(o: HouseInput): Project {
+  const summary = o.summary ?? o.subtitle;
+  return {
+    category: DISC_TO_CATEGORY[o.disciplines[0]],
+    tags: o.disciplines,
+    status: "concept",
+    year: "",
+    featured: false,
+    role: "Concept and creative direction by Just Neal, under the NIL house.",
+    audience: "",
+    problem: "",
+    solution: summary,
+    features: [],
+    technology: [],
+    links: [],
+    relatedProjects: [],
+    note: "Part of the NIL house — fuller details coming.",
+    ...o,
+    summary,
+  };
+}
+
+// The NIL house archive — the brand's own projects alongside the built work above.
+const houseProjects: Project[] = [
+  house({ slug: "nil-apparel", title: "NIL Apparel", subtitle: "The apparel line of the house.", disciplines: ["Fashion", "Branding"], accent: "#1b2a3a" }),
+  house({ slug: "nil-heritage", title: "NIL Heritage", subtitle: "The heritage line — where the house came from.", disciplines: ["Fashion", "Branding"], accent: "#2c3a2c" }),
+  house({ slug: "nil-atelier", title: "NIL Atelier", subtitle: "Made-to-order. One at a time.", disciplines: ["Fashion"], accent: "#5a2a2e" }),
+  house({ slug: "nil-sport", title: "NIL Sport", subtitle: "Performance, in the house language.", disciplines: ["Fashion"], accent: "#1b2a3a" }),
+  house({ slug: "nil-olympic-collection", title: "NIL Olympic Collection", subtitle: "Heritage sportswear for the Games.", disciplines: ["Fashion", "Culture"], accent: "#9a7628" }),
+  house({ slug: "nil-reserve", title: "NIL Reserve", subtitle: "Limited. Numbered. Kept.", disciplines: ["Fashion"], accent: "#5a2a2e" }),
+  house({ slug: "cloud-collection", title: "Cloud Collection", subtitle: "The cloud line — Neal, in white.", disciplines: ["Fashion", "Branding"], accent: "#8b8370" }),
+  house({ slug: "thug-collection", title: "THUG Collection", subtitle: "A collection from the house.", disciplines: ["Fashion", "Culture"], accent: "#16202b" }),
+  house({ slug: "nil-chapters", title: "NIL Chapters", subtitle: "The house imprint — books and long-form.", disciplines: ["Publishing"], accent: "#5a2a2e" }),
+  house({ slug: "godmind-whitepaper", title: "GodMind Whitepaper", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
+  house({ slug: "research-review", title: "Research Review", subtitle: "Field notes at the edge of AI and culture.", disciplines: ["Research", "Publishing"], status: "research", accent: "#2c3a2c" }),
+  house({ slug: "ideas-worth-sharing", title: "Ideas Worth Sharing", subtitle: "Talks and short pieces worth sharing.", disciplines: ["Publishing", "Culture"], accent: "#9a7628" }),
+  house({ slug: "arizona-ponderer", title: "Arizona Ponderer", subtitle: "Writing from the desert.", disciplines: ["Publishing", "Culture"], accent: "#b8924a" }),
+  house({ slug: "dear-kendrick", title: "Dear Kendrick", subtitle: "An open letter in the language of the archive.", disciplines: ["Publishing", "Music", "Culture"], accent: "#16202b" }),
+  house({ slug: "dear-goat", title: "Dear Goat", subtitle: "A letters series.", disciplines: ["Publishing", "Culture"], accent: "#2c3a2c" }),
+  house({ slug: "elijahs-fire", title: "Elijah's Fire", subtitle: "A work in the house's spiritual register.", disciplines: ["Culture", "Publishing"], accent: "#5a2a2e" }),
+  house({ slug: "gloria", title: "Gloria", subtitle: "A tribute — in name and image.", disciplines: ["Music", "Culture"], accent: "#9a7628" }),
+  house({ slug: "burning-point", title: "Burning Point", subtitle: "A NIL project.", disciplines: ["Culture"], accent: "#5a2a2e" }),
+  house({ slug: "holy-water-wet", title: "Holy Water Wet", subtitle: "A NIL culture project.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
+  house({ slug: "seven-churches-tour", title: "Seven Churches Tour", subtitle: "A pilgrimage across seven places.", disciplines: ["Culture", "Film", "Music"], accent: "#9a7628", relatedProjects: ["seven-temples-tour"] }),
+  house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
+  house({ slug: "mission-control", title: "Mission Control", subtitle: "A command surface for building and shipping.", disciplines: ["Apps", "Technology"], accent: "#16202b" }),
+  house({ slug: "nonprofit-builder", title: "Nonprofit Builder", subtitle: "Tooling to help people start and run nonprofits.", disciplines: ["Nonprofit", "Technology"], accent: "#2c3a2c" }),
+  house({ slug: "free-mind-initiative", title: "Free Mind Initiative", subtitle: "A nonprofit initiative for literacy and mental freedom.", disciplines: ["Nonprofit", "Education"], accent: "#2c3a2c" }),
+  house({
+    slug: "rocket-to-pluto",
+    title: "Rocket to Pluto",
+    subtitle: "A space adventure that teaches young kids to read, count, and explore.",
+    disciplines: ["Games", "Education"],
+    status: "prototype",
+    accent: "#1b2a3a",
+    role: "Founder and designer — an educational space game for kids, directed by Just Neal.",
+    note: "A playable vertical slice (Moon Rescue) exists; more of the journey to Pluto is in development.",
+  }),
+];
+
+export const projects: Project[] = [...core, ...houseProjects];
 
 // ── Derived helpers ─────────────────────────────────────────────────────────
 export const featuredProjects = projects.filter((p) => p.featured);

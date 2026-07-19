@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site, org } from "../data/site";
+import { site, org, nil } from "../data/site";
 
 export function Footer() {
   return (
@@ -15,10 +15,9 @@ export function Footer() {
         </a>
         <div className="footer-top">
           <div>
-            <p className="eyebrow">Let's build something</p>
+            <p className="eyebrow">The house is open</p>
             <p className="h2 footer-lead">
-              Open to collaborators, employers, investors, nonprofit&nbsp;partners, and the
-              genuinely&nbsp;curious.
+              For collaborators, clients, investors, and the&nbsp;curious.
             </p>
           </div>
           <div className="footer-cta">
@@ -32,15 +31,17 @@ export function Footer() {
         </div>
         <hr className="rule" />
         <div className="footer-bottom">
-          <span className="muted">© {new Date().getFullYear()} {site.name} · {site.location}</span>
+          <span className="muted">
+            © {new Date().getFullYear()} NIL · Just Neal · {site.location}
+          </span>
           <nav className="footer-nav" aria-label="Footer">
             <Link to="/work">Work</Link>
-            <Link to="/vision">Vision</Link>
+            <Link to="/store">Store</Link>
+            <Link to="/journal">Journal</Link>
             <Link to="/about">About</Link>
-            <Link to="/now">Now</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/connect">Connect</Link>
           </nav>
-          <span className="muted footer-built">Designed &amp; directed by Justin Neal · built with AI assistance</span>
+          <span className="muted footer-built serif-i">{nil.statement}</span>
         </div>
       </div>
     </footer>

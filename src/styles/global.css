@@ -1,57 +1,64 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   JUSTIN NEAL — PORTFOLIO DESIGN SYSTEM  "Quiet Intelligence"
-   Dark-first editorial. Near-black ink, warm white, one gold accent.
-   Fraunces (display serif) + Plus Jakarta Sans (body/UI).
+   NIL · JUST NEAL — DESIGN SYSTEM  "The House"
+   Light warm-paper editorial. Museum / luxury-fashion-house feeling.
+   Cream & bone, deep navy-ink, gold, forest, burgundy. Fraunces + Jakarta Sans.
+   Name. Image. Likeness.  ·  Nil (nothing) · Kneel (humility) · Neal (cloud)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── Ink / paper (dark is default) ── */
-  --ink: #0a0a0a;
-  --ink-2: #121211;
-  --panel: #171613;
-  --panel-2: #1e1c18;
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.18);
-  --paper: #faf7f0;
-  --text: #ece7dd;
-  --text-2: #b3ab9c;
-  --text-3: #7c7566;
+  /* ── Paper & ink (light is the house default) ── */
+  --ink: #f2ede1; /* warm paper — page background */
+  --ink-2: #eae4d5; /* deeper bone — alternating sections */
+  --panel: #fbf8f0; /* ivory — raised surfaces */
+  --panel-2: #f4efe2;
+  --line: rgba(24, 30, 40, 0.14);
+  --line-strong: rgba(24, 30, 40, 0.24);
+  --paper: #16202b; /* deepest ink (navy-charcoal) */
+  --text: #1e2830; /* body ink */
+  --text-2: #5b5546; /* muted warm gray */
+  --text-3: #8b8370; /* faint */
 
-  /* ── Accent (ecosystem gold) ── */
-  --gold: #e8b84b;
-  --gold-soft: #f0cd77;
-  --gold-dim: rgba(232, 184, 75, 0.14);
+  /* ── House accents ── */
+  --gold: #9a7628; /* luxury gold (AA on paper) */
+  --gold-soft: #b8924a;
+  --gold-dim: rgba(154, 118, 40, 0.12);
+  --navy: #1b2a3a;
+  --forest: #2c3a2c;
+  --burgundy: #5a2a2e;
 
   /* ── Type ── */
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Fraunces", "Times New Roman", Georgia, serif;
   --sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 
   /* ── Rhythm ── */
-  --maxw: 1180px;
-  --gutter: clamp(20px, 5vw, 64px);
-  --radius: 18px;
-  --radius-lg: 26px;
+  --maxw: 1240px;
+  --gutter: clamp(22px, 5.5vw, 76px);
+  --radius: 14px;
+  --radius-lg: 22px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Light mode — supported and theme-aware. */
-:root[data-theme="light"] {
-  --ink: #faf7f0;
-  --ink-2: #f3efe6;
-  --panel: #ffffff;
-  --panel-2: #f6f2e9;
-  --line: rgba(20, 18, 14, 0.1);
-  --line-strong: rgba(20, 18, 14, 0.18);
-  --paper: #14120e;
-  --text: #1b1915;
-  --text-2: #5c554a;
-  --text-3: #8b8375;
-  --gold: #a9781a;
-  --gold-soft: #c08f2a;
-  --gold-dim: rgba(169, 120, 26, 0.12);
-  color-scheme: light;
+/* Dark mode — the house after hours. */
+:root[data-theme="dark"] {
+  --ink: #15120d;
+  --ink-2: #1b1811;
+  --panel: #221e16;
+  --panel-2: #2a251b;
+  --line: rgba(240, 235, 220, 0.12);
+  --line-strong: rgba(240, 235, 220, 0.2);
+  --paper: #f3ecd9;
+  --text: #e9e2d2;
+  --text-2: #ada48f;
+  --text-3: #7c7566;
+  --gold: #c9a24b;
+  --gold-soft: #e0c27e;
+  --gold-dim: rgba(201, 162, 75, 0.16);
+  --navy: #9db2cc;
+  --forest: #93ad93;
+  --burgundy: #cf9296;
+  color-scheme: dark;
 }
 
 * {

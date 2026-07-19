@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProject, projects, STATUS_LABEL } from "../data/projects";
+import { getProject, projects, projectDisciplines, STATUS_LABEL } from "../data/projects";
 import { Cover } from "../components/Cover";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -11,9 +11,9 @@ export function ProjectDetail() {
   useReveal([slug]);
 
   useEffect(() => {
-    if (project) document.title = `${project.title} — Justin Neal`;
+    if (project) document.title = `${project.title} — NIL · Just Neal`;
     return () => {
-      document.title = "Justin Neal — Founder, Creative Technologist, Systems Thinker";
+      document.title = "NIL · Just Neal — Name. Image. Likeness.";
     };
   }, [project]);
 
@@ -34,6 +34,7 @@ export function ProjectDetail() {
   const related = project.relatedProjects
     .map((s) => projects.find((p) => p.slug === s))
     .filter(Boolean) as typeof projects;
+  const disciplines = projectDisciplines(project);
 
   return (
     <article className="detail">
@@ -81,41 +82,57 @@ export function ProjectDetail() {
       <div className="wrap detail-body">
         <div className="detail-cols">
           <div className="detail-main">
-            <Block title="The problem" body={project.problem} />
-            <Block title="The concept" body={project.solution} />
+            {project.problem && <Block title="The problem" body={project.problem} />}
+            {project.solution && <Block title="The concept" body={project.solution} />}
             {project.process && <Block title="Process" body={project.process} />}
             {project.lessons && <Block title="What I learned" body={project.lessons} />}
             {project.futureVision && <Block title="Future vision" body={project.futureVision} />}
 
-            <section className="detail-block reveal">
-              <h2 className="h3">Key features</h2>
-              <ul className="feature-list">
-                {project.features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-            </section>
+            {project.features.length > 0 && (
+              <section className="detail-block reveal">
+                <h2 className="h3">Key features</h2>
+                <ul className="feature-list">
+                  {project.features.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           <aside className="detail-side">
             <div className="side-card reveal">
-              <h3 className="side-h">My role</h3>
-              <p className="muted">{project.role}</p>
-            </div>
-            <div className="side-card reveal">
-              <h3 className="side-h">Intended audience</h3>
-              <p className="muted">{project.audience}</p>
-            </div>
-            <div className="side-card reveal">
-              <h3 className="side-h">Technology</h3>
+              <h3 className="side-h">Discipline</h3>
               <div className="side-tags">
-                {project.technology.map((t) => (
-                  <span className="tag" key={t}>
-                    {t}
+                {disciplines.map((d) => (
+                  <span className="tag" key={d}>
+                    {d}
                   </span>
                 ))}
               </div>
             </div>
+            <div className="side-card reveal">
+              <h3 className="side-h">My role</h3>
+              <p className="muted">{project.role}</p>
+            </div>
+            {project.audience && (
+              <div className="side-card reveal">
+                <h3 className="side-h">Intended audience</h3>
+                <p className="muted">{project.audience}</p>
+              </div>
+            )}
+            {project.technology.length > 0 && (
+              <div className="side-card reveal">
+                <h3 className="side-h">Technology</h3>
+                <div className="side-tags">
+                  {project.technology.map((t) => (
+                    <span className="tag" key={t}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </aside>
         </div>
 

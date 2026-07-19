@@ -11,13 +11,14 @@ export const org = {
 };
 
 export const site = {
-  name: "Justin Neal",
-  title: "Founder · Creative Technologist · Systems Thinker",
+  name: "NIL",
+  fullName: "Just Neal",
+  wordmark: "NIL",
+  title: "Creative Director · Builder · Storyteller",
   location: "Mesa, Arizona",
-  tagline:
-    "I turn ideas, research, lived experience, and cultural questions into apps, tools, stories, and systems.",
+  tagline: "I build systems, brands, and experiences that help people build themselves.",
   positioning:
-    "A finance leader and educator who now builds AI-native products. My projects look different on the surface — journaling apps, an oral-history platform, a festival concept, a life-skills guide — but they share one goal: using technology, reflection, education, and systems thinking to help people understand themselves, develop ideas, and build stronger communities.",
+    "NIL is the house under which fashion, AI, publishing, education, film, technology, and storytelling coexist. Name. Image. Likeness. — a body of work by Just Neal that begins from nothing and builds something worth keeping.",
   // Contact — CONFIRM these before publishing.
   contact: {
     email: "Neal.Justin@icloud.com",
@@ -25,6 +26,21 @@ export const site = {
     phone: "", // present on résumé; left out of the public site by default
     github: "", // add if you want repos linked
   },
+};
+
+// The NIL idea — surfaced subtly across the house, never as a slogan.
+export const nil = {
+  meaning: [
+    { term: "Name · Image · Likeness", body: "The self, made ownable — what you carry, and what you're free to build with." },
+    { term: "Nil", body: "To begin with nothing." },
+    { term: "Kneel", body: "Humility — the posture before the work." },
+    { term: "Neal", body: "The cloud. The name, and the figure." },
+  ],
+  scriptures: [
+    { ref: "Luke 22:41", note: "He knelt down and prayed." },
+    { ref: "Philippians 2:10", note: "Every knee shall bow." },
+  ],
+  statement: "Nothing into something. Name. Image. Likeness.",
 };
 
 export interface ExperienceItem {
@@ -145,6 +161,6 @@ export const capabilities: Capability[] = [
 
 // The connecting philosophy — shown on the About and Vision sections.
 export const philosophy = {
-  heading: "Different surfaces, one goal",
-  body: "Every project is a different doorway into the same idea: that technology, reflection, education, and honest systems can help people understand themselves, develop what they carry inside, and build stronger communities. I originate the concepts, define the products, direct the creative vision, and use AI-assisted development to turn them into things you can actually use.",
+  heading: "One house, many rooms",
+  body: "Fashion, AI, publishing, education, film, technology, and storytelling look like separate disciplines. Under NIL they're one practice: taking a name, an image, a likeness — and building something from nothing. I originate the concepts, direct the creative vision, and make the work, so that each artifact helps someone build themselves.",
 };

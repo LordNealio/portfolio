@@ -1,135 +1,82 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { site, org, capabilities, philosophy } from "../data/site";
+import { site, nil, philosophy } from "../data/site";
 import { projects } from "../data/projects";
-import { ProjectGrid } from "../components/ProjectGrid";
+import { ArchiveList } from "../components/ArchiveList";
 import { useReveal } from "../lib/useReveal";
-
-const rotating = ["apps", "tools", "stories", "systems", "questions"];
 
 export function Home() {
   useReveal([]);
-  const [wi, setWi] = useState(0);
-
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-    const id = setInterval(() => setWi((i) => (i + 1) % rotating.length), 2200);
-    return () => clearInterval(id);
-  }, []);
-
-  const liveCount = projects.filter((p) => p.status === "live").length;
 
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero">
-        <div className="wrap hero-inner">
-          <p className="eyebrow reveal">{site.title}</p>
-          <h1 className="display hero-title reveal">
-            I turn ideas into
-            <br />
-            <span className="hero-rotate">
-              <span key={wi} className="serif-i gold">
-                {rotating[wi]}
-              </span>
-            </span>
-          </h1>
-          <p className="lead hero-lead reveal">{site.tagline}</p>
-          <div className="hero-cta reveal">
-            <Link to="/work" className="btn btn-primary">
-              Explore the work <span className="arr">→</span>
-            </Link>
-            <Link to="/about" className="btn btn-ghost">
-              The story
-            </Link>
+      <section className="nil-hero">
+        <div className="wrap nil-hero-inner">
+          <div className="nil-hero-text">
+            <p className="eyebrow reveal">Name · Image · Likeness</p>
+            <h1 className="nil-word reveal">NIL</h1>
+            <p className="nil-name reveal">Just Neal</p>
+            <p className="nil-nil reveal serif-i">Name. Image. Likeness.</p>
+            <p className="nil-roles reveal">Creative Director — Builder — Storyteller</p>
+            <p className="lead nil-tag reveal">{site.tagline}</p>
+            <div className="hero-cta reveal">
+              <Link to="/work" className="btn btn-primary">
+                Explore the Archive <span className="arr">→</span>
+              </Link>
+              <Link to="/store" className="btn btn-ghost">
+                Enter the Store
+              </Link>
+            </div>
           </div>
-          <a className="hero-org reveal" href={org.url} target="_blank" rel="noreferrer">
-            <span className="hero-org-dot" /> An initiative of <strong>{org.name}</strong>
-            <span className="arr">↗</span>
-          </a>
-          <dl className="hero-stats reveal">
-            <div>
-              <dt className="h3">{projects.length}</dt>
-              <dd className="muted">projects built</dd>
-            </div>
-            <div>
-              <dt className="h3">{liveCount}</dt>
-              <dd className="muted">live &amp; published</dd>
-            </div>
-            <div>
-              <dt className="h3">$20MM</dt>
-              <dd className="muted">P&amp;L directed in finance</dd>
-            </div>
-            <div>
-              <dt className="h3">1</dt>
-              <dd className="muted">connecting idea</dd>
-            </div>
-          </dl>
+          <div className="nil-hero-art reveal">
+            <img
+              src="/cloud-figure.svg"
+              alt="The cloud figure — Neal, robed in white with the G vest"
+            />
+          </div>
         </div>
         <div className="hero-scroll" aria-hidden="true">
-          <span>Scroll</span>
+          <span>Enter</span>
           <span className="hero-scroll-line" />
         </div>
       </section>
 
-      {/* ── THE WORK — grid of everything ── */}
-      <section className="section" id="selected">
+      {/* ── THE IDEA ── */}
+      <section className="section nil-idea">
         <div className="wrap">
           <header className="section-head reveal">
-            <p className="eyebrow">The work · {projects.length} projects</p>
-            <h2 className="h1">
-              Everything I've built, <span className="serif-i">in one view.</span>
-            </h2>
-            <p className="lead">
-              Journaling apps, an oral-history platform, a festival concept, a life-skills guide —
-              different doorways into the same question. Filter by status; each tile is honestly
-              labeled.
-            </p>
+            <p className="eyebrow">The idea</p>
+            <h2 className="h1">{philosophy.heading}</h2>
+            <p className="lead">{philosophy.body}</p>
           </header>
-
-          <ProjectGrid />
-
-          <div className="section-more reveal">
-            <Link to="/vision" className="btn btn-ghost">
-              See how it all connects <span className="arr">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VISION / THESIS ── */}
-      <section className="section vision-teaser">
-        <div className="wrap vision-inner">
-          <p className="eyebrow reveal">The connecting idea</p>
-          <h2 className="h1 reveal">{philosophy.heading}</h2>
-          <p className="vision-body reveal">{philosophy.body}</p>
-          <Link to="/vision" className="btn btn-ghost reveal">
-            How it all connects <span className="arr">→</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* ── CAPABILITIES ── */}
-      <section className="section">
-        <div className="wrap">
-          <header className="section-head reveal">
-            <p className="eyebrow">What I do</p>
-            <h2 className="h1">Not only a developer.</h2>
-            <p className="lead">
-              I originate concepts, define products, direct the creative vision, design systems, and
-              use AI-assisted development to turn ideas into working prototypes.
-            </p>
-          </header>
-          <div className="cap-grid">
-            {capabilities.map((c, i) => (
-              <div className="cap reveal" key={c.title}>
-                <span className="cap-num">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="cap-title">{c.title}</h3>
-                <p className="muted cap-body">{c.body}</p>
+          <div className="nil-meaning">
+            {nil.meaning.map((m) => (
+              <div className="nil-meaning-item reveal" key={m.term}>
+                <h3 className="nil-meaning-term">{m.term}</h3>
+                <p className="muted">{m.body}</p>
               </div>
             ))}
           </div>
+          <p className="nil-scripture reveal">
+            {nil.scriptures.map((s) => s.ref).join("  ·  ")}
+          </p>
+        </div>
+      </section>
+
+      {/* ── THE ARCHIVE ── */}
+      <section className="section" id="archive">
+        <div className="wrap">
+          <header className="section-head reveal">
+            <p className="eyebrow">The Archive · {projects.length} works</p>
+            <h2 className="h1">
+              A body of work, <span className="serif-i">one room at a time.</span>
+            </h2>
+            <p className="lead">
+              Fashion, AI, publishing, film, education, and research — held in a single house. Hover to
+              glimpse a work; open it to enter.
+            </p>
+          </header>
+          <ArchiveList />
         </div>
       </section>
     </>
