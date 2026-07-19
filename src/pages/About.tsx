@@ -10,36 +10,34 @@ export function About() {
         <header className="about-hero">
           <p className="eyebrow reveal">About</p>
           <h1 className="h1 reveal">
-            An accountant and educator who
+            A lasting creative institution —
             <br />
-            <span className="serif-i gold">builds AI-native products.</span>
+            <span className="serif-i gold">not a single brand.</span>
           </h1>
-          <p className="lead about-lead reveal">{site.positioning}</p>
+          <p className="lead about-lead reveal">
+            Justin "Just" Neal is a Creative Director, Systems Designer, and Founder working across AI,
+            luxury apparel, publishing, software, and education.
+          </p>
         </header>
 
         {/* Narrative */}
         <div className="about-narrative">
           <p className="reveal">
-            My background isn't a straight line, and that's the point. I earned a{" "}
-            <strong>Master of Accountancy</strong> and spent years in finance — running FP&amp;A for a{" "}
-            <strong>$20MM</strong> public-media organization, closing the books on a{" "}
-            <strong>$20MM</strong> real-estate portfolio, managing federal grants, and applying Lean
-            and Kaizen to make broken processes work. I learned how organizations actually run, where
-            money and trust flow, and how to turn ambiguity into a plan.
+            Through his creative house, <strong>NIL</strong> (Name. Image. Likeness.), he develops
+            interconnected brands, products, and experiences that explore identity through design,
+            technology, and storytelling.
           </p>
           <p className="reveal">
-            I also spent years <strong>teaching</strong> — financial accounting at Miami University and
-            English to more than 1,500 students in <strong>South Korea</strong>. Teaching taught me to
-            make hard things clear, to design for the person on the other side, and to lead with
-            curiosity instead of judgment. That instinct shows up in every product I build.
+            His multidisciplinary approach combines <strong>finance</strong>, <strong>global culture</strong>,{" "}
+            <strong>software development</strong>, and <strong>visual communication</strong> into a body
+            of work that favors <strong>timeless systems over fleeting trends</strong> — with the
+            ambition of building a lasting creative institution rather than a single successful brand.
           </p>
           <p className="reveal">
-            Now I use <strong>AI-assisted development</strong> to turn ideas into working software. I'm
-            honest about how that works: I originate the concepts, define the products, architect the
-            prompts, direct the creative vision, test, and make the final calls — and I use AI as
-            leverage to ship faster than a solo founder otherwise could. The result is a body of work
-            that spans private journaling, family preservation, workplace wellbeing, education, games,
-            music, and cultural storytelling — all pointing at one goal.
+            That range isn't scattered; it's the point. A Master of Accountancy and years directing
+            $20MM of finance taught him how organizations actually run. Teaching — from Miami University
+            to classrooms in South Korea — taught him to make hard things clear. NIL is where those
+            disciplines meet: one house, many rooms.
           </p>
         </div>
 
