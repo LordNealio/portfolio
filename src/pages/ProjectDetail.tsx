@@ -35,6 +35,9 @@ export function ProjectDetail() {
     .map((s) => projects.find((p) => p.slug === s))
     .filter(Boolean) as typeof projects;
   const disciplines = projectDisciplines(project);
+  const idx = projects.findIndex((p) => p.slug === project.slug);
+  const prev = idx > 0 ? projects[idx - 1] : projects[projects.length - 1];
+  const next = idx < projects.length - 1 ? projects[idx + 1] : projects[0];
 
   return (
     <article className="detail">
@@ -146,6 +149,21 @@ export function ProjectDetail() {
             </div>
           </section>
         )}
+
+        {/* Click through the archive */}
+        <nav className="detail-nav reveal" aria-label="Browse the archive">
+          <Link to={`/work/${prev.slug}`} className="detail-nav-link prev">
+            <span className="detail-nav-dir">← Previous</span>
+            <span className="detail-nav-title">{prev.title}</span>
+          </Link>
+          <Link to="/work" className="detail-nav-all">
+            All work
+          </Link>
+          <Link to={`/work/${next.slug}`} className="detail-nav-link next">
+            <span className="detail-nav-dir">Next →</span>
+            <span className="detail-nav-title">{next.title}</span>
+          </Link>
+        </nav>
       </div>
     </article>
   );

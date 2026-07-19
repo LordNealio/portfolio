@@ -71,6 +71,10 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
         ))}
       </div>
 
+      <p className="archive-hint reveal">
+        Select any entry to enter the room <span aria-hidden="true">→</span>
+      </p>
+
       <ol className="archive-list">
         {shown.map((p, i) => (
           <li className="reveal" key={p.slug}>
@@ -87,7 +91,9 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
                 {STATUS_LABEL[p.status]}
                 {p.year ? ` · ${p.year}` : ""}
               </span>
-              <span className="arow-arrow" aria-hidden="true">→</span>
+              <span className="arow-go" aria-hidden="true">
+                View <span className="arr">→</span>
+              </span>
             </Link>
           </li>
         ))}
