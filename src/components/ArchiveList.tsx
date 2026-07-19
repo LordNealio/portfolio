@@ -76,7 +76,7 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
       </p>
 
       <ol className="archive-list">
-        {shown.map((p, i) => (
+        {shown.map((p) => (
           <li className="reveal" key={p.slug}>
             <Link
               to={`/work/${p.slug}`}
@@ -84,16 +84,10 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
               onMouseEnter={() => setActive(p)}
               onFocus={() => setActive(p)}
             >
-              <span className="arow-idx">{String(i + 1).padStart(2, "0")}</span>
               <span className="arow-title">{p.title}</span>
-              <span className="arow-disc">{projectDisciplines(p).join(" · ")}</span>
-              <span className="arow-meta">
-                {STATUS_LABEL[p.status]}
-                {p.year ? ` · ${p.year}` : ""}
-              </span>
-              <span className="arow-go" aria-hidden="true">
-                View <span className="arr">→</span>
-              </span>
+              <span className="arow-dot" aria-hidden="true" />
+              <span className="arow-meta">{STATUS_LABEL[p.status]}</span>
+              <span className="arow-arrow" aria-hidden="true">→</span>
             </Link>
           </li>
         ))}

@@ -1397,116 +1397,76 @@
 .archive-hint {
   position: relative;
   z-index: 1;
-  margin: -0.8rem 0 1.4rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  margin: -0.6rem 0 1rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
   color: var(--text-3);
-  font-style: italic;
-  font-family: var(--serif);
+  font-family: var(--hand);
 }
+/* A simple handwritten list — title, dotted leader, status. */
 .arow {
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr) auto auto 84px;
+  display: flex;
   align-items: baseline;
-  gap: 1.5rem;
-  padding: clamp(1.05rem, 2.3vw, 1.85rem) 0.6rem;
-  border-bottom: 1px solid var(--line);
+  gap: 0.9rem;
+  padding: 0.45rem 0.35rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
   cursor: pointer;
-  transition: padding 0.5s var(--ease), background 0.4s, opacity 0.45s;
+  transition: padding 0.35s var(--ease), opacity 0.4s;
 }
 .arow:hover {
-  padding-left: 1.4rem;
-  padding-right: 1rem;
-  background: color-mix(in srgb, var(--panel) 78%, transparent);
+  padding-left: 0.9rem;
 }
 .arow.dim {
-  opacity: 0.62;
-}
-.arow-idx {
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  color: var(--gold);
+  opacity: 0.5;
 }
 .arow-title {
-  font-family: var(--serif);
-  font-weight: 360;
-  font-size: clamp(1.5rem, 3.7vw, 2.75rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-family: var(--hand);
+  font-weight: 500;
+  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+  line-height: 1.1;
   color: var(--paper);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 0.16em;
-  text-decoration-thickness: 1px;
-  transition: color 0.3s, text-decoration-color 0.3s;
+  white-space: nowrap;
+  transition: color 0.3s;
 }
 .arow:hover .arow-title {
   color: var(--gold);
-  text-decoration-color: currentColor;
 }
-.arow-disc {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  text-align: right;
+.arow-dot {
+  flex: 1;
+  min-width: 1.5rem;
+  align-self: center;
+  border-bottom: 1px dotted var(--line-strong);
+  opacity: 0.55;
 }
 .arow-meta {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--hand);
+  font-size: 1.1rem;
   color: var(--text-2);
   white-space: nowrap;
 }
-.arow-go {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  justify-self: end;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.arow-arrow {
   color: var(--gold);
-  border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
-  border-radius: 100px;
-  padding: 0.4em 0.85em;
-  white-space: nowrap;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s, transform 0.3s var(--ease);
 }
-.arow-go .arr {
-  transition: transform 0.4s var(--ease);
+.arow:hover .arow-arrow {
+  opacity: 1;
+  transform: none;
 }
-.arow:hover .arow-go {
-  background: var(--gold);
-  color: var(--ink);
-  border-color: var(--gold);
-}
-.arow:hover .arow-go .arr {
-  transform: translateX(3px);
-}
-@media (max-width: 760px) {
-  .arow {
-    grid-template-columns: 34px 1fr auto;
-    gap: 0.25rem 0.9rem;
-    padding-block: 1.15rem;
-  }
-  .arow-idx {
-    grid-row: 1;
-    grid-column: 1;
+@media (max-width: 560px) {
+  .arow-dot {
+    display: none;
   }
   .arow-title {
-    grid-column: 2;
+    white-space: normal;
   }
-  .arow-disc,
   .arow-meta {
-    grid-column: 2;
-    text-align: left;
+    margin-left: auto;
   }
-  .arow-go {
-    grid-column: 3;
-    grid-row: 1 / span 3;
-    align-self: center;
+  .arow-arrow {
+    opacity: 0.5;
+    transform: none;
   }
   .archive-bg-img {
     display: none;

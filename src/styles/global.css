@@ -29,6 +29,7 @@
   /* ── Type ── */
   --serif: "Fraunces", "Times New Roman", Georgia, serif;
   --sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --hand: "Caveat", "Segoe Script", cursive;
 
   /* ── Rhythm ── */
   --maxw: 1240px;
