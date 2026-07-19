@@ -1333,6 +1333,7 @@
   gap: 1.6rem;
   padding: clamp(1.05rem, 2.3vw, 1.85rem) 0.4rem;
   border-bottom: 1px solid var(--line);
+  cursor: pointer;
   transition: padding 0.5s var(--ease), background 0.4s, opacity 0.45s;
 }
 .arow:hover {
@@ -1341,7 +1342,7 @@
   background: color-mix(in srgb, var(--panel) 55%, transparent);
 }
 .arow.dim {
-  opacity: 0.38;
+  opacity: 0.62;
 }
 .arow-idx {
   font-family: var(--serif);
@@ -1376,8 +1377,8 @@
 }
 .arow-arrow {
   color: var(--gold);
-  opacity: 0;
-  transform: translateX(-6px);
+  opacity: 0.3;
+  transform: translateX(-4px);
   transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
   text-align: right;
 }
