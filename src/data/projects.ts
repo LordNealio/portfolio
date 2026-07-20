@@ -760,6 +760,30 @@ const houseProjects: Project[] = [
   house({ slug: "charm-quark-big-ben", title: "Charm Quark x Big Ben", subtitle: "A collaboration.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),
   house({ slug: "reparations", title: "Reparations", subtitle: "On repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
+  house({
+    slug: "covenant",
+    title: "Covenant",
+    subtitle: "A 90-day challenge — structure your life with scripture and discipline.",
+    summary: "A 90-day app that structures daily life around scripture, commitment, and discipline.",
+    disciplines: ["Apps", "Education", "Culture"],
+    status: "live",
+    accent: "#1b2a3a",
+    role: "Founder and designer — a scripture-and-discipline challenge app by Just Neal.",
+    links: [{ label: "Live app", href: "https://covenant-app-seven.vercel.app/", verified: true }],
+    note: "Live — a 90-day covenant challenge built on scripture and daily discipline.",
+  }),
+  house({
+    slug: "estrella-nos",
+    title: "Estrella Nos",
+    subtitle: "A mindful café experience in the heart of the desert.",
+    summary: "Estrella Nos — a desert luxury café brand and experience, presented online.",
+    disciplines: ["Branding", "Culture", "Apps"],
+    status: "live",
+    accent: "#9a7628",
+    role: "Founder and creative director — a desert luxury café brand and experience by Just Neal.",
+    links: [{ label: "Visit site", href: "https://bebida-two.vercel.app/", verified: true }],
+    note: "Live — the online experience for Estrella Nos, a mindful desert luxury café.",
+  }),
 ];
 
 // The Work archive leads with these, in this order; everything else follows.
