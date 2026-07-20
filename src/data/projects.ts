@@ -75,6 +75,7 @@ export interface Project {
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
+  gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   role: string;
   audience: string;
   problem: string;
@@ -681,15 +682,49 @@ function house(o: HouseInput): Project {
 
 // The NIL house archive — the brand's own projects alongside the built work above.
 const houseProjects: Project[] = [
-  house({ slug: "nil-apparel", title: "NIL Apparel", subtitle: "The apparel line of the house.", disciplines: ["Fashion", "Branding"], accent: "#1b2a3a" }),
-  house({ slug: "nil-heritage", title: "NIL Heritage", subtitle: "The heritage line — where the house came from.", disciplines: ["Fashion", "Branding"], accent: "#2c3a2c" }),
-  house({ slug: "nil-atelier", title: "NIL Atelier", subtitle: "Made-to-order. One at a time.", disciplines: ["Fashion"], accent: "#5a2a2e" }),
-  house({ slug: "nil-sport", title: "NIL Sport", subtitle: "Performance, in the house language.", disciplines: ["Fashion"], accent: "#1b2a3a" }),
-  house({ slug: "nil-olympic-collection", title: "NIL Olympic Collection", subtitle: "Heritage sportswear for the Games.", disciplines: ["Fashion", "Culture"], accent: "#9a7628" }),
-  house({ slug: "nil-reserve", title: "NIL Reserve", subtitle: "Limited. Numbered. Kept.", disciplines: ["Fashion"], accent: "#5a2a2e" }),
-  house({ slug: "cloud-collection", title: "Cloud Collection", subtitle: "The cloud line — Neal, in white.", disciplines: ["Fashion", "Branding"], accent: "#8b8370" }),
-  house({ slug: "thug-collection", title: "THUG Collection", subtitle: "A collection from the house.", disciplines: ["Fashion", "Culture"], accent: "#16202b" }),
-  house({ slug: "nil-chapters", title: "NIL Chapters", subtitle: "The house imprint — books and long-form.", disciplines: ["Publishing"], accent: "#5a2a2e" }),
+  // ── NIL — THE LABEL (all fashion, consolidated) ──────────────────────────
+  {
+    slug: "nil-label",
+    title: "NIL — The Label",
+    subtitle: "Name. Image. Likeness. — a heritage clothing house",
+    summary:
+      "A heritage clothing house in the American Ivy tradition — crest, monogram, and Olympic colors — where every collection is a chapter of one idea: from nothing (Nil), through humility (Kneel), to a name that lasts (Neal).",
+    category: "Creative Media & Music",
+    disciplines: ["Fashion", "Branding", "Culture"],
+    tags: ["Fashion", "Heritage", "Branding", "Made-on-demand"],
+    status: "in-development",
+    year: "2024",
+    featured: true,
+    accent: "#1b2a3a",
+    image: "/nil-crest.svg",
+    imageFit: "contain",
+    imageDark: true,
+    role:
+      "Founder and creative director — I designed the identity, the NJ crest and monogram, the palette, the collections, and the story that ties them together.",
+    audience:
+      "People who want to wear an idea — Name, Image, Likeness — in clothing built to last rather than to trend.",
+    problem:
+      "Streetwear chases trends and most heritage houses don't mean anything personal. There was no label that dressed the idea of identity itself.",
+    solution:
+      "NIL is a heritage house built on Name, Image, and Likeness. A laurel crest and NJ monogram, a tricolor Olympic palette, woven labels and hang tags — a full identity system carried across distinct collections, unified by one code: Nil (nothing), Kneel (humility), Neal (legacy).",
+    features: [
+      "NIL Heritage — timeless staples: polos, oxfords, knitwear, and outerwear",
+      "NIL Atelier — runway-inspired, elevated silhouettes and fabrics",
+      "NIL Sport — technical performance and athleisure essentials",
+      "NIL Chapters — graphic collections rooted in story, culture, and meaning",
+      "NIL Reserve — limited, numbered, exclusive releases",
+      "Themed drops — the Olympic Collection (MMXXIV), the Cloud Collection (Neal = cloud, Luke 22:41), the Alpine Collection, the Henson Expedition (1909), and the Scholar Collection (东方传承)",
+    ],
+    technology: ["Jacquard knit", "Premium cotton-poly", "Embroidery & crest work", "Made-on-demand"],
+    process:
+      "Built around a complete identity system — the NJ laurel crest, the tricolor palette (navy, cream, red, forest, gold), woven labels and hang tags — and a spiritual through-line: Luke 22:41 and Philippians 2:10, 'from Nil to Name.' The codes read Nil = Nothing (the beginning), Kneel = Humility (the choice), Neal = Legacy / Cloud (the result).",
+    futureVision:
+      "Move from designed collections and made-on-demand pieces into full production and a flagship drop.",
+    links: [],
+    relatedProjects: ["rapgod", "gloria"],
+    note:
+      "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ and add them to this project's gallery to feature them.)",
+  },
   house({ slug: "godmind-whitepaper", title: "GodMind Whitepaper", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
   house({ slug: "research-review", title: "Research Review", subtitle: "Field notes at the edge of AI and culture.", disciplines: ["Research", "Publishing"], status: "research", accent: "#2c3a2c" }),
   house({ slug: "ideas-worth-sharing", title: "Ideas Worth Sharing", subtitle: "Talks and short pieces worth sharing.", disciplines: ["Publishing", "Culture"], accent: "#9a7628" }),

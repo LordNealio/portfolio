@@ -139,6 +139,23 @@ export function ProjectDetail() {
           </aside>
         </div>
 
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="detail-gallery">
+            <h2 className="h2 reveal">Lookbook</h2>
+            <div className="gallery-grid">
+              {project.gallery.map((src, i) => (
+                <img
+                  key={src}
+                  className="gallery-img reveal"
+                  src={src}
+                  alt={`${project.title} — image ${i + 1}`}
+                  decoding="async"
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
         {related.length > 0 && (
           <section className="detail-related">
             <h2 className="h2 reveal">Related work</h2>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="NIL — Justin Neal crest">
+  <defs>
+    <linearGradient id="nc-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C87E"/>
+      <stop offset="100%" stop-color="#B4862A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#16202b"/>
+  <rect x="26" y="26" width="972" height="972" rx="20" fill="none" stroke="#B4862A" stroke-width="2" opacity="0.55"/>
+
+  <!-- wordmark -->
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" fill="url(#nc-gold)">
+    <text x="512" y="215" font-size="120" font-weight="600" letter-spacing="6">NIL</text>
+    <text x="512" y="262" font-size="34" letter-spacing="14" fill="#C9A24B">JUSTIN NEAL</text>
+  </g>
+
+  <!-- crown -->
+  <g fill="url(#nc-gold)" transform="translate(512 330)">
+    <path d="M-52 34 L-52 -6 L-24 18 L0 -22 L24 18 L52 -6 L52 34 Z"/>
+    <circle cx="-52" cy="-14" r="7"/><circle cx="0" cy="-30" r="8"/><circle cx="52" cy="-14" r="7"/>
+    <rect x="-58" y="38" width="116" height="12" rx="4"/>
+  </g>
+
+  <!-- laurel wreath -->
+  <g fill="url(#nc-gold)">
+    <g id="nc-leaf-l">
+      <g transform="translate(360 470)">
+        <ellipse cx="0" cy="0" rx="15" ry="30" transform="rotate(30)"/>
+        <ellipse cx="-18" cy="46" rx="15" ry="30" transform="rotate(22)"/>
+        <ellipse cx="-30" cy="96" rx="15" ry="30" transform="rotate(12)"/>
+        <ellipse cx="-34" cy="148" rx="15" ry="29" transform="rotate(2)"/>
+        <ellipse cx="-30" cy="200" rx="14" ry="28" transform="rotate(-10)"/>
+        <ellipse cx="-16" cy="248" rx="14" ry="27" transform="rotate(-22)"/>
+        <ellipse cx="8" cy="286" rx="13" ry="25" transform="rotate(-38)"/>
+      </g>
+    </g>
+    <g transform="translate(1024 0) scale(-1 1)">
+      <use href="#nc-leaf-l"/>
+    </g>
+  </g>
+
+  <!-- NJ monogram -->
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" fill="url(#nc-gold)">
+    <text x="494" y="618" font-size="230" font-weight="600">N</text>
+    <text x="556" y="648" font-size="230" font-weight="600">J</text>
+  </g>
+
+  <!-- date -->
+  <text x="512" y="808" text-anchor="middle" font-family="Georgia, serif" font-size="30"
+        letter-spacing="12" fill="#C9A24B">MMXXIV</text>
+  <line x1="392" y1="838" x2="632" y2="838" stroke="#B4862A" stroke-width="1.5" opacity="0.6"/>
+  <text x="512" y="882" text-anchor="middle" font-family="Georgia, serif" font-size="22"
+        letter-spacing="6" fill="#8a7a52">NAME · IMAGE · LIKENESS</text>
+</svg>
