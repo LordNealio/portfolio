@@ -721,9 +721,25 @@ const houseProjects: Project[] = [
     futureVision:
       "Move from designed collections and made-on-demand pieces into full production and a flagship drop.",
     links: [],
+    // Lookbook slots — drop photos in public/fashion/ named fashion-01.jpg … fashion-12.jpg.
+    // Missing files are hidden automatically; the Lookbook stays invisible until at least one exists.
+    gallery: [
+      "/fashion/fashion-01.jpg",
+      "/fashion/fashion-02.jpg",
+      "/fashion/fashion-03.jpg",
+      "/fashion/fashion-04.jpg",
+      "/fashion/fashion-05.jpg",
+      "/fashion/fashion-06.jpg",
+      "/fashion/fashion-07.jpg",
+      "/fashion/fashion-08.jpg",
+      "/fashion/fashion-09.jpg",
+      "/fashion/fashion-10.jpg",
+      "/fashion/fashion-11.jpg",
+      "/fashion/fashion-12.jpg",
+    ],
     relatedProjects: ["rapgod", "gloria"],
     note:
-      "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ and add them to this project's gallery to feature them.)",
+      "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ as fashion-01.jpg … to populate the Lookbook.)",
   },
   house({ slug: "godmind-whitepaper", title: "GodMind Whitepaper", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
   house({ slug: "research-review", title: "Research Review", subtitle: "Field notes at the edge of AI and culture.", disciplines: ["Research", "Publishing"], status: "research", accent: "#2c3a2c" }),

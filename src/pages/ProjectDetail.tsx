@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProject, projects, projectDisciplines, STATUS_LABEL } from "../data/projects";
 import { Cover } from "../components/Cover";
+import { Gallery } from "../components/Gallery";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
@@ -140,20 +141,7 @@ export function ProjectDetail() {
         </div>
 
         {project.gallery && project.gallery.length > 0 && (
-          <section className="detail-gallery">
-            <h2 className="h2 reveal">Lookbook</h2>
-            <div className="gallery-grid">
-              {project.gallery.map((src, i) => (
-                <img
-                  key={src}
-                  className="gallery-img reveal"
-                  src={src}
-                  alt={`${project.title} — image ${i + 1}`}
-                  decoding="async"
-                />
-              ))}
-            </div>
-          </section>
+          <Gallery title="Lookbook" images={project.gallery} />
         )}
 
         {related.length > 0 && (
