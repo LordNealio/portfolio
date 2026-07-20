@@ -1310,6 +1310,111 @@
   }
 }
 
+/* ═══ EDITORIAL ARCHIVE — exhibition booklet (Work) ═══ */
+.ed-page {
+  position: relative;
+  overflow: hidden;
+}
+.ed-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+}
+.ed-brand {
+  font-family: var(--grotesk);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+.ed-script {
+  font-family: var(--script);
+  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+  line-height: 1;
+  color: var(--text-2);
+  margin-bottom: clamp(1.8rem, 4.5vw, 3rem);
+}
+.ed-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.1rem;
+  margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+}
+.ed-filter {
+  font-family: var(--grotesk);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding: 0.2em 0;
+  transition: color 0.25s;
+}
+.ed-filter:hover {
+  color: var(--text);
+}
+.ed-filter.on {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ed-list {
+  list-style: none;
+}
+.ed-item {
+  display: block;
+  font-family: var(--grotesk);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.005em;
+  line-height: 1.26;
+  color: var(--paper);
+  padding: 0.05em 0;
+  transition: color 0.25s;
+}
+/* scanning: hovering the list fades the rest, keeps the one under the cursor */
+.ed-list:hover .ed-item {
+  color: var(--text-3);
+}
+.ed-list:hover .ed-item:hover {
+  color: var(--paper);
+}
+
+.ed-watermark {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+}
+.ed-watermark-name {
+  font-family: var(--grotesk);
+  font-weight: 800;
+  font-size: clamp(6rem, 26vw, 22rem);
+  line-height: 0.78;
+  letter-spacing: -0.03em;
+  color: color-mix(in srgb, var(--paper) 5%, transparent);
+}
+.ed-watermark-sub {
+  font-family: var(--grotesk);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-size: clamp(0.8rem, 2vw, 1.4rem);
+  color: color-mix(in srgb, var(--paper) 7%, transparent);
+  margin-top: 0.5rem;
+}
+
 /* ═══ NIL ARCHIVE — the curated list ═══ */
 .archive {
   position: relative;
@@ -1421,8 +1526,8 @@
 }
 .arow-title {
   font-family: var(--hand);
-  font-weight: 500;
-  font-size: clamp(1.45rem, 2.6vw, 1.95rem);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.7vw, 2.05rem);
   line-height: 1.1;
   color: var(--paper);
   white-space: nowrap;

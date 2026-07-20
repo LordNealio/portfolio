@@ -1,21 +1,22 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  projects as allProjects,
-  projectDisciplines,
-  DISCIPLINES,
-  STATUS_LABEL,
-} from "../data/projects";
+import { projects as allProjects, projectDisciplines, DISCIPLINES } from "../data/projects";
 import type { Discipline, Project } from "../data/projects";
 import { useReveal } from "../lib/useReveal";
 
 /**
- * The NIL archive — one long curated list. Each entry is an artifact; hovering
- * one reveals its artwork in the background. Editorial, museum-label typography.
+ * The archive as an exhibition booklet — a dense, left-aligned list of bold,
+ * all-caps names. Typography does the work; no boxes, bullets, or buttons.
+ * Hovering the list fades the rest so the eye scans one work at a time.
  */
-export function ArchiveList({ projects = allProjects }: { projects?: Project[] }) {
+export function ArchiveList({
+  projects = allProjects,
+  filterable = true,
+}: {
+  projects?: Project[];
+  filterable?: boolean;
+}) {
   const [filter, setFilter] = useState<Discipline | "all">("all");
-  const [active, setActive] = useState<Project | null>(null);
 
   const shown = useMemo(
     () =>
@@ -25,7 +26,6 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
     [filter, projects]
   );
 
-  // Only offer discipline filters that actually have entries.
   const available = useMemo(
     () => DISCIPLINES.filter((d) => projects.some((p) => projectDisciplines(p).includes(d))),
     [projects]
@@ -34,60 +34,36 @@ export function ArchiveList({ projects = allProjects }: { projects?: Project[] }
   useReveal([filter]);
 
   return (
-    <div className="archive" onMouseLeave={() => setActive(null)}>
-      {/* background artwork reveal */}
-      <div className="archive-bg" aria-hidden="true">
-        {active &&
-          (active.image ? (
-            <img key={active.slug} src={active.image} alt="" className="archive-bg-img" />
-          ) : (
-            <div
-              key={active.slug}
-              className="archive-bg-wash"
-              style={{ ["--wash" as string]: active.accent ?? "var(--gold)" }}
-            />
-          ))}
-      </div>
-
-      <div className="archive-filters reveal" role="tablist" aria-label="Filter the archive by discipline">
-        <button
-          role="tab"
-          aria-selected={filter === "all"}
-          className={`afilter ${filter === "all" ? "on" : ""}`}
-          onClick={() => setFilter("all")}
-        >
-          All <span className="afilter-n">{projects.length}</span>
-        </button>
-        {available.map((d) => (
+    <div className="ed-archive">
+      {filterable && (
+        <div className="ed-filters" role="tablist" aria-label="Filter by discipline">
           <button
-            key={d}
             role="tab"
-            aria-selected={filter === d}
-            className={`afilter ${filter === d ? "on" : ""}`}
-            onClick={() => setFilter(d)}
+            aria-selected={filter === "all"}
+            className={`ed-filter ${filter === "all" ? "on" : ""}`}
+            onClick={() => setFilter("all")}
           >
-            {d}
+            All
           </button>
-        ))}
-      </div>
+          {available.map((d) => (
+            <button
+              key={d}
+              role="tab"
+              aria-selected={filter === d}
+              className={`ed-filter ${filter === d ? "on" : ""}`}
+              onClick={() => setFilter(d)}
+            >
+              {d}
+            </button>
+          ))}
+        </div>
+      )}
 
-      <p className="archive-hint reveal">
-        Select any entry to enter the room <span aria-hidden="true">→</span>
-      </p>
-
-      <ol className="archive-list">
+      <ol className="ed-list">
         {shown.map((p) => (
           <li className="reveal" key={p.slug}>
-            <Link
-              to={`/work/${p.slug}`}
-              className={`arow ${active && active.slug !== p.slug ? "dim" : ""}`}
-              onMouseEnter={() => setActive(p)}
-              onFocus={() => setActive(p)}
-            >
-              <span className="arow-title">{p.title}</span>
-              <span className="arow-dot" aria-hidden="true" />
-              <span className="arow-meta">{STATUS_LABEL[p.status]}</span>
-              <span className="arow-arrow" aria-hidden="true">→</span>
+            <Link to={`/work/${p.slug}`} className="ed-item">
+              {p.title}
             </Link>
           </li>
         ))}
