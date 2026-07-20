@@ -364,7 +364,7 @@ const core: Project[] = [
       "A unifying symbolic-memory architecture that lets insight compound across every app instead of living in disconnected silos.",
     category: "AI & Knowledge Tools",
     tags: ["Architecture", "AI", "Knowledge graph", "Next.js", "Vision"],
-    status: "research",
+    status: "live",
     year: "2026",
     featured: false,
     accent: "#8A7CC0",
@@ -388,9 +388,9 @@ const core: Project[] = [
       "The instinct to keep shipping new apps is the thing to resist. The compounding value is in one shared memory graph with many faces.",
     futureVision:
       "Resolve the build path and route the existing apps through one shared graph.",
-    links: [],
+    links: [{ label: "Enter Creation OS", href: "https://creation-os-gules.vercel.app/login", verified: true }],
     relatedProjects: ["mindvault", "workwrite", "mirror"],
-    note: "An architecture and white paper — the connective thesis behind the products, not a shipped app.",
+    note: "The connective thesis behind the products — now a live app (sign-in required) built on the five-layer architecture and white paper.",
   },
 
   // ── 8. K-SOURCE VAULT ─────────────────────────────────────────────────────
