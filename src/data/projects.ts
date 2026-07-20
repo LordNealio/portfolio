@@ -731,7 +731,7 @@ const houseProjects: Project[] = [
     note:
       "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ as fashion-01.jpg … to populate the Lookbook.)",
   },
-  house({ slug: "godmind-whitepaper", title: "GodMind Whitepaper", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
+  house({ slug: "godmind-whitepaper", title: "GodMind Research", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
   house({ slug: "research-review", title: "Research Review", subtitle: "Field notes at the edge of AI and culture.", disciplines: ["Research", "Publishing"], status: "research", accent: "#2c3a2c" }),
   house({ slug: "ideas-worth-sharing", title: "Ideas Worth Sharing", subtitle: "Talks and short pieces worth sharing.", disciplines: ["Publishing", "Culture"], accent: "#9a7628" }),
   house({ slug: "arizona-ponderer", title: "Arizona Ponderer", subtitle: "Writing from the desert.", disciplines: ["Publishing", "Culture"], accent: "#b8924a" }),
@@ -756,9 +756,43 @@ const houseProjects: Project[] = [
     role: "Founder and designer — an educational space game for kids, directed by Just Neal.",
     note: "A playable vertical slice (Moon Rescue) exists; more of the journey to Pluto is in development.",
   }),
+  house({ slug: "not-a-mixtape", title: "Not a Mixtape", subtitle: "A record — not a mixtape.", disciplines: ["Music", "Culture"], accent: "#5a2a2e" }),
+  house({ slug: "charm-quark-big-ben", title: "Charm Quark x Big Ben", subtitle: "A collaboration.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
+  house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),
+  house({ slug: "reparations", title: "Reparations", subtitle: "On repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
 ];
 
-export const projects: Project[] = [...core, ...houseProjects];
+// The Work archive leads with these, in this order; everything else follows.
+const WORK_ORDER = [
+  "mindvault",
+  "mindwrite",
+  "rapgod",
+  "legacybridge",
+  "mirror",
+  "not-a-mixtape",
+  "workwrite",
+  "nil-label",
+  "emanual",
+  "mission-control",
+  "arizona-ponderer",
+  "godmind-whitepaper",
+  "charm-quark-big-ben",
+  "i-am-or-22",
+  "reparations",
+  "nonprofit-builder",
+  "holy-water-wet",
+  "seven-temples-tour",
+];
+
+function workRank(slug: string): number {
+  const i = WORK_ORDER.indexOf(slug);
+  return i === -1 ? Number.POSITIVE_INFINITY : i;
+}
+
+// Stable sort keeps the pinned order up top and preserves original order for the rest.
+export const projects: Project[] = [...core, ...houseProjects].sort(
+  (a, b) => workRank(a.slug) - workRank(b.slug)
+);
 
 // ── Derived helpers ─────────────────────────────────────────────────────────
 export const featuredProjects = projects.filter((p) => p.featured);
