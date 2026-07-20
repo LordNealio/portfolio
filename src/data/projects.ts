@@ -598,8 +598,8 @@ const core: Project[] = [
     summary:
       "An early harm-reduction and dignity concept for adults, built around empowerment rather than judgment.",
     category: "Nonprofit & Community",
-    tags: ["Harm reduction", "Concept", "Community", "React"],
-    status: "concept",
+    tags: ["Harm reduction", "Community", "React"],
+    status: "live",
     year: "2026",
     featured: false,
     accent: "#0A0A0A",
@@ -609,11 +609,11 @@ const core: Project[] = [
     solution: "An early ecosystem concept organized around harm reduction and empowerment.",
     features: ["Harm-reduction framing", "Empowerment-first design direction"],
     technology: ["React", "Vite"],
-    futureVision: "Clarify the audience, scope, and — importantly — the public-facing name before any launch.",
-    links: [],
+    futureVision: "Clarify the audience and scope as it grows.",
+    links: [{ label: "Live app", href: "https://club-paradise.vercel.app/onboarding", verified: true }],
     relatedProjects: [],
     note:
-      "An early concept. The working name may not suit a public professional portfolio — flagged in CONTENT_NEEDED for a naming/scope decision before it is surfaced prominently.",
+      "Live — the deployed app is branded \"Club Paradise\". Consider aligning the portfolio title to that public-facing name.",
   },
 ];
 
