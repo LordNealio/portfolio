@@ -742,7 +742,6 @@ const houseProjects: Project[] = [
   house({ slug: "gloria", title: "Gloria", subtitle: "A tribute — in name and image.", disciplines: ["Music", "Culture"], accent: "#9a7628" }),
   house({ slug: "burning-point", title: "Burning Point", subtitle: "A NIL project.", disciplines: ["Culture"], accent: "#5a2a2e" }),
   house({ slug: "holy-water-wet", title: "Holy Water Wet", subtitle: "A NIL culture project.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
-  house({ slug: "seven-churches-tour", title: "Seven Churches Tour", subtitle: "A pilgrimage across seven places.", disciplines: ["Culture", "Film", "Music"], accent: "#9a7628", relatedProjects: ["seven-temples-tour"] }),
   house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
   house({ slug: "mission-control", title: "Mission Control", subtitle: "A command surface for building and shipping.", disciplines: ["Apps", "Technology"], accent: "#16202b" }),
   house({
@@ -757,7 +756,6 @@ const houseProjects: Project[] = [
     links: [{ label: "Live app", href: "https://nonprofit-launch-kit.vercel.app/", verified: true }],
     note: "Live — an AI-powered nonprofit founder-intelligence platform.",
   }),
-  house({ slug: "free-mind-initiative", title: "Free Mind Initiative", subtitle: "A nonprofit initiative for literacy and mental freedom.", disciplines: ["Nonprofit", "Education"], accent: "#2c3a2c" }),
   house({
     slug: "rocket-to-pluto",
     title: "Rocket to Pluto",
