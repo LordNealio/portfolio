@@ -771,18 +771,162 @@
 .detail-gallery .h2 {
   margin-bottom: 1.6rem;
 }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: clamp(0.6rem, 1.5vw, 1rem);
+
+/* ── Supreme-style lookbook ── */
+.lookbook-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
 }
-.gallery-img {
+.lookbook-count {
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: clamp(0.5rem, 1.2vw, 0.9rem);
+}
+.lookbook-thumb {
+  position: relative;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--panel);
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+}
+.lookbook-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  aspect-ratio: 4 / 5;
+  display: block;
+  transition: transform 0.6s var(--ease), filter 0.4s;
+}
+.lookbook-thumb:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.92);
+}
+.lookbook-idx {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.5rem;
+  font-family: var(--grotesk);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.lookbook-thumb:hover .lookbook-idx {
+  opacity: 1;
+}
+
+/* ── Lightbox / pop-up slideshow ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(6px);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 4vw, 3rem);
+  animation: lbIn 0.3s var(--ease);
+}
+@keyframes lbIn {
+  from {
+    opacity: 0;
+  }
+}
+.lightbox-figure {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 88vh;
+}
+.lightbox-figure img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  animation: lbFig 0.35s var(--ease);
+}
+@keyframes lbFig {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+.lightbox-nav {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: background 0.25s, color 0.25s, transform 0.3s var(--ease);
+  flex-shrink: 0;
+}
+.lightbox-nav:hover {
+  background: #fff;
+  color: #0a0a0a;
+}
+.lightbox-close {
+  position: absolute;
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+  border: 0;
+  color: #fff;
+  font-size: 2.6rem;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.lightbox-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+.lightbox-counter {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--grotesk);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+}
+@media (max-width: 640px) {
+  .lightbox {
+    grid-template-columns: 1fr;
+  }
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+  .lightbox-nav.prev {
+    left: 0.7rem;
+  }
+  .lightbox-nav.next {
+    right: 0.7rem;
+  }
 }
 .detail-related {
   margin-top: clamp(3rem, 6vw, 5rem);
