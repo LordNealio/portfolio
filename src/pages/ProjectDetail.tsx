@@ -84,6 +84,20 @@ export function ProjectDetail() {
 
       {/* Body */}
       <div className="wrap detail-body">
+        {project.audioEmbed && (
+          <section className="detail-audio reveal">
+            <iframe
+              title={`${project.title} — listen`}
+              width="100%"
+              height="420"
+              scrolling="no"
+              frameBorder="no"
+              allow="autoplay"
+              src={project.audioEmbed}
+            />
+          </section>
+        )}
+
         <div className="detail-cols">
           <div className="detail-main">
             {project.problem && <Block title="The problem" body={project.problem} />}

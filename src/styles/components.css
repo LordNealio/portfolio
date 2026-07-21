@@ -1261,6 +1261,19 @@
   font-size: 0.8rem;
 }
 
+/* ═══ DETAIL audio embed ═══ */
+.detail-audio {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--panel);
+}
+.detail-audio iframe {
+  display: block;
+  border: 0;
+}
+
 /* ═══ DETAIL prev / next ═══ */
 .detail-nav {
   display: grid;

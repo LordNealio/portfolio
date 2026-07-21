@@ -75,6 +75,7 @@ export interface Project {
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
+  audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   role: string;
   audience: string;
@@ -767,7 +768,22 @@ const houseProjects: Project[] = [
     role: "Founder and designer — an educational space game for kids, directed by Just Neal.",
     note: "A playable vertical slice (Moon Rescue) exists; more of the journey to Pluto is in development.",
   }),
-  house({ slug: "not-a-mixtape", title: "Not a Mixtape", subtitle: "A record — not a mixtape.", disciplines: ["Music", "Culture"], accent: "#5a2a2e" }),
+  house({
+    slug: "not-a-mixtape",
+    title: "Not a Mixtape",
+    subtitle: "A record — not a mixtape.",
+    summary: "Original music by nwyrdgod — a body of work, released on SoundCloud.",
+    disciplines: ["Music", "Culture"],
+    status: "live",
+    accent: "#5a2a2e",
+    role: "Artist and writer — original music by Just Neal (nwyrdgod).",
+    links: [
+      { label: "Listen on SoundCloud", href: "https://soundcloud.com/nwyrdgod/sets/comin-out-hard-r", verified: true },
+    ],
+    audioEmbed:
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fnwyrdgod%2Fsets%2Fcomin-out-hard-r&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false",
+    note: "Live — original music on SoundCloud (the “Comin Out Hard” set).",
+  }),
   house({ slug: "charm-quark-big-ben", title: "Charm Quark x Big Ben", subtitle: "A collaboration.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),
   house({ slug: "reparations", title: "Reparations", subtitle: "On repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
