@@ -325,7 +325,7 @@ const core: Project[] = [
       "A 30-day, education-first life-skills app across five tracks — money, discipline, connection, body basics, and staying solid.",
     category: "Education & Learning",
     tags: ["Education", "Life skills", "React Native", "Expo", "Non-shaming"],
-    status: "prototype",
+    status: "live",
     year: "2026",
     featured: true,
     accent: "#C88A4B",
@@ -349,10 +349,10 @@ const core: Project[] = [
     lessons:
       "Tone is a feature you can lose in one sentence. Every mission and reflection had to stay judgment-free, and safety escalation for crisis language was non-negotiable.",
     futureVision:
-      "A live Supabase project, notifications, and syncing habits/quizzes/budget to the cloud.",
-    links: [],
+      "Notifications, and syncing habits/quizzes/budget to the cloud.",
+    links: [{ label: "Live app", href: "https://emanual-sigma.vercel.app/", verified: true }],
     relatedProjects: ["mindvault"],
-    note: "Complete MVP verified end-to-end in local demo mode; cloud mode awaits a live Supabase project.",
+    note: "Live — a complete MVP; some cloud sync features are still in progress.",
   },
 
   // ── 7. CREATION OS (the thesis) ───────────────────────────────────────────
