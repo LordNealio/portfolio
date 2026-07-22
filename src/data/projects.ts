@@ -724,10 +724,30 @@ const houseProjects: Project[] = [
     links: [],
     // Lookbook slots — drop photos in public/fashion/ named fashion-01.jpg … fashion-12.jpg.
     // Missing files are hidden automatically; the Lookbook stays invisible until at least one exists.
-    gallery: Array.from(
-      { length: 20 },
-      (_, i) => `/fashion/fashion-${String(i + 1).padStart(2, "0")}.jpg`
-    ),
+    gallery: [
+      "/fashion/1.jpg",
+      "/fashion/2.jpg",
+      "/fashion/3.jpg",
+      "/fashion/4.jpg",
+      "/fashion/5.jpg",
+      "/fashion/6.jpg",
+      "/fashion/7.jpg",
+      "/fashion/8.jpg",
+      "/fashion/9.jpg",
+      "/fashion/10.jpg",
+      "/fashion/nila.jpg",
+      "/fashion/mag.jpg",
+      "/fashion/whitemag.jpg",
+      "/fashion/iam.jpg",
+      "/fashion/water.jpg",
+      "/fashion/water2.jpg",
+      "/fashion/suce.jpg",
+      "/fashion/suce2.jpg",
+      "/fashion/feet.jpg",
+      "/fashion/nilwinterh.jpg",
+      "/fashion/nilwintero.jpg",
+      "/fashion/nilwinterp.jpg",
+    ],
     relatedProjects: ["rapgod", "gloria"],
     note:
       "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ as fashion-01.jpg … to populate the Lookbook.)",

@@ -51,6 +51,7 @@ export function Gallery({ title, images }: { title: string; images: string[] }) 
             <img
               src={src}
               alt={`${title} — look ${i + 1}`}
+              loading="lazy"
               decoding="async"
               onError={() => setFailed((f) => new Set(f).add(src))}
             />
