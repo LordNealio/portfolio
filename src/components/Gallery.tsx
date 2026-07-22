@@ -90,8 +90,18 @@ export function Gallery({ title, images }: { title: string; images: string[] }) 
             >
               ›
             </button>
-            <div className="lightbox-counter">
-              {String(open + 1).padStart(2, "0")} / {String(visible.length).padStart(2, "0")}
+            <div className="lightbox-bar" onClick={(e) => e.stopPropagation()}>
+              <span className="lightbox-counter">
+                {String(open + 1).padStart(2, "0")} / {String(visible.length).padStart(2, "0")}
+              </span>
+              <a
+                className="lightbox-download"
+                href={visible[open]}
+                download
+                onClick={(e) => e.stopPropagation()}
+              >
+                Download ↓
+              </a>
             </div>
           </div>,
           document.body

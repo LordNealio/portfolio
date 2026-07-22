@@ -901,15 +901,35 @@
   opacity: 1;
   transform: rotate(90deg);
 }
-.lightbox-counter {
+.lightbox-bar {
   position: absolute;
   bottom: clamp(1rem, 3vw, 2rem);
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+.lightbox-counter {
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--grotesk);
   font-size: 0.78rem;
   letter-spacing: 0.2em;
+}
+.lightbox-download {
+  font-family: var(--grotesk);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+  background: #fff;
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  transition: opacity 0.25s;
+}
+.lightbox-download:hover {
+  opacity: 0.85;
 }
 @media (max-width: 640px) {
   .lightbox {
