@@ -76,6 +76,7 @@ export interface Project {
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
+  video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   role: string;
   audience: string;
@@ -821,6 +822,31 @@ const houseProjects: Project[] = [
     ],
     gallery: ["/art/blueface-salmon-p-chase.jpg"],
     note: "A conceptual art piece. Historical facts about Salmon P. Chase are accurate; drop the artwork in public/art/ to feature it.",
+  }),
+  house({
+    slug: "gnx",
+    title: "GNX",
+    subtitle: "Two cars. One Kendrick. One question.",
+    summary:
+      "A conceptual piece around Kendrick Lamar's GNX — two cars, two sides, and one question: who is the second car for?",
+    disciplines: ["Culture", "Music", "Film"],
+    status: "concept",
+    accent: "#16202b",
+    role: "Artist and creative director — original work by Just Neal, in the RapGod tradition.",
+    solution:
+      "Built in the RapGod tradition of documented music symbolism, GNX reads Kendrick Lamar's world as a pattern — the acronyms behind YNW, DMX, and GNX, and the lines from 'Euphoria' that frame them — around a single question: who is the second car for?",
+    features: [
+      "Two cars. Two sides. One question: who is the second car for?",
+      "Reads Kendrick's world as a pattern — YNW · DMX · GNX",
+      "DMX, two ways: 'Dark Man X' officially, 'Divine Master X' in the RapGod reading (X = unknown)",
+      "Framed by lines from 'Euphoria'",
+    ],
+    image: "/art/gnx.jpg",
+    imageFit: "contain",
+    imageDark: true,
+    video: "/gnx.mp4",
+    note: "A conceptual art/film piece. Historical and lyrical references are the artist's documented interpretation.",
+    relatedProjects: ["rapgod", "dear-kendrick"],
   }),
   house({ slug: "charm-quark-big-ben", title: "Charm Quark x Big Ben", subtitle: "A collaboration.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),

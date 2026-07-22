@@ -84,6 +84,12 @@ export function ProjectDetail() {
 
       {/* Body */}
       <div className="wrap detail-body">
+        {project.video && (
+          <section className="detail-video reveal">
+            <video src={project.video} controls playsInline preload="metadata" />
+          </section>
+        )}
+
         {project.audioEmbed && (
           <section className="detail-audio reveal">
             <iframe
