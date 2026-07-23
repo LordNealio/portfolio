@@ -160,8 +160,24 @@ export function ProjectDetail() {
           </aside>
         </div>
 
+        {project.sections && project.sections.length > 0 && (
+          <article className="detail-essay">
+            {project.sections.map((s, i) => (
+              <section className="essay-section reveal" key={i}>
+                {s.heading && <h2 className="essay-h">{s.heading}</h2>}
+                {s.sub && <p className="essay-sub">{s.sub}</p>}
+                {s.body.split("\n\n").map((para, j) => (
+                  <p className="essay-p" key={j}>
+                    {para}
+                  </p>
+                ))}
+              </section>
+            ))}
+          </article>
+        )}
+
         {project.gallery && project.gallery.length > 0 && (
-          <Gallery title="Lookbook" images={project.gallery} />
+          <Gallery title={project.sections ? "The image" : "Lookbook"} images={project.gallery} />
         )}
 
         {related.length > 0 && (

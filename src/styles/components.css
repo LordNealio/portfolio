@@ -1425,6 +1425,43 @@
   font-size: 0.8rem;
 }
 
+/* ═══ DETAIL long-form essay ═══ */
+.detail-essay {
+  max-width: 68ch;
+  margin: clamp(2.5rem, 5vw, 4rem) 0;
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+.essay-section {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.essay-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+}
+.essay-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+.essay-p {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 1rem;
+  white-space: pre-line;
+}
+.essay-p:last-child {
+  margin-bottom: 0;
+}
+
 /* ═══ DETAIL video ═══ */
 .detail-video {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);

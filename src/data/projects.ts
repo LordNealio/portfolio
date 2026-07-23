@@ -3,6 +3,8 @@
 // To add a project: copy a record, fill the fields, drop it in the array below.
 // Nothing here is fabricated — fields with unknown data are left empty or marked.
 // ─────────────────────────────────────────────────────────────────────────────
+import type { EssaySection } from "./essays";
+import { charmQuarkBigBen } from "./essays";
 
 export type Status =
   | "live" // deployed and usable by others
@@ -77,6 +79,7 @@ export interface Project {
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
+  sections?: EssaySection[]; // long-form essay rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   role: string;
   audience: string;
@@ -881,6 +884,7 @@ const houseProjects: Project[] = [
     image: "/art/bigben.jpg",
     imageFit: "contain",
     gallery: ["/art/bigben.jpg"],
+    sections: charmQuarkBigBen,
     note: "A conceptual art piece — interpretation is the artist's own.",
   }),
   house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),
