@@ -598,7 +598,7 @@ const core: Project[] = [
   // ── 14. PIMPS' PARADISE (flagged) ─────────────────────────────────────────
   {
     slug: "pimps-paradise",
-    title: "Pimps' Paradise",
+    title: "HoeValley",
     subtitle: "A harm-reduction empowerment concept",
     summary:
       "An early harm-reduction and dignity concept for adults, built around empowerment rather than judgment.",
@@ -617,8 +617,7 @@ const core: Project[] = [
     futureVision: "Clarify the audience and scope as it grows.",
     links: [{ label: "Live app", href: "https://club-paradise.vercel.app/onboarding", verified: true }],
     relatedProjects: [],
-    note:
-      "Live — the deployed app is branded \"Club Paradise\". Consider aligning the portfolio title to that public-facing name.",
+    note: "Live — a harm-reduction, dignity-first concept.",
   },
 ];
 
@@ -774,14 +773,12 @@ const houseProjects: Project[] = [
     ],
     note: "A conceptual print/art series. Images are downloadable from the viewer.",
   }),
-  house({ slug: "dear-kendrick", title: "Dear Kendrick", subtitle: "An open letter in the language of the archive.", disciplines: ["Publishing", "Music", "Culture"], accent: "#16202b" }),
   house({ slug: "dear-goat", title: "Dear Goat", subtitle: "A letters series.", disciplines: ["Publishing", "Culture"], accent: "#2c3a2c" }),
-  house({ slug: "elijahs-fire", title: "Elijah's Fire", subtitle: "A work in the house's spiritual register.", disciplines: ["Culture", "Publishing"], accent: "#5a2a2e" }),
   house({ slug: "gloria", title: "Gloria", subtitle: "A tribute — in name and image.", disciplines: ["Music", "Culture"], accent: "#9a7628" }),
   house({ slug: "burning-point", title: "Burning Point", subtitle: "A NIL project.", disciplines: ["Culture"], accent: "#5a2a2e" }),
   house({ slug: "holy-water-wet", title: "Holy Water Wet", subtitle: "A NIL culture project.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
-  house({ slug: "mission-control", title: "Mission Control", subtitle: "A command surface for building and shipping.", disciplines: ["Apps", "Technology"], accent: "#16202b" }),
+  house({ slug: "mission-control", title: "Letter to Ye / Mission Control", subtitle: "An open letter to Ye — and the command surface behind the work.", disciplines: ["Publishing", "Culture", "Music"], accent: "#16202b" }),
   house({
     slug: "nonprofit-builder",
     title: "Nonprofit Launch Kit",
@@ -870,7 +867,7 @@ const houseProjects: Project[] = [
     imageDark: true,
     video: "/gnx.mp4",
     note: "A conceptual art/film piece. Historical and lyrical references are the artist's documented interpretation.",
-    relatedProjects: ["rapgod", "dear-kendrick"],
+    relatedProjects: ["rapgod", "mission-control"],
   }),
   house({
     slug: "charm-quark-big-ben",
