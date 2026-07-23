@@ -4,7 +4,7 @@
 // Nothing here is fabricated — fields with unknown data are left empty or marked.
 // ─────────────────────────────────────────────────────────────────────────────
 import type { EssaySection } from "./essays";
-import { charmQuarkBigBen } from "./essays";
+import { charmQuarkBigBen, iAm22 } from "./essays";
 
 export type Status =
   | "live" // deployed and usable by others
@@ -894,7 +894,27 @@ const houseProjects: Project[] = [
     sections: charmQuarkBigBen,
     note: "A conceptual art piece — interpretation is the artist's own.",
   }),
-  house({ slug: "i-am-or-22", title: "I Am or 22", subtitle: "A work in the house's cultural register.", disciplines: ["Music", "Publishing", "Culture"], accent: "#16202b" }),
+  house({
+    slug: "i-am-or-22",
+    title: "I AM / 22",
+    subtitle: "I AM, the elements, and the number 22.",
+    summary:
+      "A symbolic research piece on the phrase 'I AM' — read through Scripture, the periodic table (Iodine + Americium), and the recurring number 22.",
+    disciplines: ["Research", "Culture", "Publishing"],
+    accent: "#B8621F",
+    role: "Artist, writer, and researcher — original work by Just Neal.",
+    image: "/art/iam22-shirt.jpg",
+    imageFit: "contain",
+    imageDark: true,
+    gallery: [
+      "/art/iam22-shirt.jpg",
+      "/art/iam22-name-of-god.jpg",
+      "/art/iam22-inniganus.jpg",
+    ],
+    sections: iAm22,
+    note: "A conceptual research/art piece. The numerical observations are the artist's own, offered as inquiry — not scientific proof or doctrine.",
+    relatedProjects: ["charm-quark-big-ben", "rapgod"],
+  }),
   house({ slug: "reparations", title: "Reparations", subtitle: "On repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
   house({
     slug: "covenant",

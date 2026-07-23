@@ -7,6 +7,49 @@ export interface EssaySection {
   body: string;
 }
 
+export const iAm22: EssaySection[] = [
+  {
+    heading: "A Curious Observation",
+    sub: "I AM, the elements, and the number 22",
+    body: `One of the recurring patterns I've explored is centered on the phrase “I AM.” Throughout Scripture, “I AM” carries profound theological significance as the name God reveals to Moses: “I AM WHO I AM.” — Exodus 3:14.
+
+While studying language, symbolism, and science together, I noticed an unexpected numerical relationship involving the chemical elements represented by the letters I and Am. I is the chemical symbol for Iodine, whose atomic number is 53. Am is the chemical symbol for Americium, whose atomic number is 95.
+
+Adding these atomic numbers together produces:
+53 + 95 = 148
+Reducing that sum to a single digit sequence:
+1 + 4 + 8 = 13
+Then reducing once more:
+1 + 3 = 4
+
+But another pattern stood out to me. Instead of focusing only on the total, I looked at the individual atomic numbers:
+53 → 5 + 3 = 8
+95 → 9 + 5 = 14 → 1 + 4 = 5
+Adding those reduced values gives:
+8 + 5 = 13 → 1 + 3 = 4
+
+I also noticed another numerical relationship that became central to my broader theory:
+53 − 31 = 22
+95 − 73 = 22
+
+This recurring appearance of 22 led me to investigate whether the number might have symbolic significance within the larger collection of patterns I was studying.`,
+  },
+  {
+    heading: "Why 22?",
+    body: `For me, the number 22 became interesting because it repeatedly appeared alongside themes involving identity, names, language, Scripture, and creation. I do not present this as scientific proof or established biblical doctrine. Rather, I view it as one observation among many that encouraged further exploration.
+
+My work asks a broader question: can independent patterns drawn from different fields — language, mathematics, chemistry, history, and Scripture — sometimes converge in ways that invite deeper reflection?
+
+Whether these convergences are meaningful or simply coincidental is something every reader should evaluate for themselves.`,
+  },
+  {
+    heading: "An Invitation",
+    body: `This documents these observations openly and transparently. My goal is not to ask readers to accept any conclusion without question, but to present the patterns that caught my attention so others can examine them critically, test them independently, and decide for themselves what — if anything — they signify.
+
+Curiosity has often led humanity to new discoveries. Sometimes a pattern is merely coincidence. Sometimes it points toward a deeper understanding. My hope is simply to encourage careful observation, thoughtful discussion, and an honest search for truth.`,
+  },
+];
+
 export const charmQuarkBigBen: EssaySection[] = [
   {
     heading: "Charm Quark × Big Ben",
