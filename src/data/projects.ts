@@ -4,7 +4,7 @@
 // Nothing here is fabricated — fields with unknown data are left empty or marked.
 // ─────────────────────────────────────────────────────────────────────────────
 import type { EssaySection } from "./essays";
-import { charmQuarkBigBen, iAm22 } from "./essays";
+import { charmQuarkBigBen, iAm22, dearYe } from "./essays";
 
 export type Status =
   | "live" // deployed and usable by others
@@ -786,7 +786,20 @@ const houseProjects: Project[] = [
   house({ slug: "burning-point", title: "Burning Point", subtitle: "A NIL project.", disciplines: ["Culture"], accent: "#5a2a2e" }),
   house({ slug: "holy-water-wet", title: "Holy Water Wet", subtitle: "A NIL culture project.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
-  house({ slug: "mission-control", title: "Letter to Ye / Mission Control", subtitle: "An open letter to Ye — and the command surface behind the work.", disciplines: ["Publishing", "Culture", "Music"], accent: "#16202b" }),
+  house({
+    slug: "mission-control",
+    title: "Dear Ye / Mission Control",
+    subtitle: "A message from me to Ye.",
+    summary:
+      "A message to Kanye West — a journey from a prayer that the feet won't fail, to flight, to a mission.",
+    disciplines: ["Publishing", "Culture", "Music", "Film"],
+    accent: "#16202b",
+    role: "Artist and writer — original work by Just Neal.",
+    video: "/toye.mp4",
+    sections: dearYe,
+    note: "A conceptual video and essay. Lyrical interpretations are the artist's own.",
+    relatedProjects: ["gnx", "rapgod"],
+  }),
   house({
     slug: "nonprofit-builder",
     title: "Nonprofit Launch Kit",

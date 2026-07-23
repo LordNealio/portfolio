@@ -7,6 +7,38 @@ export interface EssaySection {
   body: string;
 }
 
+export const dearYe: EssaySection[] = [
+  {
+    heading: "Dear Ye",
+    sub: "It begins with a prayer",
+    body: `The story begins with a prayer. DMX's prayer for Kanye sets the tone — not with confidence, but with humility. Before any journey, there is surrender.
+
+Then comes Kanye West: “I pray my feet don't fail me now…” The line carries obvious weight within Jesus Walks, but it also echoes a larger biblical pattern. Throughout Scripture, feet symbolize the journey of faith: Moses removes his sandals on holy ground; Isaiah speaks of the beautiful feet of those who bring good news; Jesus washes the disciples' feet; Revelation describes Christ's feet “like burnished bronze.”
+
+Walking becomes more than movement. It becomes purpose.`,
+  },
+  {
+    heading: "What if your feet fail?",
+    body: `But my interpretation asks a different question. What if your feet do fail? What if the goal was never simply to walk?
+
+The visual answers: “It's okay if your feet fail you… when you can fly.” That thought transitions into another DMX lyric: “The only thing I fear is that I'm never gonna fly.”
+
+The story shifts from walking to flying. Then Kanye answers with Touch the Sky. The narrative becomes one of transcendence — not abandoning the journey, but rising above its limitations.`,
+  },
+  {
+    heading: "The Signals",
+    body: `From there, the soundtrack turns inward. In Remote Control Pt. 2, the lyric “Justin” catches my attention. In Chakras, I focus on the lyric “Neal when you see God,” which I interpret as another meaningful connection within the broader set of patterns I've been exploring.
+
+Whether those connections are intentional or coincidental is for each listener to decide. For me, they become part of a larger artistic narrative.`,
+  },
+  {
+    heading: "Mission Control",
+    body: `Finally, everything arrives at Mission Control. Mission Control is where direction is given. Where communication begins. Where purpose becomes action.
+
+The journey starts with a prayer that the feet won't fail. It ends with a mission. Not just to walk. Not just to fly. But to answer the call.`,
+  },
+];
+
 export const iAm22: EssaySection[] = [
   {
     heading: "A Curious Observation",
