@@ -161,6 +161,8 @@ const core: Project[] = [
     year: "2026",
     featured: true,
     accent: "#7C9CBF",
+    image: "/art/mirror.jpg",
+    imageFit: "contain",
     role:
       "Founder and product author — I set nine non-negotiable principles that constrain the product, and directed a phased build where the AI reflects the writer, never characterizes the other person.",
     audience:
@@ -334,6 +336,9 @@ const core: Project[] = [
     year: "2026",
     featured: true,
     accent: "#C88A4B",
+    image: "/art/emanual.jpg",
+    imageFit: "contain",
+    imageDark: true,
     role:
       "Founder and instructional designer — I set the education-first, strictly non-shaming tone and built the curriculum and plan-engine structure from a full spec.",
     audience: "Young men who never got a clear, judgment-free guide to basic life skills.",
@@ -608,6 +613,9 @@ const core: Project[] = [
     year: "2026",
     featured: false,
     accent: "#0A0A0A",
+    image: "/art/hoevalley.jpg",
+    imageFit: "contain",
+    imageDark: true,
     role: "Founder and designer.",
     audience: "Adults the concept aims to serve through a harm-reduction, dignity-first lens.",
     problem: "Certain adult communities are served by shame and stigma rather than dignity and practical support.",
@@ -787,6 +795,8 @@ const houseProjects: Project[] = [
     disciplines: ["Nonprofit", "AI", "Technology"],
     status: "live",
     accent: "#2c3a2c",
+    image: "/art/launcher.jpg",
+    imageFit: "contain",
     role: "Founder and product designer — an AI nonprofit founder-intelligence platform by Just Neal.",
     links: [{ label: "Live app", href: "https://nonprofit-launch-kit.vercel.app/", verified: true }],
     note: "Live — an AI-powered nonprofit founder-intelligence platform.",
