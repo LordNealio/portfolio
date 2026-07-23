@@ -790,14 +790,29 @@ const houseProjects: Project[] = [
   house({
     slug: "nonprofit-builder",
     title: "Nonprofit Launch Kit",
-    subtitle: "An AI-powered founder-intelligence platform for starting a nonprofit.",
-    summary: "An AI platform that gives nonprofit founders the intelligence and tooling to launch and run.",
+    subtitle: "Launch a nonprofit with confidence — not confusion.",
+    summary:
+      "An AI-powered platform that walks founders through every step of starting and growing a nonprofit.",
     disciplines: ["Nonprofit", "AI", "Technology"],
     status: "live",
     accent: "#2c3a2c",
     image: "/art/launcher.jpg",
     imageFit: "contain",
     role: "Founder and product designer — an AI nonprofit founder-intelligence platform by Just Neal.",
+    audience:
+      "Founders launching a community initiative, educational program, church, advocacy group, or charitable foundation.",
+    solution:
+      "Nonprofit Launch Kit is an AI-powered platform that walks founders through every step of starting and growing a nonprofit organization. Instead of piecing together information from dozens of websites, you'll have a single workspace that helps you make informed decisions, generate required documents, and build an organization ready to make an impact. Whether you're launching a community initiative, educational program, church, advocacy group, or charitable foundation, it helps transform your idea into a legally structured, professionally organized nonprofit — so you spend less time figuring out paperwork and more time building your mission.",
+    features: [
+      "Generate your mission, vision, and purpose statements",
+      "Build your board of directors and define member roles",
+      "Create bylaws, conflict-of-interest policies, and governance documents",
+      "Generate IRS 501(c)(3) application materials and supporting paperwork",
+      "Develop strategic plans, budgets, and fundraising strategies",
+      "Organize meetings, votes, and board records",
+      "Access AI guidance tailored to your nonprofit's goals and mission",
+      "Store everything in one secure workspace as your organization grows",
+    ],
     links: [{ label: "Live app", href: "https://nonprofit-launch-kit.vercel.app/", verified: true }],
     note: "Live — an AI-powered nonprofit founder-intelligence platform.",
   }),
