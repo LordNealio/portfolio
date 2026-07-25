@@ -62,6 +62,12 @@ export interface ProjectLink {
   verified: boolean; // false = reported but not independently confirmed in this build
 }
 
+export interface Book {
+  title: string;
+  author: string;
+  href: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -80,6 +86,7 @@ export interface Project {
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   sections?: EssaySection[]; // long-form essay rendered on the detail page
+  books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   role: string;
   audience: string;
@@ -943,6 +950,28 @@ const houseProjects: Project[] = [
   }),
   house({ slug: "reparations", title: "The R Word", subtitle: "Reparations — on repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
   house({ slug: "the-n-word", title: "The N Word", subtitle: "A cultural inquiry into a word, its history, and its weight.", disciplines: ["Culture", "Research", "Publishing"], accent: "#16202b" }),
+  house({
+    slug: "reading-list",
+    title: "Reading List",
+    subtitle: "The books behind the thinking.",
+    summary: "A curated reading list — the books that shape the ideas across the house.",
+    disciplines: ["Research", "Publishing", "Culture"],
+    status: "research",
+    accent: "#9a7628",
+    role: "Curated by Just Neal.",
+    books: [
+      { title: "Life after Capitalism", author: "George Gilder", href: "https://www.amazon.com/dp/1684512247" },
+      { title: "All About Love: New Visions", author: "bell hooks", href: "https://www.amazon.com/dp/0060959479" },
+      { title: "Principles: Life and Work", author: "Ray Dalio", href: "https://www.amazon.com/dp/1501124021" },
+      { title: "Scattered Minds", author: "Gabor Maté", href: "https://www.amazon.com/dp/0593714377" },
+      { title: "The Three Pillars of Zen", author: "Philip Kapleau", href: "https://www.amazon.com/dp/0385260938" },
+      { title: "The Untethered Soul", author: "Michael A. Singer", href: "https://www.amazon.com/dp/1572245379" },
+      { title: "Conversations with God, Book 1", author: "Neale Donald Walsch", href: "https://www.amazon.com/dp/0399142789" },
+      { title: "Autobiography of a Yogi", author: "Paramahansa Yogananda", href: "https://www.amazon.com/dp/0876120796" },
+      { title: "Pimp: The Story of My Life", author: "Iceberg Slim", href: "https://www.amazon.com/dp/1451617135" },
+    ],
+    note: "Each title links to the book on Amazon.",
+  }),
   house({
     slug: "covenant",
     title: "Covenant",

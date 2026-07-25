@@ -176,6 +176,26 @@ export function ProjectDetail() {
           </article>
         )}
 
+        {project.books && project.books.length > 0 && (
+          <section className="reading-list">
+            <h2 className="h2 reveal">Reading List</h2>
+            <ol className="books">
+              {project.books.map((b, i) => (
+                <li className="reveal" key={b.href}>
+                  <a className="book" href={b.href} target="_blank" rel="noreferrer">
+                    <span className="book-idx">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="book-main">
+                      <span className="book-title">{b.title}</span>
+                      <span className="book-author">{b.author}</span>
+                    </span>
+                    <span className="book-go" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
         {project.gallery && project.gallery.length > 0 && (
           <Gallery title={project.sections ? "The image" : "Lookbook"} images={project.gallery} />
         )}
