@@ -759,8 +759,6 @@ const houseProjects: Project[] = [
     note:
       "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ as fashion-01.jpg … to populate the Lookbook.)",
   },
-  house({ slug: "godmind-whitepaper", title: "GodMind Research", subtitle: "On mind, meaning, and machine.", disciplines: ["Research", "Publishing"], status: "research", accent: "#1b2a3a" }),
-  house({ slug: "research-review", title: "Research Review", subtitle: "Field notes at the edge of AI and culture.", disciplines: ["Research", "Publishing"], status: "research", accent: "#2c3a2c" }),
   house({ slug: "ideas-worth-sharing", title: "Ideas Worth Sharing", subtitle: "Talks and short pieces worth sharing.", disciplines: ["Publishing", "Culture"], accent: "#9a7628" }),
   house({
     slug: "arizona-ponderer",
@@ -943,7 +941,8 @@ const houseProjects: Project[] = [
     note: "A conceptual research/art piece. The numerical observations are the artist's own, offered as inquiry — not scientific proof or doctrine.",
     relatedProjects: ["charm-quark-big-ben", "rapgod"],
   }),
-  house({ slug: "reparations", title: "Reparations", subtitle: "On repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
+  house({ slug: "reparations", title: "The R Word", subtitle: "Reparations — on repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
+  house({ slug: "the-n-word", title: "The N Word", subtitle: "A cultural inquiry into a word, its history, and its weight.", disciplines: ["Culture", "Research", "Publishing"], accent: "#16202b" }),
   house({
     slug: "covenant",
     title: "Covenant",
@@ -983,7 +982,6 @@ const WORK_ORDER = [
   "emanual",
   "mission-control",
   "arizona-ponderer",
-  "godmind-whitepaper",
   "charm-quark-big-ben",
   "i-am-or-22",
   "reparations",
