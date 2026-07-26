@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects as allProjects, projectDisciplines, DISCIPLINES } from "../data/projects";
+import { projects as allProjects, projectDisciplines, DISCIPLINES, STATUS_LABEL } from "../data/projects";
 import type { Discipline, Project } from "../data/projects";
 import { useReveal } from "../lib/useReveal";
+import { useMode } from "../lib/mode";
+import { Cover } from "./Cover";
 
 /**
  * The archive as an exhibition booklet — a dense, left-aligned list of bold,
@@ -17,6 +19,7 @@ export function ArchiveList({
   filterable?: boolean;
 }) {
   const [filter, setFilter] = useState<Discipline | "all">("all");
+  const { mode } = useMode();
 
   const shown = useMemo(
     () =>
@@ -31,7 +34,7 @@ export function ArchiveList({
     [projects]
   );
 
-  useReveal([filter]);
+  useReveal([filter, mode]);
 
   return (
     <div className="ed-archive">
@@ -59,15 +62,31 @@ export function ArchiveList({
         </div>
       )}
 
-      <ol className="ed-list">
-        {shown.map((p) => (
-          <li className="reveal" key={p.slug}>
-            <Link to={`/work/${p.slug}`} className="ed-item">
-              {p.title}
+      {mode === "supreme" ? (
+        <div className="sup-grid">
+          {shown.map((p) => (
+            <Link to={`/work/${p.slug}`} className="sup-item reveal" key={p.slug}>
+              <div className="sup-thumb">
+                <Cover project={p} />
+              </div>
+              <span className="sup-title">{p.title}</span>
+              <span className={`sup-meta ${p.status === "live" ? "live" : ""}`}>
+                {STATUS_LABEL[p.status]}
+              </span>
             </Link>
-          </li>
-        ))}
-      </ol>
+          ))}
+        </div>
+      ) : (
+        <ol className="ed-list">
+          {shown.map((p) => (
+            <li className="reveal" key={p.slug}>
+              <Link to={`/work/${p.slug}`} className="ed-item">
+                {p.title}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      )}
     </div>
   );
 }

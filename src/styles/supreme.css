@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUPREME MODE — flat white, Helvetica Bold, red box, squared, dense.
+   Activated by data-mode="supreme" on <html>. Token overrides do most of the
+   work; a few targeted rules add Supreme density + the thumbnail grid.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root[data-mode="supreme"] {
+  --ink: #ffffff;
+  --ink-2: #f2f2f2;
+  --panel: #ffffff;
+  --panel-2: #f6f6f6;
+  --line: rgba(0, 0, 0, 0.16);
+  --line-strong: rgba(0, 0, 0, 0.34);
+  --paper: #000000;
+  --text: #111111;
+  --text-2: #565656;
+  --text-3: #8a8a8a;
+  --gold: #cc0000;
+  --gold-soft: #e00000;
+  --gold-dim: rgba(204, 0, 0, 0.1);
+  --navy: #000000;
+  --forest: #000000;
+  --burgundy: #cc0000;
+  --serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --script: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --grotesk: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --radius: 2px;
+  --radius-lg: 2px;
+  color-scheme: light;
+}
+
+/* flat white — kill the ambient wash */
+:root[data-mode="supreme"] body::before {
+  display: none;
+}
+
+/* type: bold, upright, no serif italics */
+[data-mode="supreme"] .display,
+[data-mode="supreme"] .h1,
+[data-mode="supreme"] .h2,
+[data-mode="supreme"] .h3,
+[data-mode="supreme"] .nil-word,
+[data-mode="supreme"] .arow-title,
+[data-mode="supreme"] .ed-item,
+[data-mode="supreme"] .essay-h,
+[data-mode="supreme"] .book-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+[data-mode="supreme"] .serif-i,
+[data-mode="supreme"] .essay-sub,
+[data-mode="supreme"] .nil-name {
+  font-style: normal;
+}
+[data-mode="supreme"] .h1,
+[data-mode="supreme"] .h2,
+[data-mode="supreme"] .eyebrow,
+[data-mode="supreme"] .ed-brand,
+[data-mode="supreme"] .ed-script {
+  text-transform: uppercase;
+}
+[data-mode="supreme"] .ed-script {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* buttons: squared, uppercase, red / black */
+[data-mode="supreme"] .btn {
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+}
+[data-mode="supreme"] .btn-primary {
+  background: var(--gold);
+  color: #fff;
+}
+[data-mode="supreme"] .btn-primary:hover {
+  background: #a80000;
+}
+[data-mode="supreme"] .btn-ghost {
+  border-color: #000;
+  color: #000;
+}
+[data-mode="supreme"] .btn-ghost:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* nav: minimal, red box brand */
+[data-mode="supreme"] .nav--solid {
+  background: rgba(255, 255, 255, 0.94);
+}
+[data-mode="supreme"] .brand-mark {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-weight: 800;
+}
+[data-mode="supreme"] .brand-name {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+[data-mode="supreme"] .nav-links a:not(.nav-cta) {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* pills, tags, filters squared + uppercase */
+[data-mode="supreme"] .pill,
+[data-mode="supreme"] .tag,
+[data-mode="supreme"] .afilter,
+[data-mode="supreme"] .ed-filter,
+[data-mode="supreme"] .about-cap {
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+[data-mode="supreme"] .pill[data-s="live"] {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+[data-mode="supreme"] .pill[data-s="live"] .dot {
+  background: var(--gold);
+}
+
+/* tighter, flatter surfaces */
+[data-mode="supreme"] .section {
+  padding-block: clamp(38px, 7vw, 88px);
+}
+[data-mode="supreme"] .card:hover,
+[data-mode="supreme"] .collection:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: #000;
+}
+
+[data-mode="supreme"] .mode-toggle {
+  border-radius: 2px;
+}
+[data-mode="supreme"] .mode-toggle span.on {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ── SUPREME ARCHIVE GRID (Supreme shop look) ── */
+.sup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: clamp(12px, 1.6vw, 22px);
+}
+.sup-item {
+  display: block;
+}
+.sup-thumb {
+  position: relative;
+  overflow: hidden;
+  background: #f2f2f2;
+  border: 1px solid var(--line);
+}
+.sup-thumb .pa,
+.sup-thumb .proj-img {
+  aspect-ratio: 1 / 1 !important;
+}
+.sup-thumb .proj-img {
+  object-fit: cover;
+}
+.sup-item:hover .sup-thumb {
+  border-color: #000;
+}
+.sup-title {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  line-height: 1.15;
+  color: #000;
+}
+.sup-item:hover .sup-title {
+  color: var(--gold);
+}
+.sup-meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.68rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.sup-meta.live {
+  color: var(--gold);
+}
