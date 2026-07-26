@@ -19,12 +19,9 @@ export const site = {
   tagline: "I build systems, brands, and experiences that help people build themselves.",
   positioning:
     "NIL is the house under which fashion, AI, publishing, education, film, technology, and storytelling coexist. Name. Image. Likeness. — a body of work by Just Neal that begins from nothing and builds something worth keeping.",
-  // Contact — CONFIRM these before publishing.
+  // Contact — the email is used only in a mailto link, never shown as text.
   contact: {
-    email: "Neal.Justin@icloud.com",
-    linkedin: "https://www.linkedin.com/in/justin-neal-5427973b/",
-    phone: "", // present on résumé; left out of the public site by default
-    github: "", // add if you want repos linked
+    email: "neal.justin@icloud.com",
   },
 };
 

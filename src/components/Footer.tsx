@@ -22,10 +22,7 @@ export function Footer() {
           </div>
           <div className="footer-cta">
             <a className="btn btn-primary" href={`mailto:${site.contact.email}`}>
-              {site.contact.email} <span className="arr">→</span>
-            </a>
-            <a className="btn btn-ghost" href={site.contact.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn <span className="arr">↗</span>
+              Email me <span className="arr">→</span>
             </a>
           </div>
         </div>

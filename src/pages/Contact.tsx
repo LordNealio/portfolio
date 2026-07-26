@@ -30,10 +30,7 @@ export function Contact() {
 
         <div className="contact-cta reveal">
           <a className="btn btn-primary btn-lg" href={`mailto:${site.contact.email}`}>
-            {site.contact.email} <span className="arr">→</span>
-          </a>
-          <a className="btn btn-ghost btn-lg" href={site.contact.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn <span className="arr">↗</span>
+            Send a message <span className="arr">→</span>
           </a>
         </div>
 

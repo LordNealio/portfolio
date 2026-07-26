@@ -602,6 +602,7 @@ const core: Project[] = [
         href: "https://www.amazon.com/MindWrite-90-Day-Meditation-Journal/dp/B0C5PFZV2Z",
         verified: true,
       },
+      { label: "Instagram", href: "https://www.instagram.com/mindwrite.journal/", verified: true },
     ],
     relatedProjects: ["mindvault"],
     note: "A real, published book — MindWrite: A 90-Day Meditation Journal (2023) — that grew out of the founding nonprofit initiative which seeded the whole ecosystem.",
