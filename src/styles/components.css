@@ -1253,6 +1253,39 @@
   color: var(--gold);
 }
 
+/* ── ABOUT backstory ── */
+.backstory {
+  margin: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-block: 1px solid var(--line);
+}
+.backstory > .eyebrow {
+  margin-bottom: clamp(1.6rem, 3vw, 2.4rem);
+}
+.backstory-item {
+  max-width: 62ch;
+  margin-bottom: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+.backstory-item:last-child {
+  margin-bottom: 0;
+}
+.backstory-q {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.backstory-a {
+  font-family: var(--serif);
+  font-weight: 340;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+
 /* ── NOUS INNOVATION LABS — org links ── */
 .hero-org {
   display: inline-flex;

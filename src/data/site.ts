@@ -159,6 +159,22 @@ export const capabilities: Capability[] = [
   },
 ];
 
+// The backstory — three questions, answered plainly, shown on the About page.
+export const backstory = [
+  {
+    q: "How I became who I am",
+    a: "Life and death. Both have been my teachers. What I've lost and what I've lived through are the whole reason any of this exists.",
+  },
+  {
+    q: "Why I started",
+    a: "I was called to it — at a point when my life felt like it was falling apart, at work and beyond. The struggle wasn't a detour; it was the shaping. Every hard season sharpened the way I see, and that perspective is what I build from.",
+  },
+  {
+    q: "The moment that changed everything",
+    a: "Now. Not a date in the past — this one. The moment that changes everything is always the present one.",
+  },
+];
+
 // The connecting philosophy — shown on the About and Vision sections.
 export const philosophy = {
   heading: "One house, many rooms",

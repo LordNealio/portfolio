@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site, org, experience, education, certifications, capabilities } from "../data/site";
+import { site, org, backstory, experience, education, certifications, capabilities } from "../data/site";
 import { useReveal } from "../lib/useReveal";
 
 export function About() {
@@ -39,6 +39,17 @@ export function About() {
             to classrooms in South Korea — taught him to make hard things clear. NIL is where those
             disciplines meet: one house, many rooms.
           </p>
+        </div>
+
+        {/* Backstory */}
+        <div className="backstory">
+          <p className="eyebrow reveal">The backstory</p>
+          {backstory.map((b) => (
+            <div className="backstory-item reveal" key={b.q}>
+              <h2 className="backstory-q">{b.q}</h2>
+              <p className="backstory-a">{b.a}</p>
+            </div>
+          ))}
         </div>
 
         {/* Organization callout */}
