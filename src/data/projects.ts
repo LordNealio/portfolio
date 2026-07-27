@@ -203,6 +203,7 @@ const core: Project[] = [
   {
     slug: "legacybridge",
     title: "LegacyBridge",
+    kind: "App",
     subtitle: "Turn family memory into a book that lasts",
     summary:
       "An AI oral-history platform that guides interviews, transcribes voices, builds timelines, and exports a printable family book.",
@@ -572,6 +573,7 @@ const core: Project[] = [
   {
     slug: "mindwrite",
     title: "MindWrite",
+    kind: "Book",
     subtitle: "A published 90-day meditation journal — where it all began",
     summary:
       "A published 90-day guided meditation journal, available on Amazon — and the founding nonprofit initiative that seeded the entire ecosystem.",
