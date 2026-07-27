@@ -1,5 +1,5 @@
 import type { Project } from "../data/projects";
-import { STATUS_LABEL } from "../data/projects";
+import { kindOf } from "../data/projects";
 
 // Elegant generative placeholder art. No stock imagery — each project gets a
 // deterministic "device frame" built from its accent, initials, and category.
@@ -74,8 +74,8 @@ export function ProjectArt({ project, variant = "card" }: { project: Project; va
         {initials(project.title)}
       </div>
       <div className="pa-meta">
-        <span className="pa-cat">{project.category}</span>
-        <span className="pa-status">{STATUS_LABEL[project.status]}</span>
+        <span className="pa-cat">{kindOf(project)}</span>
+        {project.status === "live" && <span className="pa-status">Live</span>}
       </div>
     </div>
   );

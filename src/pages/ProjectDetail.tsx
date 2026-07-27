@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProject, projects, projectDisciplines, STATUS_LABEL } from "../data/projects";
+import { getProject, projects, projectDisciplines, kindOf } from "../data/projects";
 import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
 import { ProjectCard } from "../components/ProjectCard";
@@ -51,11 +51,12 @@ export function ProjectDetail() {
           <div className="detail-hero-grid">
             <div className="reveal">
               <div className="detail-meta">
-                <span className="pill" data-s={project.status}>
-                  <span className="dot" /> {STATUS_LABEL[project.status]}
+                <span className="pill">
+                  {project.status === "live" && <i className="live-dot" title="Live" />}
+                  {kindOf(project)}
                 </span>
-                <span className="muted">{project.category}</span>
-                <span className="muted">· {project.year}</span>
+                <span className="muted">{disciplines.join(" · ")}</span>
+                {project.year && <span className="muted">· {project.year}</span>}
               </div>
               <h1 className="display detail-title">{project.title}</h1>
               <p className="h3 detail-subtitle muted serif-i">{project.subtitle}</p>

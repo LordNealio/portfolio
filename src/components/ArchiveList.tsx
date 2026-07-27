@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects as allProjects, projectDisciplines, DISCIPLINES, STATUS_LABEL } from "../data/projects";
+import { projects as allProjects, projectDisciplines, DISCIPLINES, kindOf } from "../data/projects";
 import type { Discipline, Project } from "../data/projects";
 import { useReveal } from "../lib/useReveal";
 import { useMode } from "../lib/mode";
@@ -70,8 +70,9 @@ export function ArchiveList({
                 <Cover project={p} />
               </div>
               <span className="sup-title">{p.title}</span>
-              <span className={`sup-meta ${p.status === "live" ? "live" : ""}`}>
-                {STATUS_LABEL[p.status]}
+              <span className="sup-meta">
+                {p.status === "live" && <i className="live-dot" title="Live" />}
+                {kindOf(p)}
               </span>
             </Link>
           ))}
@@ -81,7 +82,11 @@ export function ArchiveList({
           {shown.map((p) => (
             <li className="reveal" key={p.slug}>
               <Link to={`/work/${p.slug}`} className="ed-item">
-                {p.title}
+                <span className="ed-item-title">{p.title}</span>
+                <span className="ed-item-kind">
+                  {p.status === "live" && <i className="live-dot" title="Live" />}
+                  {kindOf(p)}
+                </span>
               </Link>
             </li>
           ))}

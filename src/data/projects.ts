@@ -79,6 +79,7 @@ export interface Project {
   year: string;
   featured: boolean;
   disciplines?: Discipline[]; // NIL house disciplines (archive taxonomy)
+  kind?: string; // what it IS in one word (App/Media/Research…); defaults from discipline
   accent?: string; // per-project accent for the placeholder art
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
@@ -668,6 +669,27 @@ const CAT_TO_DISC: Record<Category, Discipline[]> = {
 /** The disciplines to show/filter by — explicit if set, else derived from category. */
 export function projectDisciplines(p: Project): Discipline[] {
   return p.disciplines ?? CAT_TO_DISC[p.category];
+}
+
+// What a work *is*, in one word — shown to visitors instead of dev status.
+const DISC_TO_KIND: Record<Discipline, string> = {
+  AI: "App",
+  Apps: "App",
+  Technology: "App",
+  Fashion: "Fashion",
+  Branding: "Fashion",
+  Music: "Media",
+  Film: "Media",
+  Culture: "Media",
+  Publishing: "Writing",
+  Research: "Research",
+  Games: "Game",
+  Nonprofit: "Nonprofit",
+  Education: "Education",
+};
+
+export function kindOf(p: Project): string {
+  return p.kind ?? DISC_TO_KIND[projectDisciplines(p)[0]];
 }
 
 type HouseInput = Partial<Project> & {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Project } from "../data/projects";
-import { STATUS_LABEL } from "../data/projects";
+import { kindOf } from "../data/projects";
 import { Cover } from "./Cover";
 
 // `size="feature"` = large editorial case-study card. `size="index"` = grid tile.
@@ -12,10 +12,11 @@ export function ProjectCard({ project, size = "index" }: { project: Project; siz
       </div>
       <div className="card-body">
         <div className="card-top">
-          <span className="pill" data-s={project.status}>
-            <span className="dot" /> {STATUS_LABEL[project.status]}
+          <span className="pill">
+            {project.status === "live" && <i className="live-dot" title="Live" />}
+            {kindOf(project)}
           </span>
-          <span className="card-cat">{project.category}</span>
+          <span className="card-cat">{project.year}</span>
         </div>
         <h3 className={size === "feature" ? "h2" : "h3"}>{project.title}</h3>
         <p className="card-sub muted">{size === "feature" ? project.summary : project.subtitle}</p>

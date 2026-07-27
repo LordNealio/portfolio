@@ -1782,7 +1782,10 @@ textarea.field {
   list-style: none;
 }
 .ed-item {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   font-family: var(--grotesk);
   font-weight: 800;
   text-transform: uppercase;
@@ -1793,12 +1796,51 @@ textarea.field {
   padding: 0.05em 0;
   transition: color 0.25s;
 }
+.ed-item-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+  align-self: center;
+}
 /* scanning: hovering the list fades the rest, keeps the one under the cursor */
 .ed-list:hover .ed-item {
   color: var(--text-3);
 }
 .ed-list:hover .ed-item:hover {
   color: var(--paper);
+}
+
+/* subtle "live" indicator — a small pulsing dot */
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 var(--gold);
+  animation: livePulse 2.4s infinite;
+}
+@keyframes livePulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
 }
 
 .ed-watermark {
