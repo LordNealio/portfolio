@@ -1228,6 +1228,48 @@
   padding: 1.05em 1.8em;
   font-size: 1.02rem;
 }
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 540px;
+  margin: 2.6rem 0;
+}
+.field {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 0.85em 1em;
+  transition: border-color 0.25s;
+}
+.field::placeholder {
+  color: var(--text-3);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+textarea.field {
+  resize: vertical;
+  min-height: 120px;
+}
+.contact-form .btn {
+  align-self: flex-start;
+}
+.form-ok {
+  margin: 2.6rem 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+.form-err {
+  color: var(--burgundy);
+  font-size: 0.9rem;
+}
 .contact-invites {
   margin-top: 3rem;
   padding-top: 2.5rem;
@@ -1251,6 +1293,17 @@
   position: absolute;
   left: 0;
   color: var(--gold);
+}
+
+/* ── ABOUT capabilities block ── */
+.about-capabilities {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.about-capabilities > .eyebrow {
+  margin-bottom: 1.2rem;
+}
+.about-cta {
+  margin-top: 1.8rem;
 }
 
 /* ── ABOUT backstory ── */

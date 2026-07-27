@@ -29,7 +29,7 @@ export function Footer() {
         <hr className="rule" />
         <div className="footer-bottom">
           <span className="muted">
-            © {new Date().getFullYear()} NIL · Just Neal · {site.location}
+            © {new Date().getFullYear()} NIL · Just Neal
           </span>
           <nav className="footer-nav" aria-label="Footer">
             <Link to="/work">Work</Link>

@@ -15,7 +15,6 @@ export const site = {
   fullName: "Just Neal",
   wordmark: "NIL",
   title: "Creative Director · Builder · Storyteller",
-  location: "Mesa, Arizona",
   tagline: "I build systems, brands, and experiences that help people build themselves.",
   positioning:
     "NIL is the house under which fashion, AI, publishing, education, film, technology, and storytelling coexist. Name. Image. Likeness. — a body of work by Just Neal that begins from nothing and builds something worth keeping.",
@@ -40,74 +39,7 @@ export const nil = {
   statement: "Nothing into something. Name. Image. Likeness.",
 };
 
-export interface ExperienceItem {
-  role: string;
-  org: string;
-  period: string;
-  location?: string;
-  points: string[];
-}
-
-export const experience: ExperienceItem[] = [
-  {
-    role: "Assistant Director of Finance / Finance Manager",
-    org: "Arizona PBS (Arizona State University)",
-    period: "2019 – 2023",
-    location: "Remote",
-    points: [
-      "Directed FP&A for $20MM across 6+ revenue streams and a 70k+ membership base.",
-      "Led the 3-year business-department strategy, KPIs, and mission and vision as part of the organization's plan for operational excellence.",
-      "Led two external US GAAP audits to secure federal/grant funding — increasing efficiency 118% and cutting costs 73%.",
-      "Managed $1.9MM in federal grants and built an FP&A toolbox that automated month-end close and forecasting.",
-      "Applied Lean/Kanban to process and internal controls for $100k+ in annual savings.",
-    ],
-  },
-  {
-    role: "Staff Accountant",
-    org: "3CDC",
-    period: "2016 – 2018",
-    location: "Cincinnati, OH",
-    points: [
-      "Ran month-end close for a $20MM portfolio — 300+ reconciliations, journal entries, and variance analysis monthly.",
-      "Prepared annual and midterm audit materials and standardized reporting.",
-      "Built automated expense/revenue and BlackLine processes, increasing efficiency 88%, and served as system administrator.",
-    ],
-  },
-  {
-    role: "English Teacher",
-    org: "Neungin Middle School & Moonkang English Academy",
-    period: "2013 – 2015 & 2018 – 2019",
-    location: "South Korea",
-    points: [
-      "Supported the development of 1,500+ students through assessment, planning, and adaptive lessons.",
-      "Designed dynamic lessons that raised comprehension and engagement — the seed of an education-first product instinct.",
-    ],
-  },
-  {
-    role: "Graduate Assistant, Financial Accounting",
-    org: "Miami University",
-    period: "2015 – 2016",
-    location: "Oxford, OH",
-    points: [
-      "Taught 150+ students basic financial accounting to the highest grade distribution in three years (90% pass rate).",
-    ],
-  },
-];
-
-export const education = [
-  { degree: "Master of Accountancy", org: "Miami University", year: "2016" },
-  { degree: "Bachelor of Accountancy", org: "Miami University", year: "2012" },
-];
-
-export const certifications = [
-  "Certified Kaizen Facilitator (CKF) — Lean Concepts, Management & Strategy Institute",
-  "Scrum: The Basics",
-  "Generative AI for Digital Marketers",
-  "Creating a Culture of Continuous Improvement",
-  "Learning & Development (multiple LinkedIn Learning tracks)",
-];
-
-// Capabilities — the multidisciplinary range, grounded in real work.
+// Capabilities — the multidisciplinary range (no employer details).
 export interface Capability {
   title: string;
   body: string;
@@ -132,7 +64,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Financial & Operational Analysis",
-    body: "A Master of Accountancy and years running FP&A for $20MM — budgets, audits, controls, and Lean process improvement.",
+    body: "A background in finance and operations — budgets, audits, controls, forecasting, and Lean process improvement.",
   },
   {
     title: "Research & Writing",
@@ -144,7 +76,7 @@ export const capabilities: Capability[] = [
   },
   {
     title: "Education & Curriculum",
-    body: "Teaching across the U.S. and South Korea, and designing education-first, non-shaming curricula for life skills.",
+    body: "Years of teaching, and designing education-first, non-shaming curricula for life skills.",
   },
   {
     title: "Rapid Prototyping",
