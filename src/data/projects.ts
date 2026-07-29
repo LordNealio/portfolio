@@ -336,6 +336,7 @@ const core: Project[] = [
   {
     slug: "emanual",
     title: "E.Manual",
+    kind: "App",
     subtitle: "The modern man's survival guide",
     summary:
       "A 30-day, education-first life-skills app across five tracks — money, discipline, connection, body basics, and staying solid.",
@@ -833,6 +834,7 @@ const houseProjects: Project[] = [
   house({
     slug: "nonprofit-builder",
     title: "Nonprofit Launch Kit",
+    kind: "App",
     subtitle: "Launch a nonprofit with confidence — not confusion.",
     summary:
       "An AI-powered platform that walks founders through every step of starting and growing a nonprofit.",
@@ -1028,6 +1030,7 @@ const houseProjects: Project[] = [
   house({
     slug: "estrella-nos",
     title: "Estrella Nos",
+    kind: "App",
     subtitle: "A mindful café experience in the heart of the desert.",
     summary: "Estrella Nos — a desert luxury café brand and experience, presented online.",
     disciplines: ["Branding", "Culture", "Apps"],
