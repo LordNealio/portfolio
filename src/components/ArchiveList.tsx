@@ -1,15 +1,21 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects as allProjects, projectDisciplines, DISCIPLINES, kindOf } from "../data/projects";
+import {
+  projects as allProjects,
+  projectDisciplines,
+  DISCIPLINES,
+  kindOf,
+  isExhibited,
+} from "../data/projects";
 import type { Discipline, Project } from "../data/projects";
 import { useReveal } from "../lib/useReveal";
 import { useMode } from "../lib/mode";
 import { Cover } from "./Cover";
 
 /**
- * The archive as an exhibition booklet — a dense, left-aligned list of bold,
- * all-caps names. Typography does the work; no boxes, bullets, or buttons.
- * Hovering the list fades the rest so the eye scans one work at a time.
+ * The archive — the exhibited works first, then everything else under
+ * "In Progress" (still viewable). Renders as an editorial list (NIL) or a dense
+ * thumbnail grid (Supreme). Each work shows its kind, with a subtle live dot.
  */
 export function ArchiveList({
   projects = allProjects,
@@ -29,12 +35,47 @@ export function ArchiveList({
     [filter, projects]
   );
 
+  const main = useMemo(() => shown.filter((p) => isExhibited(p.slug)), [shown]);
+  const rest = useMemo(() => shown.filter((p) => !isExhibited(p.slug)), [shown]);
+
   const available = useMemo(
     () => DISCIPLINES.filter((d) => projects.some((p) => projectDisciplines(p).includes(d))),
     [projects]
   );
 
   useReveal([filter, mode]);
+
+  const renderSet = (list: Project[]) =>
+    mode === "supreme" ? (
+      <div className="sup-grid">
+        {list.map((p) => (
+          <Link to={`/work/${p.slug}`} className="sup-item reveal" key={p.slug}>
+            <div className="sup-thumb">
+              <Cover project={p} />
+            </div>
+            <span className="sup-title">{p.title}</span>
+            <span className="sup-meta">
+              {p.status === "live" && <i className="live-dot" title="Live" />}
+              {kindOf(p)}
+            </span>
+          </Link>
+        ))}
+      </div>
+    ) : (
+      <ol className="ed-list">
+        {list.map((p) => (
+          <li className="reveal" key={p.slug}>
+            <Link to={`/work/${p.slug}`} className="ed-item">
+              <span className="ed-item-title">{p.title}</span>
+              <span className="ed-item-kind">
+                {p.status === "live" && <i className="live-dot" title="Live" />}
+                {kindOf(p)}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ol>
+    );
 
   return (
     <div className="ed-archive">
@@ -62,35 +103,13 @@ export function ArchiveList({
         </div>
       )}
 
-      {mode === "supreme" ? (
-        <div className="sup-grid">
-          {shown.map((p) => (
-            <Link to={`/work/${p.slug}`} className="sup-item reveal" key={p.slug}>
-              <div className="sup-thumb">
-                <Cover project={p} />
-              </div>
-              <span className="sup-title">{p.title}</span>
-              <span className="sup-meta">
-                {p.status === "live" && <i className="live-dot" title="Live" />}
-                {kindOf(p)}
-              </span>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <ol className="ed-list">
-          {shown.map((p) => (
-            <li className="reveal" key={p.slug}>
-              <Link to={`/work/${p.slug}`} className="ed-item">
-                <span className="ed-item-title">{p.title}</span>
-                <span className="ed-item-kind">
-                  {p.status === "live" && <i className="live-dot" title="Live" />}
-                  {kindOf(p)}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ol>
+      {main.length > 0 && renderSet(main)}
+
+      {rest.length > 0 && (
+        <>
+          <p className="archive-progress reveal">In Progress</p>
+          {renderSet(rest)}
+        </>
       )}
     </div>
   );

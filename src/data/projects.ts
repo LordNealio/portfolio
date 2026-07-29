@@ -1031,26 +1031,29 @@ const houseProjects: Project[] = [
   }),
 ];
 
-// The Work archive leads with these, in this order; everything else follows.
+// The main works exhibited — shown first, in this order. Everything else is
+// grouped under "In Progress" but stays viewable.
 const WORK_ORDER = [
-  "mindvault",
+  "gnx",
+  "the-n-word",
   "mindwrite",
+  "mindvault",
+  "emanual",
+  "nonprofit-builder",
+  "i-am-or-22",
+  "charm-quark-big-ben",
+  "arizona-ponderer",
+  "mission-control",
+  "nil-label",
+  "mirror",
   "rapgod",
   "legacybridge",
-  "mirror",
-  "not-a-mixtape",
-  "workwrite",
-  "nil-label",
-  "emanual",
-  "mission-control",
-  "arizona-ponderer",
-  "charm-quark-big-ben",
-  "i-am-or-22",
-  "reparations",
-  "nonprofit-builder",
-  "holy-water-wet",
-  "seven-temples-tour",
+  "blueface-salmon-p-chase",
 ];
+
+// The exhibited set (same slugs) — used to split the archive.
+export const EXHIBITED = new Set(WORK_ORDER);
+export const isExhibited = (slug: string) => EXHIBITED.has(slug);
 
 function workRank(slug: string): number {
   const i = WORK_ORDER.indexOf(slug);

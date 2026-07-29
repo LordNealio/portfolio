@@ -1728,6 +1728,20 @@ textarea.field {
   }
 }
 
+/* In-progress divider between exhibited works and the rest */
+.archive-progress {
+  position: relative;
+  z-index: 1;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.4rem, 3vw, 2.2rem);
+  padding-top: clamp(1.6rem, 3vw, 2.4rem);
+  border-top: 1px solid var(--line);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
 /* ═══ EDITORIAL ARCHIVE — exhibition booklet (Work) ═══ */
 .ed-page {
   position: relative;
