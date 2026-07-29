@@ -4,6 +4,15 @@ import { projects } from "../data/projects";
 import { ArchiveList } from "../components/ArchiveList";
 import { useReveal } from "../lib/useReveal";
 
+const paths = [
+  { icon: "📖", label: "The Story", note: "Who Just Neal is — and why any of this exists.", to: "/about" },
+  { icon: "📱", label: "The Apps", note: "MindVault, Mirror, and more — go try them.", to: "/work?d=Apps" },
+  { icon: "🧠", label: "The Research", note: "I AM / 22, Charm Quark × Big Ben, and the patterns.", to: "/work?d=Research" },
+  { icon: "👕", label: "The Fashion", note: "NIL — the house, its collections and crest.", to: "/store" },
+  { icon: "🎵", label: "The Music", note: "RapGod, GNX, Dear Ye — the connections.", to: "/work?d=Music" },
+  { icon: "🗂", label: "Everything", note: "Browse the full archive of works.", to: "/work" },
+];
+
 export function Home() {
   useReveal([]);
 
@@ -38,6 +47,33 @@ export function Home() {
         <div className="hero-scroll" aria-hidden="true">
           <span>Enter</span>
           <span className="hero-scroll-line" />
+        </div>
+      </section>
+
+      {/* ── START HERE ── */}
+      <section className="section start-here">
+        <div className="wrap">
+          <header className="section-head reveal">
+            <p className="eyebrow">Start here</p>
+            <h2 className="h1">
+              There's no right way <span className="serif-i">to explore.</span>
+            </h2>
+            <p className="lead">
+              This isn't asking you to believe every conclusion — it's an invitation to explore the
+              observations, ask questions, and make your own connections. Read, browse, try, and
+              decide what resonates.
+            </p>
+          </header>
+          <div className="paths">
+            {paths.map((p) => (
+              <Link to={p.to} className="path-card reveal" key={p.label}>
+                <span className="path-icon" aria-hidden="true">{p.icon}</span>
+                <span className="path-label">{p.label}</span>
+                <span className="path-note muted">{p.note}</span>
+                <span className="path-go" aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

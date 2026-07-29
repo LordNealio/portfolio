@@ -248,6 +248,59 @@
   }
 }
 
+/* ── START HERE — path cards ── */
+.start-here {
+  border-bottom: 1px solid var(--line);
+}
+.paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.path-card {
+  position: relative;
+  background: var(--ink);
+  padding: clamp(1.5rem, 3vw, 2.1rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.35s;
+}
+.path-card:hover {
+  background: var(--panel);
+}
+.path-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.path-label {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+.path-note {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 30ch;
+}
+.path-go {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: transform 0.4s var(--ease);
+}
+.path-card:hover .path-go {
+  transform: translateX(5px);
+}
+
 /* ── NIL HERO ── */
 .nil-hero {
   min-height: 100svh;

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   projects as allProjects,
   projectDisciplines,
@@ -24,7 +24,13 @@ export function ArchiveList({
   projects?: Project[];
   filterable?: boolean;
 }) {
-  const [filter, setFilter] = useState<Discipline | "all">("all");
+  const [searchParams] = useSearchParams();
+  const initialDiscipline = searchParams.get("d");
+  const [filter, setFilter] = useState<Discipline | "all">(
+    initialDiscipline && (DISCIPLINES as string[]).includes(initialDiscipline)
+      ? (initialDiscipline as Discipline)
+      : "all"
+  );
   const { mode } = useMode();
 
   const shown = useMemo(
