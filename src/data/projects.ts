@@ -977,13 +977,14 @@ const houseProjects: Project[] = [
   house({ slug: "the-n-word", title: "The N Word", subtitle: "A cultural inquiry into a word, its history, and its weight.", disciplines: ["Culture", "Research", "Publishing"], accent: "#16202b" }),
   house({
     slug: "reading-list",
-    title: "Reading List",
+    title: "Reading List / Free Game",
     subtitle: "The books behind the thinking.",
     summary: "A curated reading list — the books that shape the ideas across the house.",
     disciplines: ["Research", "Publishing", "Culture"],
     status: "research",
     accent: "#9a7628",
     role: "Curated by Just Neal.",
+    links: [{ label: "Virgil Abloh · Free Game", href: "https://free-game.virgilabloh.com/", verified: true }],
     books: [
       { title: "Life after Capitalism", author: "George Gilder", href: "https://www.amazon.com/dp/1684512247" },
       { title: "All About Love: New Visions", author: "bell hooks", href: "https://www.amazon.com/dp/0060959479" },
