@@ -58,6 +58,38 @@ export function assignArm(): "intervention" | "comparison" {
   return Math.random() < 0.5 ? "intervention" : "comparison";
 }
 
+// ── Lineage cohort (PROVISIONAL) ──────────────────────────────────────────────
+// Mirrors the draft rule in docs/STUDY_PHASE2_PLAN.md §1.7. This is a DEFAULT for
+// convenience only — a reviewer must finalize the boundaries before analysis. It
+// is used solely on the read side (admin summary/export) to label rows; it never
+// gates the participant flow. Because every raw indicator is also exported, any
+// alternative rule can be re-applied later without re-collecting data.
+export type Cohort =
+  | "historic-lineage"
+  | "partial-lineage"
+  | "recent-diaspora"
+  | "other-comparison"
+  | "unknown-lineage";
+
+export function deriveCohort(bg: Record<string, string>): Cohort {
+  const black = bg.bg_black_american;
+  const raceBlack = (bg.bg_race || "").includes("Black or African American");
+  const identifiesBlack = black === "Yes" || raceBlack;
+  const gp = /^[0-4]$/.test(bg.bg_grandparents_pre1965 || "")
+    ? parseInt(bg.bg_grandparents_pre1965, 10)
+    : null; // null = "Unsure"/PNA/missing
+  const established = bg.bg_established_pre1965;
+  const immigratedPost65 = (bg.bg_family_experiences || "").split("|").includes("Immigration after 1965");
+  const lowCertainty = bg.bg_history_certainty === "Very uncertain";
+
+  if (!identifiesBlack) return black === "No" ? "other-comparison" : "unknown-lineage";
+  if (gp !== null && gp >= 2) return "historic-lineage";
+  if (gp === 0 && (immigratedPost65 || established === "No")) return "recent-diaspora";
+  if (gp === 1) return "partial-lineage";
+  if (gp === null || lowCertainty) return "unknown-lineage";
+  return "unknown-lineage";
+}
+
 // ── Validation ────────────────────────────────────────────────────────────────
 // Whitelists MIRROR src/data/study.ts. Kept independent because study.ts uses
 // Vite-only `import.meta.env` and must not be imported into a Node function.

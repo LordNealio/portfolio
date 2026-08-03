@@ -19,6 +19,7 @@ interface ItemStat {
 interface Summary {
   note: string;
   counts: Record<string, number>;
+  cohortCounts: Record<string, number>;
   attitudeChange: { arm: string; items: ItemStat[] }[];
 }
 
@@ -131,6 +132,23 @@ export function StudyAdmin() {
                       </span>
                     ))}
                   </div>
+
+                  {data.cohortCounts && (
+                    <>
+                      <h2 className="study-h2">Lineage cohorts (provisional)</h2>
+                      <div className="chips">
+                        {Object.entries(data.cohortCounts).map(([k, v]) => (
+                          <span className="chip on" key={k}>
+                            {k}: {v}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="study-fine">
+                        Cohort labels are a provisional default and must be finalized by your
+                        reviewer. Raw indicators are in the export so any rule can be re-applied.
+                      </p>
+                    </>
+                  )}
 
                   {data.attitudeChange.map((arm) => (
                     <div key={arm.arm}>

@@ -22,7 +22,7 @@ export const STUDY = {
   subtitle:
     "A study of how history, identity, relationships, and context shape the meaning of one of America's most contested words.",
   intro:
-    "This project examines whether learning more about the N-word's history, changing meanings, speaker differences, and reclamation debates affects how people interpret it. You will answer an initial survey, complete a short educational module, and answer follow-up questions. The study does not require you to use the word or adopt a particular opinion.",
+    "This project examines how people understand the N-word across different situations, and whether learning more about its history, changing meanings, speaker differences, and reclamation debates affects how people interpret it. It centers the historic, multigenerational Black American community and also includes participants from outside it, comparing how each understands the word's history, ownership, and possible future. You will answer an initial survey, complete a short educational module, and answer follow-up questions. The study does not require you to use the word or adopt a particular opinion.",
   notices: [
     "Approximately 30–40 minutes",
     "Adults 18 and older only",
@@ -59,7 +59,7 @@ export const eligibility = [
 ];
 
 export const consentSections: { h: string; body: string }[] = [
-  { h: "Purpose", body: "To study whether historical, linguistic, and contextual information affects how people perceive the N-word — including hostile use versus reclaimed or in-group use." },
+  { h: "Purpose", body: "To study whether historical, linguistic, and contextual information affects how people perceive the N-word — including hostile use versus reclaimed or in-group use. The study centers the historic, multigenerational Black American community while also including participants from outside it." },
   { h: "What you will do", body: "Answer a background questionnaire and an initial survey, complete a short educational module and knowledge check, answer a follow-up survey, and write brief reflections." },
   { h: "Estimated duration", body: "Approximately 30–40 minutes, completed at your own pace." },
   { h: "Potential discomfort or emotional risks", body: "The material discusses racism, a racial slur, discrimination, and racial violence, which some people may find upsetting. You may skip non-essential questions and stop at any time." },

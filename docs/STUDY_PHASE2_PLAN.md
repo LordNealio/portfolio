@@ -101,8 +101,11 @@ roots, not as proof of any particular ancestry:
 | Unknown-lineage | Cannot confidently determine family history (`bg_history_certainty` low / `Unsure` responses) |
 
 Cohort assignment is computed from the responses during analysis and documented in the
-pre-registration; it is deliberately **not** enforced in the participant flow or hard-coded in
-the pipeline, because the exact boundaries are an analytic decision for the reviewer.
+pre-registration; it is deliberately **not** enforced in the participant flow, because the exact
+boundaries are an analytic decision for the reviewer. A **provisional** default implementing this
+table (`deriveCohort` in `api/_shared/study.ts`) labels rows in the admin summary (cohort counts)
+and export (`cohort_provisional` column) for convenience only; every raw indicator is also
+exported so the reviewer can override it without re-collecting data.
 
 ---
 

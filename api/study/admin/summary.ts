@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, adminAuthed, methodGuard } from "../../_shared/study.js";
+import { db, adminAuthed, methodGuard, deriveCohort } from "../../_shared/study.js";
 
 // GET /api/study/admin/summary   Header: Authorization: Bearer <STUDY_ADMIN_TOKEN>
 // Descriptive aggregates only. Preview + withdrawn rows are excluded. Attitude
@@ -27,6 +27,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     intervention: analyzable.filter((p) => p.arm === "intervention").length,
     comparison: analyzable.filter((p) => p.arm === "comparison").length,
   };
+
+  // Lineage cohort distribution (PROVISIONAL rule — see deriveCohort/plan §1.7).
+  const cohortCounts: Record<string, number> = {};
+  if (ids.length) {
+    const { data: bgRows } = await db()
+      .from("study_responses")
+      .select("participant_id, item_id, value_text")
+      .in("participant_id", ids)
+      .eq("phase", "background");
+    const byPid: Record<string, Record<string, string>> = {};
+    for (const r of bgRows || []) {
+      if (r.value_text == null) continue;
+      (byPid[r.participant_id] ||= {})[r.item_id] = r.value_text;
+    }
+    for (const pid of ids) {
+      const c = deriveCohort(byPid[pid] || {});
+      cohortCounts[c] = (cohortCounts[c] || 0) + 1;
+    }
+  }
 
   // Pull numeric responses for analyzable participants and compute pre/post means.
   const perception: Record<string, Record<string, { pre: number[]; post: number[] }>> = {
@@ -65,8 +84,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }));
 
   return res.status(200).json({
-    note: "Descriptive only. Δ = post − baseline. No significance is inferred. Preview and withdrawn records excluded.",
+    note: "Descriptive only. Δ = post − baseline. No significance is inferred. Preview and withdrawn records excluded. Cohort labels are PROVISIONAL (reviewer must finalize).",
     counts,
+    cohortCounts,
     attitudeChange,
   });
 }

@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, adminAuthed, methodGuard } from "../../_shared/study.js";
+import { db, adminAuthed, methodGuard, deriveCohort } from "../../_shared/study.js";
 
 // GET /api/study/admin/export?format=json|csv&texts=1
 //   Header: Authorization: Bearer <STUDY_ADMIN_TOKEN>
@@ -39,10 +39,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  // Provisional lineage cohort per participant, from their background answers.
+  const bgByPid: Record<string, Record<string, string>> = {};
+  for (const r of responses) {
+    if (r.phase !== "background" || r.value_text == null) continue;
+    (bgByPid[r.participant_id] ||= {})[r.item_id] = r.value_text;
+  }
+  const cohortOf = (pid: string) => deriveCohort(bgByPid[pid] || {});
+
   const rows = [
     ...responses.map((r) => ({
       participant_id: r.participant_id,
       arm: meta.get(r.participant_id)?.arm ?? "",
+      cohort_provisional: cohortOf(r.participant_id),
       withdrawn: meta.get(r.participant_id)?.withdrawn ?? false,
       kind: "response",
       phase: r.phase,
@@ -53,6 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ...texts.map((t) => ({
       participant_id: t.participant_id,
       arm: meta.get(t.participant_id)?.arm ?? "",
+      cohort_provisional: cohortOf(t.participant_id),
       withdrawn: meta.get(t.participant_id)?.withdrawn ?? false,
       kind: "text",
       phase: t.phase,
@@ -63,7 +73,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   ];
 
   if (format === "csv") {
-    const cols = ["participant_id", "arm", "withdrawn", "kind", "phase", "item_id", "value_num", "value_text"];
+    const cols = ["participant_id", "arm", "cohort_provisional", "withdrawn", "kind", "phase", "item_id", "value_num", "value_text"];
     const esc = (v: unknown) => {
       const s = v === null || v === undefined ? "" : String(v);
       return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
