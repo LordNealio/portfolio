@@ -61,8 +61,13 @@ export function ProjectDetail() {
               <h1 className="display detail-title">{project.title}</h1>
               <p className="h3 detail-subtitle muted serif-i">{project.subtitle}</p>
               <p className="lead detail-summary">{project.summary}</p>
-              {project.links.length > 0 && (
+              {(project.links.length > 0 || project.studyPath) && (
                 <div className="detail-links">
+                  {project.studyPath && (
+                    <Link className="btn btn-primary" to={project.studyPath}>
+                      Enter the study (preview) <span className="arr">→</span>
+                    </Link>
+                  )}
                   {project.links.map((l) => (
                     <a key={l.href} className="btn btn-primary" href={l.href} target="_blank" rel="noreferrer">
                       {l.label} <span className="arr">↗</span>

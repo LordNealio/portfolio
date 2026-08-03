@@ -1,0 +1,500 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   STUDY — "Language, Identity, and the N-Word" (Black Builders Toolbox)
+   Scholarly, calm, clean white. Self-contained colors so the NIL/Supreme mode
+   toggle never changes it. Navy/charcoal type, gold accent, restrained green &
+   burgundy, rounded cards, thin architectural lines.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.study {
+  --s-paper: #ffffff;
+  --s-soft: #f6f4ef;
+  --s-ink: #1c2733;
+  --s-ink-2: #4a5560;
+  --s-muted: #78828d;
+  --s-line: rgba(20, 30, 42, 0.14);
+  --s-gold: #9a7628;
+  --s-green: #2c3a2c;
+  --s-burgundy: #5a2a2e;
+  --s-radius: 14px;
+
+  background: var(--s-paper);
+  color: var(--s-ink);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+.study .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.study-wrap {
+  max-width: 780px;
+}
+
+/* Preview banner */
+.study-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  background: color-mix(in srgb, var(--s-gold) 10%, #fff);
+  border: 1px solid color-mix(in srgb, var(--s-gold) 40%, transparent);
+  border-radius: var(--s-radius);
+  padding: 0.9rem 1.1rem;
+  font-size: 0.92rem;
+  color: var(--s-ink-2);
+  margin-bottom: 1.6rem;
+}
+.study-banner strong {
+  color: var(--s-gold);
+}
+.study-enroll {
+  margin-left: auto;
+  border: 1px solid var(--s-line);
+  border-radius: 100px;
+  padding: 0.4em 0.9em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--s-muted);
+  background: #fff;
+  cursor: not-allowed;
+}
+
+/* Progress */
+.study-progress {
+  margin-bottom: 1.2rem;
+}
+.study-progress-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--s-ink-2);
+  margin-bottom: 0.5rem;
+}
+.study-progress-top .muted {
+  color: var(--s-muted);
+  font-weight: 400;
+}
+.study-bar {
+  height: 5px;
+  background: var(--s-soft);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.study-bar-fill {
+  height: 100%;
+  background: var(--s-gold);
+  border-radius: 100px;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card */
+.study-card {
+  background: var(--s-paper);
+  border: 1px solid var(--s-line);
+  border-radius: var(--s-radius);
+  padding: clamp(1.4rem, 4vw, 2.6rem);
+}
+
+/* Typography */
+.study-eyebrow {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--s-gold);
+  margin-bottom: 0.8rem;
+}
+.study-h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--s-ink);
+}
+.study-sub {
+  font-size: 1.05rem;
+  color: var(--s-ink-2);
+  margin-top: 0.7rem;
+  line-height: 1.5;
+}
+.study-h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--s-ink);
+  margin-bottom: 1.2rem;
+}
+.study-h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--s-ink);
+  margin: 1.6rem 0 0.8rem;
+}
+.study-p {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--s-ink-2);
+  margin-top: 0.9rem;
+}
+.study-fine {
+  font-size: 0.86rem;
+  color: var(--s-muted);
+  margin-top: 1rem;
+}
+.study-notices {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 1rem 1.2rem;
+  background: var(--s-soft);
+  border-radius: var(--s-radius);
+  display: grid;
+  gap: 0.5rem;
+}
+.study-notices li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: 0.94rem;
+  color: var(--s-ink-2);
+}
+.study-notices li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--s-gold);
+}
+
+/* Fields */
+.study-field {
+  border: none;
+  padding: 0;
+  margin: 1.6rem 0;
+}
+.study-field legend {
+  font-weight: 600;
+  color: var(--s-ink);
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.study-input {
+  width: 100%;
+  font: inherit;
+  font-size: 0.98rem;
+  color: var(--s-ink);
+  background: var(--s-paper);
+  border: 1px solid var(--s-line);
+  border-radius: 10px;
+  padding: 0.7em 0.9em;
+  margin-top: 0.6rem;
+  resize: vertical;
+}
+.study-input:focus {
+  outline: none;
+  border-color: var(--s-gold);
+}
+
+/* Chips (single/multi selects, yes/no) */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chips.col {
+  flex-direction: column;
+}
+.yn {
+  display: flex;
+  gap: 0.6rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  border: 1px solid var(--s-line);
+  border-radius: 100px;
+  padding: 0.5em 1em;
+  font-size: 0.92rem;
+  color: var(--s-ink-2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.chips.col .chip {
+  border-radius: 10px;
+  justify-content: flex-start;
+}
+.chip input {
+  accent-color: var(--s-gold);
+}
+.chip:hover {
+  border-color: var(--s-gold);
+}
+.chip.on {
+  border-color: var(--s-gold);
+  background: color-mix(in srgb, var(--s-gold) 10%, #fff);
+  color: var(--s-ink);
+  font-weight: 600;
+}
+.chip.correct {
+  border-color: var(--s-green);
+  background: color-mix(in srgb, var(--s-green) 12%, #fff);
+}
+.chip.wrong {
+  border-color: var(--s-burgundy);
+  background: color-mix(in srgb, var(--s-burgundy) 10%, #fff);
+}
+.kc-hint {
+  font-size: 0.84rem;
+  color: var(--s-burgundy);
+  margin-top: 0.5rem;
+}
+
+/* Consent */
+.consent-body {
+  display: grid;
+  gap: 1.1rem;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--s-line);
+  border-radius: var(--s-radius);
+  background: var(--s-soft);
+}
+.consent-sec h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--s-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+.consent-sec p {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--s-ink-2);
+}
+.consent-checks {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 0.8rem;
+}
+.check {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.96rem;
+  color: var(--s-ink);
+  cursor: pointer;
+}
+.check input {
+  margin-top: 0.2rem;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--s-gold);
+  flex-shrink: 0;
+}
+.check.optional {
+  color: var(--s-muted);
+}
+
+/* Anonymous code */
+.code-badge {
+  display: inline-block;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: var(--s-ink);
+  background: var(--s-soft);
+  border: 1px dashed var(--s-gold);
+  border-radius: var(--s-radius);
+  padding: 0.6rem 1.4rem;
+  margin: 1.2rem 0 0.4rem;
+}
+
+/* Survey items + scale */
+.study-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--s-line);
+}
+.study-item-q {
+  font-size: 1rem;
+  color: var(--s-ink);
+  margin-bottom: 0.7rem;
+  line-height: 1.45;
+}
+.scale {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+.scale-end {
+  font-size: 0.74rem;
+  color: var(--s-muted);
+  flex: 0 0 auto;
+  max-width: 6.5rem;
+}
+.scale-opts {
+  display: flex;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+.scale-opt {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--s-line);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--s-ink-2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.scale-opt input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+.scale-opt:hover {
+  border-color: var(--s-gold);
+}
+.scale-opt.on {
+  background: var(--s-gold);
+  border-color: var(--s-gold);
+  color: #fff;
+}
+
+/* Scenarios */
+.scenario {
+  border: 1px solid var(--s-line);
+  border-radius: var(--s-radius);
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+  background: var(--s-soft);
+}
+.scenario-text {
+  font-weight: 600;
+  color: var(--s-ink);
+  margin-bottom: 0.9rem;
+  line-height: 1.45;
+}
+.scenario-measure {
+  padding: 0.6rem 0;
+}
+.scenario-q {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--s-ink-2);
+  margin-bottom: 0.4rem;
+}
+
+/* Module */
+.module-sec {
+  border-left: 2px solid color-mix(in srgb, var(--s-gold) 45%, transparent);
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  margin-bottom: 2rem;
+}
+.module-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-gold);
+}
+.module-reflect {
+  margin-top: 1rem;
+}
+.reflect-label {
+  display: block;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--s-ink-2);
+  margin-bottom: 0.4rem;
+}
+
+/* Buttons + nav */
+.study-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  border-radius: 100px;
+  padding: 0.75em 1.4em;
+  font-size: 0.94rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.study-btn.primary {
+  background: var(--s-gold);
+  color: #fff;
+}
+.study-btn.primary:hover {
+  background: color-mix(in srgb, var(--s-gold) 85%, #000);
+}
+.study-btn.primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.study-btn.ghost {
+  border-color: var(--s-line);
+  color: var(--s-ink);
+  background: #fff;
+}
+.study-btn.ghost:hover {
+  border-color: var(--s-gold);
+  color: var(--s-gold);
+}
+.study-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+.study-nav > div {
+  flex: 1;
+}
+.study-nav > div:last-child {
+  text-align: right;
+}
+.study-leave {
+  font-size: 0.84rem;
+  color: var(--s-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.study-leave:hover {
+  color: var(--s-burgundy);
+}
+
+@media (max-width: 560px) {
+  .scale-end {
+    max-width: 5rem;
+    font-size: 0.68rem;
+  }
+  .scale-opt {
+    width: 30px;
+    height: 30px;
+  }
+}

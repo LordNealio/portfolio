@@ -11,6 +11,7 @@ import { Now } from "./pages/Now";
 import { Contact } from "./pages/Contact";
 import { Store } from "./pages/Store";
 import { Journal } from "./pages/Journal";
+import { Study } from "./pages/Study";
 import { NotFound } from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -36,6 +37,7 @@ export function App() {
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />
           <Route path="/journal" element={<Journal />} />
+          <Route path="/study/n-word" element={<Study />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/about" element={<About />} />
           <Route path="/now" element={<Now />} />

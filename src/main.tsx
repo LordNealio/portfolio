@@ -6,6 +6,7 @@ import { ModeProvider } from "./lib/mode";
 import "./styles/global.css";
 import "./styles/components.css";
 import "./styles/supreme.css";
+import "./styles/study.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

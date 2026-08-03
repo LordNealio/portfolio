@@ -84,6 +84,7 @@ export interface Project {
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
+  studyPath?: string; // internal route to a participant research experience
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   sections?: EssaySection[]; // long-form essay rendered on the detail page
@@ -976,7 +977,19 @@ const houseProjects: Project[] = [
     relatedProjects: ["charm-quark-big-ben", "rapgod"],
   }),
   house({ slug: "reparations", title: "The R Word", subtitle: "Reparations — on repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
-  house({ slug: "the-n-word", title: "The N Word", subtitle: "A cultural inquiry into a word, its history, and its weight.", disciplines: ["Culture", "Research", "Publishing"], accent: "#16202b" }),
+  house({
+    slug: "the-n-word",
+    title: "The N Word",
+    subtitle: "Language, Identity, and the N-Word — a study of perception and context.",
+    summary:
+      "A guided educational study measuring how history, linguistics, and context shape perception of the N-word — part of the Black Builders Toolbox.",
+    disciplines: ["Research", "Culture", "Education"],
+    kind: "Research",
+    accent: "#16202b",
+    role: "Researcher and designer — original study by Just Neal.",
+    studyPath: "/study/n-word",
+    note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
+  }),
   house({
     slug: "reading-list",
     title: "Reading List / Free Game",
