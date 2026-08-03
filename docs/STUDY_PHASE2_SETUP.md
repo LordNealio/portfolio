@@ -25,6 +25,7 @@ to make it live **after** independent/IRB review.
    - `STUDY_ADMIN_TOKEN` = a long random string
    - Leave `RESEARCH_ENROLLMENT_ENABLED` and `VITE_RESEARCH_ENROLLMENT_ENABLED` **unset or `false`** for now.
 4. **Verify while still OFF:** deploy, open `/study/n-word/admin`, sign in with the token — you should see zero counts (proves the DB + token work). Walk `/study/n-word` — it must still say "Preview" and write nothing.
+   - Public production URL: `https://portfolio-nine-zeta-0rmcnv0m3r.vercel.app`. While dormant, the API correctly refuses: write endpoints → `403 enrollment_closed`, admin → `503 not_configured`, wrong method → `405`. (The `*-justins-projects-*.vercel.app` alias has Vercel deployment protection and will 401 — use the public alias above.)
 5. **Go live (only after review):** set both `RESEARCH_ENROLLMENT_ENABLED=true` (server) and `VITE_RESEARCH_ENROLLMENT_ENABLED=true` (client), redeploy. The banner switches to "enrollment open," arms are assigned, and responses save.
 6. **To pause enrollment:** set both flags back to `false` and redeploy. Existing data is untouched.
 
