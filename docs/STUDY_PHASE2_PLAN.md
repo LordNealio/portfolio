@@ -72,6 +72,38 @@ Have the design, consent, module, comparison material, and analysis plan **indep
 reviewed** (ethics/IRB or a qualified researcher). Pre-register the primary hypothesis and
 outcomes.
 
+### 1.7 Focal population — multigenerational Black American lineage
+The study centers the **historic, multigenerational Black American community established in the
+United States before the major immigration changes of 1965** — a population shaped by family,
+language, labor, segregation, migration, cultural creation, and resistance. It examines how
+people **within and outside** this community understand the history, ownership, and possible
+future of the N-word.
+
+**Slavery is part of that historical background but is NOT an individual eligibility
+requirement.** Family memory reaches parents, grandparents, and sharecroppers far more reliably
+than it reaches a documented enslaved ancestor; requiring a direct account of slavery would
+wrongly exclude people who clearly belong to the historic Black American community. Instead,
+lineage is measured through several indicators (community identification, U.S.-born grandparents,
+pre-1965 establishment, and a family-experiences checklist in which enslavement is one item among
+many — sharecropping, Jim Crow, the Great Migration, Black churches and towns, military service,
+civil-rights activism, free Black community, Indigenous connection, post-1965 immigration).
+
+**Lineage cohorts (derived at analysis time, not a hard gate — subject to review).** The
+"two-grandparent" idea is retained as an *eligibility proxy* for multigenerational American
+roots, not as proof of any particular ancestry:
+
+| Cohort | Working definition (draft — reviewer to finalize) |
+|---|---|
+| Historic-lineage | Identifies as Black American **and** ≥ 2 grandparents from families established in the U.S. before 1965 (`bg_black_american`=Yes, `bg_grandparents_pre1965` ≥ 2) |
+| Partial-lineage | One qualifying grandparent, or mixed lineage |
+| Recent-diaspora | Black participant whose family primarily immigrated after 1965 |
+| Other comparison | Does not identify with the historic Black American lineage |
+| Unknown-lineage | Cannot confidently determine family history (`bg_history_certainty` low / `Unsure` responses) |
+
+Cohort assignment is computed from the responses during analysis and documented in the
+pre-registration; it is deliberately **not** enforced in the participant flow or hard-coded in
+the pipeline, because the exact boundaries are an analytic decision for the reviewer.
+
 ---
 
 ## 2. Data model (Supabase / Postgres)
@@ -157,9 +189,11 @@ configurable retention/deletion policy.
   future approved protocol requires it.
 - **Background (all optional, incl. "Prefer not to answer"):** `bg_age`, `bg_race` (multi +
   self-describe), `bg_gender` (+ self-describe), `bg_region`, `bg_black_american`,
-  `bg_black_american`, `bg_slavery_descent` (descent from people enslaved in the transatlantic
-  slave trade — US / elsewhere in the Americas / no / unsure), `bg_familiarity`, `bg_frequency`,
-  `bg_contexts` (multi), `bg_targeted`, `bg_uses_reclaimed`.
+  `bg_black_american`; **lineage block** → `bg_community_identify`, `bg_grandparents_us_born`,
+  `bg_grandparents_pre1965` (proxy), `bg_established_pre1965`, `bg_family_experiences` (multi;
+  enslavement is one option among many), `bg_earliest_known`, `bg_history_certainty`,
+  `bg_self_terms` (free text); `bg_familiarity`, `bg_frequency`, `bg_contexts` (multi),
+  `bg_targeted`, `bg_uses_reclaimed`.
 - **Perception statements (pre & post, 7-pt agree):** `p01`–`p15`. Open-ended: `pre_open`.
 - **Scenarios:** `sc1`–`sc7` × measures `offensive`, `harmful`, `acceptable`, `confidence`
   (7-pt "Not at all"→"Extremely"), keyed `phase_scenario_measure`.
