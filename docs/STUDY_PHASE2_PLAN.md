@@ -157,7 +157,9 @@ configurable retention/deletion policy.
   future approved protocol requires it.
 - **Background (all optional, incl. "Prefer not to answer"):** `bg_age`, `bg_race` (multi +
   self-describe), `bg_gender` (+ self-describe), `bg_region`, `bg_black_american`,
-  `bg_familiarity`, `bg_frequency`, `bg_contexts` (multi), `bg_targeted`, `bg_uses_reclaimed`.
+  `bg_black_american`, `bg_slavery_descent` (descent from people enslaved in the transatlantic
+  slave trade — US / elsewhere in the Americas / no / unsure), `bg_familiarity`, `bg_frequency`,
+  `bg_contexts` (multi), `bg_targeted`, `bg_uses_reclaimed`.
 - **Perception statements (pre & post, 7-pt agree):** `p01`–`p15`. Open-ended: `pre_open`.
 - **Scenarios:** `sc1`–`sc7` × measures `offensive`, `harmful`, `acceptable`, `confidence`
   (7-pt "Not at all"→"Extremely"), keyed `phase_scenario_measure`.
