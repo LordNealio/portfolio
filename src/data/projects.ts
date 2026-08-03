@@ -262,7 +262,7 @@ const core: Project[] = [
       "An AI journaling and check-in app for frontline restaurant staff, with strict privacy and anonymized manager insights.",
     category: "Featured Products",
     tags: ["AI", "Hospitality", "Wellbeing", "Next.js", "B2B"],
-    status: "prototype",
+    status: "live",
     year: "2026",
     featured: true,
     accent: "#2E6B4F",
@@ -287,9 +287,9 @@ const core: Project[] = [
     lessons:
       "Trust is the feature. If staff believe a manager can read their words, the tool is worthless — so privacy had to be architectural, not a setting.",
     futureVision: "Run the Din Tai Fung pilot and measure retention and wellbeing signal.",
-    links: [],
+    links: [{ label: "Live app", href: "https://workwrite-app.vercel.app/", verified: true }],
     relatedProjects: ["mindvault", "creation-os"],
-    note: "Clean build, deployable; a live pilot URL is not yet public.",
+    note: "Live — an AI journaling and check-in app for restaurant crews.",
   },
 
   // ── 5. THE 7 TEMPLES TOUR ─────────────────────────────────────────────────
