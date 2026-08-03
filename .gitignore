@@ -5,3 +5,8 @@ dist
 *.local
 
 .vercel
+
+# Secrets — never commit real env files (.env.example is the tracked template)
+.env
+.env.*
+!.env.example

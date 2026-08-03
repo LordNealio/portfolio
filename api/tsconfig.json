@@ -1,0 +1,16 @@
+{
+  "//": "Editor-only typechecking for Vercel serverless functions. The root build (tsc && vite build) compiles only ./src, so these files are built by Vercel's Node runtime, not by `npm run build`.",
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2021"],
+    "types": ["node"],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "include": ["**/*.ts"]
+}

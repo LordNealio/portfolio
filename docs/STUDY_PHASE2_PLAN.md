@@ -178,7 +178,19 @@ IRB/ethics approval; consent language; the disputed-etymology framing (kept as "
 whether/how anonymized quotes may be used; subscale definitions; the analysis/pre-registration
 plan; minimum cell size for demographic reporting; and any abuse-prevention identifiers.
 
-## 7. Explicitly NOT done (per your instruction #11)
-No backend, no database, no live enrollment, no data collection, no deletion of anything. Only
-the **preview** (which stores nothing) is deployed. Building Phase 2 waits on your explicit
-approval and independent review.
+## 7. Build status
+The Phase 2 backend is now **built but dormant** (enrollment OFF). See
+[STUDY_PHASE2_SETUP.md](STUDY_PHASE2_SETUP.md) for the go-live runbook and exact file list.
+Implementation notes vs. the plan above:
+- The conceptual 14-table model is normalized into **6 tables** (schema in
+  `supabase/migrations/0001_study_schema.sql`); the separation guarantees (free-text apart from
+  measures, unlinked volunteer contacts, no raw IPs) are preserved.
+- Writes go through **server-side serverless functions using the service-role key** (not client
+  RLS-token writes) — simpler and keeps every secret off the browser. RLS is still on (default-deny)
+  as defense in depth.
+- With no env vars set, the live site is byte-for-byte the preview experience: no network calls,
+  nothing stored. Turning it on requires the Supabase secrets **and** `RESEARCH_ENROLLMENT_ENABLED=true`
+  **and** independent/IRB review.
+
+Not done / intentionally deferred: creating the Supabase project, setting any env var, enabling
+enrollment, collecting data, or deleting anything. Those wait on your explicit approval and review.

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as S from "../data/study";
+import { studyApi, type Arm, type SavePayload } from "../lib/studyApi";
 import { useReveal } from "../lib/useReveal";
 
 const STEP_LABELS = [
@@ -72,7 +73,27 @@ export function Study() {
   const [ineligible, setIneligible] = useState(false);
   const [done, setDone] = useState(false);
   const [code] = useState(genCode);
+  // Live-enrollment state (all null/false in preview — the live-site default).
+  const [participantId, setParticipantId] = useState<string | null>(null);
+  const [arm, setArm] = useState<Arm | null>(null);
+  const enrolledRef = useRef(false);
   useReveal([step, done, ineligible]);
+
+  // When (and only when) enrollment is enabled, create a participant + arm once.
+  useEffect(() => {
+    if (!studyApi.enabled || enrolledRef.current) return;
+    enrolledRef.current = true;
+    studyApi.enroll(code).then((r) => {
+      if (r) {
+        setParticipantId(r.participantId);
+        setArm(r.arm);
+      }
+    });
+  }, [code]);
+
+  // In live mode with the comparison arm, the module + knowledge steps use the
+  // neutral active-control material. Preview mode always shows the full module.
+  const showComparison = studyApi.enabled && arm === "comparison";
 
   const set = (id: string, v: unknown) => setAnswers((a) => ({ ...a, [id]: v }));
   const toggleMulti = (id: string, opt: string) =>
@@ -85,6 +106,89 @@ export function Study() {
   const total = STEP_LABELS.length;
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "auto" });
 
+  // Map the current step's answers into a save payload. Pure preview does not
+  // call this. Returns null when there is nothing to persist for a step.
+  const collect = (s: number, a: Record<string, unknown>): SavePayload | null => {
+    if (!participantId) return null;
+    const num: { item_id: string; value: number }[] = [];
+    const enums: { item_id: string; value: string }[] = [];
+    const text: { item_id: string; value: string }[] = [];
+    const events: string[] = [];
+    const pushNum = (id: string) => {
+      const v = a[id];
+      if (typeof v === "number") num.push({ item_id: id, value: v });
+    };
+    const pushText = (id: string) => {
+      const v = a[id];
+      if (typeof v === "string" && v.trim()) text.push({ item_id: id, value: v });
+    };
+    let phase = "";
+    let consent = false;
+    switch (s) {
+      case 2: // consent
+        phase = "consent";
+        consent = true;
+        [...S.consentCheckboxes, S.quotationConsent].forEach((c) =>
+          num.push({ item_id: c.id, value: a[c.id] ? 1 : 0 })
+        );
+        break;
+      case 4: // background
+        phase = "background";
+        S.backgroundQuestions.forEach((q) => {
+          const v = a[q.id];
+          if (Array.isArray(v) && v.length) enums.push({ item_id: q.id, value: v.join("|") });
+          else if (typeof v === "string" && v) enums.push({ item_id: q.id, value: v });
+          pushText(`${q.id}_self`);
+        });
+        break;
+      case 5: // baseline
+        phase = "pre";
+        S.perceptionStatements.forEach((p) => pushNum(`pre_${p.id}`));
+        S.scenarios.forEach((sc) =>
+          S.scenarioMeasures.forEach((m) => pushNum(`pre_${sc.id}_${m.id}`))
+        );
+        pushText(S.preOpenEnded.id);
+        break;
+      case 6: // module (or comparison reading)
+        phase = "module";
+        (showComparison ? S.comparisonModule : S.moduleSections).forEach((m) => {
+          events.push(`module_view:${m.id}`);
+          pushText(`reflect_${m.id}`);
+        });
+        break;
+      case 7: // knowledge (or comparison check)
+        phase = "knowledge";
+        (showComparison ? S.comparisonKnowledge : S.knowledgeCheck).forEach((k) => pushNum(k.id));
+        break;
+      case 8: // post-survey
+        phase = "post";
+        S.perceptionStatements.forEach((p) => pushNum(`post_${p.id}`));
+        S.scenarios.forEach((sc) =>
+          S.scenarioMeasures.forEach((m) => pushNum(`post_${sc.id}_${m.id}`))
+        );
+        if (!showComparison) {
+          S.postOnlyStatements.forEach((p) => pushNum(p.id));
+          if (typeof a[S.overallChange.id] === "string")
+            enums.push({ item_id: S.overallChange.id, value: a[S.overallChange.id] as string });
+        }
+        break;
+      case 9: // reflection
+        phase = "reflection";
+        S.reflectionQuestions.forEach((r) => pushText(r.id));
+        break;
+      default:
+        return null;
+    }
+    if (!num.length && !enums.length && !text.length && !events.length && !consent) return null;
+    return { participantId, phase, numeric: num, enums, text, events, consent };
+  };
+
+  const persist = (s: number, a: Record<string, unknown>) => {
+    if (!studyApi.enabled || !participantId) return;
+    const payload = collect(s, a);
+    if (payload) void studyApi.save(payload);
+  };
+
   const next = () => {
     if (step === 1) {
       const ok = S.eligibility.every((e) => answers[e.id] === "Yes");
@@ -94,7 +198,15 @@ export function Study() {
         return;
       }
     }
+    // Persist the step we are leaving (live mode only; no-op in preview).
+    persist(step, answers);
     if (step === total - 1) {
+      if (studyApi.enabled && participantId) {
+        const interests = (answers.volunteer as string[]) || [];
+        const contact = (answers.volunteer_contact as string) || "";
+        if (interests.length || contact) void studyApi.volunteer(interests, contact);
+        void studyApi.complete(participantId);
+      }
       setDone(true);
       scrollTop();
       return;
@@ -107,7 +219,13 @@ export function Study() {
     scrollTop();
   };
   const leave = () => {
-    if (confirm("Leave the study? Your progress will not be saved.")) nav("/work/the-n-word");
+    const msg = studyApi.enabled
+      ? "Leave the study? You may withdraw; responses already saved will be flagged as withdrawn."
+      : "Leave the study? Your progress will not be saved.";
+    if (confirm(msg)) {
+      if (studyApi.enabled && participantId) void studyApi.withdraw(participantId);
+      nav("/work/the-n-word");
+    }
   };
 
   // ── End states ──
@@ -132,11 +250,18 @@ export function Study() {
       <Shell>
         <div className="study-card reveal">
           <p className="study-eyebrow">Completed</p>
-          <h1 className="study-h1">Preview complete</h1>
-          <p className="study-p">
-            You've reached the end of the preview experience. Because formal enrollment is not open,{" "}
-            <strong>none of your responses were saved</strong>. Thank you for helping test the module.
-          </p>
+          <h1 className="study-h1">{studyApi.enabled ? "Thank you" : "Preview complete"}</h1>
+          {studyApi.enabled ? (
+            <p className="study-p">
+              Your responses have been recorded under your code <strong>{code}</strong>. Thank you for
+              taking part. {showComparison ? S.comparisonNote : ""}
+            </p>
+          ) : (
+            <p className="study-p">
+              You've reached the end of the preview experience. Because formal enrollment is not open,{" "}
+              <strong>none of your responses were saved</strong>. Thank you for helping test the module.
+            </p>
+          )}
           <Link to="/work/the-n-word" className="study-btn primary">
             ← Back to the project
           </Link>
@@ -153,7 +278,9 @@ export function Study() {
           <span>
             Step {step + 1} of {total} · {STEP_LABELS[step]}
           </span>
-          <span className="muted">≈ {S.STUDY.estimatedMinutes} min total · Preview — not saved</span>
+          <span className="muted">
+            ≈ {S.STUDY.estimatedMinutes} min total{studyApi.enabled ? "" : " · Preview — not saved"}
+          </span>
         </div>
         <div className="study-bar">
           <div className="study-bar-fill" style={{ width: `${((step + 1) / total) * 100}%` }} />
@@ -262,7 +389,11 @@ export function Study() {
               birthday, email, or phone. Write it down if you'd like a record.
             </p>
             <div className="code-badge">{code}</div>
-            <p className="study-fine">In this preview, the code is generated locally and nothing is stored.</p>
+            <p className="study-fine">
+              {studyApi.enabled
+                ? "This code lets you request withdrawal of your data later. It is not linked to your identity."
+                : "In this preview, the code is generated locally and nothing is stored."}
+            </p>
           </div>
         );
       case 4:
@@ -343,13 +474,14 @@ export function Study() {
             ))}
           </div>
         );
-      case 6:
+      case 6: {
+        const mod = showComparison ? S.comparisonModule : S.moduleSections;
         return (
           <div className="reveal">
-            <h2 className="study-h2">Educational module</h2>
-            {S.moduleSections.map((m, i) => (
+            <h2 className="study-h2">{showComparison ? "Reading" : "Educational module"}</h2>
+            {mod.map((m, i) => (
               <div className="module-sec" key={m.id}>
-                <p className="module-num">Section {i + 1} of {S.moduleSections.length}</p>
+                <p className="module-num">Section {i + 1} of {mod.length}</p>
                 <h3 className="study-h3">{m.title}</h3>
                 {m.body.map((b, j) => (
                   <p className="study-p" key={j}>
@@ -371,14 +503,16 @@ export function Study() {
             ))}
           </div>
         );
-      case 7:
+      }
+      case 7: {
+        const kc = showComparison ? S.comparisonKnowledge : S.knowledgeCheck;
         return (
           <div className="reveal">
-            <h2 className="study-h2">Knowledge check</h2>
+            <h2 className="study-h2">{showComparison ? "Comprehension check" : "Knowledge check"}</h2>
             <p className="study-fine">
               You won't be removed for any answer. After incorrect answers you may review the material.
             </p>
-            {S.knowledgeCheck.map((k, i) => {
+            {kc.map((k, i) => {
               const chosen = answers[k.id] as number | undefined;
               const answered = chosen !== undefined;
               return (
@@ -407,6 +541,7 @@ export function Study() {
             })}
           </div>
         );
+      }
       case 8:
         return (
           <div className="reveal">
@@ -431,38 +566,42 @@ export function Study() {
             {S.scenarios.map((sc) => (
               <ScenarioBlock key={`post_${sc.id}`} sc={sc} phase="post" answers={answers} set={set} />
             ))}
-            <h3 className="study-h3">About the module</h3>
-            {S.postOnlyStatements.map((s, i) => (
-              <div className="study-item" key={s.id}>
-                <p className="study-item-q">
-                  {i + 1}. {s.text}
-                </p>
-                <Scale
-                  name={s.id}
-                  labels={S.LIKERT_7}
-                  low="Strongly disagree"
-                  high="Strongly agree"
-                  value={answers[s.id] as number}
-                  onChange={(v) => set(s.id, v)}
-                />
-              </div>
-            ))}
-            <fieldset className="study-field">
-              <legend>{S.overallChange.q}</legend>
-              <div className="chips col">
-                {S.overallChange.options.map((o) => (
-                  <label className={`chip ${answers[S.overallChange.id] === o ? "on" : ""}`} key={o}>
-                    <input
-                      type="radio"
-                      name={S.overallChange.id}
-                      checked={answers[S.overallChange.id] === o}
-                      onChange={() => set(S.overallChange.id, o)}
+            {!showComparison && (
+              <>
+                <h3 className="study-h3">About the module</h3>
+                {S.postOnlyStatements.map((s, i) => (
+                  <div className="study-item" key={s.id}>
+                    <p className="study-item-q">
+                      {i + 1}. {s.text}
+                    </p>
+                    <Scale
+                      name={s.id}
+                      labels={S.LIKERT_7}
+                      low="Strongly disagree"
+                      high="Strongly agree"
+                      value={answers[s.id] as number}
+                      onChange={(v) => set(s.id, v)}
                     />
-                    {o}
-                  </label>
+                  </div>
                 ))}
-              </div>
-            </fieldset>
+                <fieldset className="study-field">
+                  <legend>{S.overallChange.q}</legend>
+                  <div className="chips col">
+                    {S.overallChange.options.map((o) => (
+                      <label className={`chip ${answers[S.overallChange.id] === o ? "on" : ""}`} key={o}>
+                        <input
+                          type="radio"
+                          name={S.overallChange.id}
+                          checked={answers[S.overallChange.id] === o}
+                          onChange={() => set(S.overallChange.id, o)}
+                        />
+                        {o}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              </>
+            )}
           </div>
         );
       case 9:
@@ -502,8 +641,10 @@ export function Study() {
           <div className="reveal">
             <h2 className="study-h2">Optional: volunteer</h2>
             <p className="study-p">
-              Separate from your responses, you may express interest in the following. In this preview,
-              nothing is submitted or stored.
+              Separate from your responses, you may express interest in the following.{" "}
+              {studyApi.enabled
+                ? "If you share contact details, they are stored separately and are not linked to your survey answers."
+                : "In this preview, nothing is submitted or stored."}
             </p>
             <div className="chips col">
               {S.volunteerOptions.map((o) => (
@@ -569,14 +710,21 @@ function Shell({ children }: { children: React.ReactNode }) {
   return (
     <section className="section page-top study">
       <div className="wrap study-wrap">
-        <div className="study-banner reveal" role="note">
-          <strong>Preview / Educational Demonstration Mode.</strong> Formal research enrollment is not
-          currently open. This is a walkthrough of the participant experience — no responses are saved as
-          research data.{" "}
-          <button className="study-enroll" disabled>
-            Research enrollment coming soon
-          </button>
-        </div>
+        {studyApi.enabled ? (
+          <div className="study-banner reveal" role="note">
+            <strong>Research study — enrollment open.</strong> Your responses are saved under a random
+            code and used only for this approved study. You may stop at any time using “Leave study.”
+          </div>
+        ) : (
+          <div className="study-banner reveal" role="note">
+            <strong>Preview / Educational Demonstration Mode.</strong> Formal research enrollment is not
+            currently open. This is a walkthrough of the participant experience — no responses are saved as
+            research data.{" "}
+            <button className="study-enroll" disabled>
+              Research enrollment coming soon
+            </button>
+          </div>
+        )}
         {children}
       </div>
     </section>

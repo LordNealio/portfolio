@@ -498,3 +498,22 @@
     height: 30px;
   }
 }
+
+/* Researcher dashboard table (scoped, self-contained colors like the rest) */
+.study .admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem;
+}
+.study .admin-table th,
+.study .admin-table td {
+  text-align: left;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid rgba(28, 39, 51, 0.12);
+  white-space: nowrap;
+}
+.study .admin-table th {
+  font-weight: 600;
+  color: var(--s-gold);
+}

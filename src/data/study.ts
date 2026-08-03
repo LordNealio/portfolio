@@ -283,6 +283,62 @@ export const debrief = [
 
 export const supportResources = "[Support resources and researcher / participant-concerns contacts — to be provided.]";
 
+// ── Comparison-arm material (active control) ──────────────────────────────────
+// In a formal randomized pilot, half of participants are assigned to a comparison
+// arm. They complete the SAME baseline and post surveys with an equally-long,
+// neutral reading in between — about how language changes in general, with NO
+// N-word content — plus a matched comprehension check. This holds "reading + time
+// + retest" constant so the intervention arm's extra change can be attributed to
+// the study module rather than to simply seeing the items twice.
+// PREVIEW MODE never shows this: testers always walk the full educational module.
+export const comparisonModule: { id: string; title: string; body: string[]; reflection: string }[] = [
+  {
+    id: "c1",
+    title: "How words change over time",
+    body: [
+      "Languages are not fixed. The words people use, and what those words mean, shift gradually as communities adopt new habits of speech.",
+      "A word's meaning today is the result of countless small choices by ordinary speakers, not a single official decision.",
+    ],
+    reflection: "Can you think of a word whose meaning has changed during your lifetime?",
+  },
+  {
+    id: "c2",
+    title: "Borrowing between languages",
+    body: [
+      "Many everyday English words were borrowed from other languages — for food, technology, music, and trade.",
+      "Borrowed words often change spelling, pronunciation, or meaning as they settle into a new language.",
+    ],
+    reflection: "What is a word you use that came from another language?",
+  },
+  {
+    id: "c3",
+    title: "Formal and informal registers",
+    body: [
+      "People shift between formal and informal ways of speaking depending on the setting — a job interview versus a text to a friend.",
+      "The same idea can be phrased many ways, and part of fluency is choosing a register that fits the moment.",
+    ],
+    reflection: "When do you switch between formal and informal speech?",
+  },
+  {
+    id: "c4",
+    title: "Why new words appear",
+    body: [
+      "New tools, ideas, and experiences create a need for new vocabulary, so speakers coin words or repurpose old ones.",
+      "Some new words fade quickly; others become permanent additions to the language.",
+    ],
+    reflection: "What is a recently coined word you have started using?",
+  },
+];
+
+export const comparisonKnowledge = [
+  { id: "ck1", q: "Word meanings over time are:", options: ["Permanently fixed", "Gradually changeable", "Set by a single authority", "Unsure"], correct: 1 },
+  { id: "ck2", q: "Borrowed words:", options: ["Never change", "Can change spelling, sound, or meaning", "Must keep their original meaning", "Are always rejected"], correct: 1 },
+  { id: "ck3", q: "Choosing between formal and informal speech depends on:", options: ["Nothing", "The setting or audience", "The weather", "The alphabet"], correct: 1 },
+];
+
+export const comparisonNote =
+  "You completed the comparison reading for this pilot. If you'd like, you can now view the full educational module on the project page.";
+
 export const volunteerOptions = [
   "A future interview",
   "A focus group",
