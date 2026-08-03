@@ -6,7 +6,7 @@ import {
   validNum,
   validTextItem,
   cleanText,
-} from "../_shared/study";
+} from "../_shared/study.js";
 
 // POST /api/study/save
 // Body: {

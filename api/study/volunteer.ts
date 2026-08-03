@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, methodGuard, requireEnrollment, cleanText } from "../_shared/study";
+import { db, methodGuard, requireEnrollment, cleanText } from "../_shared/study.js";
 
 // POST /api/study/volunteer  Body: { interests: string[], contact?: string }
 // Stored in study_volunteers, which has NO link to the participant's responses.

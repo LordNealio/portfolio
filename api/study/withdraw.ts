@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, methodGuard, requireEnrollment } from "../_shared/study";
+import { db, methodGuard, requireEnrollment } from "../_shared/study.js";
 
 // POST /api/study/withdraw  Body: { participantId: string }
 // Withdrawal FLAGS the record (and stops further saves). It never hard-deletes

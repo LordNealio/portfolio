@@ -5,7 +5,7 @@ import {
   STUDY_VERSIONS,
   methodGuard,
   requireEnrollment,
-} from "../_shared/study";
+} from "../_shared/study.js";
 
 // POST /api/study/enroll
 // Body: { anonCode: string, isPreview?: boolean }

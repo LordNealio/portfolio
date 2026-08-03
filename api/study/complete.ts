@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, methodGuard, requireEnrollment } from "../_shared/study";
+import { db, methodGuard, requireEnrollment } from "../_shared/study.js";
 
 // POST /api/study/complete  Body: { participantId: string }
 export default async function handler(req: VercelRequest, res: VercelResponse) {

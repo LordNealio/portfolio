@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { db, adminAuthed, methodGuard } from "../../_shared/study";
+import { db, adminAuthed, methodGuard } from "../../_shared/study.js";
 
 // GET /api/study/admin/summary   Header: Authorization: Bearer <STUDY_ADMIN_TOKEN>
 // Descriptive aggregates only. Preview + withdrawn rows are excluded. Attitude
