@@ -1,282 +1,372 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   Cinematic fashion layout (.fashion-cine) — a deliberate dark stage in both
-   themes. Full-bleed title card, immersive look scenes, house story, lookbook.
+   Fashion experience (.fx) — a full-screen cinematic slideshow that takes over
+   the viewport. Cover → vision slides → the clickable NIL index → the lookbook.
    ───────────────────────────────────────────────────────────────────────────── */
-.fashion-cine {
-  --stage: #0b1218;
-  --stage-2: #0f1a24;
-  --cine-cream: #efe9db;
-  --cine-muted: #a9a695;
-  --cine-gold: #c9a24b;
-  background: var(--stage);
-  color: var(--cine-cream);
-}
-
-/* Back link floats over the hero */
-.fashion-cine .cine-back {
-  position: absolute;
-  z-index: 5;
-  top: clamp(16px, 3vw, 32px);
-  left: var(--gutter);
-  color: var(--cine-cream);
-  text-decoration: none;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
-}
-.fashion-cine .cine-back:hover {
-  opacity: 1;
-}
-
-/* ── Title card ─────────────────────────────────────────────────────────────── */
-.cine-hero {
-  position: relative;
-  min-height: 92vh;
-  min-height: 92svh;
+.fx {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  background: #0a0f14;
+  color: #efe9db;
+  font-family: var(--sans);
+}
+
+/* Top bar */
+.fx-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.8rem, 2vw, 1.4rem) clamp(1rem, 4vw, 2.4rem);
+  border-bottom: 1px solid rgba(240, 233, 219, 0.1);
+}
+.fx-brand {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  letter-spacing: 0.16em;
+  color: #fff;
+}
+.fx-crumb {
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a9a695;
+}
+.fx-close {
+  background: none;
+  border: 1px solid rgba(240, 233, 219, 0.25);
+  color: #efe9db;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.fx-close:hover {
+  background: rgba(240, 233, 219, 0.1);
+  border-color: rgba(240, 233, 219, 0.5);
+}
+
+/* Stage (fades on each step) */
+.fx-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: fx-fade 0.55s var(--ease);
+}
+@keyframes fx-fade {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fx-stage {
+    animation: none;
+  }
+}
+
+/* Cover */
+.fx-cover {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: inherit;
   background-color: #0a0f14;
   background-size: cover;
-  background-position: center 20%;
+  background-position: center 22%;
 }
-.cine-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 12, 16, 0.55) 0%,
-    rgba(8, 12, 16, 0.15) 34%,
-    rgba(8, 12, 16, 0.6) 74%,
-    rgba(8, 12, 16, 0.95) 100%
-  );
+.fx-cover-inner {
+  padding: 2rem;
 }
-.cine-hero-inner {
-  position: relative;
-  z-index: 1;
-  padding: 0 var(--gutter) clamp(3rem, 7vw, 6rem);
-  max-width: 1100px;
-}
-.cine-eyebrow {
+.fx-eyebrow {
   margin: 0 0 1rem;
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--cine-gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+  color: #e8e0cf;
 }
-.cine-title {
+.fx-logo {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(3rem, 10vw, 8.5rem);
-  line-height: 0.94;
-  letter-spacing: -0.01em;
+  font-size: clamp(5rem, 22vw, 16rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
   color: #fff;
 }
-.cine-tagline {
-  margin: 1.2rem 0 0;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1.1rem, 2.6vw, 1.7rem);
-  line-height: 1.35;
-  color: #e8e0cf;
-  max-width: 34ch;
-}
-.cine-scroll {
-  display: inline-block;
-  margin-top: 2rem;
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.24em;
+.fx-sub {
+  margin: 0.4rem 0 0;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--cine-muted);
-  animation: cine-bob 2.4s var(--ease) infinite;
-}
-@keyframes cine-bob {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(5px); opacity: 1; }
+  color: #cfc8b6;
 }
 
-/* ── Stages ─────────────────────────────────────────────────────────────────── */
-.cine-stage {
-  padding: clamp(3.5rem, 9vw, 8rem) var(--gutter);
-}
-.cine-label {
-  margin: 0 0 clamp(1.4rem, 3vw, 2.6rem);
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--cine-gold);
-}
-.cine-index {
-  border-top: 1px solid rgba(240, 233, 219, 0.1);
-}
-
-/* ── Look sequence ──────────────────────────────────────────────────────────── */
-.cine-looks {
+/* Vision slides */
+.fx-vision {
+  appearance: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(2rem, 8vw, 8rem);
 }
-.cine-look {
-  position: relative;
+.fx-vision-line {
   margin: 0;
-  min-height: 90vh;
-  min-height: 90svh;
+  max-width: 20ch;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 6vw, 4rem);
+  line-height: 1.14;
+  color: #fff;
+}
+
+.fx-enter {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a9a695;
+  animation: fx-bob 2.4s var(--ease) infinite;
+}
+@keyframes fx-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
+/* Index — the clickable NIL word/panels */
+.fx-index {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.2rem;
-  padding: clamp(2rem, 5vw, 4rem) var(--gutter);
-  border-top: 1px solid rgba(240, 233, 219, 0.07);
+  padding: clamp(1rem, 3vw, 2rem);
 }
-.cine-look:nth-child(even) {
-  background: var(--stage-2);
+.fx-index-frame {
+  position: relative;
+  width: fit-content;
+  max-width: 94vw;
+  line-height: 0;
 }
-.cine-look img {
+.fx-index-frame img {
   display: block;
-  width: 100%;
-  max-width: 1080px;
-  max-height: 74vh;
-  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 94vw;
+  max-height: 72vh;
   border-radius: 4px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
 }
-.cine-look-cap {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  font-family: var(--sans);
-}
-.cine-look-no {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: var(--cine-gold);
-}
-.cine-look-name {
-  font-size: 0.8rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--cine-muted);
-}
-
-/* ── Story ──────────────────────────────────────────────────────────────────── */
-.cine-story {
-  background: var(--stage-2);
-  text-align: center;
-}
-.cine-quote {
-  margin: 0 auto clamp(1.6rem, 4vw, 2.6rem);
-  max-width: 20ch;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.7rem, 5vw, 3.2rem);
-  line-height: 1.15;
-  color: #fff;
-}
-.cine-body {
-  margin: 0 auto 1.2rem;
-  max-width: 62ch;
-  font-family: var(--sans);
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--cine-cream);
-  opacity: 0.85;
-}
-
-/* ── Collections ────────────────────────────────────────────────────────────── */
-.cine-coll-grid {
-  display: grid;
-  gap: 1px;
-  background: rgba(240, 233, 219, 0.1);
-  border: 1px solid rgba(240, 233, 219, 0.1);
-}
-.cine-coll {
-  display: flex;
-  gap: 1.2rem;
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-  background: var(--stage);
-}
-.cine-coll-no {
-  font-family: var(--sans);
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  color: var(--cine-gold);
-  padding-top: 0.35rem;
-}
-.cine-coll-name {
-  margin: 0 0 0.3rem;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.35rem;
-  color: #fff;
-}
-.cine-coll-desc {
+.fx-hot {
+  position: absolute;
   margin: 0;
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: var(--cine-muted);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-@media (min-width: 720px) {
-  .cine-coll-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+.fx-hot:hover,
+.fx-hot:focus-visible {
+  outline: none;
+  background: rgba(201, 162, 75, 0.12);
+  box-shadow: inset 0 0 0 2px var(--cine-gold, #c9a24b);
 }
-
-/* ── Lookbook grid on the dark stage ────────────────────────────────────────── */
-.cine-lookbook .lookbook-head .h2 {
+.fx-hot-label {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  margin-bottom: 8px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: #0a0f14;
   color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
 }
-.cine-lookbook .lookbook-count {
-  color: var(--cine-muted);
+.fx-hot:hover .fx-hot-label,
+.fx-hot:focus-visible .fx-hot-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fx-index-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #a9a695;
 }
 
-/* ── Nav ────────────────────────────────────────────────────────────────────── */
-.cine-nav {
+/* Lookbook viewer */
+.fx-look {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter);
-  border-top: 1px solid rgba(240, 233, 219, 0.12);
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2rem) clamp(3rem, 8vw, 6rem);
 }
-.cine-nav-link {
+.fx-look-fig {
+  margin: 0;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  text-decoration: none;
-  color: var(--cine-cream);
+  align-items: center;
+  justify-content: center;
 }
-.cine-nav-link.right {
-  text-align: right;
+.fx-look-fig img {
+  max-width: min(1100px, 88vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
 }
-.cine-nav-dir {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--cine-gold);
+.fx-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 233, 219, 0.25);
+  background: rgba(10, 15, 20, 0.5);
+  color: #efe9db;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
-.cine-nav-title {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  color: #fff;
+.fx-arrow:hover {
+  background: rgba(240, 233, 219, 0.14);
 }
-.cine-nav-all {
-  font-family: var(--sans);
-  font-size: 0.78rem;
+.fx-arrow.left {
+  left: clamp(0.6rem, 2vw, 1.6rem);
+}
+.fx-arrow.right {
+  right: clamp(0.6rem, 2vw, 1.6rem);
+}
+.fx-look-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(0.6rem, 2vw, 1.4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.74rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cine-muted);
-  text-decoration: none;
-  white-space: nowrap;
+  color: #a9a695;
 }
-.cine-nav-all:hover {
+.fx-look-count {
+  color: #efe9db;
+}
+
+/* Bottom nav */
+.fx-bottom {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: clamp(0.7rem, 2vw, 1.2rem);
+  border-top: 1px solid rgba(240, 233, 219, 0.1);
+}
+.fx-nav-btn {
+  background: none;
+  border: 0;
+  color: #efe9db;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+.fx-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.fx-nav-btn:not(:disabled):hover {
+  background: rgba(240, 233, 219, 0.1);
+}
+.fx-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.fx-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 233, 219, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.fx-dot.on {
+  background: var(--cine-gold, #c9a24b);
+  border-color: var(--cine-gold, #c9a24b);
+  transform: scale(1.25);
+}
+.fx-dot.mark {
+  border-radius: 2px;
+}
+
+.fx-link {
+  background: none;
+  border: 0;
+  color: #efe9db;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+.fx-link:hover {
   color: #fff;
+}
+
+@media (max-width: 640px) {
+  .fx-crumb { display: none; }
+  .fx-look { padding-left: 3.4rem; padding-right: 3.4rem; }
 }
