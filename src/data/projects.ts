@@ -620,7 +620,7 @@ const core: Project[] = [
   // ── 14. PIMPS' PARADISE (flagged) ─────────────────────────────────────────
   {
     slug: "pimps-paradise",
-    title: "HoeValley",
+    title: "Project H.O.E",
     subtitle: "A harm-reduction empowerment concept",
     summary:
       "An early harm-reduction and dignity concept for adults, built around empowerment rather than judgment.",
