@@ -724,6 +724,7 @@ const houseProjects: Project[] = [
     image: "/nil-crest.svg",
     imageFit: "contain",
     imageDark: true,
+    feature: "/art/nil-lookbook.jpg", // Collection 01 index — panels to become clickable (Supreme-style) later
     role:
       "Founder and creative director — I designed the identity, the NJ crest and monogram, the palette, the collections, and the story that ties them together.",
     audience:
