@@ -90,6 +90,12 @@ export function ProjectDetail() {
 
       {/* Body */}
       <div className="wrap detail-body">
+        {project.feature && (
+          <section className="detail-feature reveal">
+            <img src={project.feature} alt={`${project.title} — overview`} />
+          </section>
+        )}
+
         {project.video && (
           <section className="detail-video reveal">
             <video src={project.video} controls playsInline preload="metadata" />

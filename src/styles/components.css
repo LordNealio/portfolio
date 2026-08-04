@@ -1700,6 +1700,19 @@ textarea.field {
   background: #000;
 }
 
+/* ═══ DETAIL feature image (infographic / ad) ═══ */
+.detail-feature {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.detail-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ═══ DETAIL audio embed ═══ */
 .detail-audio {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);

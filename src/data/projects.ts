@@ -84,6 +84,7 @@ export interface Project {
   image?: string; // real cover art (path in /public); falls back to generative art
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
+  feature?: string; // a wide feature image (infographic/ad) shown full-width near the top of the detail page
   studyPath?: string; // internal route to a participant research experience
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
@@ -129,6 +130,7 @@ const core: Project[] = [
     accent: "#E8B84B",
     image: "/mindvault.svg",
     imageFit: "contain",
+    feature: "/art/mindvault-overview.jpg",
     role:
       "Founder, product architect, and creative director — I defined the product, designed the system, wrote the prompt architecture, and directed every iteration through AI-assisted development.",
     audience:
