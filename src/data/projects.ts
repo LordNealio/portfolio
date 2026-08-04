@@ -984,7 +984,19 @@ const houseProjects: Project[] = [
     note: "A conceptual research/art piece. The numerical observations are the artist's own, offered as inquiry — not scientific proof or doctrine.",
     relatedProjects: ["charm-quark-big-ben", "rapgod"],
   }),
-  house({ slug: "reparations", title: "The R Word", subtitle: "Reparations — on repair, legacy, and what is owed.", disciplines: ["Nonprofit", "Culture", "Research"], accent: "#2c3a2c" }),
+  house({
+    slug: "reparations",
+    title: "The R Word",
+    subtitle: "Reparations — on repair, legacy, and what is owed.",
+    summary:
+      "A guided educational study testing whether balanced exposure to constitutional, equitable, and human-rights frameworks changes how people perceive reparations — part of the Black Builders Toolbox.",
+    disciplines: ["Nonprofit", "Culture", "Research"],
+    kind: "Research",
+    accent: "#2c3a2c",
+    role: "Researcher and designer — original study by Just Neal.",
+    studyPath: "/study/r-word",
+    note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
+  }),
   house({
     slug: "the-n-word",
     title: "The N Word",

@@ -12,6 +12,7 @@ import { Contact } from "./pages/Contact";
 import { Store } from "./pages/Store";
 import { Journal } from "./pages/Journal";
 import { Study } from "./pages/Study";
+import { StudyReparations } from "./pages/StudyReparations";
 import { StudyAdmin } from "./pages/StudyAdmin";
 import { NotFound } from "./pages/NotFound";
 
@@ -40,6 +41,7 @@ export function App() {
           <Route path="/journal" element={<Journal />} />
           <Route path="/study/n-word" element={<Study />} />
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
+          <Route path="/study/r-word" element={<StudyReparations />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/about" element={<About />} />
           <Route path="/now" element={<Now />} />
