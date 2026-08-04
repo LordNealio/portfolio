@@ -585,6 +585,8 @@ const core: Project[] = [
     year: "2023",
     featured: false,
     accent: "#1D3557",
+    image: "/art/mindwrite.jpg",
+    imageFit: "contain",
     role:
       "Author, founder, and operator — I wrote and published the 90-day meditation journal, and built the nonprofit foundation behind it: executive summary, business model canvas, mission, budget, and fundraising, drawing directly on my finance and nonprofit experience.",
     audience: "Communities that benefit from reflective writing as a tool for growth.",
@@ -986,6 +988,8 @@ const houseProjects: Project[] = [
     disciplines: ["Research", "Culture", "Education"],
     kind: "Research",
     accent: "#16202b",
+    image: "/art/n-word.jpg",
+    imageFit: "contain",
     role: "Researcher and designer — original study by Just Neal.",
     studyPath: "/study/n-word",
     note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
