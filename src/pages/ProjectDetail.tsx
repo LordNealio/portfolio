@@ -4,6 +4,7 @@ import { getProject, projects, projectDisciplines, kindOf } from "../data/projec
 import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
 import { FeatureLookbook } from "../components/FeatureLookbook";
+import { FashionShowcase } from "../components/FashionShowcase";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
@@ -40,6 +41,10 @@ export function ProjectDetail() {
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const prev = idx > 0 ? projects[idx - 1] : projects[projects.length - 1];
   const next = idx < projects.length - 1 ? projects[idx + 1] : projects[0];
+
+  if (project.layout === "cinematic") {
+    return <FashionShowcase project={project} prev={prev} next={next} disciplines={disciplines} />;
+  }
 
   return (
     <article className="detail">

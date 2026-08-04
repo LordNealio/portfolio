@@ -94,6 +94,7 @@ export interface Project {
   sections?: EssaySection[]; // long-form essay rendered on the detail page
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
+  layout?: "cinematic"; // opt into a full-bleed, immersive detail layout (e.g. the fashion house)
   role: string;
   audience: string;
   problem: string;
@@ -720,6 +721,7 @@ const houseProjects: Project[] = [
     category: "Creative Media & Music",
     disciplines: ["Fashion", "Branding", "Culture"],
     tags: ["Fashion", "Heritage", "Branding", "Made-on-demand"],
+    layout: "cinematic",
     status: "in-development",
     year: "2024",
     featured: true,
