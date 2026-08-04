@@ -85,6 +85,9 @@ export interface Project {
   imageFit?: "cover" | "contain"; // how the cover fills the tile (default cover)
   imageDark?: boolean; // use a dark letterbox behind a dark logo (with imageFit "contain")
   feature?: string; // a wide feature image (infographic/ad) shown full-width near the top of the detail page
+  // Optional clickable hotspots over the feature image (Supreme-style): each opens the
+  // lookbook lightbox (project.gallery) at `start`. Coordinates are percentages of the image.
+  featureHotspots?: { label: string; left: number; top: number; width: number; height: number; start?: number }[];
   studyPath?: string; // internal route to a participant research experience
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
@@ -724,7 +727,16 @@ const houseProjects: Project[] = [
     image: "/nil-crest.svg",
     imageFit: "contain",
     imageDark: true,
-    feature: "/art/nil-lookbook.jpg", // Collection 01 index — panels to become clickable (Supreme-style) later
+    feature: "/art/nil-lookbook.jpg", // Collection 01 index — clickable panels open the lookbook (Supreme-style)
+    // Percentages over /art/nil-lookbook.jpg. `start` = index into gallery below. Tune freely.
+    featureHotspots: [
+      { label: "Olympic — heritage jacket", left: 8, top: 15, width: 16, height: 70, start: 0 },
+      { label: "Olympic polo", left: 24, top: 15, width: 11, height: 70, start: 1 },
+      { label: "NIL 1989 polo", left: 35, top: 15, width: 12, height: 70, start: 2 },
+      { label: "I AM / 22 tee", left: 51, top: 15, width: 12, height: 70, start: 3 },
+      { label: "MAG scripture tee", left: 65, top: 15, width: 12, height: 70, start: 11 },
+      { label: "Cloud tee", left: 78, top: 38, width: 15, height: 48, start: 5 },
+    ],
     role:
       "Founder and creative director — I designed the identity, the NJ crest and monogram, the palette, the collections, and the story that ties them together.",
     audience:

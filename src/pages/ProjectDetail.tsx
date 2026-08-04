@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getProject, projects, projectDisciplines, kindOf } from "../data/projects";
 import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
+import { FeatureLookbook } from "../components/FeatureLookbook";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
@@ -90,11 +91,20 @@ export function ProjectDetail() {
 
       {/* Body */}
       <div className="wrap detail-body">
-        {project.feature && (
-          <section className="detail-feature reveal">
-            <img src={project.feature} alt={`${project.title} — overview`} />
-          </section>
-        )}
+        {project.feature &&
+          (project.featureHotspots && project.featureHotspots.length > 0 && project.gallery && project.gallery.length > 0 ? (
+            <FeatureLookbook
+              image={project.feature}
+              alt={`${project.title} — lookbook`}
+              title={project.title}
+              images={project.gallery}
+              hotspots={project.featureHotspots}
+            />
+          ) : (
+            <section className="detail-feature reveal">
+              <img src={project.feature} alt={`${project.title} — overview`} />
+            </section>
+          ))}
 
         {project.video && (
           <section className="detail-video reveal">
