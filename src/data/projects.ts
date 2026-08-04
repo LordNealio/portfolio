@@ -331,7 +331,7 @@ const core: Project[] = [
     futureVision:
       "The remaining artist pages, culture and travel sections, and a Korean translation of the founder essay.",
     links: [],
-    relatedProjects: ["rapgod", "everythang"],
+    relatedProjects: ["rapgod"],
     note: "A concept presentation for an unconfirmed event — not a ticketed, live festival.",
   },
 
@@ -544,33 +544,8 @@ const core: Project[] = [
     process: "Multi-value fields are delimited and every interpretation is quoted from the documented notes — never fabricated.",
     futureVision: "Continue documenting and feed the archive into cultural presentations like The 7 Temples Tour.",
     links: [{ label: "Live app", href: "https://rap-god.vercel.app/onboarding", verified: true }],
-    relatedProjects: ["seven-temples-tour", "everythang"],
+    relatedProjects: ["seven-temples-tour"],
     note: "A research archive with a strict verbatim rule; the symbolism is documented, not invented.",
-  },
-
-  // ── 12. EVERYTHANG ────────────────────────────────────────────────────────
-  {
-    slug: "everythang",
-    title: "Everythang",
-    subtitle: "Writing from the WYRD",
-    summary:
-      "A long-form writing project exploring the WYRD framework — fate, revelation, and meaning-making in plain, personal language.",
-    category: "Research & Writing",
-    tags: ["Writing", "Philosophy", "Personal"],
-    status: "research",
-    year: "2026",
-    featured: false,
-    accent: "#9B9589",
-    role: "Author.",
-    audience: "Readers open to a personal, philosophical account of meaning and fate.",
-    problem: "Some ideas only live in essay form — not an app.",
-    solution: "A body of writing built around 'wyrd' (an Anglo-Saxon concept of fate and personal destiny) and a personal cosmology.",
-    features: ["Foreword and framing essays", "Connected notes and canvases", "Ties into the RapGod symbolic framework"],
-    technology: ["Markdown", "Long-form writing"],
-    futureVision: "Shape the material into a publishable collection.",
-    links: [],
-    relatedProjects: ["rapgod"],
-    note: "An in-progress writing project — raw material, not a finished publication.",
   },
 
   // ── 13. MINDWRITE (origin) ────────────────────────────────────────────────
@@ -797,7 +772,6 @@ const houseProjects: Project[] = [
     note:
       "A complete brand identity and product concept — crest, collections, labels, and lookbooks. Pieces are shown as designed mockups on a made-on-demand model; not yet in full production. (Drop lookbook photos into public/fashion/ as fashion-01.jpg … to populate the Lookbook.)",
   },
-  house({ slug: "ideas-worth-sharing", title: "Ideas Worth Sharing", subtitle: "Talks and short pieces worth sharing.", disciplines: ["Publishing", "Culture"], accent: "#9a7628" }),
   house({
     slug: "arizona-ponderer",
     title: "Arizona Ponderer",
@@ -825,6 +799,7 @@ const houseProjects: Project[] = [
   house({
     slug: "mission-control",
     title: "Dear Ye / Mission Control",
+    kind: "Media",
     subtitle: "A message from me to Ye.",
     summary:
       "A message to Kanye West — a journey from a prayer that the feet won't fail, to flight, to a mission.",
@@ -899,6 +874,7 @@ const houseProjects: Project[] = [
     summary:
       "A conceptual artwork built on the real ten-thousand-dollar note, and on Salmon P. Chase — the man who put 'In God We Trust' on American money.",
     disciplines: ["Culture", "Publishing", "Branding"],
+    kind: "Research",
     status: "concept",
     accent: "#2c3a2c",
     role: "Artist and creative director — original work by Just Neal.",
@@ -951,6 +927,7 @@ const houseProjects: Project[] = [
     summary:
       "A symbolic art piece pairing the charm quark, the Rose of Sharon, and 'Big Ben' — some truths are known not because they are seen, but because they explain what is seen.",
     disciplines: ["Culture", "Music", "Research"],
+    kind: "Research",
     accent: "#1b2a3a",
     role: "Artist and creative director — original work by Just Neal.",
     image: "/art/bigben.jpg",
