@@ -797,6 +797,20 @@ const houseProjects: Project[] = [
   house({ slug: "holy-water-wet", title: "H2W", subtitle: "A NIL culture project.", disciplines: ["Music", "Culture"], accent: "#1b2a3a" }),
   house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
   house({
+    slug: "nous-innovation-labs",
+    title: "Nous Innovation Labs",
+    kind: "Nonprofit",
+    subtitle: "Human-Centered Learning for the Intelligence Age",
+    summary:
+      "A nonprofit educational innovation organization focused on AI literacy, reflective learning, and human-centered technology that strengthens communities.",
+    disciplines: ["Nonprofit", "Education", "AI"],
+    status: "live",
+    accent: "#1b2a3a",
+    role: "Founder — the nonprofit innovation lab behind the ecosystem.",
+    links: [{ label: "Visit Nous Innovation Labs", href: "https://nous-innovation-labs.vercel.app/", verified: true }],
+    note: "The nonprofit educational innovation organization behind the work.",
+  }),
+  house({
     slug: "mission-control",
     title: "Dear Ye / Mission Control",
     kind: "Media",
