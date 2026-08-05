@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getProject, projects, projectDisciplines, kindOf } from "../data/projects";
+import { getProject, projects, projectDisciplines, kindOf, isLocked } from "../data/projects";
+import { LockGate } from "../components/LockGate";
 import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
 import { FeatureLookbook } from "../components/FeatureLookbook";
@@ -11,7 +12,10 @@ import { useReveal } from "../lib/useReveal";
 export function ProjectDetail() {
   const { slug } = useParams();
   const project = slug ? getProject(slug) : undefined;
-  useReveal([slug]);
+  const [unlocked, setUnlocked] = useState(
+    () => typeof sessionStorage !== "undefined" && sessionStorage.getItem("nil-unlock") === "1"
+  );
+  useReveal([slug, unlocked]);
 
   useEffect(() => {
     if (project) document.title = `${project.title} — NIL · Just Neal`;
@@ -31,6 +35,22 @@ export function ProjectDetail() {
           </Link>
         </div>
       </section>
+    );
+  }
+
+  if (isLocked(project.slug) && !unlocked) {
+    return (
+      <LockGate
+        project={project}
+        onUnlock={() => {
+          try {
+            sessionStorage.setItem("nil-unlock", "1");
+          } catch {
+            /* ignore */
+          }
+          setUnlocked(true);
+        }}
+      />
     );
   }
 

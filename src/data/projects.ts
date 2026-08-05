@@ -264,39 +264,41 @@ const core: Project[] = [
   {
     slug: "workwrite",
     title: "WorkWrite",
-    subtitle: "Mental mise en place for restaurant crews",
+    subtitle: "Learn how you work — one shift at a time",
     summary:
-      "An AI journaling and check-in app for frontline restaurant staff, with strict privacy and anonymized manager insights.",
+      "A self-learning app for restaurant crews that turns each shift into reflection and progress — a daily check-in, in-shift capture, and an AI \"Work Mirror\" that shows staff how they actually work, wrapped in a game layer and architectural privacy.",
     category: "Featured Products",
-    tags: ["AI", "Hospitality", "Wellbeing", "Next.js", "B2B"],
+    tags: ["AI", "Hospitality", "Wellbeing", "Gamification", "Next.js", "B2B"],
     status: "live",
     year: "2026",
     featured: true,
     accent: "#2E6B4F",
     role:
-      "Founder and product lead — I identified the hospitality-burnout gap and designed the privacy model that makes the tool safe for staff to actually use.",
+      "Founder and product lead — I identified the hospitality-burnout gap, designed the privacy model that makes the tool safe for staff to use, and shaped the self-learning loop that turns shifts into progress.",
     audience:
       "Restaurant staff and managers — a pilot is targeted at Din Tai Fung (roughly 20–50 staff, 3-month pilot).",
     problem:
-      "Frontline restaurant work has real cognitive and emotional load, and no existing tool combines in-shift support with privacy staff can trust.",
+      "Frontline restaurant work carries real cognitive and emotional load, and the tools that exist are either surveillance in disguise or generic wellness apps — nothing helps staff actually learn from their own shifts, privately.",
     solution:
-      "A mobile-first flow — pre-shift check-in, in-shift voice logging with stress detection, end-of-shift debrief — where journal entries are private by row-level security and the manager view is aggregated and anonymized.",
+      "A mobile-first daily loop — Prepare, Work, Reflect, Learn — where each shift earns XP toward learning levels (Awareness → Leadership), a rotating micro-skill and prompts across six learning paths keep it fresh, and a weekly AI \"Work Mirror\" turns entries into patterns, a strength, and one experiment to try. Entries are private by row-level security, the manager view is aggregated and anonymized, and gamification data is never visible to managers.",
     features: [
-      "Pre-shift check-in (mood + energy + concerns → AI tip)",
+      "Daily loop with XP, streaks, and levels (Awareness → Leadership) — rewards honest reflection, not app usage",
+      "Micro-skill of the day plus rotating prompts across six learning paths (self-awareness, focus, communication, problem-solving, resilience, growth)",
+      "Pre-shift check-in (mood + energy + intention → AI tip)",
       "In-shift voice/text logging with stress detection",
       "End-of-shift reflection with AI summary and optional anonymous team share",
-      "Weekly personal review with mood chart",
-      "Manager dashboard — anonymized aggregates only, no individual identifiers",
+      "Weekly \"Work Mirror\" — AI surfaces your patterns, a consistent strength, and one experiment for next week",
+      "Manager dashboard — anonymized aggregates only; individual entries, XP, and streaks are never visible",
     ],
-    technology: ["Next.js 15", "Supabase (RLS)", "Claude Sonnet", "Vercel"],
+    technology: ["Next.js 16", "Supabase (RLS)", "Claude Sonnet", "Vercel"],
     process:
-      "Clean end-to-end build with a privacy-first schema. Team analytics are populated only on explicit opt-in.",
+      "Clean end-to-end build with a privacy-first schema. Team analytics are populated only on explicit opt-in, and XP, levels, and streaks are computed from each staffer's own entries — never exposed to managers.",
     lessons:
-      "Trust is the feature. If staff believe a manager can read their words, the tool is worthless — so privacy had to be architectural, not a setting.",
-    futureVision: "Run the Din Tai Fung pilot and measure retention and wellbeing signal.",
+      "Trust is the feature — if staff believe a manager can read their words or see their streaks, the tool is worthless, so privacy is architectural, not a setting. And the gamification has to serve reflection, not productivity pressure.",
+    futureVision: "Run the Din Tai Fung pilot, then deepen the learning engine — schedule-aware streaks, achievements, and a levels curriculum — so the app teaches people about their own work over time.",
     links: [{ label: "Live app", href: "https://workwrite-app.vercel.app/", verified: true }],
     relatedProjects: ["mindvault", "creation-os"],
-    note: "Live — an AI journaling and check-in app for restaurant crews.",
+    note: "Live — a self-learning app that helps restaurant crews learn how they work, one shift at a time.",
   },
 
   // ── 5. THE 7 TEMPLES TOUR ─────────────────────────────────────────────────
@@ -1102,6 +1104,12 @@ const WORK_ORDER = [
 // The exhibited set (same slugs) — used to split the archive.
 export const EXHIBITED = new Set(WORK_ORDER);
 export const isExhibited = (slug: string) => EXHIBITED.has(slug);
+
+// Works in the "In Progress" section (not exhibited) are gated behind an access
+// code — except the Reading List, which stays open. NOTE: this is a soft,
+// client-side gate (deters casual visitors); it is not real security.
+const LOCK_EXEMPT = new Set(["reading-list"]);
+export const isLocked = (slug: string) => !EXHIBITED.has(slug) && !LOCK_EXEMPT.has(slug);
 
 function workRank(slug: string): number {
   const i = WORK_ORDER.indexOf(slug);

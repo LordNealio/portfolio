@@ -1713,6 +1713,70 @@ textarea.field {
   height: auto;
 }
 
+/* Access gate for in-progress works */
+.lockgate {
+  max-width: 520px;
+  text-align: center;
+  padding-top: clamp(2rem, 8vh, 6rem);
+}
+.lock-eyebrow {
+  margin: 0 0 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lock-title {
+  margin: 0 0 0.6rem;
+}
+.lock-lead {
+  margin: 0 auto 1.6rem;
+  max-width: 40ch;
+  color: var(--text-2);
+}
+.lock-form {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.lock-input {
+  flex: 0 1 240px;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+.lock-input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+}
+.lock-err {
+  margin: 1rem 0 0;
+  color: var(--burgundy);
+  font-size: 0.9rem;
+}
+:root[data-theme="dark"] .lock-err {
+  color: #e0916f;
+}
+.lock-back {
+  display: inline-block;
+  margin-top: 1.8rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  text-decoration: none;
+}
+.lock-back:hover {
+  color: var(--text);
+}
+
 /* Supreme-style clickable hotspots over a feature image */
 .feature-look-frame {
   position: relative;
