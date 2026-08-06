@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
@@ -10,7 +10,7 @@ import { About } from "./pages/About";
 import { Now } from "./pages/Now";
 import { Contact } from "./pages/Contact";
 import { Store } from "./pages/Store";
-import { Journal } from "./pages/Journal";
+import { Inspirations } from "./pages/Inspirations";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { StudyAdmin } from "./pages/StudyAdmin";
@@ -38,7 +38,8 @@ export function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/inspirations" element={<Inspirations />} />
+          <Route path="/journal" element={<Navigate to="/inspirations" replace />} />
           <Route path="/study/n-word" element={<Study />} />
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
           <Route path="/study/r-word" element={<StudyReparations />} />

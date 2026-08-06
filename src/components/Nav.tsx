@@ -5,7 +5,7 @@ import { useMode } from "../lib/mode";
 const links = [
   { to: "/work", label: "Work" },
   { to: "/store", label: "Store" },
-  { to: "/journal", label: "Journal" },
+  { to: "/inspirations", label: "Inspirations" },
   { to: "/about", label: "About" },
   { to: "/connect", label: "Connect" },
 ];
