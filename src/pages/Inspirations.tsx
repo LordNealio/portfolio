@@ -8,7 +8,7 @@ function initials(name: string) {
   const core = name.replace(/\(.*\)/, "").trim();
   const words = core.split(/\s+/).filter(Boolean);
   if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
-  return words.slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  return (words[0][0] + words[words.length - 1][0]).toUpperCase();
 }
 
 export function Inspirations() {

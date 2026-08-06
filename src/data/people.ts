@@ -42,4 +42,20 @@ export const people: Person[] = [
     tag: "Inspiration",
     note: "Made vulnerability sound like its own genre — humming, mood, and mental-health honesty that gave a generation permission to feel out loud.",
   },
+  {
+    name: "Neale Donald Walsch",
+    role: "Author · Conversations with God",
+    group: "Collaborators",
+    tag: "Would like to collaborate",
+    note: "His work documents perceived communication with God and the effort to make an intensely personal experience publicly understandable — the same epistemological question at the center of my own work: how to communicate and evaluate what feels spiritually significant without assuming conviction proves causation.",
+    link: "https://www.cwg.org/",
+  },
+  {
+    name: "Neil Theise",
+    role: "Author · Complexity theorist",
+    group: "Collaborators",
+    tag: "Would like to collaborate",
+    note: "In Notes on Complexity he describes how coherence and adaptive patterns emerge from the relationships between parts, not the parts alone — the language I've been reaching for to understand how meaning gathers across music, memory, names, texts, and personal history.",
+    link: "https://www.spiegelandgrau.com/notes-on-complexity-1",
+  },
 ];
