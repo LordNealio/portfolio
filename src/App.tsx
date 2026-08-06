@@ -10,7 +10,7 @@ import { About } from "./pages/About";
 import { Now } from "./pages/Now";
 import { Contact } from "./pages/Contact";
 import { Store } from "./pages/Store";
-import { Inspirations } from "./pages/Inspirations";
+import { Constellation } from "./pages/Constellation";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { StudyAdmin } from "./pages/StudyAdmin";
@@ -38,8 +38,9 @@ export function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/inspirations" element={<Inspirations />} />
-          <Route path="/journal" element={<Navigate to="/inspirations" replace />} />
+          <Route path="/constellation" element={<Constellation />} />
+          <Route path="/inspirations" element={<Navigate to="/constellation" replace />} />
+          <Route path="/journal" element={<Navigate to="/constellation" replace />} />
           <Route path="/study/n-word" element={<Study />} />
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
           <Route path="/study/r-word" element={<StudyReparations />} />

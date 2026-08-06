@@ -34,7 +34,7 @@ export function Footer() {
           <nav className="footer-nav" aria-label="Footer">
             <Link to="/work">Work</Link>
             <Link to="/store">Store</Link>
-            <Link to="/inspirations">Inspirations</Link>
+            <Link to="/constellation">Constellation</Link>
             <Link to="/about">About</Link>
             <Link to="/connect">Connect</Link>
           </nav>
