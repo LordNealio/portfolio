@@ -6,6 +6,7 @@ import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
 import { FeatureLookbook } from "../components/FeatureLookbook";
 import { FashionExperience } from "../components/FashionExperience";
+import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
@@ -297,6 +298,9 @@ export function ProjectDetail() {
             </div>
           </section>
         )}
+
+        {/* Public feedback — every work except the research studies */}
+        {!project.studyPath && <Comments slug={project.slug} />}
 
         {/* Click through the archive */}
         <nav className="detail-nav reveal" aria-label="Browse the archive">

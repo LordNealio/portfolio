@@ -14,6 +14,7 @@ import { Constellation } from "./pages/Constellation";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { StudyAdmin } from "./pages/StudyAdmin";
+import { CommentsAdmin } from "./pages/CommentsAdmin";
 import { NotFound } from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ export function App() {
           <Route path="/study/n-word" element={<Study />} />
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
           <Route path="/study/r-word" element={<StudyReparations />} />
+          <Route path="/comments-admin" element={<CommentsAdmin />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/about" element={<About />} />
           <Route path="/now" element={<Now />} />

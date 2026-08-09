@@ -1713,6 +1713,134 @@ textarea.field {
   height: auto;
 }
 
+/* Public feedback / comments */
+.comments {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--line-strong);
+}
+.comments-lead,
+.comments-empty,
+.comments-soon {
+  margin: 0 0 1.4rem;
+}
+.comment-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.comment {
+  padding: 1.1rem 1.3rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.comment-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+.comment-author {
+  font-weight: 600;
+}
+.comment-date {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.comment-body {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.comment-form {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 52ch;
+}
+.comment-input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+.comment-input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+}
+.comment-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.comment-err {
+  margin: 0;
+  color: var(--burgundy);
+  font-size: 0.9rem;
+}
+:root[data-theme="dark"] .comment-err {
+  color: #e0916f;
+}
+.comment-form .btn {
+  justify-self: start;
+}
+.comments-thanks {
+  padding: 0.9rem 1.1rem;
+  background: var(--gold-dim);
+  border-radius: var(--radius);
+  color: var(--text);
+}
+
+/* Moderation dashboard */
+.mod-list {
+  list-style: none;
+  margin: 0.6rem 0 1.6rem;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+.mod-item {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.mod-meta {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.mod-body {
+  margin: 0 0 0.7rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.mod-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.mod-badge {
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+}
+.mod-badge.ok { background: rgba(46, 107, 79, 0.16); color: #2e6b4f; }
+.mod-badge.pend { background: var(--gold-dim); color: var(--gold); }
+.mod-badge.hide { background: rgba(90, 42, 46, 0.16); color: var(--burgundy); }
+
 /* Chapters — works folded under a parent (umbrella) */
 .detail-chapters {
   margin-top: clamp(2.5rem, 6vw, 4rem);
