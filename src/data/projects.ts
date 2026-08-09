@@ -515,7 +515,7 @@ const core: Project[] = [
     ],
     technology: ["React", "Vite", "TypeScript", "CSS animations", "localStorage"],
     futureVision: "More games and a shared leaderboard.",
-    links: [],
+    links: [{ label: "Play the arcade", href: "https://s4us1mcgamer.vercel.app", verified: true }],
     relatedProjects: ["mindvault"],
   },
 
@@ -880,6 +880,7 @@ const houseProjects: Project[] = [
     status: "prototype",
     accent: "#1b2a3a",
     role: "Founder and designer — an educational space game for kids, directed by Just Neal.",
+    links: [{ label: "Play the game", href: "https://rocket-to-pluto.vercel.app", verified: true }],
     note: "A playable vertical slice (Moon Rescue) exists; more of the journey to Pluto is in development.",
   }),
   house({
