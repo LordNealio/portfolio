@@ -95,6 +95,9 @@ export interface Project {
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   layout?: "cinematic"; // opt into a full-bleed, immersive detail layout (e.g. the fashion house)
+  chapterOf?: string; // this work is a chapter of another (parent slug); hidden from the grid, surfaced on the parent
+  chaptersTitle?: string; // heading for this work's chapters section on its detail page
+  chaptersIntro?: string; // a synthesized intro paragraph above the chapters
   role: string;
   audience: string;
   problem: string;
@@ -135,6 +138,9 @@ const core: Project[] = [
     image: "/mindvault.svg",
     imageFit: "contain",
     feature: "/art/mindvault-overview.jpg",
+    chaptersTitle: "The origin",
+    chaptersIntro:
+      "MindVault began as MindWrite — a published 90-day meditation journal and the founding nonprofit initiative that seeded the whole ecosystem. The book is the origin the app grew out of.",
     role:
       "Founder, product architect, and creative director — I defined the product, designed the system, wrote the prompt architecture, and directed every iteration through AI-assisted development.",
     audience:
@@ -534,6 +540,9 @@ const core: Project[] = [
     accent: "#D4AF37",
     image: "/rapgod.svg",
     imageFit: "cover",
+    chaptersTitle: "In this archive",
+    chaptersIntro:
+      "The RapGod method — reading music as documented symbolism — extends into specific works. GNX and Dear Ye / Mission Control are chapters of the same archive; each has its own full breakdown, with the films below.",
     role: "Researcher and author of the framework and the documented notes.",
     audience: "A canonical reference the other cultural projects draw from.",
     problem: "Cultural and musical symbolism is scattered and easy to fabricate; it needs a disciplined, documented archive.",
@@ -559,6 +568,7 @@ const core: Project[] = [
     slug: "mindwrite",
     title: "MindWrite",
     kind: "Book",
+    chapterOf: "mindvault",
     subtitle: "A published 90-day meditation journal — where it all began",
     summary:
       "A published 90-day guided meditation journal, available on Amazon — and the founding nonprofit initiative that seeded the entire ecosystem.",
@@ -831,6 +841,7 @@ const houseProjects: Project[] = [
     slug: "mission-control",
     title: "Dear Ye / Mission Control",
     kind: "Media",
+    chapterOf: "rapgod",
     subtitle: "A message from me to Ye.",
     summary:
       "A message to Kanye West — a journey from a prayer that the feet won't fail, to flight, to a mission.",
@@ -930,6 +941,7 @@ const houseProjects: Project[] = [
   house({
     slug: "gnx",
     title: "GNX",
+    chapterOf: "rapgod",
     subtitle: "Two cars. One Kendrick. One question.",
     summary:
       "A conceptual piece around Kendrick Lamar's GNX — two cars, two sides, and one question: who is the second car for?",
@@ -1085,16 +1097,13 @@ const houseProjects: Project[] = [
 // The main works exhibited — shown first, in this order. Everything else is
 // grouped under "In Progress" but stays viewable.
 const WORK_ORDER = [
-  "gnx",
   "the-n-word",
-  "mindwrite",
   "mindvault",
   "emanual",
   "nonprofit-builder",
   "i-am-or-22",
   "charm-quark-big-ben",
   "arizona-ponderer",
-  "mission-control",
   "nil-label",
   "mirror",
   "rapgod",
@@ -1110,7 +1119,9 @@ export const isExhibited = (slug: string) => EXHIBITED.has(slug);
 // code — except the Reading List, which stays open. NOTE: this is a soft,
 // client-side gate (deters casual visitors); it is not real security.
 const LOCK_EXEMPT = new Set(["reading-list"]);
-export const isLocked = (slug: string) => !EXHIBITED.has(slug) && !LOCK_EXEMPT.has(slug);
+// Chapters are surfaced through their (exhibited) parent, so they are viewable too.
+export const isLocked = (slug: string) =>
+  !EXHIBITED.has(slug) && !LOCK_EXEMPT.has(slug) && !CHAPTER_SLUGS.has(slug);
 
 function workRank(slug: string): number {
   const i = WORK_ORDER.indexOf(slug);
@@ -1125,6 +1136,10 @@ export const projects: Project[] = [...core, ...houseProjects].sort(
 // ── Derived helpers ─────────────────────────────────────────────────────────
 export const featuredProjects = projects.filter((p) => p.featured);
 export const nonFeatured = projects.filter((p) => !p.featured);
+
+// Chapters — works folded under a parent (hidden from the grid, shown on the parent).
+export const CHAPTER_SLUGS = new Set(projects.filter((p) => p.chapterOf).map((p) => p.slug));
+export const chaptersOf = (slug: string) => projects.filter((p) => p.chapterOf === slug);
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);

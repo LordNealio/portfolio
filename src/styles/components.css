@@ -1713,6 +1713,86 @@ textarea.field {
   height: auto;
 }
 
+/* Chapters — works folded under a parent (umbrella) */
+.detail-chapters {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--line-strong);
+}
+.detail-chapters-intro {
+  max-width: 68ch;
+  margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
+}
+.chapter-list {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+}
+.chapter-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  padding: clamp(1.3rem, 3vw, 2rem);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.chapter-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.chapter-title {
+  margin: 0.5rem 0 0.2rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.1;
+}
+.chapter-sub {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+}
+.chapter-summary {
+  margin: 0 0 1.1rem;
+  max-width: 60ch;
+  line-height: 1.65;
+  color: var(--text-2);
+}
+.chapter-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.chapter-media {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #0a0f14;
+}
+.chapter-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.chapter-cover img {
+  transition: transform 0.3s var(--ease);
+}
+.chapter-cover:hover img {
+  transform: scale(1.02);
+}
+@media (min-width: 780px) {
+  .chapter-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
 /* The Constellation — inspirations & dream collaborators */
 .constellation-intro-p {
   margin: 0 0 1rem;

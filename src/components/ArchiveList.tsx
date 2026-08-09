@@ -33,20 +33,23 @@ export function ArchiveList({
   );
   const { mode } = useMode();
 
+  // Chapters live under their parent work, not on the grid.
+  const listable = useMemo(() => projects.filter((p) => !p.chapterOf), [projects]);
+
   const shown = useMemo(
     () =>
       filter === "all"
-        ? projects
-        : projects.filter((p) => projectDisciplines(p).includes(filter)),
-    [filter, projects]
+        ? listable
+        : listable.filter((p) => projectDisciplines(p).includes(filter)),
+    [filter, listable]
   );
 
   const main = useMemo(() => shown.filter((p) => isExhibited(p.slug)), [shown]);
   const rest = useMemo(() => shown.filter((p) => !isExhibited(p.slug)), [shown]);
 
   const available = useMemo(
-    () => DISCIPLINES.filter((d) => projects.some((p) => projectDisciplines(p).includes(d))),
-    [projects]
+    () => DISCIPLINES.filter((d) => listable.some((p) => projectDisciplines(p).includes(d))),
+    [listable]
   );
 
   useReveal([filter, mode]);
