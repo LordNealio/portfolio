@@ -94,8 +94,9 @@ export interface Project {
   sections?: EssaySection[]; // long-form essay rendered on the detail page
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
-  layout?: "cinematic"; // opt into a full-bleed, immersive detail layout (e.g. the fashion house)
+  layout?: "cinematic" | "lab"; // opt into a custom detail layout (fashion house, or the lab gateway)
   chapterOf?: string; // this work is a chapter of another (parent slug); hidden from the grid, surfaced on the parent
+  pillars?: string[]; // thematic pillars (e.g. Navigating Ignorance, Gaining Glory, Reparations) for the lab gateway
   chaptersTitle?: string; // heading for this work's chapters section on its detail page
   chaptersIntro?: string; // a synthesized intro paragraph above the chapters
   role: string;
@@ -215,6 +216,8 @@ const core: Project[] = [
   // ── 3. LEGACYBRIDGE ───────────────────────────────────────────────────────
   {
     slug: "legacybridge",
+    chapterOf: "the-lab",
+    pillars: ["Gaining Glory", "Reparations"],
     title: "LegacyBridge",
     kind: "App",
     subtitle: "Turn family memory into a book that lasts",
@@ -350,6 +353,8 @@ const core: Project[] = [
   // ── 6. E.MANUAL ───────────────────────────────────────────────────────────
   {
     slug: "emanual",
+    chapterOf: "the-lab",
+    pillars: ["Gaining Glory"],
     title: "E.Manual",
     kind: "App",
     subtitle: "The modern man's survival guide",
@@ -723,6 +728,21 @@ function house(o: HouseInput): Project {
 
 // The NIL house archive — the brand's own projects alongside the built work above.
 const houseProjects: Project[] = [
+  // ── THE LAB — research, media & applications (gateway) ───────────────────
+  house({
+    slug: "the-lab",
+    title: "The Lab",
+    kind: "Lab",
+    layout: "lab",
+    subtitle: "Research, Media & Applications",
+    summary:
+      "An interdisciplinary lab investigating language, identity, history, culture, money, science, and loss — then transforming those inquiries into studies, public media, and practical tools.",
+    disciplines: ["Research", "Culture", "Education"],
+    accent: "#16202b",
+    role: "Founder and lead — an interdisciplinary research, media, and applications lab by Just Neal.",
+    note: "A gateway to the lab's studies, public media, and tools — organized by pillar.",
+  }),
+
   // ── NIL — THE LABEL (all fashion, consolidated) ──────────────────────────
   {
     slug: "nil-label",
@@ -801,6 +821,9 @@ const houseProjects: Project[] = [
   },
   house({
     slug: "arizona-ponderer",
+    chapterOf: "the-lab",
+    kind: "Media",
+    pillars: ["Navigating Ignorance", "Public Education"],
     title: "Arizona Ponderer",
     subtitle: "An investigative broadsheet — Arizona's unanswered questions.",
     summary:
@@ -855,6 +878,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "nonprofit-builder",
+    chapterOf: "the-lab",
+    pillars: ["Gaining Glory", "Reparations"],
     title: "Nonprofit Launch Kit",
     kind: "App",
     subtitle: "Launch a nonprofit with confidence — not confusion.",
@@ -912,6 +937,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "blueface-salmon-p-chase",
+    chapterOf: "the-lab",
+    pillars: ["Navigating Ignorance", "Reparations"],
     title: "Blueface × Salmon P. Chase",
     subtitle: "The man on the $10,000 bill — currency, faith, and legacy.",
     summary:
@@ -966,6 +993,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "charm-quark-big-ben",
+    chapterOf: "the-lab",
+    pillars: ["Navigating Ignorance"],
     title: "Charm Quark x Big Ben",
     subtitle: "The Rose of Sharon blooms again — the unseen that explains the seen.",
     summary:
@@ -982,6 +1011,9 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "i-am-or-22",
+    chapterOf: "the-lab",
+    kind: "Research",
+    pillars: ["Navigating Ignorance", "Gaining Glory"],
     title: "I AM / 22",
     subtitle: "I AM, the elements, and the number 22.",
     summary:
@@ -1003,6 +1035,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "reparations",
+    chapterOf: "the-lab",
+    pillars: ["Reparations", "Navigating Ignorance"],
     title: "The R Word",
     subtitle: "Reparations — on repair, legacy, and what is owed.",
     summary:
@@ -1016,6 +1050,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "the-n-word",
+    chapterOf: "the-lab",
+    pillars: ["Navigating Ignorance", "Reparations"],
     title: "The N Word",
     subtitle: "Language, Identity, and the N-Word — a study of perception and context.",
     summary:
@@ -1097,18 +1133,11 @@ const houseProjects: Project[] = [
 // The main works exhibited — shown first, in this order. Everything else is
 // grouped under "In Progress" but stays viewable.
 const WORK_ORDER = [
-  "the-n-word",
   "mindvault",
-  "emanual",
-  "nonprofit-builder",
-  "i-am-or-22",
-  "charm-quark-big-ben",
-  "arizona-ponderer",
+  "the-lab",
+  "rapgod",
   "nil-label",
   "mirror",
-  "rapgod",
-  "legacybridge",
-  "blueface-salmon-p-chase",
 ];
 
 // The exhibited set (same slugs) — used to split the archive.

@@ -6,6 +6,7 @@ import { Cover } from "../components/Cover";
 import { Gallery } from "../components/Gallery";
 import { FeatureLookbook } from "../components/FeatureLookbook";
 import { FashionExperience } from "../components/FashionExperience";
+import { LabGateway } from "../components/LabGateway";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -66,6 +67,9 @@ export function ProjectDetail() {
 
   if (project.layout === "cinematic") {
     return <FashionExperience project={project} />;
+  }
+  if (project.layout === "lab") {
+    return <LabGateway project={project} />;
   }
 
   return (

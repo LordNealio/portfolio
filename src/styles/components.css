@@ -1713,6 +1713,114 @@ textarea.field {
   height: auto;
 }
 
+/* The Lab — research, media & applications gateway */
+.lab-hero {
+  margin: 1.5rem 0 2rem;
+  max-width: 60ch;
+}
+.lab-title {
+  margin: 0.4rem 0 0.6rem;
+}
+.lab-tagline {
+  margin: 0 0 1.1rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lab-desc {
+  margin: 0;
+}
+.lab-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+.lab-pillar {
+  margin-top: clamp(2.2rem, 5vw, 3.6rem);
+}
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+}
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.3rem, 2.6vw, 1.8rem);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.lab-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 18px 40px rgba(20, 26, 34, 0.1);
+}
+.lab-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+.lab-format {
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  border-radius: 999px;
+  padding: 0.24rem 0.7rem;
+}
+.lab-card-title {
+  margin: 0 0 0.15rem;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+.lab-card-sub {
+  margin: 0 0 0.7rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-2);
+}
+.lab-card-summary {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-2);
+}
+.lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+.lab-tag {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: var(--panel-2);
+  border-radius: 999px;
+  padding: 0.22rem 0.6rem;
+}
+.lab-card-go {
+  margin-top: auto;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
 /* Public feedback / comments */
 .comments {
   margin-top: clamp(2.5rem, 6vw, 4rem);
