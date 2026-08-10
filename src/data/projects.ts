@@ -217,7 +217,7 @@ const core: Project[] = [
   {
     slug: "legacybridge",
     chapterOf: "the-lab",
-    pillars: ["Gaining Glory", "Reparations"],
+    pillars: ["Gaining Glory", "Especially Reparations"],
     title: "LegacyBridge",
     kind: "App",
     subtitle: "Turn family memory into a book that lasts",
@@ -823,7 +823,7 @@ const houseProjects: Project[] = [
     slug: "arizona-ponderer",
     chapterOf: "the-lab",
     kind: "Media",
-    pillars: ["Navigating Ignorance", "Public Education"],
+    pillars: ["Navigating Ignorance", "Gaining Glory"],
     title: "Arizona Ponderer",
     subtitle: "An investigative broadsheet — Arizona's unanswered questions.",
     summary:
@@ -879,7 +879,7 @@ const houseProjects: Project[] = [
   house({
     slug: "nonprofit-builder",
     chapterOf: "the-lab",
-    pillars: ["Gaining Glory", "Reparations"],
+    pillars: ["Gaining Glory", "Especially Reparations"],
     title: "Nonprofit Launch Kit",
     kind: "App",
     subtitle: "Launch a nonprofit with confidence — not confusion.",
@@ -938,7 +938,7 @@ const houseProjects: Project[] = [
   house({
     slug: "blueface-salmon-p-chase",
     chapterOf: "the-lab",
-    pillars: ["Navigating Ignorance", "Reparations"],
+    pillars: ["Navigating Ignorance", "Especially Reparations"],
     title: "Blueface × Salmon P. Chase",
     subtitle: "The man on the $10,000 bill — currency, faith, and legacy.",
     summary:
@@ -1036,7 +1036,7 @@ const houseProjects: Project[] = [
   house({
     slug: "reparations",
     chapterOf: "the-lab",
-    pillars: ["Reparations", "Navigating Ignorance"],
+    pillars: ["Especially Reparations"],
     title: "The R Word",
     subtitle: "Reparations — on repair, legacy, and what is owed.",
     summary:
@@ -1051,7 +1051,7 @@ const houseProjects: Project[] = [
   house({
     slug: "the-n-word",
     chapterOf: "the-lab",
-    pillars: ["Navigating Ignorance", "Reparations"],
+    pillars: ["Navigating Ignorance", "Especially Reparations"],
     title: "The N Word",
     subtitle: "Language, Identity, and the N-Word — a study of perception and context.",
     summary:
