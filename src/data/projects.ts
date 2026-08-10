@@ -737,6 +737,8 @@ const houseProjects: Project[] = [
     title: "The Lab",
     kind: "Lab",
     layout: "lab",
+    image: "/art/the-lab.jpg",
+    imageFit: "contain",
     subtitle: "Research, Media & Applications",
     summary:
       "An interdisciplinary lab investigating language, identity, history, culture, money, science, and loss — then transforming those inquiries into studies, public media, and practical tools.",
