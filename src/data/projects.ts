@@ -971,17 +971,17 @@ const houseProjects: Project[] = [
     slug: "gnx",
     title: "GNX",
     chapterOf: "rapgod",
-    subtitle: "Two cars. One Kendrick. One question.",
+    subtitle: "Two cars. One Kendrick. Two questions.",
     summary:
-      "A conceptual piece around Kendrick Lamar's GNX — two cars, two sides, and one question: who is the second car for?",
+      "A conceptual piece around Kendrick Lamar's GNX — two cars, two sides, and two questions: who is the second car for, and what does GNX mean?",
     disciplines: ["Culture", "Music", "Film"],
     status: "concept",
     accent: "#16202b",
     role: "Artist and creative director — original work by Just Neal, in the RapGod tradition.",
     solution:
-      "Built in the RapGod tradition of documented music symbolism, GNX reads Kendrick Lamar's world as a pattern — the acronyms behind YNW, DMX, and GNX, and the lines from 'Euphoria' that frame them — around a single question: who is the second car for?",
+      "Built in the RapGod tradition of documented music symbolism, GNX reads Kendrick Lamar's world as a pattern — the acronyms behind YNW, DMX, and GNX, and the lines from 'Euphoria' that frame them — around two questions: who is the second car for, and what does GNX mean?",
     features: [
-      "Two cars. Two sides. One question: who is the second car for?",
+      "Two cars. Two sides. Two questions: who is the second car for, and what does GNX mean?",
       "Reads Kendrick's world as a pattern — YNW · DMX · GNX",
       "DMX, two ways: 'Dark Man X' officially, 'Divine Master X' in the RapGod reading (X = unknown)",
       "Framed by lines from 'Euphoria'",
