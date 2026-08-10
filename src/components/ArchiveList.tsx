@@ -54,8 +54,8 @@ export function ArchiveList({
 
   useReveal([filter, mode]);
 
-  const renderSet = (list: Project[]) =>
-    mode === "supreme" ? (
+  const renderSet = (list: Project[], forceList = false) =>
+    mode === "supreme" && !forceList ? (
       <div className="sup-grid">
         {list.map((p) => (
           <Link to={`/work/${p.slug}`} className="sup-item reveal" key={p.slug}>
@@ -117,7 +117,7 @@ export function ArchiveList({
       {rest.length > 0 && (
         <>
           <p className="archive-progress reveal">In Progress</p>
-          {renderSet(rest)}
+          {renderSet(rest, true)}
         </>
       )}
     </div>
