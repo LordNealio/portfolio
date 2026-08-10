@@ -94,7 +94,7 @@ export interface Project {
   sections?: EssaySection[]; // long-form essay rendered on the detail page
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
-  layout?: "cinematic" | "lab"; // opt into a custom detail layout (fashion house, or the lab gateway)
+  layout?: "cinematic" | "lab" | "carousel"; // custom detail layout (fashion house, lab gateway, or full-screen image carousel)
   chapterOf?: string; // this work is a chapter of another (parent slug); hidden from the grid, surfaced on the parent
   pillars?: string[]; // thematic pillars (e.g. Navigating Ignorance, Gaining Glory, Reparations) for the lab gateway
   chaptersTitle?: string; // heading for this work's chapters section on its detail page
@@ -833,10 +833,12 @@ const houseProjects: Project[] = [
     disciplines: ["Publishing", "Culture"],
     accent: "#b8924a",
     role: "Writer and designer — original work by Just Neal.",
+    layout: "carousel",
     gallery: [
+      "/art/aponderer-final-trump.jpg",
+      "/art/aponderer-gardener.jpg",
       "/art/aponderer-elijahs-fire.jpg",
       "/art/aponderer-jay-electronica.jpg",
-      "/art/aponderer-catches-body.jpg",
       "/art/aponderer-neal-lester.jpg",
       "/art/aponderer-pbs-mysteries.jpg",
       "/art/aponderer-have-you-seen.jpg",

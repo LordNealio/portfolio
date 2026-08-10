@@ -7,6 +7,7 @@ import { Gallery } from "../components/Gallery";
 import { FeatureLookbook } from "../components/FeatureLookbook";
 import { FashionExperience } from "../components/FashionExperience";
 import { LabGateway } from "../components/LabGateway";
+import { ImageCarousel } from "../components/ImageCarousel";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -70,6 +71,9 @@ export function ProjectDetail() {
   }
   if (project.layout === "lab") {
     return <LabGateway project={project} />;
+  }
+  if (project.layout === "carousel") {
+    return <ImageCarousel project={project} />;
   }
 
   const chaptersBlock =
