@@ -1637,6 +1637,26 @@ textarea.field {
   letter-spacing: 0.02em;
   color: var(--text-2);
 }
+/* The "Neal / Neil / Neale" thread */
+.reading-neal-note {
+  margin: -0.4rem 0 1.4rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.neal-star {
+  color: var(--gold);
+}
+.neal-mark {
+  color: var(--gold);
+  font-weight: 600;
+}
+.book--neal {
+  box-shadow: inset 3px 0 0 var(--gold-soft);
+}
+.book--neal .book-idx {
+  font-size: 1.05rem;
+}
 .book-go {
   color: var(--gold);
   font-size: 1.1rem;

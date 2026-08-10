@@ -280,14 +280,21 @@ export function ProjectDetail() {
         {project.books && project.books.length > 0 && (
           <section className="reading-list">
             <h2 className="h2 reveal">Reading List</h2>
+            {project.books.some((b) => b.neal) && (
+              <p className="reading-neal-note reveal">
+                <span className="neal-star">✦</span> A recurring thread — authors whose names carry a
+                variation of <span className="neal-mark">Neal</span> ·{" "}
+                <span className="neal-mark">Neil</span> · <span className="neal-mark">Neale</span>.
+              </p>
+            )}
             <ol className="books">
               {project.books.map((b, i) => (
                 <li className="reveal" key={b.href}>
-                  <a className="book" href={b.href} target="_blank" rel="noreferrer">
-                    <span className="book-idx">{String(i + 1).padStart(2, "0")}</span>
+                  <a className={`book ${b.neal ? "book--neal" : ""}`} href={b.href} target="_blank" rel="noreferrer">
+                    <span className="book-idx">{b.neal ? "✦" : String(i + 1).padStart(2, "0")}</span>
                     <span className="book-main">
                       <span className="book-title">{b.title}</span>
-                      <span className="book-author">{b.author}</span>
+                      <span className="book-author">{b.neal ? highlightNeal(b.author) : b.author}</span>
                     </span>
                     <span className="book-go" aria-hidden="true">↗</span>
                   </a>
@@ -331,6 +338,19 @@ export function ProjectDetail() {
         </nav>
       </div>
     </article>
+  );
+}
+
+// Wrap the "Neal / Neil / Neale" variation in an author's name for highlighting.
+function highlightNeal(author: string) {
+  return author.split(/(neale|neil|neal)/i).map((part, i) =>
+    /^(neale|neil|neal)$/i.test(part) ? (
+      <span className="neal-mark" key={i}>
+        {part}
+      </span>
+    ) : (
+      <span key={i}>{part}</span>
+    )
   );
 }
 

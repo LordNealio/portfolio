@@ -66,6 +66,7 @@ export interface Book {
   title: string;
   author: string;
   href: string;
+  neal?: boolean; // author shares a variation of "Neal" (Neal · Neil · Neale) — the recurring name
 }
 
 export interface Project {
@@ -1092,7 +1093,11 @@ const houseProjects: Project[] = [
       { title: "Scattered Minds", author: "Gabor Maté", href: "https://www.amazon.com/dp/0593714377" },
       { title: "The Three Pillars of Zen", author: "Philip Kapleau", href: "https://www.amazon.com/dp/0385260938" },
       { title: "The Untethered Soul", author: "Michael A. Singer", href: "https://www.amazon.com/dp/1572245379" },
-      { title: "Conversations with God, Book 1", author: "Neale Donald Walsch", href: "https://www.amazon.com/dp/0399142789" },
+      { title: "Conversations with God, Book 1", author: "Neale Donald Walsch", href: "https://www.amazon.com/dp/0399142789", neal: true },
+      { title: "Notes on Complexity", author: "Neil Theise", href: "https://www.amazon.com/dp/B0B74STY6H", neal: true },
+      { title: "The Diamond Age", author: "Neal Stephenson", href: "https://www.amazon.com/dp/0553380966", neal: true },
+      { title: "Any Day Now: Toward a Black Aesthetic", author: "Larry Neal", href: "https://www.amazon.com/dp/1644231204", neal: true },
+      { title: "Black Fire: An Anthology of Afro-American Writing", author: "LeRoi Jones & Larry Neal", href: "https://www.amazon.com/dp/1574780395", neal: true },
       { title: "Autobiography of a Yogi", author: "Paramahansa Yogananda", href: "https://www.amazon.com/dp/0876120796" },
       { title: "Pimp: The Story of My Life", author: "Iceberg Slim", href: "https://www.amazon.com/dp/1451617135" },
       { title: "Atomic Habits", author: "James Clear", href: "https://www.amazon.com/dp/0735211299" },
