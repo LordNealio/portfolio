@@ -869,6 +869,8 @@ const houseProjects: Project[] = [
     title: "Dear Ye / Mission Control",
     kind: "Media",
     chapterOf: "rapgod",
+    image: "/art/from-x-to-ye.jpg",
+    imageFit: "cover",
     subtitle: "A message from me to Ye.",
     summary:
       "A message to Kanye West — a journey from a prayer that the feet won't fail, to flight, to a mission.",
