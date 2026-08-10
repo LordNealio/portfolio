@@ -31,6 +31,9 @@ const LAB_FORMAT: Record<string, string> = {
   legacybridge: "APP",
   emanual: "APP",
   "nonprofit-builder": "APP",
+  covenant: "APP",
+  "nous-innovation-labs": "NONPROFIT",
+  "reading-list": "READING",
 };
 const formatOf = (p: Project) => LAB_FORMAT[p.slug] || kindOf(p).toUpperCase();
 

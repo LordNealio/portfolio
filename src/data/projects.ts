@@ -852,6 +852,8 @@ const houseProjects: Project[] = [
   house({ slug: "bizbrain", title: "BizBrain", subtitle: "An AI operating brain for a business.", disciplines: ["AI", "Technology"], accent: "#1b2a3a" }),
   house({
     slug: "nous-innovation-labs",
+    chapterOf: "the-lab",
+    pillars: ["Gaining Glory"],
     title: "Nous Innovation Labs",
     kind: "Nonprofit",
     subtitle: "Human-Centered Learning for the Intelligence Age",
@@ -1000,7 +1002,7 @@ const houseProjects: Project[] = [
   house({
     slug: "charm-quark-big-ben",
     chapterOf: "the-lab",
-    pillars: ["Navigating Ignorance"],
+    pillars: ["Gaining Glory"],
     title: "Charm Quark x Big Ben",
     subtitle: "The Rose of Sharon blooms again — the unseen that explains the seen.",
     summary:
@@ -1019,7 +1021,7 @@ const houseProjects: Project[] = [
     slug: "i-am-or-22",
     chapterOf: "the-lab",
     kind: "Research",
-    pillars: ["Navigating Ignorance", "Gaining Glory"],
+    pillars: ["Gaining Glory"],
     title: "I AM / 22",
     subtitle: "I AM, the elements, and the number 22.",
     summary:
@@ -1073,6 +1075,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "reading-list",
+    chapterOf: "the-lab",
+    pillars: ["Navigating Ignorance"],
     title: "Reading List / Free Game",
     subtitle: "The books behind the thinking.",
     summary: "A curated reading list — the books that shape the ideas across the house.",
@@ -1111,6 +1115,8 @@ const houseProjects: Project[] = [
   }),
   house({
     slug: "covenant",
+    chapterOf: "the-lab",
+    pillars: ["Gaining Glory"],
     title: "Covenant",
     subtitle: "A 90-day challenge — structure your life with scripture and discipline.",
     summary: "A 90-day app that structures daily life around scripture, commitment, and discipline.",
