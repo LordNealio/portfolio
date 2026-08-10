@@ -98,6 +98,7 @@ export interface Project {
   chapterOf?: string; // this work is a chapter of another (parent slug); hidden from the grid, surfaced on the parent
   pillars?: string[]; // thematic pillars (e.g. Navigating Ignorance, Gaining Glory, Reparations) for the lab gateway
   chaptersTitle?: string; // heading for this work's chapters section on its detail page
+  chaptersFirst?: boolean; // render the chapters section at the top of the body (right under Honest status)
   chaptersIntro?: string; // a synthesized intro paragraph above the chapters
   role: string;
   audience: string;
@@ -546,6 +547,7 @@ const core: Project[] = [
     image: "/rapgod.svg",
     imageFit: "cover",
     chaptersTitle: "In this archive",
+    chaptersFirst: true,
     chaptersIntro:
       "The RapGod method — reading music as documented symbolism — extends into specific works. GNX and Dear Ye / Mission Control are chapters of the same archive; each has its own full breakdown, with the films below.",
     role: "Researcher and author of the framework and the documented notes.",

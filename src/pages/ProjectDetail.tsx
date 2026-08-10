@@ -72,6 +72,46 @@ export function ProjectDetail() {
     return <LabGateway project={project} />;
   }
 
+  const chaptersBlock =
+    chapters.length > 0 ? (
+      <section className="detail-chapters reveal">
+        <h2 className="h2">{project.chaptersTitle ?? "Chapters"}</h2>
+        {project.chaptersIntro && <p className="lead detail-chapters-intro">{project.chaptersIntro}</p>}
+        <div className="chapter-list">
+          {chapters.map((c) => (
+            <article className="chapter-card reveal" key={c.slug}>
+              <div className="chapter-info">
+                <span className="chapter-kind">
+                  {c.status === "live" && <i className="live-dot" title="Live" />}
+                  {kindOf(c)}
+                </span>
+                <h3 className="chapter-title">{c.title}</h3>
+                <p className="chapter-sub muted serif-i">{c.subtitle}</p>
+                <p className="chapter-summary">{c.summary}</p>
+                <div className="chapter-links">
+                  <Link to={`/work/${c.slug}`} className="btn btn-ghost">
+                    Full breakdown <span className="arr">→</span>
+                  </Link>
+                  {c.links.map((l) => (
+                    <a key={l.href} className="btn btn-ghost" href={l.href} target="_blank" rel="noreferrer">
+                      {l.label} <span className="arr">↗</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              {c.video ? (
+                <video className="chapter-media" src={c.video} controls playsInline preload="metadata" />
+              ) : c.image ? (
+                <Link to={`/work/${c.slug}`} className="chapter-media chapter-cover">
+                  <img src={c.image} alt={c.title} loading="lazy" />
+                </Link>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+    ) : null;
+
   return (
     <article className="detail">
       {/* Hero */}
@@ -122,6 +162,8 @@ export function ProjectDetail() {
 
       {/* Body */}
       <div className="wrap detail-body">
+        {project.chaptersFirst && chaptersBlock}
+
         {project.feature &&
           (project.featureHotspots && project.featureHotspots.length > 0 && project.gallery && project.gallery.length > 0 ? (
             <FeatureLookbook
@@ -213,44 +255,7 @@ export function ProjectDetail() {
           </aside>
         </div>
 
-        {chapters.length > 0 && (
-          <section className="detail-chapters reveal">
-            <h2 className="h2">{project.chaptersTitle ?? "Chapters"}</h2>
-            {project.chaptersIntro && <p className="lead detail-chapters-intro">{project.chaptersIntro}</p>}
-            <div className="chapter-list">
-              {chapters.map((c) => (
-                <article className="chapter-card reveal" key={c.slug}>
-                  <div className="chapter-info">
-                    <span className="chapter-kind">
-                      {c.status === "live" && <i className="live-dot" title="Live" />}
-                      {kindOf(c)}
-                    </span>
-                    <h3 className="chapter-title">{c.title}</h3>
-                    <p className="chapter-sub muted serif-i">{c.subtitle}</p>
-                    <p className="chapter-summary">{c.summary}</p>
-                    <div className="chapter-links">
-                      <Link to={`/work/${c.slug}`} className="btn btn-ghost">
-                        Full breakdown <span className="arr">→</span>
-                      </Link>
-                      {c.links.map((l) => (
-                        <a key={l.href} className="btn btn-ghost" href={l.href} target="_blank" rel="noreferrer">
-                          {l.label} <span className="arr">↗</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                  {c.video ? (
-                    <video className="chapter-media" src={c.video} controls playsInline preload="metadata" />
-                  ) : c.image ? (
-                    <Link to={`/work/${c.slug}`} className="chapter-media chapter-cover">
-                      <img src={c.image} alt={c.title} loading="lazy" />
-                    </Link>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
+        {!project.chaptersFirst && chaptersBlock}
 
         {project.sections && project.sections.length > 0 && (
           <article className="detail-essay">
