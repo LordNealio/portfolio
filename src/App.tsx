@@ -13,6 +13,7 @@ import { Store } from "./pages/Store";
 import { Constellation } from "./pages/Constellation";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
+import { Cipher } from "./pages/Cipher";
 import { StudyAdmin } from "./pages/StudyAdmin";
 import { CommentsAdmin } from "./pages/CommentsAdmin";
 import { NotFound } from "./pages/NotFound";
@@ -43,6 +44,7 @@ export function App() {
           <Route path="/inspirations" element={<Navigate to="/constellation" replace />} />
           <Route path="/journal" element={<Navigate to="/constellation" replace />} />
           <Route path="/study/n-word" element={<Study />} />
+          <Route path="/study/n-word/cipher" element={<Cipher />} />
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
           <Route path="/study/r-word" element={<StudyReparations />} />
           <Route path="/comments-admin" element={<CommentsAdmin />} />

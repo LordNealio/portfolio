@@ -7,6 +7,7 @@ import "./styles/global.css";
 import "./styles/components.css";
 import "./styles/supreme.css";
 import "./styles/study.css";
+import "./styles/cipher.css";
 import "./styles/fashion.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

@@ -479,6 +479,20 @@ export function Study() {
         return (
           <div className="reveal">
             <h2 className="study-h2">{showComparison ? "Reading" : "Educational module"}</h2>
+            {!showComparison && (
+              <div className="cip-launch">
+                <div>
+                  <p className="cip-launch-eyebrow">Education Module 01</p>
+                  <p className="cip-launch-title">The Enigmatic Cipher</p>
+                  <p className="cip-launch-sub">
+                    An inquiry-based carousel on how words, titles, and classifications change over time.
+                  </p>
+                </div>
+                <Link to="/study/n-word/cipher" className="study-btn primary">
+                  Open the case file →
+                </Link>
+              </div>
+            )}
             {mod.map((m, i) => (
               <div className="module-sec" key={m.id}>
                 <p className="module-num">Section {i + 1} of {mod.length}</p>
