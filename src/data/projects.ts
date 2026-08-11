@@ -741,7 +741,7 @@ const houseProjects: Project[] = [
     imageFit: "contain",
     subtitle: "An Interdisciplinary Lab",
     summary:
-      "A Black wHole investigates language, identity, history, culture, money, science, memory, and loss — then transforms those inquiries into studies, public media, and practical tools.",
+      "A Black wHole is an interdisciplinary lab that investigates language, identity, history, culture, money, science, memory, and loss — then transforms those inquiries into studies, public media, and practical tools.",
     disciplines: ["Research", "Culture", "Education"],
     accent: "#16202b",
     role: "Founder and lead — an interdisciplinary research, media, and applications lab by Just Neal.",
