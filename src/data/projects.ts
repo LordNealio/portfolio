@@ -734,14 +734,14 @@ const houseProjects: Project[] = [
   // ── THE LAB — research, media & applications (gateway) ───────────────────
   house({
     slug: "the-lab",
-    title: "The Lab",
+    title: "A Black wHole",
     kind: "Lab",
     layout: "lab",
     image: "/art/the-lab.jpg",
     imageFit: "contain",
-    subtitle: "Research, Media & Applications",
+    subtitle: "An Interdisciplinary Lab",
     summary:
-      "An interdisciplinary lab investigating language, identity, history, culture, money, science, and loss — then transforming those inquiries into studies, public media, and practical tools.",
+      "A Black wHole investigates language, identity, history, culture, money, science, memory, and loss — then transforms those inquiries into studies, public media, and practical tools.",
     disciplines: ["Research", "Culture", "Education"],
     accent: "#16202b",
     role: "Founder and lead — an interdisciplinary research, media, and applications lab by Just Neal.",
