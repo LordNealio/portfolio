@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { chaptersOf, kindOf } from "../data/projects";
 import type { Project } from "../data/projects";
 import { useReveal } from "../lib/useReveal";
+import { Cover } from "./Cover";
 
 // The three organizing pillars (the nonprofit's philosophy), with descriptions.
 const PILLARS: { name: string; desc: string }[] = [
@@ -88,6 +89,9 @@ export function LabGateway({ project }: { project: Project }) {
                 <div className="lab-grid">
                   {list.map((p) => (
                     <Link to={`/work/${p.slug}`} className="lab-card reveal" key={p.slug}>
+                      <div className="lab-card-media">
+                        <Cover project={p} />
+                      </div>
                       <div className="lab-card-top">
                         <span className="lab-format">{formatOf(p)}</span>
                         {p.status === "live" && <i className="live-dot" title="Live" />}
