@@ -1147,6 +1147,20 @@ const houseProjects: Project[] = [
     links: [{ label: "Visit site", href: "https://bebida-two.vercel.app/", verified: true }],
     note: "Live — the online experience for Estrella Nos, a mindful desert luxury café.",
   }),
+  house({
+    slug: "sanda-path",
+    title: "Sanda Path",
+    kind: "App",
+    subtitle: "The path of the martial artist — master Sanda and Taekwondo, one drill at a time.",
+    summary:
+      "A role-based martial-arts training app for Sanda and Taekwondo. Students train, earn XP, and track their journey; parents follow their child's progress; coaches manage their class, post drill videos, and message students.",
+    disciplines: ["Apps", "Education", "Games"],
+    status: "in-development",
+    accent: "#9a2a2a",
+    role: "Founder and designer — a gamified martial-arts training app by Just Neal.",
+    links: [{ label: "Live preview", href: "https://sanda-path.vercel.app/", verified: true }],
+    note: "In development — an early build is live; drills, XP, and role-based features are still being built out.",
+  }),
 ];
 
 // The main works exhibited — shown first, in this order. Everything else is
