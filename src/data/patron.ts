@@ -33,7 +33,7 @@ export const PATRON_LINKS = {
   support: "#direct-support", // scrolls to the payment section
   collaborate: "/connect",
   contact: "/connect",
-  wishlist: "", // ← paste your Amazon wishlist URL
+  wishlist: "https://www.amazon.com/registries/gl/owner-view/3LFNUMLS350QV", // Amazon wishlist
 };
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
