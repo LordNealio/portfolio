@@ -43,7 +43,8 @@ export function App() {
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />
           <Route path="/constellation" element={<Constellation />} />
-          <Route path="/patron" element={<PatronExperiment />} />
+          <Route path="/ineed" element={<PatronExperiment />} />
+          <Route path="/patron" element={<Navigate to="/ineed" replace />} />
           <Route path="/inspirations" element={<Navigate to="/constellation" replace />} />
           <Route path="/journal" element={<Navigate to="/constellation" replace />} />
           <Route path="/study/n-word" element={<Study />} />

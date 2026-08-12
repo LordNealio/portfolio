@@ -38,8 +38,8 @@ export const PATRON_LINKS = {
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
 export const HERO = {
-  eyebrow: "The Patron Experiment",
-  title: "The Patron Experiment",
+  eyebrow: "The invitation",
+  title: "iNeed$",
   subtitle: "Modern Patronage for Independent Ideas",
   body: [
     "Throughout history, artists, inventors, scientists, educators, and writers often reached their full potential because someone believed in them before the rest of the world did.",

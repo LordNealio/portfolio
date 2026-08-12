@@ -39,7 +39,7 @@ export function PatronExperiment() {
     const root = document.documentElement;
     const prev = root.getAttribute("data-theme");
     root.setAttribute("data-theme", "dark");
-    document.title = "The Patron Experiment — NIL · Just Neal";
+    document.title = "iNeed$ — NIL · Just Neal";
     return () => {
       if (prev) root.setAttribute("data-theme", prev);
       else root.removeAttribute("data-theme");
