@@ -274,8 +274,8 @@ export const DIRECT_SUPPORT = {
   eyebrow: "Direct support",
   title: "A simple, direct way to help.",
   methods: [
-    { name: "Venmo", handle: "@your-venmo-handle", href: "" },
-    { name: "Cash App", handle: "$YourCashtag", href: "" },
+    { name: "Venmo", handle: "@justin-neal-5", href: "https://venmo.com/u/justin-neal-5" },
+    { name: "Cash App", handle: "$JustinNeal36", href: "https://cash.app/$JustinNeal36" },
   ] as PayMethod[],
   disclaimer:
     "Contributions are personal gifts of support and patronage — not tax-deductible charitable donations.",
