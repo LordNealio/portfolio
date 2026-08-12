@@ -3229,6 +3229,29 @@ textarea.field {
 .story-frame:focus-visible .story-expand {
   opacity: 1;
 }
+.story-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  transform: translateX(-50%);
+  padding: 0.34rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: storyHintPulse 2.4s ease-in-out infinite;
+}
+@keyframes storyHintPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-hint { animation: none; opacity: 0.85; }
+}
 .story-arrow {
   flex: none;
   width: 2.8rem;

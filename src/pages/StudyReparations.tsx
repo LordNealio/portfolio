@@ -344,6 +344,19 @@ export function StudyReparations() {
         return (
           <div className="reveal">
             <h2 className="study-h2">Educational module</h2>
+            <div className="cip-launch">
+              <div>
+                <p className="cip-launch-eyebrow">Education Module · Especially Reparations</p>
+                <p className="cip-launch-title">The Big Payback?</p>
+                <p className="cip-launch-sub">
+                  An evidence-first carousel: what was taken, what compounded, and what a proven repair
+                  would require.
+                </p>
+              </div>
+              <Link to="/study/r-word/module" className="study-btn primary">
+                Open the carousel →
+              </Link>
+            </div>
             {S.moduleSections.map((m, i) => (
               <div className="module-sec" key={m.id}>
                 <p className="module-num">

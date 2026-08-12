@@ -14,11 +14,23 @@ export function StoryCarousel({ data }: { data: StoryCarouselData }) {
   const images = data.images.filter((im) => !failed.has(im.src));
   const [i, setI] = useState(0);
   const [zoom, setZoom] = useState(false);
+  const [hint, setHint] = useState(true); // "tap to read" affordance, until first interaction
   const touchX = useRef<number | null>(null);
 
   const len = images.length;
   const idx = len ? ((i % len) + len) % len : 0;
-  const go = (d: number) => setI((x) => x + d);
+  const go = (d: number) => {
+    setHint(false);
+    setI((x) => x + d);
+  };
+  const jump = (n: number) => {
+    setHint(false);
+    setI(n);
+  };
+  const open = () => {
+    setHint(false);
+    setZoom(true);
+  };
 
   // Lock body scroll + wire keyboard while the lightbox is open.
   useEffect(() => {
@@ -38,6 +50,7 @@ export function StoryCarousel({ data }: { data: StoryCarouselData }) {
   }, [zoom]);
 
   const onTouchStart = (e: React.TouchEvent) => {
+    setHint(false);
     touchX.current = e.touches[0].clientX;
   };
   const onTouchEnd = (e: React.TouchEvent) => {
@@ -74,16 +87,16 @@ export function StoryCarousel({ data }: { data: StoryCarouselData }) {
             <button className="story-arrow left" onClick={() => go(-1)} aria-label="Previous slide">
               ‹
             </button>
-            <button
-              type="button"
-              className="story-frame"
-              onClick={() => setZoom(true)}
-              aria-label="Expand slide"
-            >
+            <button type="button" className="story-frame" onClick={open} aria-label="Expand slide">
               <img src={current.src} alt={current.alt} loading={idx === 0 ? "eager" : "lazy"} />
               <span className="story-expand" aria-hidden="true">
                 ⤢
               </span>
+              {hint && (
+                <span className="story-hint" aria-hidden="true">
+                  Tap to read · swipe to move
+                </span>
+              )}
             </button>
             <button className="story-arrow right" onClick={() => go(1)} aria-label="Next slide">
               ›
@@ -111,7 +124,7 @@ export function StoryCarousel({ data }: { data: StoryCarouselData }) {
               <button
                 key={im.src}
                 className={`story-dot ${n === idx ? "on" : ""}`}
-                onClick={() => setI(n)}
+                onClick={() => jump(n)}
                 aria-label={`Go to slide ${n + 1}`}
                 aria-current={n === idx}
               />

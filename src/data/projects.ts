@@ -1083,6 +1083,7 @@ const houseProjects: Project[] = [
     accent: "#2c3a2c",
     role: "Researcher and designer — original study by Just Neal.",
     studyPath: "/study/r-word",
+    moduleLink: { label: "Education Module · The Big Payback", href: "/study/r-word/module" },
     note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
   }),
   house({
