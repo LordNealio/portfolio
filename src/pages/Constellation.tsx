@@ -13,6 +13,7 @@ const GROUP_ORDER = [
   "Music, Story & Creative Vision",
   "Complexity, Language & Learning",
   "Spiritual Inquiry",
+  "Testimony, Healing & Community",
 ];
 
 function initials(name: string) {

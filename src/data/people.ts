@@ -134,6 +134,23 @@ export const people: Person[] = [
       "A guided reflection experience built around spiritual questions, personal dialogue, discernment, and the relationship between belief and everyday conduct.",
     link: { label: "Conversations with God Foundation", href: "https://www.cwg.org/" },
   },
+
+  // ── Testimony, Healing & Community ─────────────────────────────────────────
+  {
+    name: "Dr. David A. Hatch",
+    themes: "Author • Playwright • Pastor • Youth Advocate",
+    group: "Testimony, Healing & Community",
+    body: [
+      "Dr. David A. Hatch transforms lived pain into stories, performances, education, and structures of support. His work spans youth theatre, radio, ministry, counseling, homelessness, parenting, domestic-violence awareness, grief, forgiveness, and community healing.",
+      "His deeply personal work Pieces grew from the death of his daughter and examines how domestic violence affected his family. Rather than allowing that loss to remain private, he transformed it into a story intended to help other people recognize abuse, confront pain, and move toward healing.",
+      "His work follows a path that closely aligns with YoungBlesser: experience → testimony → creative expression → public education → repair. He demonstrates how theatre, faith, media, and mentorship can give difficult experiences a public language and help pain become a resource for preventing further harm.",
+      "A fellow builder turning broken pieces into pathways toward healing.",
+    ],
+    connectedWork:
+      "YoungBlesser; A Black wHole (Gaining Glory, Especially Reparations); grief, legacy, and testimony tools",
+    dreamCollaboration:
+      "Youth storytelling and theatre, recorded conversations, domestic-violence education, grief and legacy projects, and practical tools that help people document their experiences, find their voices, and transform testimony into action.",
+  },
 ];
 
 export const CONSTELLATION_CONNECTS = {
@@ -146,6 +163,7 @@ export const CONSTELLATION_CONNECTS = {
     "Neal Lester examines how language acquires meaning through history, culture, context, and power.",
     "Ellen Winner studies how art, cognition, and educational frameworks affect how people think and learn.",
     "Neale Donald Walsch approaches meaning through spiritual questioning and dialogue.",
+    "Dr. David A. Hatch turns lived pain into testimony, theatre, ministry, and structures of support.",
   ],
   outro:
     "Together, their work helps define the territory in which my own projects operate: music, memory, language, identity, consciousness, education, technology, and human connection.",
