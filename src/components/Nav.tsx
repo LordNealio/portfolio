@@ -6,6 +6,7 @@ const links = [
   { to: "/work", label: "Work" },
   { to: "/store", label: "Store" },
   { to: "/constellation", label: "Constellation" },
+  { to: "/patron", label: "Patron Experiment" },
   { to: "/about", label: "About" },
   { to: "/connect", label: "Connect" },
 ];

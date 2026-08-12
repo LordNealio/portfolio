@@ -72,6 +72,20 @@
   padding: 0.6em 1.15em;
   font-size: 0.86rem;
 }
+/* Mid-width desktop: tighten spacing so the full link row (incl. Patron
+   Experiment) fits before the burger menu takes over at 720px. */
+@media (min-width: 721px) and (max-width: 1120px) {
+  .nav-links {
+    gap: 1.1rem;
+  }
+  .nav-links a:not(.nav-cta) {
+    font-size: 0.84rem;
+  }
+  .nav-cta {
+    padding: 0.55em 0.85em;
+    font-size: 0.78rem;
+  }
+}
 .nav-tools {
   display: flex;
   align-items: center;

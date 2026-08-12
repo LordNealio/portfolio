@@ -9,6 +9,7 @@ import "./styles/supreme.css";
 import "./styles/study.css";
 import "./styles/cipher.css";
 import "./styles/fashion.css";
+import "./styles/patron.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

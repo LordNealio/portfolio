@@ -11,6 +11,7 @@ import { Now } from "./pages/Now";
 import { Contact } from "./pages/Contact";
 import { Store } from "./pages/Store";
 import { Constellation } from "./pages/Constellation";
+import { PatronExperiment } from "./pages/PatronExperiment";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -42,6 +43,7 @@ export function App() {
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />
           <Route path="/constellation" element={<Constellation />} />
+          <Route path="/patron" element={<PatronExperiment />} />
           <Route path="/inspirations" element={<Navigate to="/constellation" replace />} />
           <Route path="/journal" element={<Navigate to="/constellation" replace />} />
           <Route path="/study/n-word" element={<Study />} />
