@@ -150,6 +150,7 @@ export const people: Person[] = [
       "YoungBlesser; A Black wHole (Gaining Glory, Especially Reparations); grief, legacy, and testimony tools",
     dreamCollaboration:
       "Youth storytelling and theatre, recorded conversations, domestic-violence education, grief and legacy projects, and practical tools that help people document their experiences, find their voices, and transform testimony into action.",
+    link: { label: "Explore his work", href: "https://drdavidahatchbooks.com/" },
   },
 ];
 
