@@ -8,6 +8,7 @@ import { FeatureLookbook } from "../components/FeatureLookbook";
 import { FashionExperience } from "../components/FashionExperience";
 import { LabGateway } from "../components/LabGateway";
 import { ImageCarousel } from "../components/ImageCarousel";
+import { StoryCarousel } from "../components/StoryCarousel";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -172,6 +173,8 @@ export function ProjectDetail() {
       {/* Body */}
       <div className="wrap detail-body">
         {project.chaptersFirst && chaptersBlock}
+
+        {project.storyCarousel && <StoryCarousel data={project.storyCarousel} />}
 
         {project.feature &&
           (project.featureHotspots && project.featureHotspots.length > 0 && project.gallery && project.gallery.length > 0 ? (

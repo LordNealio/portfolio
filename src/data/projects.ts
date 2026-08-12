@@ -69,6 +69,15 @@ export interface Book {
   neal?: boolean; // author shares a variation of "Neal" (Neal · Neil · Neale) — the recurring name
 }
 
+// A self-contained, inline swipeable carousel of finished slides (finalized
+// image assets — presented as-is, never overlaid or redesigned).
+export interface StoryCarousel {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+  images: { src: string; alt: string }[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -94,6 +103,7 @@ export interface Project {
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   sections?: EssaySection[]; // long-form essay rendered on the detail page
+  storyCarousel?: StoryCarousel; // an inline swipeable carousel of finished slides shown on the detail page
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
   layout?: "cinematic" | "lab" | "carousel"; // custom detail layout (fashion house, lab gateway, or full-screen image carousel)
@@ -552,6 +562,23 @@ const core: Project[] = [
     chaptersFirst: true,
     chaptersIntro:
       "The RapGod method — reading music as documented symbolism — extends into specific works. GNX and Dear Ye / Mission Control are chapters of the same archive; each has its own full breakdown, with the films below.",
+    storyCarousel: {
+      eyebrow: "Questions for Ye",
+      title: "The Donda story",
+      intro:
+        "It started after I'd taken a break from music, when I heard my mother's name — Gloria — inside Ye's Donda. One name was a coincidence; eleven became a question. This is the path I traced through the music: names, dates, and places that kept lining up with my own life. Swipe through.",
+      images: [
+        { src: "/art/donda/01.jpg", alt: "Questions for Ye — one was a coincidence, eleven became a question. It started with my mother's name: Gloria. (1 of 9)" },
+        { src: "/art/donda/02.jpg", alt: "Question 01 — Gloria: why does Donda begin and end with Gloria? My mother's name was Gloria. (2 of 9)" },
+        { src: "/art/donda/03.jpg", alt: "Question 02 — Hurricane: after Gloria came Hurricane, the song that brought me back to music. (3 of 9)" },
+        { src: "/art/donda/04.jpg", alt: "Question 03 — Justin: on Remote Control Pt 2 I heard 'Justin, Justin — doin' damage.' My first name is Justin. (4 of 9)" },
+        { src: "/art/donda/05.jpg", alt: "Question 04 — Neal / Kneel: in Chakras the line sounds like 'kneel / Neal.' My last name is Neal. (5 of 9)" },
+        { src: "/art/donda/06.jpg", alt: "Question 05 — Come to Life: one meaning of Neal is 'cloud'; the line 'floating on a silver lining.' Neal → cloud → silver lining. (6 of 9)" },
+        { src: "/art/donda/07.jpg", alt: "Question 06 — Phoenix: I moved to Phoenix in June 2019, the same period as Jesus Is King and Up from the Ashes. (7 of 9)" },
+        { src: "/art/donda/08.jpg", alt: "Question 07 — Hamilton: No Child Left Behind was signed at Hamilton High School — my high school. The path so far: Gloria, Hurricane, Justin, Neal, Come to Life, Phoenix, Hamilton. (8 of 9)" },
+        { src: "/art/donda/09.jpg", alt: "Four more songs — Jesus Lord (Jay Electronica), Pure Souls (my son Sol), the number 24 (Kobe / my son's birthday), and the Moon (my daughter Luna). Eleven connections. (9 of 9)" },
+      ],
+    },
     role: "Researcher and author of the framework and the documented notes.",
     audience: "A canonical reference the other cultural projects draw from.",
     problem: "Cultural and musical symbolism is scattered and easy to fabricate; it needs a disciplined, documented archive.",
