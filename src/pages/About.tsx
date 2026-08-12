@@ -43,6 +43,10 @@ export function About() {
         {/* Backstory */}
         <div className="backstory">
           <p className="eyebrow reveal">The backstory</p>
+          <figure className="backstory-photo reveal">
+            <img src="/art/yung-blesser.jpg" alt="Just Neal as a child, captioned Yung Blesser." loading="lazy" />
+            <figcaption>Yung Blesser — where it started.</figcaption>
+          </figure>
           {backstory.map((b) => (
             <div className="backstory-item reveal" key={b.q}>
               <h2 className="backstory-q">{b.q}</h2>
