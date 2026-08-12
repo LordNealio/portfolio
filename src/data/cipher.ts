@@ -116,35 +116,35 @@ export const SLIDES: CipherSlide[] = [
   {
     id: "04-identity",
     src: "/art/cipher/04-identity.png",
-    alt: "Documentary-style panel 'Etymology & Identity — one slur crossed many native lands,' showing figures labeled Andaman Islands, Australia (Sol Bellear · Bundjalung), United States (Dick Gregory), and Fiji (Ratu Seru Cakobau).",
+    alt: "Documentary-style panel 'Etymology & Identity — one slur crossed many native lands,' showing groups labeled Philippines (Indigenous Negrito Peoples), Central America (Garifuna People), United States (ODB / Russell Tyrone Jones · Shinnecock), and Hawaii (King Kamehameha I · Native Hawaiian).",
     transcript:
-      "Etymology & Identity — 'one slur crossed many native lands.' Four labeled portraits: Andaman Islands (Indigenous Andamanese); Australia (Sol Bellear · Bundjalung); United States (Dick Gregory · Black American); Fiji (Ratu Seru Cakobau · iTaukei Fijian). Text: English colonists also applied the slur to dark-skinned native peoples in India, Australia, and Polynesia. It asks whether that old usage preserves an identity clue or only shows how colonizers reused one word across peoples, and cautions: appearance alone does not prove ancestry — family records, tribal ties, and historical evidence matter.",
+      "Etymology & Identity — 'one slur crossed many native lands.' Four labeled images: Philippines (Indigenous Negrito Peoples); Central America (Garifuna People); United States (ODB / Russell Tyrone Jones · Shinnecock); Hawaii (King Kamehameha I · Native Hawaiian). Text: if the slur was historically used to mean 'a dark-skinned native,' what does it mean that the word became most deeply anchored in the United States? What might that reveal about the history of land, race, and identity in America?",
     labels: [
       { text: "Interpretive Connection", cat: "interpretive" },
       { text: "Identity Question", cat: "interpretive" },
     ],
     evidence: {
-      claim: "That colonists applied the same slur to dark-skinned Indigenous peoples across several regions, raising an identity question.",
-      source: SOURCE_NEEDED + " (documentation for the colonial application of the term across these regions is required).",
-      uncertain: "Whether shared colonial usage implies any shared identity or ancestry. The slide itself states appearance does not prove ancestry.",
-      questions: "What primary colonial-era records document this usage in each region? Does shared usage indicate anything beyond colonizers reusing one epithet?",
+      claim: "That the slur was historically applied to dark-skinned Indigenous peoples across regions (Philippines, Central America, Hawaii), and asks why it became most deeply anchored in the United States.",
+      source: SOURCE_NEEDED + " (documentation for the term's application to each named people, and for the individual heritage claims, is required).",
+      uncertain: "Whether shared usage implies shared identity or ancestry, and the specific heritage claims (e.g., ODB's Shinnecock ancestry) each need their own verification.",
+      questions: "What primary records document the term's application in each region? What is documented about each named individual's Indigenous heritage, and about why the word anchored in the U.S.?",
     },
   },
   {
     id: "05-identity-alt",
     src: "/art/cipher/05-identity-alt.png",
-    alt: "A second, more stylized version of the 'Etymology & Identity — one slur crossed many native lands' panel, with the same four regions (Andaman Islands, Australia, United States, Fiji).",
+    alt: "A second 'Etymology & Identity — one slur crossed many native lands' panel, extending the theme to Andaman Islands (Indigenous Andamanese), Australia (Sol Bellear · Bundjalung), United States (Dick Gregory), and Fiji (Ratu Seru Cakobau).",
     transcript:
-      "A second visual treatment of the same 'Etymology & Identity' slide: same claim (one slur crossed many native lands) and the same four regions — Andaman Islands, Australia (Sol Bellear · Bundjalung), United States (Dick Gregory), and Fiji (Ratu Seru Cakobau) — with the same cautions that appearance does not prove ancestry and that historical evidence matters.",
+      "Etymology & Identity — 'one slur crossed many native lands,' continued with four more labeled portraits: Andaman Islands (Indigenous Andamanese); Australia (Sol Bellear · Bundjalung); United States (Dick Gregory · Black American); Fiji (Ratu Seru Cakobau · iTaukei Fijian). Text: English colonists also applied the slur to dark-skinned native peoples in India, Australia, and Polynesia. It asks whether that old usage preserves an identity clue or only shows how colonizers reused one word across peoples, and cautions: appearance alone does not prove ancestry — family records, tribal ties, and historical evidence matter.",
     labels: [
       { text: "Interpretive Connection", cat: "interpretive" },
       { text: "Identity Question", cat: "interpretive" },
     ],
     evidence: {
-      claim: "An alternate visual treatment of the identity slide; same claim and caveats.",
-      source: SOURCE_NEEDED + " (same documentation need as the previous slide).",
-      uncertain: "Same open question: shared colonial usage does not establish shared identity or ancestry.",
-      questions: "Same as the previous slide — which primary records document the term's application in each region?",
+      claim: "Extends the identity theme to four more regions (Andaman, Australia, U.S., Fiji), asking whether shared colonial usage preserves an identity clue.",
+      source: SOURCE_NEEDED + " (documentation for the colonial application of the term across these regions is required).",
+      uncertain: "Whether shared colonial usage implies any shared identity or ancestry; the slide itself cautions appearance does not prove ancestry.",
+      questions: "Which primary colonial-era records document this usage in each region?",
     },
   },
   {
