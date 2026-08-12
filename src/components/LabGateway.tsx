@@ -154,6 +154,18 @@ export function LabGateway({ project }: { project: Project }) {
             </div>
           </section>
 
+          {/* Featured education module */}
+          <Link to="/study/n-word/cipher" className="bw-featured reveal">
+            <div>
+              <p className="bw-featured-eyebrow">Featured · Education Module 01</p>
+              <p className="bw-featured-title">The Enigmatic Cipher</p>
+              <p className="bw-featured-sub">
+                An inquiry-based carousel on how words, titles, and classifications change over time.
+              </p>
+            </div>
+            <span className="bw-featured-go">Open the case file →</span>
+          </Link>
+
           {/* Pillar navigation */}
           <div className="lab-filters reveal" id="bw-pillars" role="tablist" aria-label="Filter by commitment">
             {["All", ...PILLARS.map((p) => p.name)].map((name) => (

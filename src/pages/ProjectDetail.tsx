@@ -137,11 +137,16 @@ export function ProjectDetail() {
               <h1 className="display detail-title">{project.title}</h1>
               <p className="h3 detail-subtitle muted serif-i">{project.subtitle}</p>
               <p className="lead detail-summary">{project.summary}</p>
-              {(project.links.length > 0 || project.studyPath) && (
+              {(project.links.length > 0 || project.studyPath || project.moduleLink) && (
                 <div className="detail-links">
                   {project.studyPath && (
                     <Link className="btn btn-primary" to={project.studyPath}>
                       Enter the study (preview) <span className="arr">→</span>
+                    </Link>
+                  )}
+                  {project.moduleLink && (
+                    <Link className="btn btn-ghost" to={project.moduleLink.href}>
+                      {project.moduleLink.label} <span className="arr">→</span>
                     </Link>
                   )}
                   {project.links.map((l) => (

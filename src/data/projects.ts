@@ -90,6 +90,7 @@ export interface Project {
   // lookbook lightbox (project.gallery) at `start`. Coordinates are percentages of the image.
   featureHotspots?: { label: string; left: number; top: number; width: number; height: number; start?: number }[];
   studyPath?: string; // internal route to a participant research experience
+  moduleLink?: { label: string; href: string }; // a direct link to a companion module (e.g. an education module)
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   sections?: EssaySection[]; // long-form essay rendered on the detail page
@@ -1072,6 +1073,7 @@ const houseProjects: Project[] = [
     imageFit: "contain",
     role: "Researcher and designer — original study by Just Neal.",
     studyPath: "/study/n-word",
+    moduleLink: { label: "Education Module 01 · The Enigmatic Cipher", href: "/study/n-word/cipher" },
     note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
   }),
   house({

@@ -1860,6 +1860,55 @@ textarea.field {
   color: var(--gold);
 }
 
+/* A Black wHole — featured module card */
+.bw-featured {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.4rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(1.3rem, 3vw, 1.9rem);
+  border: 1px solid var(--gold-dim);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--gold-dim);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.bw-featured:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(20, 26, 34, 0.12);
+}
+.bw-featured-eyebrow {
+  margin: 0 0 0.3rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.bw-featured-title {
+  margin: 0 0 0.25rem;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  color: var(--paper);
+}
+.bw-featured-sub {
+  margin: 0;
+  max-width: 52ch;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.bw-featured-go {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
 /* A Black wHole — narrative gateway */
 .bw-h {
   color: var(--gold);
