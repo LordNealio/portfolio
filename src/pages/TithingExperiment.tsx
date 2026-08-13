@@ -204,7 +204,10 @@ export function TithingExperiment() {
                 ))}
               </div>
               <div className="t-hero-cta reveal">
-                <a className="btn btn-primary btn-lg" href="#the-eight">
+                <button className="btn btn-primary btn-lg" onClick={() => setTransition(true)}>
+                  Enter the simulation <span className="arr">→</span>
+                </button>
+                <a className="btn btn-ghost btn-lg" href="#the-eight">
                   Meet the Eight <span className="arr">↓</span>
                 </a>
               </div>
@@ -233,6 +236,12 @@ export function TithingExperiment() {
                 {THE_EIGHT.map((p) => (
                   <TitheCard key={p.id} person={p} tithePct={tithePct} selected={p.id === selectedId} onSelect={() => setSelectedId(p.id)} />
                 ))}
+              </div>
+              <div className="t-eight-cta reveal">
+                <button className="btn btn-primary btn-lg" onClick={() => setTransition(true)}>
+                  Spend {selected.shortName}&apos;s remaining 90% <span className="arr">→</span>
+                </button>
+                <span className="t-eight-cta-note">Pick anyone above, then step into the simulation.</span>
               </div>
             </div>
           </section>

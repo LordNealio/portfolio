@@ -702,3 +702,16 @@
     display: none;
   }
 }
+
+/* Always-visible entry into the simulation, under The Eight */
+.t-eight-cta {
+  margin-top: clamp(1.6rem, 4vw, 2.6rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.4rem;
+  flex-wrap: wrap;
+}
+.t-eight-cta-note {
+  color: var(--t-text-3);
+  font-size: 0.9rem;
+}
