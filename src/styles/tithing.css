@@ -1,0 +1,704 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE TITHING EXPERIMENT — cinematic dark (Netflix-intro / Apple-keynote / museum).
+   Scoped under .tithing. The page forces data-theme=dark so nav + footer match;
+   the marketplace phase (.tithing-sim) is a full-screen light takeover.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.tithing {
+  --t-bg: #06070b;
+  --t-bg-2: #0a0c12;
+  --t-glass: rgba(255, 255, 255, 0.045);
+  --t-glass-2: rgba(255, 255, 255, 0.08);
+  --t-line: rgba(255, 255, 255, 0.1);
+  --t-line-2: rgba(255, 255, 255, 0.18);
+  --t-text: #f5f3ee;
+  --t-text-2: rgba(245, 243, 238, 0.64);
+  --t-text-3: rgba(245, 243, 238, 0.4);
+  --t-gold: #c9a24b;
+  --t-gold-soft: #e6cd8f;
+  --t-green: #7ee0a8;
+  --t-radius: 16px;
+  --t-radius-lg: 26px;
+
+  position: relative;
+  background: var(--t-bg);
+  color: var(--t-text);
+  overflow: clip;
+}
+.tithing .wrap {
+  position: relative;
+  z-index: 2;
+}
+.tithing .t-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--t-gold-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8em;
+  margin-bottom: 1.1rem;
+}
+.tithing .t-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--t-gold);
+}
+.tithing .t-h {
+  color: var(--t-text);
+}
+.tithing .t-section {
+  padding-block: clamp(64px, 11vw, 150px);
+  position: relative;
+  z-index: 1;
+}
+.tithing .t-head {
+  max-width: 60ch;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+.tithing .t-note {
+  margin-top: 1rem;
+  color: var(--t-text-3);
+  font-size: 0.95rem;
+  max-width: 56ch;
+}
+
+/* ── HERO ──────────────────────────────────────────────────────────────── */
+.t-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #05060a, #080a11 60%, var(--t-bg));
+}
+.t-hero-inner {
+  padding-block: clamp(3rem, 8vh, 7rem);
+}
+.t-hero .t-title {
+  margin: 0.4rem 0 1rem;
+  background: linear-gradient(180deg, #fff 0%, #d8d2c4 55%, #a99f88 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-wrap: balance;
+}
+.t-hero .t-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.3rem, 3vw, 2.1rem);
+  color: var(--t-gold-soft);
+  margin-bottom: 2rem;
+}
+.t-hero-body {
+  max-width: 56ch;
+  display: grid;
+  gap: 1rem;
+  color: var(--t-text-2);
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  line-height: 1.65;
+}
+.t-hero-cta {
+  margin-top: 2.4rem;
+}
+.t-hero-fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 24vh;
+  background: linear-gradient(180deg, transparent, var(--t-bg));
+  z-index: 1;
+}
+
+/* ── COUNTER ───────────────────────────────────────────────────────────── */
+.t-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--t-line);
+}
+.t-counter-num {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  line-height: 1;
+  color: var(--t-gold);
+  font-variant-numeric: tabular-nums;
+}
+.t-counter-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+.t-pick-hint {
+  color: var(--t-text-2);
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+}
+.t-pick-hint strong {
+  color: var(--t-gold-soft);
+}
+
+/* ── THE EIGHT CARDS ───────────────────────────────────────────────────── */
+.t-eight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+}
+.t-card {
+  text-align: left;
+  background: var(--t-glass);
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-radius);
+  padding: 1.5rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+.t-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--t-line-2);
+  background: var(--t-glass-2);
+}
+.t-card.is-selected {
+  border-color: var(--t-gold);
+  box-shadow: 0 0 0 1px var(--t-gold), 0 18px 44px rgba(201, 162, 75, 0.16);
+}
+.t-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.t-card-photo,
+.t-card-mono {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  flex: none;
+}
+.t-card-photo {
+  object-fit: cover;
+}
+.t-card-mono {
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: #0a0a0a;
+  font-weight: 700;
+}
+.t-card-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.t-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+.t-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--t-text-3);
+}
+.t-status.is-yes {
+  color: var(--t-green);
+}
+.t-status.is-yes i {
+  background: var(--t-green);
+}
+.t-card-check {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--t-gold);
+  color: #0a0a0a;
+  font-size: 12px;
+  font-weight: 800;
+}
+.t-card-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  border-top: 1px solid var(--t-line);
+  padding-top: 1.1rem;
+}
+.t-card-meta div {
+  display: grid;
+  gap: 0.15rem;
+}
+.t-card-meta dt {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+.t-card-meta dd {
+  font-size: 0.95rem;
+  color: var(--t-text);
+  font-family: var(--serif);
+  font-variant-numeric: tabular-nums;
+}
+.t-card-tithe {
+  color: var(--t-gold-soft) !important;
+}
+.t-card-notes {
+  margin-top: 0.9rem;
+  color: var(--t-text-2);
+  font-size: 0.85rem;
+}
+
+/* ── THE QUESTION ──────────────────────────────────────────────────────── */
+.t-question {
+  text-align: center;
+  background: linear-gradient(180deg, var(--t-bg), var(--t-bg-2));
+}
+.t-question-inner {
+  max-width: 60ch;
+  margin-inline: auto;
+}
+.t-question-inner .t-eyebrow {
+  justify-content: center;
+}
+.t-question-h {
+  text-transform: uppercase;
+  margin: 0.4rem 0 1.4rem;
+}
+.t-question-body {
+  color: var(--t-text-2);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+.t-vote {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+.t-vote-btn {
+  min-width: 150px;
+  padding: 1em 1.8em;
+  border-radius: 100px;
+  border: 1px solid var(--t-line-2);
+  background: var(--t-glass);
+  color: var(--t-text);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 0.3s var(--ease), border-color 0.3s, background 0.3s, color 0.3s;
+}
+.t-vote-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--t-gold);
+  color: var(--t-gold-soft);
+}
+.t-vote-btn.chosen {
+  background: var(--t-gold);
+  border-color: var(--t-gold);
+  color: #0a0a0a;
+}
+.t-vote-thanks {
+  margin-top: 1.6rem;
+  color: var(--t-text-3);
+  font-size: 0.95rem;
+}
+
+/* ── POST-VOTE ─────────────────────────────────────────────────────────── */
+.t-postvote {
+  background: var(--t-bg-2);
+}
+.t-postvote-inner {
+  max-width: 60ch;
+}
+.t-postvote-body {
+  color: var(--t-text-2);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  line-height: 1.6;
+  display: grid;
+  gap: 0.6rem;
+  margin: 1.2rem 0 1.8rem;
+}
+.t-postvote-selected {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-radius);
+  background: var(--t-glass);
+  margin-bottom: 1.8rem;
+  max-width: 460px;
+}
+.t-ps-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  color: #0a0a0a;
+  font-weight: 700;
+  flex: none;
+}
+.t-ps-label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+.t-postvote-selected strong {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  display: block;
+}
+.t-ps-worth {
+  font-size: 0.85rem;
+  color: var(--t-text-2);
+}
+
+/* ── TRANSITION OVERLAY ────────────────────────────────────────────────── */
+.t-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 5vw, 3rem);
+  background: radial-gradient(120% 90% at 50% 0%, rgba(201, 162, 75, 0.1), transparent 60%), #04050a;
+  animation: tFade 0.4s var(--ease);
+}
+@keyframes tFade {
+  from {
+    opacity: 0;
+  }
+}
+.t-transition-inner {
+  text-align: center;
+  max-width: 640px;
+}
+.t-transition-inner .t-eyebrow {
+  justify-content: center;
+}
+.t-trans-person {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+  display: grid;
+  gap: 0.3rem;
+  margin-bottom: 1.6rem;
+}
+.t-trans-person strong {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: var(--t-text);
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+.t-trans-lines {
+  color: var(--t-text-2);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+.t-trans-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.4rem;
+}
+.t-trans-numbers > div {
+  padding: 1.4rem;
+  border: 1px solid var(--t-line);
+  border-radius: var(--t-radius);
+  background: var(--t-glass);
+}
+.t-trans-k {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+  margin-bottom: 0.5rem;
+}
+.t-trans-tithe,
+.t-trans-budget {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2.6vw, 1.7rem);
+  font-variant-numeric: tabular-nums;
+  display: block;
+}
+.t-trans-tithe {
+  color: var(--t-gold-soft);
+}
+.t-trans-budget {
+  color: var(--t-green);
+}
+.t-trans-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── SUMMARY ───────────────────────────────────────────────────────────── */
+.t-summary {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+  background: linear-gradient(180deg, #05060a, var(--t-bg));
+}
+.t-summary-inner {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+.t-summary-spent-label {
+  color: var(--t-text-3);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.t-summary-spent {
+  background: linear-gradient(180deg, #fff, #c9a24b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0.4rem 0 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.t-summary-sub {
+  color: var(--t-text-2);
+  margin-bottom: 2.4rem;
+}
+.t-breakdown {
+  list-style: none;
+  text-align: left;
+  border-top: 1px solid var(--t-line);
+  margin-bottom: 2.4rem;
+}
+.t-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--t-line);
+}
+.t-bd-name {
+  color: var(--t-text);
+}
+.t-bd-name em {
+  color: var(--t-text-3);
+  font-style: normal;
+  font-size: 0.85em;
+}
+.t-bd-sub {
+  font-family: var(--serif);
+  color: var(--t-gold-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Share card */
+.t-share-card {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: left;
+  padding: 1.6rem;
+  border: 1px solid var(--t-line-2);
+  border-radius: var(--t-radius-lg);
+  background: var(--t-glass);
+  margin-bottom: 2.6rem;
+}
+.t-qr {
+  flex: none;
+  width: 118px;
+  height: 118px;
+  border-radius: var(--t-radius);
+  border: 1px dashed var(--t-line-2);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.3rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 2.4rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+.t-qr span {
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+.t-share-quote {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+.t-share-url {
+  color: var(--t-gold-soft);
+  font-size: 0.8rem;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+.t-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* The 10% question */
+.t-tenpct {
+  border-top: 1px solid var(--t-line);
+  padding-top: 2.4rem;
+}
+.t-tenpct > p {
+  color: var(--t-text-2);
+  margin: 0.4rem 0 1.6rem;
+  font-size: 1.1rem;
+}
+.t-tenpct-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+/* ── REAL SUPPORT (visually distinct from the fiction) ─────────────────── */
+.t-real {
+  background: linear-gradient(180deg, #0e100a, #0a0b07);
+  border-top: 2px solid var(--t-gold);
+}
+.t-real-eyebrow {
+  color: var(--t-green) !important;
+}
+.t-real-eyebrow::before {
+  background: var(--t-green) !important;
+}
+.t-real-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.t-real-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 162, 75, 0.22);
+  border-radius: var(--t-radius);
+  background: rgba(201, 162, 75, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.4s var(--ease), border-color 0.3s;
+}
+.t-real-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--t-gold);
+}
+.t-real-title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.t-real-desc {
+  color: var(--t-text-2);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  flex: 1;
+}
+.t-real-card .btn {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+
+.t-disclaimer {
+  display: block;
+  color: var(--t-text-3);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  padding-block: 2.6rem;
+  max-width: 90ch;
+}
+
+/* ── SIMULATION TAKEOVER ───────────────────────────────────────────────── */
+.tithing-sim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: #eaeded;
+}
+.tithe-simbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 8px 14px;
+  background: #04050a;
+  color: #fff;
+}
+.tithe-exit {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+  padding: 0.4em 1em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s, border-color 0.2s;
+}
+.tithe-exit:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+.tithe-simbar-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 620px) {
+  .t-card-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  .t-trans-numbers {
+    grid-template-columns: 1fr;
+  }
+  .t-share-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .tithe-simbar-label {
+    display: none;
+  }
+}

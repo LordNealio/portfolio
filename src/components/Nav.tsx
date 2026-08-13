@@ -7,6 +7,7 @@ const links = [
   { to: "/store", label: "Store" },
   { to: "/constellation", label: "Constellation" },
   { to: "/ineed", label: "iNeed$" },
+  { to: "/tithing", label: "Tithing" },
   { to: "/about", label: "About" },
   { to: "/connect", label: "Connect" },
 ];

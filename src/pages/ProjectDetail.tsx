@@ -9,6 +9,7 @@ import { FashionExperience } from "../components/FashionExperience";
 import { LabGateway } from "../components/LabGateway";
 import { ImageCarousel } from "../components/ImageCarousel";
 import { StoryCarousel } from "../components/StoryCarousel";
+import { SpendDatShit } from "../components/spend/SpendDatShit";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -75,6 +76,19 @@ export function ProjectDetail() {
   }
   if (project.layout === "carousel") {
     return <ImageCarousel project={project} />;
+  }
+  if (project.layout === "spend") {
+    return (
+      <div className="spend-page">
+        <div className="wrap spend-page-top">
+          <Link to="/work" className="back-link">← All work</Link>
+          <Link to="/tithing" className="btn btn-ghost spend-page-tithe">
+            The Tithing Experiment <span className="arr">→</span>
+          </Link>
+        </div>
+        <SpendDatShit />
+      </div>
+    );
   }
 
   const chaptersBlock =

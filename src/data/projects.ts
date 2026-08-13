@@ -106,7 +106,7 @@ export interface Project {
   storyCarousel?: StoryCarousel; // an inline swipeable carousel of finished slides shown on the detail page
   books?: Book[]; // a reading list rendered on the detail page
   gallery?: string[]; // optional lookbook/gallery image paths shown on the detail page
-  layout?: "cinematic" | "lab" | "carousel"; // custom detail layout (fashion house, lab gateway, or full-screen image carousel)
+  layout?: "cinematic" | "lab" | "carousel" | "spend"; // custom detail layout (fashion house, lab gateway, image carousel, or the Spend Dat Shit app)
   chapterOf?: string; // this work is a chapter of another (parent slug); hidden from the grid, surfaced on the parent
   pillars?: string[]; // thematic pillars (e.g. Navigating Ignorance, Gaining Glory, Reparations) for the lab gateway
   chaptersTitle?: string; // heading for this work's chapters section on its detail page
@@ -671,6 +671,40 @@ const core: Project[] = [
     relatedProjects: [],
     note: "Live — a harm-reduction, dignity-first concept.",
   },
+
+  // ── 15. SPEND DAT SHIT (interactive) ──────────────────────────────────────
+  {
+    slug: "spend-dat-shit",
+    title: "Spend Dat Shit",
+    subtitle: "A satirical marketplace for spending a billionaire's fortune",
+    summary:
+      "An interactive, Prime-inspired parody store where you blow a billionaire's fortune on real-life relief, obscene luxury, and society-sized power moves — then the Future Oracle predicts your fate.",
+    category: "Games & Interactive",
+    tags: ["Interactive", "Satire", "React", "Design"],
+    status: "live",
+    year: "2026",
+    featured: false,
+    accent: "#ffd814",
+    image: "/items/mansion.png",
+    imageFit: "cover",
+    imageDark: true,
+    layout: "spend",
+    role: "Designer and developer — concept, data model, and the surreal Future Oracle.",
+    audience: "Anyone who's ever wondered what a fortune actually buys, at scale.",
+    problem: "Enormous wealth is an abstraction; the numbers are too big to feel.",
+    solution:
+      "A playable marketplace that turns net worth into a shopping cart — pairing absurd luxury with the real cost of housing, tuition, and grants so the scale finally lands.",
+    features: [
+      "Choose among five fortunes; the cart resets and rescales",
+      "Real-life, Luxury, Community, and Power-move aisles",
+      "Live remaining-balance, spent, percentage, and progress",
+      "The Future Oracle — cart-based generative satire",
+    ],
+    technology: ["React", "TypeScript", "Vite"],
+    note: "Satire. Net-worth figures and prices are illustrative estimates; nothing ships and no purchase occurs. Powers the Tithing Experiment.",
+    links: [],
+    relatedProjects: [],
+  },
 ];
 
 // ── Discipline mapping + house-project factory ──────────────────────────────
@@ -1199,6 +1233,7 @@ const WORK_ORDER = [
   "rapgod",
   "nil-label",
   "mirror",
+  "spend-dat-shit",
 ];
 
 // The exhibited set (same slugs) — used to split the archive.
