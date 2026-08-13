@@ -685,7 +685,7 @@ const core: Project[] = [
     year: "2026",
     featured: false,
     accent: "#ffd814",
-    image: "/items/mansion.png",
+    image: "/items/mansion.webp",
     imageFit: "cover",
     imageDark: true,
     layout: "spend",
