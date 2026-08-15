@@ -41,6 +41,7 @@ export const HERO = {
   eyebrow: "The invitation",
   title: "iNeed$",
   subtitle: "Modern Patronage for Independent Ideas",
+  banner: "/art/ineed-grill.jpg", // hero background image (leave "" for the starfield)
   body: [
     "Throughout history, artists, inventors, scientists, educators, and writers often reached their full potential because someone believed in them before the rest of the world did.",
     "This page is my modern version of that tradition.",

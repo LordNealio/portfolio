@@ -131,6 +131,31 @@
   z-index: 1;
 }
 
+/* Photo banner variant (the iNeed$ grill) */
+.pe-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.pe-hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.pe-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(4, 5, 8, 0.94) 0%, rgba(4, 5, 8, 0.72) 42%, rgba(4, 5, 8, 0.35) 100%),
+    linear-gradient(180deg, rgba(4, 5, 8, 0.6) 0%, transparent 30%, rgba(4, 5, 8, 0.85) 100%);
+}
+@media (max-width: 760px) {
+  .pe-hero-scrim {
+    background: linear-gradient(180deg, rgba(4, 5, 8, 0.7) 0%, rgba(4, 5, 8, 0.55) 40%, rgba(4, 5, 8, 0.92) 100%);
+  }
+}
+
 /* Cosmos backdrop */
 .pe-cosmos {
   position: absolute;

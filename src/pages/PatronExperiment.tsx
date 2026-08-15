@@ -52,8 +52,15 @@ export function PatronExperiment() {
   return (
     <div className="patron">
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <header className="pe-hero page-top">
-        <Starfield />
+      <header className={`pe-hero page-top ${HERO.banner ? "pe-hero--photo" : ""}`}>
+        {HERO.banner ? (
+          <div className="pe-hero-photo" aria-hidden="true">
+            <img src={HERO.banner} alt="" />
+            <div className="pe-hero-scrim" />
+          </div>
+        ) : (
+          <Starfield />
+        )}
         <div className="wrap pe-hero-inner">
           <p className="pe-eyebrow reveal">{HERO.eyebrow}</p>
           <h1 className="display pe-title reveal">{HERO.title}</h1>
