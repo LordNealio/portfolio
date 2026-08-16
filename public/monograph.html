@@ -1,0 +1,620 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Name. Image. Likeness. — a monograph of the NIL portfolio by Just Neal.">
+<title>NIL &#183; Just Neal &#8212; A Monograph</title>
+<link rel="icon" href="/nil-crest.svg">
+<style>
+  .book-nav{position:fixed;top:14px;left:14px;z-index:50;font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#16202b;background:rgba(251,248,240,.86);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(24,30,40,.16);border-radius:100px;
+    padding:.5em 1em;text-decoration:none;box-shadow:0 6px 18px rgba(24,30,40,.14);transition:background .2s,border-color .2s}
+  .book-nav:hover{border-color:#9a7628;color:#9a7628}
+  @media print{.book-nav{display:none}}
+</style>
+</head><body>
+<a class="book-nav" href="/">&#8592; Back to NIL</a>
+<style>
+  :root {
+    --paper: #f2ede1; --paper-2: #eae4d5; --page: #fbf8f0;
+    --ink: #16202b; --text: #1e2830; --muted: #5b5546; --faint: #8b8370;
+    --gold: #9a7628; --gold-soft: #b8924a;
+    --navy: #1b2a3a; --forest: #2c3a2c; --burgundy: #5a2a2e;
+    --line: rgba(24, 30, 40, 0.16); --line-soft: rgba(24, 30, 40, 0.1);
+    --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --measure: 60ch;
+  }
+  * { box-sizing: border-box; }
+
+  .book {
+    background: radial-gradient(1100px 700px at 78% -6%, rgba(154,118,40,0.06), transparent 60%), var(--paper);
+    color: var(--text); font-family: var(--sans); line-height: 1.6; font-size: 16px;
+    -webkit-font-smoothing: antialiased; padding: clamp(0px, 3vw, 40px) 0;
+  }
+  .book * { margin: 0; }
+
+  /* A 6×9 leaf: narrow reading page on screen; a real 6×9 page in print. */
+  .leaf {
+    background: var(--page); max-width: 600px; margin: 0 auto clamp(16px, 3vw, 30px);
+    padding: clamp(32px, 6vw, 64px) clamp(26px, 6vw, 60px);
+    box-shadow: 0 1px 2px rgba(24,30,40,0.08), 0 22px 52px rgba(24,30,40,0.12); position: relative;
+  }
+  .leaf--plain { background: var(--paper); box-shadow: none; }
+
+  h1,h2,h3,h4,.display { font-family: var(--serif); font-weight: 600; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+  .display { font-weight: 500; letter-spacing: -0.03em; line-height: 0.98; }
+  .serif-i { font-family: var(--serif); font-style: italic; font-weight: 500; }
+  p { max-width: var(--measure); }
+  .lead { font-size: clamp(1.08rem, 2.2vw, 1.3rem); line-height: 1.5; color: var(--muted); font-family: var(--serif); }
+  .eyebrow { font-family: var(--sans); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 0.8em; }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--gold); display: inline-block; }
+  .gold { color: var(--gold); } .muted { color: var(--muted); }
+  .rule { border: none; border-top: 1px solid var(--line); }
+  .rule-gold { border: none; border-top: 1.5px solid var(--gold); opacity: 0.7; }
+
+  /* Cover */
+  .cover { background: var(--ink); color: #f3ecd9; max-width: 600px; margin: 0 auto clamp(16px,3vw,30px); padding: clamp(38px,7vw,72px); text-align: center; box-shadow: 0 22px 52px rgba(24,30,40,0.28); }
+  .cover-crest { width: min(260px, 66%); margin: 0 auto 2.2rem; display: block; }
+  .cover-crest svg { width: 100%; height: auto; border-radius: 8px; }
+  .cover h1 { color: #f3ecd9; font-size: clamp(2.1rem, 8vw, 3.4rem); line-height: 1.02; font-weight: 500; letter-spacing: -0.02em; }
+  .cover .cover-sub { font-family: var(--serif); font-style: italic; color: var(--gold-soft); font-size: clamp(1rem, 3vw, 1.3rem); margin-top: 1rem; }
+  .cover .cover-meta { margin-top: 2.2rem; font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(243,236,217,0.55); }
+  .cover-wordmark { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 2rem; }
+
+  /* Part dividers */
+  .part { color: #f3ecd9; text-align: center; max-width: 600px; margin: 0 auto clamp(16px,3vw,30px); padding: clamp(56px,12vw,120px) clamp(26px,6vw,60px); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 380px; box-shadow: 0 22px 52px rgba(24,30,40,0.24); }
+  .part[data-accent="ink"] { background: var(--ink); }
+  .part[data-accent="navy"] { background: #12202f; }
+  .part[data-accent="black"] { background: #0d141c; }
+  .part[data-accent="paper"] { background: #241d12; }
+  .part[data-accent="indigo"] { background: #191830; }
+  .part[data-accent="gold"] { background: #2e2410; }
+  .part[data-accent="burgundy"] { background: #331b1e; }
+  .part-num { font-family: var(--serif); font-size: 0.82rem; letter-spacing: 0.4em; color: var(--gold-soft); margin-bottom: 1.2rem; }
+  .part h2 { color: #f3ecd9; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 500; }
+  .part .part-desc { color: rgba(243,236,217,0.7); font-family: var(--serif); font-style: italic; margin-top: 1rem; max-width: 40ch; }
+
+  .stack > * + * { margin-top: 1.05rem; }
+  .stack-lg > * + * { margin-top: 1.9rem; }
+
+  .chapter-head { margin-bottom: 1.5rem; }
+  .chapter-head h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); line-height: 1.02; }
+  .chapter-head .sub { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: clamp(1rem, 2.2vw, 1.2rem); margin-top: 0.45rem; }
+  .kicker { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); }
+
+  .dropcap::first-letter { font-family: var(--serif); float: left; font-size: 3.4em; line-height: 0.78; padding: 0.06em 0.12em 0 0; color: var(--gold); font-weight: 600; }
+
+  figure { margin: 0; break-inside: avoid; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 4px; box-shadow: 0 2px 4px rgba(24,30,40,0.1), 0 14px 30px rgba(24,30,40,0.14); }
+  figcaption { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.02em; color: var(--faint); margin-top: 0.6rem; text-align: center; }
+  .fig-band { margin: 1.6rem 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; }
+
+  .meta-row { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); margin: 0.3rem 0 1.2rem; align-items: center; }
+  .status { color: var(--gold); font-weight: 700; }
+
+  .featurelist { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  .featurelist li { position: relative; padding-left: 1.2rem; color: var(--text); max-width: var(--measure); }
+  .featurelist li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
+  .note { border-left: 2px solid var(--gold); padding: 0.3rem 0 0.3rem 1rem; color: var(--muted); font-family: var(--serif); font-style: italic; }
+  .note b { font-family: var(--sans); font-style: normal; font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.2rem; }
+
+  .define { display: grid; gap: 0.8rem; }
+  .define .row { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.9rem; align-items: baseline; border-bottom: 1px solid var(--line-soft); padding-bottom: 0.8rem; }
+  .define .term { font-family: var(--serif); font-style: italic; color: var(--gold); }
+  .define .desc { color: var(--muted); max-width: 44ch; }
+
+  .caps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1.4rem; }
+  .caps-grid div { border-bottom: 1px solid var(--line-soft); padding: 0.5rem 0; font-family: var(--serif); font-size: 0.98rem; }
+
+  .contents ol { list-style: none; counter-reset: c; padding: 0; display: grid; gap: 0.15rem; }
+  .contents li { counter-increment: c; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.7rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid var(--line-soft); }
+  .contents li::before { content: counter(c, upper-roman); font-family: var(--serif); color: var(--gold); font-size: 0.9rem; }
+  .contents .t { font-family: var(--serif); font-size: 1.08rem; color: var(--ink); }
+  .contents .d { display: block; font-family: var(--sans); font-size: 0.76rem; color: var(--faint); margin-top: 0.12rem; }
+
+  .figure-card { display: grid; gap: 0.3rem; padding: 1rem 0; border-top: 1px solid var(--line-soft); break-inside: avoid; }
+  .figure-card h3 { font-size: 1.2rem; }
+  .figure-card .themes { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+  .figure-card p { color: var(--muted); font-size: 0.92rem; }
+
+  .pull { font-family: var(--serif); font-size: clamp(1.3rem, 3.4vw, 1.85rem); line-height: 1.28; color: var(--ink); font-weight: 500; text-wrap: balance; }
+  .pull span { color: var(--gold); }
+
+  /* Essays */
+  .essay-open { text-align: center; padding-block: 1rem; }
+  .essay-open .eyebrow { justify-content: center; }
+  .essay-open h2 { font-size: clamp(1.9rem, 5.5vw, 2.8rem); margin-top: 0.7rem; }
+  .essay-open .esub { font-family: var(--serif); font-style: italic; color: var(--gold); margin-top: 0.5rem; font-size: 1.1rem; }
+  .essay h3 { font-size: 1.35rem; margin-top: 1.7rem; }
+  .essay .esub { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 0.98rem; margin: 0.15rem 0 0.5rem; }
+  .essay p { margin-top: 0.85rem; color: var(--text); }
+  .essay p.first { margin-top: 0.5rem; }
+  .essay .calc { font-family: var(--serif); color: var(--ink); }
+
+  .end { text-align: center; }
+  .end .mark { font-family: var(--serif); font-size: 2rem; color: var(--gold); }
+
+  @media (max-width: 560px) {
+    .caps-grid, .define .row, .grid-3 { grid-template-columns: 1fr; }
+    .define .row { gap: 0.2rem; }
+  }
+
+  /* ── Print: KDP 6×9 ──────────────────────────────────────────────────── */
+  @media print {
+    @page { size: 6in 9in; margin: 0.6in 0.55in; }
+    .book { background: #fff; padding: 0; font-size: 9.9pt; line-height: 1.5; }
+    .leaf, .cover, .part { box-shadow: none; margin: 0 auto; max-width: none; }
+    .leaf { background: #fff; padding: 0; }
+    .cover, .part, .leaf.page-break, .essay-lead { break-before: page; }
+    .cover { break-before: avoid; }
+    .cover, .part { -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: 7.6in; display: flex; flex-direction: column; justify-content: center; }
+    figure img { max-height: 6.1in; width: auto; max-width: 100%; margin-inline: auto; }
+    .grid-2 figure img, .grid-3 figure img { max-height: 3in; }
+    figure, .figure-card, .note, .define .row, .contents li, .essay h3 + p { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+    .essay h3 { break-before: auto; }
+    a { color: inherit; text-decoration: none; }
+    .lead { font-size: 11pt; }
+  }
+</style>
+
+<div class="book">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="cover-wordmark">NIL · Just Neal</div>
+    <div class="cover-crest"><svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="NIL — Justin Neal crest">
+  <defs>
+    <linearGradient id="nc-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C87E"/>
+      <stop offset="100%" stop-color="#B4862A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#16202b"/>
+  <rect x="26" y="26" width="972" height="972" rx="20" fill="none" stroke="#B4862A" stroke-width="2" opacity="0.55"/>
+
+  <!-- wordmark -->
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" fill="url(#nc-gold)">
+    <text x="512" y="215" font-size="120" font-weight="600" letter-spacing="6">NIL</text>
+    <text x="512" y="262" font-size="34" letter-spacing="14" fill="#C9A24B">JUSTIN NEAL</text>
+  </g>
+
+  <!-- crown -->
+  <g fill="url(#nc-gold)" transform="translate(512 330)">
+    <path d="M-52 34 L-52 -6 L-24 18 L0 -22 L24 18 L52 -6 L52 34 Z"/>
+    <circle cx="-52" cy="-14" r="7"/><circle cx="0" cy="-30" r="8"/><circle cx="52" cy="-14" r="7"/>
+    <rect x="-58" y="38" width="116" height="12" rx="4"/>
+  </g>
+
+  <!-- laurel wreath -->
+  <g fill="url(#nc-gold)">
+    <g id="nc-leaf-l">
+      <g transform="translate(360 470)">
+        <ellipse cx="0" cy="0" rx="15" ry="30" transform="rotate(30)"/>
+        <ellipse cx="-18" cy="46" rx="15" ry="30" transform="rotate(22)"/>
+        <ellipse cx="-30" cy="96" rx="15" ry="30" transform="rotate(12)"/>
+        <ellipse cx="-34" cy="148" rx="15" ry="29" transform="rotate(2)"/>
+        <ellipse cx="-30" cy="200" rx="14" ry="28" transform="rotate(-10)"/>
+        <ellipse cx="-16" cy="248" rx="14" ry="27" transform="rotate(-22)"/>
+        <ellipse cx="8" cy="286" rx="13" ry="25" transform="rotate(-38)"/>
+      </g>
+    </g>
+    <g transform="translate(1024 0) scale(-1 1)">
+      <use href="#nc-leaf-l"/>
+    </g>
+  </g>
+
+  <!-- NJ monogram -->
+  <g text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" fill="url(#nc-gold)">
+    <text x="494" y="618" font-size="230" font-weight="600">N</text>
+    <text x="556" y="648" font-size="230" font-weight="600">J</text>
+  </g>
+
+  <!-- date -->
+  <text x="512" y="808" text-anchor="middle" font-family="Georgia, serif" font-size="30"
+        letter-spacing="12" fill="#C9A24B">MMXXIV</text>
+  <line x1="392" y1="838" x2="632" y2="838" stroke="#B4862A" stroke-width="1.5" opacity="0.6"/>
+  <text x="512" y="882" text-anchor="middle" font-family="Georgia, serif" font-size="22"
+        letter-spacing="6" fill="#8a7a52">NAME · IMAGE · LIKENESS</text>
+</svg></div>
+    <h1>Name. Image.<br>Likeness.</h1>
+    <p class="cover-sub">The collected work of a creative institution</p>
+    <p class="cover-meta">A Monograph · MMXXVI</p>
+  </section>
+
+  <!-- COLOPHON -->
+  <section class="leaf page-break">
+    <p class="eyebrow">The idea</p>
+    <div class="stack" style="margin-top:1.2rem">
+      <p class="pull">Nothing into something. <span>Name. Image. Likeness.</span></p>
+      <hr class="rule-gold" style="margin:1.4rem 0">
+      <div class="define">
+        <div class="row"><span class="term">Name · Image · Likeness</span><span class="desc">The self, made ownable — what you carry, and what you're free to build with.</span></div>
+        <div class="row"><span class="term">Nil</span><span class="desc">To begin with nothing.</span></div>
+        <div class="row"><span class="term">Kneel</span><span class="desc">Humility — the posture before the work.</span></div>
+        <div class="row"><span class="term">Neal</span><span class="desc">The cloud. The name, and the figure.</span></div>
+      </div>
+      <p class="muted" style="margin-top:1.4rem">NIL is the house under which fashion, AI, publishing, education, film, technology, and storytelling coexist — a body of work by Just Neal that begins from nothing and builds something worth keeping.</p>
+    </div>
+  </section>
+
+  <!-- CONTENTS -->
+  <section class="leaf page-break contents">
+    <p class="eyebrow">Contents</p>
+    <ol style="margin-top:1.2rem">
+      <li><span><span class="t">The House</span><span class="d">Who is behind the work, and why it exists</span></span></li>
+      <li><span><span class="t">The Work</span><span class="d">The built products — apps, fashion, interactive, and print</span></span></li>
+      <li><span><span class="t">A Black wHole</span><span class="d">The interdisciplinary lab — studies, media, and tools</span></span></li>
+      <li><span><span class="t">Selected Writing</span><span class="d">Three essays in symbolism, science, and Scripture</span></span></li>
+      <li><span><span class="t">The Constellation</span><span class="d">Inspirations and dream collaborators</span></span></li>
+      <li><span><span class="t">iNeed$</span><span class="d">Modern patronage for independent ideas</span></span></li>
+      <li><span><span class="t">The Tithing Experiment</span><span class="d">What if the world's wealthiest people tithed?</span></span></li>
+    </ol>
+  </section>
+
+  <!-- PART I -->
+  <section class="part" data-accent="ink"><div class="part-num">PART I</div><h2>The House</h2><p class="part-desc">A lasting creative institution — not a single brand.</p></section>
+
+  <section class="leaf">
+    <div class="chapter-head"><p class="eyebrow">About</p><h2 style="margin-top:0.7rem">A lasting creative institution — <span class="serif-i gold">not a single brand.</span></h2></div>
+    <div class="stack">
+      <p class="lead">Just Neal is a Creative Director, Systems Designer, and Founder working across AI, luxury apparel, publishing, software, and education.</p>
+      <p class="dropcap">Through his creative house, NIL (Name. Image. Likeness.), he develops interconnected brands, products, and experiences that explore identity through design, technology, and storytelling. His multidisciplinary approach combines finance, global culture, software development, and visual communication into a body of work that favors timeless systems over fleeting trends — with the ambition of building a lasting creative institution rather than a single successful brand.</p>
+      <p>That range isn't scattered; it's the point. A background in finance and operations taught him how organizations actually run. Years of teaching taught him to make hard things clear. NIL is where those disciplines meet: one house, many rooms.</p>
+    </div>
+  </section>
+
+  <section class="leaf">
+    <p class="eyebrow">The backstory</p>
+    <figure class="fig-band" style="max-width:280px;margin-left:auto;margin-right:auto"><img loading="lazy" decoding="async" src="/art/yung-blesser.jpg" alt="Just Neal as a child, captioned Yung Blesser."><figcaption>Yung Blesser — where it started.</figcaption></figure>
+    <div class="stack-lg">
+      <div><h3>How I became who I am</h3><p class="muted" style="margin-top:0.35rem">Life and death. Both have been my teachers. What I've lost and what I've lived through are the whole reason any of this exists.</p></div>
+      <div><h3>Why I started</h3><p class="muted" style="margin-top:0.35rem">I was called to it — at a point when my life felt like it was falling apart, at work and beyond. The struggle wasn't a detour; it was the shaping. Every hard season sharpened the way I see, and that perspective is what I build from.</p></div>
+      <div><h3>The moment that changed everything</h3><p class="muted" style="margin-top:0.35rem">Now. Not a date in the past — this one. The moment that changes everything is always the present one.</p></div>
+    </div>
+  </section>
+
+  <section class="leaf">
+    <p class="eyebrow">One house, many rooms</p>
+    <p class="pull" style="margin:1rem 0 1.5rem">Fashion, AI, publishing, education, film, technology, and storytelling look like separate disciplines. <span>Under NIL they're one practice.</span></p>
+    <p class="muted">Taking a name, an image, a likeness — and building something from nothing. I originate the concepts, direct the creative vision, and make the work, so that each artifact helps someone build themselves.</p>
+    <hr class="rule" style="margin:1.9rem 0 1.4rem">
+    <p class="kicker" style="margin-bottom:0.8rem">What I do</p>
+    <div class="caps-grid">
+      <div>Product Ideation</div><div>AI-Assisted Development</div><div>Creative Direction</div><div>UX &amp; Information Architecture</div><div>Financial &amp; Operational Analysis</div><div>Research &amp; Writing</div><div>Nonprofit Strategy</div><div>Education &amp; Curriculum</div><div>Rapid Prototyping</div><div>Brand &amp; Storytelling</div>
+    </div>
+  </section>
+
+  <!-- PART II -->
+  <section class="part" data-accent="navy"><div class="part-num">PART II</div><h2>The Work</h2><p class="part-desc">The built products — a dozen distinct things across web, mobile, and print.</p></section>
+
+  <!-- MindVault -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">Featured Product · 2026 · <span class="status">Live</span></p><h2 style="margin-top:0.4rem">MindVault</h2><p class="sub">A private thinking space that compounds over time</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/mindvault-overview.jpg" alt="MindVault overview"></figure>
+    <div class="stack">
+      <p class="lead">A local-first AI journaling app that turns daily reflection into habits, published ideas, and collective inquiry.</p>
+      <p><b>The problem.</b> Journaling apps either lock your thoughts in a silo or send everything to a server. Reflection rarely turns into momentum — habits, ideas, or output.</p>
+      <p class="dropcap">A mobile-first app with a private local-first core and an opt-in AI layer. Every AI call is labeled at the point of use, so the private base stays private while an outbound layer can atomize goals into habits, publish ideas across formats, and host collective inquiry.</p>
+      <ul class="featurelist" style="margin-top:0.5rem">
+        <li>Daily journal with morning/evening flows, voice capture, and photo scan</li>
+        <li>Habit Atomizer — domain-aware questions genuinely re-rank suggested habits</li>
+        <li>Publish module — a private idea becomes an IG caption, LinkedIn post, X thread, newsletter, or blog outline</li>
+        <li>Throne Talk — a Socratic collective-inquiry mode with lenses, timed sessions, and AI synthesis</li>
+      </ul>
+    </div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/launcher.jpg" alt="MindVault — the launcher"><figcaption>The MindVault launcher</figcaption></figure>
+    <p class="note"><b>What I learned</b>The hardest tension was keeping a private, local-first soul while adding an outbound AI/publishing layer. The answer was labeling every AI call at the point of use — and deferring anything platform-level until retention is proven.</p>
+  </section>
+
+  <!-- Mirror -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">AI &amp; Knowledge Tools · 2026 · <span class="status">Live</span></p><h2 style="margin-top:0.4rem">Mirror</h2><p class="sub">A reflection tool for the people closest to you</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/mirror.jpg" alt="Mirror"></figure>
+    <div class="stack">
+      <p class="lead">A private iPhone web app that mirrors your own patterns in relationships — never a dossier on anyone else.</p>
+      <p><b>The problem.</b> Relationship apps drift toward CRMs and scoreboards — profiling the other person, gamifying connection, and sending intimate data to a backend.</p>
+      <p>A client-only PWA with three jobs: <em>Reflect</em> (mirror the writer's own patterns), <em>Prepare</em> (surface open threads before a talk), and <em>Work things out together</em> — an ephemeral, two-person flow on one phone where the app holds process but never referees.</p>
+      <p class="note"><b>The constraint</b>Nine non-negotiable principles govern the product. The AI reflects the writer, never characterizes the other person.</p>
+    </div>
+  </section>
+
+  <!-- RapGod -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">Research &amp; Writing · 2026 · <span class="status">Live</span></p><h2 style="margin-top:0.4rem">RapGod</h2><p class="sub">The Neal / Nil / Kneel music-symbolism archive</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/gnx.jpg" alt="RapGod / GNX"></figure>
+    <div class="stack">
+      <p class="lead">A documented archive that maps symbolism across music through a personal framework of revelation, void, and recognition.</p>
+      <p class="dropcap">Cultural and musical symbolism is scattered and easy to fabricate; it needs a disciplined, documented archive. RapGod is a Next.js app over a CSV data model — songs, concepts, projects, artifacts, and ~111 documented connections — where the creator notes hold verbatim symbolism and source URLs, under a strict verbatim-only rule: no invented interpretation.</p>
+      <ul class="featurelist" style="margin-top:0.4rem">
+        <li>A three-part framework: NEAL (revealed), NIL (hidden), KNEEL (recognition)</li>
+        <li>50+ songs with verbatim documented notes and sources</li>
+        <li>18 color-coded concepts and ~111 connections</li>
+      </ul>
+    </div>
+    <p class="kicker" style="margin:1.6rem 0 0.7rem">Questions for Ye — the Donda story</p>
+    <div class="grid-3 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/art/donda/01.jpg" alt="Donda story slide 1"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/donda/02.jpg" alt="Donda story slide 2"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/donda/03.jpg" alt="Donda story slide 3"></figure>
+    </div>
+    <div class="grid-2 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/art/from-x-to-ye.jpg" alt="From X to Ye"><figcaption>From X to Ye</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/chase.jpg" alt="Blueface x Salmon P. Chase"><figcaption>Blueface × Salmon P. Chase</figcaption></figure>
+    </div>
+    <p class="note"><b>Honest status</b>A research archive with a strict verbatim rule; the symbolism is documented, not invented.</p>
+  </section>
+
+  <!-- Arizona Ponderer -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">Media · Cultural analysis</p><h2 style="margin-top:0.4rem">The Arizona Ponderer</h2><p class="sub">A visual field-study in signs and coincidence</p></div>
+    <p class="muted" style="margin-bottom:1.2rem">A series of image-essays made while traveling through Arizona — reading the desert, the fire, the gardener, and the final trump as a sequence of questions rather than answers.</p>
+    <div class="grid-3 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-final-trump.jpg" alt="The Final Trump"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-gardener.jpg" alt="The Gardener"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-elijahs-fire.jpg" alt="Elijah's Fire"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-catches-body.jpg" alt="Catches the Body"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-have-you-seen.jpg" alt="Have You Seen"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/aponderer-jay-electronica.jpg" alt="Jay Electronica"></figure>
+    </div>
+  </section>
+
+  <!-- NIL Label -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">Fashion · Heritage · 2024 · <span class="status">In development</span></p><h2 style="margin-top:0.4rem">NIL — The Label</h2><p class="sub">Name. Image. Likeness. — a heritage clothing house</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/nil-lookbook.jpg" alt="NIL lookbook — Collection 01"><figcaption>Collection 01</figcaption></figure>
+    <div class="stack">
+      <p class="lead">A heritage clothing house in the American Ivy tradition — crest, monogram, and Olympic colors — where every collection is a chapter of one idea: from nothing (Nil), through humility (Kneel), to a name that lasts (Neal).</p>
+      <p>Streetwear chases trends and most heritage houses don't mean anything personal. There was no label that dressed the idea of identity itself. NIL is a full identity system — a laurel crest and NJ monogram, a tricolor Olympic palette, woven labels and hang tags — carried across distinct collections, unified by one code.</p>
+      <ul class="featurelist">
+        <li>NIL Heritage — timeless staples: polos, oxfords, knitwear, and outerwear</li>
+        <li>NIL Atelier — runway-inspired, elevated silhouettes and fabrics</li>
+        <li>NIL Sport — technical performance and athleisure essentials</li>
+        <li>NIL Chapters — graphic collections rooted in story, culture, and meaning</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Spend Dat Shit -->
+  <section class="leaf">
+    <div class="chapter-head"><p class="kicker">Games &amp; Interactive · 2026 · <span class="status">Live</span></p><h2 style="margin-top:0.4rem">Spend Dat Shit</h2><p class="sub">A satirical marketplace for spending a billionaire's fortune</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/items/mansion.webp" alt="Spend Dat Shit — the mega-mansion"></figure>
+    <div class="stack">
+      <p class="lead">An interactive, Prime-inspired parody store where you blow a billionaire's fortune on real-life relief, obscene luxury, and society-sized power moves — then the Future Oracle predicts your fate.</p>
+      <p>Enormous wealth is an abstraction; the numbers are too big to feel. Spend Dat Shit turns net worth into a shopping cart — pairing absurd luxury with the real cost of housing, tuition, and grants so the scale finally lands. It powers <span class="serif-i">The Tithing Experiment</span>.</p>
+    </div>
+    <div class="grid-2 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/items/lamborghini.webp" alt="Lamborghini Revuelto"><figcaption>Luxury aisle</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/items/gucci-spree.webp" alt="$20K Gucci spree"><figcaption>$20K Gucci spree</figcaption></figure>
+    </div>
+    <p class="note"><b>Note</b>Satire. Net-worth figures and prices are illustrative estimates; nothing ships and no purchase occurs.</p>
+  </section>
+
+  <!-- Origins -->
+  <section class="leaf">
+    <p class="eyebrow">Also in the archive</p>
+    <div class="grid-3 fig-band" style="margin-top:1rem">
+      <figure><img loading="lazy" decoding="async" src="/art/mindwrite.jpg" alt="MindWrite"><figcaption>MindWrite</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/emanual.jpg" alt="E.Manual"><figcaption>E.Manual</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/hoevalley.jpg" alt="Project H.O.E"><figcaption>Project H.O.E</figcaption></figure>
+    </div>
+    <div class="stack" style="margin-top:0.5rem">
+      <p><b class="gold">MindWrite</b> — the origin of everything: a published 90-day guided meditation journal, available on Amazon, and the founding nonprofit initiative that seeded the entire ecosystem. The through-line from a published book to AI-native product building.</p>
+      <p><b class="gold">E.Manual</b> — a 30-day life-skills survival guide, built education-first and non-shaming. Alongside Covenant (a 90-day scripture-and-discipline challenge), Project H.O.E (a harm-reduction, dignity-first concept), Estrella Nos (a desert luxury café brand), and Sanda Path (a martial-arts training app in development).</p>
+    </div>
+  </section>
+
+  <!-- PART III -->
+  <section class="part" data-accent="black"><div class="part-num">PART III</div><h2>A Black w<span class="gold">H</span>ole</h2><p class="part-desc">An interdisciplinary lab. The name holds absence and wholeness at the same time.</p></section>
+
+  <section class="leaf">
+    <div class="chapter-head"><p class="eyebrow">The Lab</p><h2 style="margin-top:0.6rem">An interdisciplinary lab</h2></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/the-lab.jpg" alt="A Black wHole"></figure>
+    <div class="stack">
+      <p class="lead">A Black wHole investigates language, identity, history, culture, money, science, memory, and loss — then transforms those inquiries into studies, public media, and practical tools.</p>
+      <p class="dropcap">The hole represents what has been erased, buried, fragmented, misunderstood, or lost. The whole represents what can begin to form when missing context is restored, separated ideas are brought back into relationship, and understanding is transformed into something useful. In that limited sense, it operates a little like a metaphysical CERN: ideas and disciplines are brought into contact instead of particles.</p>
+    </div>
+    <hr class="rule" style="margin:1.7rem 0 1.3rem">
+    <div class="stack-lg">
+      <div><h3 class="gold">Navigating Ignorance</h3><p class="muted" style="margin-top:0.25rem">Ignorance is not always a lack of intelligence. It can be produced by missing information, inherited assumptions, restricted access, or erased history. This work navigates ignorance by restoring context. <em>Find what is missing. Question what appears settled.</em></p></div>
+      <div><h3 class="gold">Gaining Glory</h3><p class="muted" style="margin-top:0.25rem">Glory is not celebrity. It is the recovery of memory, dignity, knowledge, creativity, confidence, ownership, and the ability to imagine beyond what has been inherited or assigned. <em>Recover what was buried. Build from what is yours.</em></p></div>
+      <div><h3 class="gold">Especially Reparations</h3><p class="muted" style="margin-top:0.25rem">Understanding is incomplete if it never asks what should be repaired. Repair can involve money, land, ownership, access, preserved testimony, corrected records, education, and community infrastructure. <em>Study the harm. Name what was taken. Build toward repair.</em></p></div>
+    </div>
+  </section>
+
+  <section class="leaf">
+    <p class="eyebrow">The studies</p>
+    <div class="grid-2 fig-band" style="margin-top:1rem">
+      <figure><img loading="lazy" decoding="async" src="/art/n-word.jpg" alt="The N Word study"><figcaption>The N Word</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/reparations/01.jpg" alt="The R Word — reparations"><figcaption>The R Word</figcaption></figure>
+    </div>
+    <div class="stack" style="margin-top:0.3rem">
+      <p>Two guided educational studies — part of the Black Builders Toolbox — measure how history, linguistics, and context shape perception. Each pairs a participant experience with an evidence-labeled education module: <span class="serif-i">The Enigmatic Cipher</span> and <span class="serif-i">The Big Payback</span>.</p>
+    </div>
+    <div class="grid-2 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/art/cipher/01-hook.png" alt="The Enigmatic Cipher"><figcaption>Module 01 · The Enigmatic Cipher</figcaption></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/reparations/02.jpg" alt="Especially Reparations"><figcaption>The Big Payback</figcaption></figure>
+    </div>
+    <p class="note"><b>Honest status</b>A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical / IRB review.</p>
+  </section>
+
+  <!-- PART IV — SELECTED WRITING -->
+  <section class="part" data-accent="paper"><div class="part-num">PART IV</div><h2>Selected Writing</h2><p class="part-desc">Three essays in symbolism, science, and Scripture — documented, observed, interpreted.</p></section>
+
+  <!-- Essay 1: Dear Ye -->
+  <section class="leaf essay essay-lead">
+    <div class="essay-open"><p class="eyebrow">Essay One · RapGod</p><h2>Dear Ye</h2><p class="esub">It begins with a prayer</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/from-x-to-ye.jpg" alt="From X to Ye"></figure>
+    <p class="first">The story begins with a prayer. DMX's prayer for Kanye sets the tone — not with confidence, but with humility. Before any journey, there is surrender.</p>
+    <p>Then comes Kanye West: “I pray my feet don't fail me now…” The line carries obvious weight within Jesus Walks, but it also echoes a larger biblical pattern. Throughout Scripture, feet symbolize the journey of faith: Moses removes his sandals on holy ground; Isaiah speaks of the beautiful feet of those who bring good news; Jesus washes the disciples' feet; Revelation describes Christ's feet “like burnished bronze.”</p>
+    <p>Walking becomes more than movement. It becomes purpose.</p>
+    <h3>What if your feet fail?</h3>
+    <p>But my interpretation asks a different question. What if your feet do fail? What if the goal was never simply to walk?</p>
+    <p>The visual answers: “It's okay if your feet fail you… when you can fly.” That thought transitions into another DMX lyric: “The only thing I fear is that I'm never gonna fly.”</p>
+    <p>The story shifts from walking to flying. Then Kanye answers with Touch the Sky. The narrative becomes one of transcendence — not abandoning the journey, but rising above its limitations.</p>
+    <h3>The Signals</h3>
+    <p>From there, the soundtrack turns inward. In Remote Control Pt. 2, the lyric “Justin” catches my attention. In Chakras, I focus on the lyric “Neal when you see God,” which I interpret as another meaningful connection within the broader set of patterns I've been exploring.</p>
+    <p>Whether those connections are intentional or coincidental is for each listener to decide. For me, they become part of a larger artistic narrative.</p>
+    <h3>Mission Control</h3>
+    <p>Finally, everything arrives at Mission Control. Mission Control is where direction is given. Where communication begins. Where purpose becomes action.</p>
+    <p>The journey starts with a prayer that the feet won't fail. It ends with a mission. Not just to walk. Not just to fly. But to answer the call.</p>
+  </section>
+
+  <!-- Essay 2: I Am / 22 -->
+  <section class="leaf essay essay-lead">
+    <div class="essay-open"><p class="eyebrow">Essay Two · The Lab</p><h2>I AM / 22</h2><p class="esub">The elements, and the number 22</p></div>
+    <div class="grid-3 fig-band">
+      <figure><img loading="lazy" decoding="async" src="/art/iam22-shirt.jpg" alt="I Am / 22 tee"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/iam22-name-of-god.jpg" alt="The Name of God"></figure>
+      <figure><img loading="lazy" decoding="async" src="/art/iam22-inniganus.jpg" alt="Inniganus"></figure>
+    </div>
+    <h3>A Curious Observation</h3>
+    <p class="esub">I AM, the elements, and the number 22</p>
+    <p class="first">One of the recurring patterns I've explored is centered on the phrase “I AM.” Throughout Scripture, “I AM” carries profound theological significance as the name God reveals to Moses: “I AM WHO I AM.” — Exodus 3:14.</p>
+    <p>While studying language, symbolism, and science together, I noticed an unexpected numerical relationship involving the chemical elements represented by the letters I and Am. I is the chemical symbol for Iodine, whose atomic number is 53. Am is the chemical symbol for Americium, whose atomic number is 95.</p>
+    <p class="calc">Adding these atomic numbers together produces:<br>53 + 95 = 148<br>Reducing that sum to a single digit sequence:<br>1 + 4 + 8 = 13<br>Then reducing once more:<br>1 + 3 = 4</p>
+    <p class="calc">But another pattern stood out to me. Instead of focusing only on the total, I looked at the individual atomic numbers:<br>53 → 5 + 3 = 8<br>95 → 9 + 5 = 14 → 1 + 4 = 5<br>Adding those reduced values gives:<br>8 + 5 = 13 → 1 + 3 = 4</p>
+    <p class="calc">I also noticed another numerical relationship that became central to my broader theory:<br>53 − 31 = 22<br>95 − 73 = 22</p>
+    <p>This recurring appearance of 22 led me to investigate whether the number might have symbolic significance within the larger collection of patterns I was studying.</p>
+    <h3>Why 22?</h3>
+    <p>For me, the number 22 became interesting because it repeatedly appeared alongside themes involving identity, names, language, Scripture, and creation. I do not present this as scientific proof or established biblical doctrine. Rather, I view it as one observation among many that encouraged further exploration.</p>
+    <p>My work asks a broader question: can independent patterns drawn from different fields — language, mathematics, chemistry, history, and Scripture — sometimes converge in ways that invite deeper reflection?</p>
+    <p>Whether these convergences are meaningful or simply coincidental is something every reader should evaluate for themselves.</p>
+    <h3>An Invitation</h3>
+    <p>This documents these observations openly and transparently. My goal is not to ask readers to accept any conclusion without question, but to present the patterns that caught my attention so others can examine them critically, test them independently, and decide for themselves what — if anything — they signify.</p>
+    <p>Curiosity has often led humanity to new discoveries. Sometimes a pattern is merely coincidence. Sometimes it points toward a deeper understanding. My hope is simply to encourage careful observation, thoughtful discussion, and an honest search for truth.</p>
+  </section>
+
+  <!-- Essay 3: Charm Quark × Big Ben -->
+  <section class="leaf essay essay-lead">
+    <div class="essay-open"><p class="eyebrow">Essay Three · The Lab</p><h2>Charm Quark × Big Ben</h2><p class="esub">The Weight of “I Am”</p></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/bigben.jpg" alt="Charm Quark × Big Ben"></figure>
+    <p class="first serif-i" style="font-family:var(--serif);color:var(--muted)">A personal inquiry into physics, identity, Korea, Scripture, and the unexpected connections that travel across time.</p>
+    <h3>The Question</h3>
+    <p>Can a word have weight? Can a name carry a number? Can scientific history, personal history, language, chemistry, and Scripture intersect without becoming the same thing?</p>
+    <p>Charm Quark × Big Ben begins with those questions.</p>
+    <p>This project is not presented as a conventional scientific paper or as proof of a theological conclusion. It is a visual and intellectual research journal — a place where documented history is placed beside personal experience, symbolic interpretation, and open-ended hypotheses.</p>
+    <p>At its center are two parallel searches. Benjamin W. Lee helped physicists estimate the mass of the charm quark. I have been exploring what I symbolically call the mass of “I Am” — the possible weight, number, and elemental structure associated with the biblical name of God.</p>
+    <p>One belongs to established particle physics. The other is my personal framework of inquiry. The page begins where those two searches unexpectedly meet.</p>
+    <h3>Benjamin W. Lee</h3><p class="esub">A physicist between Korea and Ohio</p>
+    <p>Benjamin Whisoh Lee was a Korean American theoretical physicist whose work influenced the development of modern particle physics and the Standard Model.</p>
+    <p>Born in Seoul in 1935, Lee came to the United States as a student and earned his undergraduate degree from Miami University in Oxford, Ohio. He later studied at the University of Pittsburgh and the University of Pennsylvania before becoming one of the leading theoretical physicists of his generation.</p>
+    <p>Lee eventually led Fermilab's theoretical physics department from 1973 until his death in 1977. His career connected Korea, the American Midwest, and the expanding international world of high-energy physics. That geographic journey matters to this project — and so does the university where it began.</p>
+    <h3>Miami University</h3><p class="esub">A shared point of origin</p>
+    <p>Benjamin W. Lee attended Miami University. So did I.</p>
+    <p>I earned my bachelor's and master's degrees in accounting there. My field was not theoretical physics, but my education trained me to examine numbers, reconcile separate records, identify patterns, and ask why apparently disconnected values might belong to the same underlying system.</p>
+    <p>Discovering Lee's history changed how I understood my own relationship to Miami University. It was no longer only the place where I studied accounting; it was also part of the story of a Korean physicist who helped investigate one of matter's fundamental particles.</p>
+    <p>I do not claim that attending the same university establishes a scientific relationship between our work. I present it as the historical connection that inspired the inquiry.</p>
+    <h3>The Charm Quark</h3><p class="esub">Giving weight to the unseen</p>
+    <p>The charm quark is one of the six quark types recognized within the Standard Model of particle physics. Quarks cannot ordinarily be isolated and placed on a scale — their properties must be inferred through mathematics, experiments, particle interactions, decay patterns, and the larger particles they help form.</p>
+    <p>Benjamin W. Lee participated in theoretical work that estimated the charm quark's mass. This is what first captured my attention: before the charm quark could be directly understood, scientists had to reason toward it. They examined effects. They studied relationships. They used evidence to estimate the properties of something they could not simply hold in their hands.</p>
+    <p>The history of the charm quark becomes a model for asking careful questions about things that are real, influential, or meaningful but not immediately visible. That does not mean symbolic questions can be answered through particle physics — it means the scientific story inspired the structure of my search.</p>
+    <h3>Big Ben</h3><p class="esub">A name, a measure, a signal</p>
+    <p>“Big Ben” is my name for the Benjamin W. Lee dimension of this project. Ben points to Benjamin Lee. Big suggests scale, magnitude, significance, and mass. Big Ben, the famous clock, introduces time, measurement, repetition, and the striking of an hour.</p>
+    <p>Within the project, the phrase becomes a symbolic bridge between Benjamin Lee, scientific measurement, the mass of the charm quark, historical time, personal timing, numbers that recur, and the question of whether meaning can echo across generations.</p>
+    <p>This is not a claim that the landmark Big Ben has a documented relationship to Benjamin Lee or charm physics. It is wordplay used as a conceptual instrument — turning a scientific biography into a broader meditation on what humanity measures, and why.</p>
+    <h3>“I Am”</h3><p class="esub">A name that resists containment</p>
+    <p>In the biblical account of Moses and the burning bush, Moses asks what name he should give when the Israelites ask who sent him. God answers: “I AM WHO I AM.”</p>
+    <p>The phrase has been interpreted as a declaration of being, existence, presence, and divine self-sufficiency. “I Am” therefore enters this project not merely as an ordinary phrase, but as a name associated with existence itself. That produces the central symbolic question: if matter has mass, what would it mean to speak of the “mass” of I Am?</p>
+    <p>I am not claiming that God possesses a scientifically measurable particle mass. Instead, I use mass in several overlapping senses — physical mass, numerical weight, linguistic value, cultural significance, spiritual gravity, historical influence, and the emotional weight carried by a name. “The mass of I Am” is my name for this multidisciplinary investigation.</p>
+    <h3>I + Am</h3><p class="esub">Element, language, and identity</p>
+    <p>The phrase “I Am” can also be visually separated: I / Am. In chemistry, I is the symbol for iodine. Am is the symbol for americium. Placed together, “I Am” can be read simultaneously as a sentence of identity, a biblical declaration, and two symbols from the periodic table.</p>
+    <p>This does not make “I Am” a chemical formula, nor does it establish a new compound. It creates a symbolic structure — one that allows the words to be explored through several systems at once: language (I am), theology (I AM), chemistry (I + Am), mathematics (atomic numbers and masses), design (letters, blocks, numbers, grids, garments), and identity (the statement a person makes before describing who they are).</p>
+    <p>The project asks what becomes visible when those systems are placed beside one another without pretending that they are interchangeable.</p>
+    <h3>22</h3><p class="esub">Number as a point of inquiry</p>
+    <p>Within my research, 22 emerged as an important symbolic number associated with “I Am.” The number appears within a larger visual and mathematical framework involving elemental values, numerical reduction, identity, and the relationship between written symbols and measurable quantities. I refer to this framework as I AM / 22.</p>
+    <p>The number is not presented as the scientifically established “number of God.” It is the result of my own symbolic method and remains a hypothesis within the project. The more accurate statement is: I have developed a personal framework in which 22 represents the numerical weight of “I Am.”</p>
+    <p>That distinction matters. An observation can be documented. A calculation can be reproduced. An interpretation can be considered. A theological conclusion requires another level of reasoning.</p>
+    <h3>The Rose of Sharon Blooms Again</h3><p class="esub">When the story returns to Korea</p>
+    <p>Benjamin Lee's legacy extends beyond scientific journals. He also inspired the central physicist in the South Korean novel The Rose of Sharon Blooms Again, written by Kim Jin-myung and published in the 1990s. The book introduces another major symbol: the rose of Sharon.</p>
+    <p>In Korean, the flower is called mugunghwa — 무궁화 — widely regarded as the national flower of South Korea, its name conveying the idea of an eternal blossom that never fades. The flower carries ideas of endurance, renewal, national identity, survival, continuity, and blooming again after hardship.</p>
+    <p>Through the novel, Benjamin Lee becomes connected not only to Miami University and particle physics, but also to one of Korea's most recognizable national symbols. For me, that connection is especially meaningful because I also lived in Korea — a place where I taught, learned, and built relationships. Benjamin Lee → Korea → Miami University → physics → the rose of Sharon. My own line moves through Miami University → Korea → Scripture → identity → “I Am.” The project examines where those lines cross.</p>
+    <h3>The Biblical Flower</h3><p class="esub">“I am the rose of Sharon”</p>
+    <p>The phrase “rose of Sharon” also appears in the Bible. Song of Songs 2:1 is traditionally rendered: “I am the rose of Sharon, and the lily of the valleys.”</p>
+    <p>The identity of the original plant is uncertain; scholars have suggested the Hebrew term may refer to a crocus, narcissus, or another flowering plant rather than the modern flower now called the rose of Sharon. The South Korean mugunghwa and the ancient flower referenced in Song of Songs are not necessarily the same plant merely because English tradition uses the phrase for both. The connection is linguistic, cultural, and symbolic — not proof of botanical identity.</p>
+    <p>Yet the wording remains striking. The verse begins with the words: I am. That brings the flower directly into the central language of this project.</p>
+    <h3>The Bloom</h3><p class="esub">What does it mean to bloom again?</p>
+    <p>A flower that blooms again suggests return — not repetition in exactly the same form, but the reappearance of life after a period when it could not be seen.</p>
+    <p>Within Charm Quark × Big Ben, blooming again represents a forgotten history being recovered, a scientist's legacy being rediscovered, an idea reappearing in another discipline, a name gaining new meaning, Korea reentering a personal story, and something once hidden becoming visible.</p>
+    <p>Benjamin Lee's scientific work survives him. His image reappears in archives. His life reappears in fiction. The mugunghwa blooms again each season. A student walks the grounds of Miami University without knowing that another student from Korea once walked there before him. Years later, the connection blooms.</p>
+    <h3>Observation, Interpretation, and Hypothesis</h3><p class="esub">How to read this project</p>
+    <p>To keep the research transparent, every major idea should be understood through one of three categories.</p>
+    <p><b>Documented</b> — information supported by historical records, scientific publications, recognized institutions, books, or primary documents. For example: Benjamin Lee attended Miami University; his research contributed to the scientific understanding of the charm quark; a Korean novel inspired by him was titled The Rose of Sharon Blooms Again; the mugunghwa is widely regarded as South Korea's national flower; the phrase “rose of Sharon” appears in traditional translations of Song of Songs 2:1.</p>
+    <p><b>Personal observation</b> — a real feature of my own life or how I encountered the documented information. For example: I attended Miami University; I later lived and worked in Korea; I noticed the phrase “I am” within Song of Songs 2:1; I began examining “I” and “Am” as elemental symbols.</p>
+    <p><b>Symbolic interpretation</b> — the meaning I draw from placing those facts and observations together: “Big Ben” as a symbol of measurement and time; “the mass of I Am” as a framework for spiritual and numerical weight; the rose blooming again as the return of an idea across generations; the number 22 as a proposed symbolic value.</p>
+    <p>Documented claims can be verified. Observations can be examined. Interpretations can be discussed. Hypotheses can be tested, refined, challenged, or rejected.</p>
+    <h3>What I Am Not Claiming</h3>
+    <p>This project does not claim that symbolic arithmetic replaces experimental science; that two people attending the same university proves a cosmic relationship; that the Korean mugunghwa is certainly the same species referenced in the Hebrew Bible; that wordplay constitutes scientific evidence; that a periodic-table reading of “I Am” creates a recognized chemical formula; or that a numerical pattern alone proves the identity, will, or physical properties of God.</p>
+    <p>These boundaries do not weaken the project. They make the real questions easier to see.</p>
+    <h3>What I Am Asking</h3>
+    <p>Why did Benjamin Lee's story resonate so strongly with me? What does it mean that our lives intersect through Miami University and Korea? Why does the language of mass become so powerful when applied to identity? Can a scientific discovery inspire a symbolic or theological investigation without being misrepresented? What happens when “I Am” is read as language, Scripture, chemistry, mathematics, and design? Why does the rose of Sharon appear at several points in the story? What is gained — and what is lost — when history is interpreted through personal symbolism? How can a person investigate meaningful patterns while remaining honest about uncertainty?</p>
+    <p>And finally: what is the weight of a name?</p>
+    <h3>Final Statement</h3>
+    <p>Benjamin W. Lee helped give scientists a way to think about the mass of the charm quark. His journey moved from Korea to Miami University and into the history of theoretical physics. His life later inspired a Korean novel named for a flower that blooms again. That flower is associated with Korea. Its English name also appears in a biblical sentence beginning with the words: I am.</p>
+    <p>I also attended Miami University. I also lived in Korea. And I have been exploring what I call the weight and number of “I Am.”</p>
+    <p>I do not present these intersections as final proof of a scientific or divine conclusion. I present them as the beginning of a disciplined question. A question about matter. A question about identity. A question about names. A question about what disappears. And a question about what — across time, countries, disciplines, and generations — may bloom again.</p>
+    <p class="pull" style="margin-top:1.4rem">Document the facts. Follow the question. Name the difference. <span>Let the rose bloom again.</span></p>
+  </section>
+
+  <!-- PART V — CONSTELLATION -->
+  <section class="part" data-accent="indigo"><div class="part-num">PART V</div><h2>The Constellation</h2><p class="part-desc">Inspirations and dream collaborators — different points within one field.</p></section>
+
+  <section class="leaf">
+    <div class="chapter-head"><p class="eyebrow">Inspirations &amp; dream collaborators</p><h2 style="margin-top:0.6rem">The <span class="serif-i">Constellation.</span></h2></div>
+    <p class="lead" style="margin-bottom:1.2rem">The artists, researchers, and spiritual thinkers gathered here have shaped how I understand creativity, language, identity, consciousness, education, and human connection.</p>
+    <figure class="fig-band" style="max-width:260px"><img loading="lazy" decoding="async" src="/art/aponderer-neal-lester.jpg" alt="Neal A. Lester"><figcaption>Neal A. Lester · Project Humanities</figcaption></figure>
+    <div>
+      <div class="figure-card"><span class="themes">Music · Design · Faith</span><h3>Ye</h3><p>Donda became part of how I processed the memory of my mother, Gloria Neal — and the possibility of working across disciplines without asking permission to stay inside one category.</p></div>
+      <div class="figure-card"><span class="themes">Storytelling · Symbolism · Identity</span><h3>Kendrick Lamar</h3><p>How autobiography, cultural memory, spirituality, and social criticism coexist in one body of work — a key reference for the RapGod interpretation.</p></div>
+      <div class="figure-card"><span class="themes">Vulnerability · Mental Wellness</span><h3>Kid Cudi</h3><p>Loneliness, perseverance, and imagination made visible — part of the symbolic vocabulary through which I organized my story.</p></div>
+      <div class="figure-card"><span class="themes">Complexity · Emergence · Consciousness</span><h3>Neil Theise</h3><p><em>Notes on Complexity</em> gives scientific language to an idea that runs through the work: smaller parts interacting until a larger, sometimes unpredictable pattern emerges.</p></div>
+      <div class="figure-card"><span class="themes">Language · Race · Public Humanities</span><h3>Neal A. Lester</h3><p>Founding director of Project Humanities and a pioneer of N-word scholarship — near the center of the language study.</p></div>
+      <div class="figure-card"><span class="themes">Psychology · Art · Education</span><h3>Ellen Winner</h3><p>Project Zero's thinking routines and impact-evaluation methods — a model for turning creative interpretation into testable, educational experiences.</p></div>
+      <div class="figure-card"><span class="themes">Spiritual Dialogue · Inner Inquiry</span><h3>Neale Donald Walsch</h3><p>Spiritual understanding as an active conversation rather than a set of closed answers.</p></div>
+      <div class="figure-card"><span class="themes">Author · Playwright · Pastor · Youth Advocate</span><h3>Dr. David A. Hatch</h3><p>Turning lived pain into testimony, theatre, ministry, and structures of support. A fellow builder turning broken pieces into pathways toward healing.</p></div>
+    </div>
+  </section>
+
+  <!-- PART VI — iNeed$ -->
+  <section class="part" data-accent="gold"><div class="part-num">PART VI</div><h2>iNeed$</h2><p class="part-desc">Modern patronage for independent ideas.</p></section>
+
+  <section class="leaf">
+    <div class="chapter-head"><p class="eyebrow">The invitation</p><h2 style="margin-top:0.6rem">Great work often exists because someone believed in it first.</h2></div>
+    <figure class="fig-band"><img loading="lazy" decoding="async" src="/art/ineed-grill.jpg" alt="The iNeed$ gold grill"></figure>
+    <div class="stack">
+      <p class="dropcap">Throughout history, artists, inventors, scientists, educators, and writers often reached their full potential because someone believed in them before the rest of the world did. This is a modern version of that tradition — for anyone who wants to help the work continue.</p>
+      <p>Most of the work here has been shared freely. Rather than placing everything behind a paywall, the aim is a model where people who believe in the work can help sustain it. Support is never expected. But it is deeply appreciated.</p>
+      <p class="note"><b>The honest framing</b>Contributions are personal gifts of support and patronage — not tax-deductible charitable donations.</p>
+    </div>
+  </section>
+
+  <!-- PART VII — TITHING -->
+  <section class="part" data-accent="burgundy"><div class="part-num">PART VII</div><h2>The Tithing Experiment</h2><p class="part-desc">What if the world's wealthiest people tithed?</p></section>
+
+  <section class="leaf">
+    <div class="chapter-head"><p class="eyebrow">A thought experiment</p><h2 style="margin-top:0.6rem">What would happen if eight of the world's wealthiest people each gave 10%?</h2></div>
+    <div class="stack">
+      <p class="lead">An interactive thought experiment — not a factual claim, legal demand, or real transfer of wealth — about generosity, patronage, and what extraordinary resources could make possible.</p>
+      <p class="dropcap">Many faith traditions have encouraged people to give a portion of what they have for purposes beyond themselves. The experiment asks a simple hypothetical: if the wealthiest chose to set aside 10%, where might the remaining 90% go? Visitors vote, then step into <span class="serif-i">Spend Dat Shit</span> to spend a hypothetical 90% — pairing absurd luxury with the real cost of housing, tuition, and repair.</p>
+      <p class="pull" style="margin:1.2rem 0"><span>“I only need one yes.”</span></p>
+      <p class="muted">Every invitation, every response, and every lesson is recorded in the open. No billionaire named has agreed to participate, endorsed the project, or transferred funds. Net-worth figures are illustrative estimates.</p>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="leaf page-break end">
+    <p class="eyebrow" style="justify-content:center">Colophon</p>
+    <p class="pull" style="margin:1.6rem auto 1.2rem;max-width:38ch">Enter with a question. <span>Leave with a different way of seeing.</span></p>
+    <p class="muted" style="margin:0 auto 1.9rem;max-width:44ch">This monograph collects the work of NIL — a body of research, applications, writing, fashion, and experiments by Just Neal. Name. Image. Likeness.</p>
+    <div class="end mark">✦</div>
+    <p class="cover-meta" style="color:var(--faint);margin-top:1.4rem;font-family:var(--sans);font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase">NIL · Just Neal — MMXXVI</p>
+  </section>
+
+</div>
+
+</body></html>

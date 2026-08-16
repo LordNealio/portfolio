@@ -35,6 +35,7 @@ export function Footer() {
             <Link to="/work">Work</Link>
             <Link to="/store">Store</Link>
             <Link to="/constellation">Constellation</Link>
+            <a href="/monograph.html">The Book</a>
             <Link to="/about">About</Link>
             <Link to="/connect">Connect</Link>
           </nav>
