@@ -138,6 +138,25 @@
   .end { text-align: center; }
   .end .mark { font-family: var(--serif); font-size: 2rem; color: var(--gold); }
 
+  /* Full-page image plates */
+  .plate { text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 60vh; }
+  .plate-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .plate figure { margin: 0 auto; max-width: 100%; }
+  .plate figure img { box-shadow: 0 3px 8px rgba(24,30,40,0.14), 0 22px 48px rgba(24,30,40,0.2); }
+  .plate-title { font-family: var(--serif); font-size: 1.5rem; margin-top: 1.1rem; }
+  .plate-cap { color: var(--muted); font-size: 0.9rem; margin: 0.5rem auto 0; max-width: 48ch; }
+
+  /* Tithe tally */
+  .tithe-tally { display: grid; gap: 0.05rem; margin: 0.4rem 0; }
+  .tithe-tally .tr { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line-soft); }
+  .tithe-tally .who { font-family: var(--serif); }
+  .tithe-tally .amt { font-family: var(--serif); font-variant-numeric: tabular-nums; color: var(--muted); }
+  .tithe-tally .total { border-top: 2px solid var(--gold); border-bottom: none; margin-top: 0.4rem; padding-top: 0.9rem; }
+  .tithe-tally .total .who { color: var(--ink); }
+  .tithe-tally .total .amt { color: var(--gold); font-size: 1.35rem; }
+
+  .cover-imprint { margin-top: 0.9rem; font-family: var(--serif); font-style: italic; font-size: 0.92rem; color: var(--gold-soft); }
+
   @media (max-width: 560px) {
     .caps-grid, .define .row, .grid-3 { grid-template-columns: 1fr; }
     .define .row { gap: 0.2rem; }
@@ -154,6 +173,8 @@
     .cover, .part { -webkit-print-color-adjust: exact; print-color-adjust: exact; min-height: 7.6in; display: flex; flex-direction: column; justify-content: center; }
     figure img { max-height: 6.1in; width: auto; max-width: 100%; margin-inline: auto; }
     .grid-2 figure img, .grid-3 figure img { max-height: 3in; }
+    .plate { min-height: 7.3in; justify-content: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .plate figure img { max-height: 6.4in; }
     figure, .figure-card, .note, .define .row, .contents li, .essay h3 + p { break-inside: avoid; }
     h2, h3 { break-after: avoid; }
     .essay h3 { break-before: auto; }
@@ -225,6 +246,7 @@
     <h1>Name. Image.<br>Likeness.</h1>
     <p class="cover-sub">The collected work of a creative institution</p>
     <p class="cover-meta">A Monograph · MMXXVI</p>
+    <p class="cover-imprint">YoungBlesser · youngblesser.com</p>
   </section>
 
   <!-- COLOPHON -->
@@ -353,16 +375,17 @@
   <!-- Arizona Ponderer -->
   <section class="leaf">
     <div class="chapter-head"><p class="kicker">Media · Cultural analysis</p><h2 style="margin-top:0.4rem">The Arizona Ponderer</h2><p class="sub">A visual field-study in signs and coincidence</p></div>
-    <p class="muted" style="margin-bottom:1.2rem">A series of image-essays made while traveling through Arizona — reading the desert, the fire, the gardener, and the final trump as a sequence of questions rather than answers.</p>
-    <div class="grid-3 fig-band">
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-final-trump.jpg" alt="The Final Trump"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-gardener.jpg" alt="The Gardener"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-elijahs-fire.jpg" alt="Elijah's Fire"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-catches-body.jpg" alt="Catches the Body"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-have-you-seen.jpg" alt="Have You Seen"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/aponderer-jay-electronica.jpg" alt="Jay Electronica"></figure>
-    </div>
+    <p class="muted">A series of image-essays made while traveling through Arizona — reading the desert, the fire, the gardener, and the final trump as a sequence of questions rather than answers.</p>
+    <p class="muted" style="margin-top:0.9rem">Each plate that follows stands on its own. Read it the way it was made: slowly, one at a time.</p>
   </section>
+
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · I</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-gardener.jpg" alt="The Gardener"></figure><h3 class="plate-title">The Gardener</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · II</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-elijahs-fire.jpg" alt="Elijah's Fire"></figure><h3 class="plate-title">Elijah's Fire</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · III</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-final-trump.jpg" alt="The Final Trump"></figure><h3 class="plate-title">The Final Trump</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · IV</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-catches-body.jpg" alt="Catches the Body"></figure><h3 class="plate-title">Catches the Body</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · V</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-have-you-seen.jpg" alt="Have You Seen"></figure><h3 class="plate-title">Have You Seen</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · VI</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-jay-electronica.jpg" alt="Jay Electronica"></figure><h3 class="plate-title">Jay Electronica</h3></section>
+  <section class="leaf plate page-break"><p class="plate-label">The Arizona Ponderer · VII</p><figure><img loading="lazy" decoding="async" src="/art/aponderer-pbs-mysteries.jpg" alt="PBS Mysteries"></figure><h3 class="plate-title">PBS Mysteries</h3></section>
 
   <!-- NIL Label -->
   <section class="leaf">
@@ -468,11 +491,6 @@
   <!-- Essay 2: I Am / 22 -->
   <section class="leaf essay essay-lead">
     <div class="essay-open"><p class="eyebrow">Essay Two · The Lab</p><h2>I AM / 22</h2><p class="esub">The elements, and the number 22</p></div>
-    <div class="grid-3 fig-band">
-      <figure><img loading="lazy" decoding="async" src="/art/iam22-shirt.jpg" alt="I Am / 22 tee"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/iam22-name-of-god.jpg" alt="The Name of God"></figure>
-      <figure><img loading="lazy" decoding="async" src="/art/iam22-inniganus.jpg" alt="Inniganus"></figure>
-    </div>
     <h3>A Curious Observation</h3>
     <p class="esub">I AM, the elements, and the number 22</p>
     <p class="first">One of the recurring patterns I've explored is centered on the phrase “I AM.” Throughout Scripture, “I AM” carries profound theological significance as the name God reveals to Moses: “I AM WHO I AM.” — Exodus 3:14.</p>
@@ -481,14 +499,30 @@
     <p class="calc">But another pattern stood out to me. Instead of focusing only on the total, I looked at the individual atomic numbers:<br>53 → 5 + 3 = 8<br>95 → 9 + 5 = 14 → 1 + 4 = 5<br>Adding those reduced values gives:<br>8 + 5 = 13 → 1 + 3 = 4</p>
     <p class="calc">I also noticed another numerical relationship that became central to my broader theory:<br>53 − 31 = 22<br>95 − 73 = 22</p>
     <p>This recurring appearance of 22 led me to investigate whether the number might have symbolic significance within the larger collection of patterns I was studying.</p>
+  </section>
+
+  <section class="leaf plate page-break"><p class="plate-label">I AM / 22 · Plate</p><figure><img loading="lazy" decoding="async" src="/art/iam22-shirt.jpg" alt="The I AM / 22 garment"></figure><h3 class="plate-title">The Garment</h3><p class="plate-cap">I AM / 22 — the elements, the equation, the mass, the truth.</p></section>
+
+  <section class="leaf essay">
     <h3>Why 22?</h3>
     <p>For me, the number 22 became interesting because it repeatedly appeared alongside themes involving identity, names, language, Scripture, and creation. I do not present this as scientific proof or established biblical doctrine. Rather, I view it as one observation among many that encouraged further exploration.</p>
     <p>My work asks a broader question: can independent patterns drawn from different fields — language, mathematics, chemistry, history, and Scripture — sometimes converge in ways that invite deeper reflection?</p>
     <p>Whether these convergences are meaningful or simply coincidental is something every reader should evaluate for themselves.</p>
+    <h3>22 in the Kabbalah</h3>
+    <p>The number surfaces again in a far older tradition. The Hebrew alphabet has twenty-two letters — and in Kabbalah, especially the Sefer Yetzirah, the “Book of Formation,” those twenty-two letters are described as the building blocks of creation: the elements through which the world was spoken into being.</p>
+    <p>On the Tree of Life, the ten sefirot — the divine emanations — are joined by twenty-two paths, and each path is traditionally assigned one of the twenty-two Hebrew letters. Twenty-two becomes the number of connection itself: the letters that link the hidden to the revealed, the “I Am” to everything it makes.</p>
+    <p>I do not present this as proof that elemental arithmetic and the Kabbalistic tradition describe the same thing. I offer it as a documented resonance — two very different systems in which twenty-two marks the letters, or the paths, of creation, gathered around a name.</p>
+  </section>
+
+  <section class="leaf plate page-break"><p class="plate-label">I AM / 22 · Plate</p><figure><img loading="lazy" decoding="async" src="/art/iam22-inniganus.jpg" alt="Inniganus"></figure><h3 class="plate-title">Inniganus</h3><p class="plate-cap">“Begotten from the Darkness” (Genesis 1:2) · I Am — Iodine + Americium — “Indigo American” · 126 + 243 = 369 = 9.</p></section>
+
+  <section class="leaf essay">
     <h3>An Invitation</h3>
     <p>This documents these observations openly and transparently. My goal is not to ask readers to accept any conclusion without question, but to present the patterns that caught my attention so others can examine them critically, test them independently, and decide for themselves what — if anything — they signify.</p>
     <p>Curiosity has often led humanity to new discoveries. Sometimes a pattern is merely coincidence. Sometimes it points toward a deeper understanding. My hope is simply to encourage careful observation, thoughtful discussion, and an honest search for truth.</p>
   </section>
+
+  <section class="leaf plate page-break"><p class="plate-label">I AM / 22 · Plate</p><figure><img loading="lazy" decoding="async" src="/art/iam22-name-of-god.jpg" alt="The Name of God"></figure><h3 class="plate-title">The Name of God</h3><p class="plate-cap">Kendrick Lamar, “YAH” (DAMN.) — “I know he walks the earth.”</p></section>
 
   <!-- Essay 3: Charm Quark × Big Ben -->
   <section class="leaf essay essay-lead">
@@ -606,11 +640,31 @@
     </div>
   </section>
 
+  <section class="leaf page-break">
+    <div class="chapter-head"><p class="eyebrow">The math of one yes</p><h2 style="margin-top:0.6rem">If each of the Eight gave 10%.</h2></div>
+    <p class="muted" style="margin-bottom:1.4rem">A single voluntary tithe — ten percent — from each of the eight, against their illustrative estimated net worth:</p>
+    <div class="tithe-tally">
+      <div class="tr"><span class="who">Elon Musk</span><span class="amt">$24.4B</span></div>
+      <div class="tr"><span class="who">Jeff Bezos</span><span class="amt">$19.7B</span></div>
+      <div class="tr"><span class="who">Larry Ellison</span><span class="amt">$19.2B</span></div>
+      <div class="tr"><span class="who">Mark Zuckerberg</span><span class="amt">$17.7B</span></div>
+      <div class="tr"><span class="who">Bill Gates</span><span class="amt">$16.2B</span></div>
+      <div class="tr"><span class="who">Larry Page</span><span class="amt">$14.8B</span></div>
+      <div class="tr"><span class="who">Jensen Huang</span><span class="amt">$9.0B</span></div>
+      <div class="tr"><span class="who">Ray Dalio</span><span class="amt">$1.5B</span></div>
+      <div class="tr total"><span class="who">The combined tithe</span><span class="amt">$122.5B</span></div>
+    </div>
+    <p class="pull" style="margin:1.8rem 0 1rem">Ten percent, given once, would endow this work with roughly <span>$122.5&nbsp;billion.</span></p>
+    <p class="muted">That is the scale the experiment is pointing at — enough to fund research, education, tools, and repair for generations. It remains a thought experiment built on public estimates; no one named has agreed to give anything. I only need one yes.</p>
+  </section>
+
   <!-- CLOSE -->
   <section class="leaf page-break end">
     <p class="eyebrow" style="justify-content:center">Colophon</p>
     <p class="pull" style="margin:1.6rem auto 1.2rem;max-width:38ch">Enter with a question. <span>Leave with a different way of seeing.</span></p>
-    <p class="muted" style="margin:0 auto 1.9rem;max-width:44ch">This monograph collects the work of NIL — a body of research, applications, writing, fashion, and experiments by Just Neal. Name. Image. Likeness.</p>
+    <p class="muted" style="margin:0 auto 1.6rem;max-width:44ch">This monograph collects the work of NIL — a body of research, applications, writing, fashion, and experiments by Just Neal. Name. Image. Likeness.</p>
+    <p class="serif-i gold" style="font-size:1.5rem;margin-bottom:0.4rem">YoungBlesser</p>
+    <p class="muted" style="margin:0 auto 1.8rem;max-width:40ch">The website, and the book. &#8212; youngblesser.com</p>
     <div class="end mark">✦</div>
     <p class="cover-meta" style="color:var(--faint);margin-top:1.4rem;font-family:var(--sans);font-size:0.66rem;letter-spacing:0.28em;text-transform:uppercase">NIL · Just Neal — MMXXVI</p>
   </section>
