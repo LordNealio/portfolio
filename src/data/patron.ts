@@ -433,6 +433,19 @@ export const HOW_USED: UsedCategory[] = [
   { label: "New Projects", icon: "✦" },
 ];
 
+// ── The Tithing Experiment (folded into this page) ───────────────────────────
+export const TITHING_TEASER = {
+  eyebrow: "A thought experiment",
+  title: "What if the Eight tithed?",
+  stat: { value: "$122.5B", label: "if each of the Eight gave 10%" },
+  body: [
+    "The same eight names, one hypothetical: if each gave 10% of their wealth, this work would be endowed with roughly $122.5 billion.",
+    "Vote on whether they should — then step into the simulation and spend the remaining 90%.",
+  ],
+  cta: { label: "Enter the Tithing Experiment", href: "/tithing" } as Cta,
+  note: "A thought experiment and simulation — no billionaire named has agreed to, endorsed, or transferred anything. Net-worth figures are estimates.",
+};
+
 // ── Why I'm asking ───────────────────────────────────────────────────────────
 export const WHY_ASKING = {
   eyebrow: "Why I'm asking",

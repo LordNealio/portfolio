@@ -5,6 +5,7 @@ import {
   WHY_EXISTS,
   THE_EIGHT_INTRO,
   THE_EIGHT,
+  TITHING_TEASER,
   FUNDS_INTRO,
   FUNDS,
   GARAGE_INTRO,
@@ -123,6 +124,27 @@ export function PatronExperiment() {
             {THE_EIGHT.map((p) => (
               <PatronCard key={p.name} person={p} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE TITHING EXPERIMENT (folded in) ───────────────────────────── */}
+      <section className="pe-section pe-tithe" id="tithing">
+        <div className="wrap">
+          <div className="pe-tithe-card reveal">
+            <p className="pe-eyebrow">{TITHING_TEASER.eyebrow}</p>
+            <h2 className="h1 pe-h">{TITHING_TEASER.title}</h2>
+            <div className="pe-tithe-stat">
+              <span className="pe-tithe-num">{TITHING_TEASER.stat.value}</span>
+              <span className="pe-tithe-lbl">{TITHING_TEASER.stat.label}</span>
+            </div>
+            <div className="pe-tithe-body">
+              {TITHING_TEASER.body.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <PatronButton cta={TITHING_TEASER.cta} variant="primary" size="lg" />
+            <p className="pe-disclaimer">{TITHING_TEASER.note}</p>
           </div>
         </div>
       </section>

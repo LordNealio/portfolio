@@ -3,11 +3,9 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useMode } from "../lib/mode";
 
 const links = [
-  { to: "/work", label: "Work" },
   { to: "/store", label: "Store" },
   { to: "/constellation", label: "Constellation" },
   { to: "/ineed", label: "iNeed$" },
-  { to: "/tithing", label: "Tithing" },
   { to: "/about", label: "About" },
   { to: "/connect", label: "Connect" },
 ];

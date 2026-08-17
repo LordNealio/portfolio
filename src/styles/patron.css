@@ -743,6 +743,57 @@
   max-width: 60ch;
 }
 
+/* ── THE TITHING EXPERIMENT (folded into iNeed$) ───────────────────────── */
+.pe-tithe {
+  background: linear-gradient(180deg, var(--p-bg-2), var(--p-bg));
+}
+.pe-tithe-card {
+  border: 1px solid var(--p-line-2);
+  border-radius: var(--p-radius-lg);
+  background: radial-gradient(120% 100% at 50% 0%, rgba(201, 162, 75, 0.1), transparent 60%), var(--p-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: clamp(1.8rem, 5vw, 3.4rem);
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.pe-tithe-card .pe-eyebrow {
+  justify-content: center;
+}
+.pe-tithe-stat {
+  margin: 1.6rem 0;
+}
+.pe-tithe-num {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 1;
+  color: var(--p-gold-soft);
+  font-variant-numeric: tabular-nums;
+}
+.pe-tithe-lbl {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--p-text-3);
+}
+.pe-tithe-body {
+  max-width: 52ch;
+  margin: 0 auto 1.8rem;
+  color: var(--p-text-2);
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  display: grid;
+  gap: 0.6rem;
+}
+.pe-tithe-card .pe-disclaimer {
+  margin: 1.4rem auto 0;
+  text-align: center;
+}
+
 /* ── PROJECTS ──────────────────────────────────────────────────────────── */
 .pe-projects {
   background: linear-gradient(180deg, var(--p-bg), var(--p-bg-2));
