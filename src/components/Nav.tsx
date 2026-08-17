@@ -4,7 +4,6 @@ import { useMode } from "../lib/mode";
 
 const links = [
   { to: "/store", label: "Store" },
-  { to: "/constellation", label: "Constellation" },
   { to: "/ineed", label: "iNeed$" },
   { to: "/about", label: "About" },
 ];
@@ -51,6 +50,9 @@ export function Nav() {
         </nav>
 
         <div className="nav-tools">
+          <Link className="nav-archive" to="/work">
+            Archive <span className="arr">→</span>
+          </Link>
           <button
             className="mode-toggle"
             onClick={toggleMode}

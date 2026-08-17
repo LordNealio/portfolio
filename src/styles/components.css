@@ -91,6 +91,37 @@
   align-items: center;
   gap: 0.5rem;
 }
+/* Compact Archive button for the always-visible top bar (mobile only;
+   desktop uses the full "Explore the Archive" CTA in the links row). */
+.nav-archive {
+  display: none;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.5em 0.85em;
+  border-radius: 100px;
+  background: var(--gold);
+  color: #0a0a0a;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: background 0.3s;
+}
+.nav-archive:hover {
+  background: var(--gold-soft);
+}
+.nav-archive .arr {
+  transition: transform 0.4s var(--ease);
+}
+.nav-archive:hover .arr {
+  transform: translateX(3px);
+}
+/* On small phones, show the NIL mark only so the Archive button fits the bar. */
+@media (max-width: 560px) {
+  .brand-name {
+    display: none;
+  }
+}
 .mode-toggle {
   display: flex;
   align-items: stretch;
@@ -3124,6 +3155,9 @@ textarea.field {
 @media (max-width: 720px) {
   .nav-cta {
     display: none;
+  }
+  .nav-archive {
+    display: inline-flex;
   }
   .burger {
     display: block;
