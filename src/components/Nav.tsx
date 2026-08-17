@@ -7,7 +7,6 @@ const links = [
   { to: "/constellation", label: "Constellation" },
   { to: "/ineed", label: "iNeed$" },
   { to: "/about", label: "About" },
-  { to: "/connect", label: "Connect" },
 ];
 
 export function Nav() {
@@ -46,7 +45,6 @@ export function Nav() {
               {l.label}
             </NavLink>
           ))}
-          <a href="/monograph.html">The Book</a>
           <Link className="nav-cta" to="/work">
             Explore the Archive <span className="arr">→</span>
           </Link>
