@@ -1241,13 +1241,15 @@ const WORK_ORDER = [
 export const EXHIBITED = new Set(WORK_ORDER);
 export const isExhibited = (slug: string) => EXHIBITED.has(slug);
 
-// Works in the "In Progress" section (not exhibited) are gated behind an access
-// code — except the Reading List, which stays open. NOTE: this is a soft,
-// client-side gate (deters casual visitors); it is not real security.
-const LOCK_EXEMPT = new Set(["reading-list"]);
-// Chapters are surfaced through their (exhibited) parent, so they are viewable too.
-export const isLocked = (slug: string) =>
-  !EXHIBITED.has(slug) && !LOCK_EXEMPT.has(slug) && !CHAPTER_SLUGS.has(slug);
+// Access gate — the soft, client-side code now applies ONLY to an explicit
+// short list of works kept private. Everything else in the archive is public,
+// so the full scale of the body of work is visible. (This is a deterrent, not
+// real security.) To make a work private, add its slug here; to make one
+// public, remove it. Nothing is deleted either way.
+const PRIVATE_SLUGS = new Set<string>([
+  "pimps-paradise", // Project H.O.E — a sensitive, adults-only concept (kept behind the code by default)
+]);
+export const isLocked = (slug: string) => PRIVATE_SLUGS.has(slug);
 
 function workRank(slug: string): number {
   const i = WORK_ORDER.indexOf(slug);
