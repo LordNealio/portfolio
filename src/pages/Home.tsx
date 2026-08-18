@@ -115,6 +115,23 @@ export function Home() {
           <ArchiveList />
         </div>
       </section>
+
+      {/* ── iNeed$ BANNER ── */}
+      <section className="ineed-banner reveal" aria-label="iNeed$ — modern patronage">
+        <img className="ineed-banner-bg" src="/art/ineed-grill.jpg" alt="" aria-hidden="true" />
+        <div className="ineed-banner-scrim" aria-hidden="true" />
+        <div className="wrap ineed-banner-inner">
+          <p className="eyebrow ineed-banner-eyebrow">Support the work</p>
+          <h2 className="ineed-banner-title">iNeed$</h2>
+          <p className="ineed-banner-sub">
+            Modern patronage for independent ideas — great work often exists because someone believed in
+            it first.
+          </p>
+          <Link to="/ineed" className="btn btn-primary btn-lg">
+            Enter iNeed$ <span className="arr">→</span>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

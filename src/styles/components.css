@@ -3431,3 +3431,63 @@ textarea.field {
     transform: translateY(-50%) scale(1.06);
   }
 }
+
+/* ── iNeed$ home banner (grill image, near the bottom of the home page) ──── */
+.ineed-banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: clamp(60px, 11vw, 140px);
+  background: #06070b;
+  text-align: center;
+}
+.ineed-banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  z-index: 0;
+}
+.ineed-banner-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(4, 5, 8, 0.72), rgba(4, 5, 8, 0.55) 45%, rgba(4, 5, 8, 0.9)),
+    radial-gradient(120% 90% at 50% 0%, rgba(0, 0, 0, 0.15), rgba(4, 5, 8, 0.7));
+}
+.ineed-banner-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.ineed-banner-eyebrow {
+  color: #e6cd8f;
+}
+.ineed-banner-eyebrow::before {
+  background: #c9a24b;
+}
+.ineed-banner-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  font-size: clamp(3rem, 12vw, 6rem);
+  background: linear-gradient(180deg, #ffffff, #c9a24b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ineed-banner-sub {
+  color: rgba(245, 243, 238, 0.82);
+  max-width: 48ch;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.55;
+}
+.ineed-banner .btn-lg {
+  margin-top: 0.6rem;
+}

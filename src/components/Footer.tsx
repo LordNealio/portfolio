@@ -32,9 +32,10 @@ export function Footer() {
             © {new Date().getFullYear()} NIL · Just Neal
           </span>
           <nav className="footer-nav" aria-label="Footer">
-            <Link to="/work">Work</Link>
+            <Link to="/work">Explore the Archive</Link>
             <Link to="/store">Store</Link>
             <Link to="/constellation">Constellation</Link>
+            <Link to="/ineed">iNeed$</Link>
             <a href="/monograph.html">The Book</a>
             <Link to="/about">About</Link>
             <Link to="/connect">Connect</Link>
