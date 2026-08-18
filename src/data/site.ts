@@ -104,6 +104,40 @@ export const backstory = [
   },
 ];
 
+// The About essay — Just Neal, in his own words (verbatim).
+export const about = {
+  eyebrow: "About",
+  name: "Just Neal",
+  opening: "Accountant by training. Systems thinker by practice. Builder by instinct.",
+  intro: [
+    "My path doesn't fit neatly into one discipline.",
+    "I earned bachelor's and master's degrees in Accounting, learning to follow evidence, reconcile what doesn't match, and understand how thousands of individual pieces become one larger picture.",
+    "That foundation eventually took me much further than finance.",
+    "I studied in China, lived in South Korea for several years, and taught at a Buddhist school. Moving between countries, languages, institutions, and ways of thinking changed how I understood systems—and how much perspective determines what we notice.",
+    "I'm also Kaizen-certified, trained in the discipline of continuous improvement: study the system, identify friction, question assumptions, and make it better.",
+    "Over time, I started applying that same approach to almost everything.",
+  ],
+  mediums: ["Technology", "Research", "Education", "Music", "Design", "Storytelling", "Culture", "Community"],
+  output:
+    "Today, that thinking has produced books, original music, software prototypes, merchandise, film, research frameworks, nonprofit initiatives, websites, experiments, and an expanding library of investigations.",
+  refrain: ["The mediums change.", "The process doesn't."],
+  manifesto: ["See the whole.", "Question the parts.", "Find the connections.", "Build what's missing."],
+  methodLead: "I don't believe every interesting observation needs an immediate conclusion.",
+  methodSteps: [
+    "Sometimes the better move is to document it.",
+    "Test it.",
+    "Build around it.",
+    "Ask a better question.",
+    "And see where it leads.",
+  ],
+  thesis: [
+    "That's what this site is.",
+    "Not simply a portfolio.",
+    "An archive of what happens when curiosity is given somewhere to go.",
+  ],
+  signature: "— Just Neal",
+};
+
 // The connecting philosophy — shown on the About and Vision sections.
 export const philosophy = {
   heading: "One house, many rooms",

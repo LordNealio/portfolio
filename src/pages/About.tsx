@@ -1,58 +1,80 @@
 import { Link } from "react-router-dom";
-import { org, backstory, capabilities } from "../data/site";
+import { about, org } from "../data/site";
 import { useReveal } from "../lib/useReveal";
 
 export function About() {
   useReveal([]);
   return (
-    <section className="section page-top">
-      <div className="wrap">
+    <section className="section page-top about-page">
+      <div className="wrap about-inner">
         <header className="about-hero">
-          <p className="eyebrow reveal">About</p>
-          <h1 className="h1 reveal">
-            A lasting creative institution —
-            <br />
-            <span className="serif-i gold">not a single brand.</span>
-          </h1>
-          <p className="lead about-lead reveal">
-            Just Neal is a Creative Director, Systems Designer, and Founder working across AI, luxury
-            apparel, publishing, software, and education.
-          </p>
+          <p className="eyebrow reveal">{about.eyebrow}</p>
+          <h1 className="display about-name reveal">{about.name}</h1>
+          <p className="about-opening reveal">{about.opening}</p>
         </header>
 
-        {/* Narrative */}
-        <div className="about-narrative">
-          <p className="reveal">
-            Through his creative house, <strong>NIL</strong> (Name. Image. Likeness.), he develops
-            interconnected brands, products, and experiences that explore identity through design,
-            technology, and storytelling.
+        <figure className="about-portrait reveal">
+          <img src="/art/yung-blesser.jpg" alt="Just Neal as a child, captioned Yung Blesser." loading="lazy" />
+          <figcaption>Yung Blesser — where it started.</figcaption>
+        </figure>
+
+        <div className="about-body">
+          {about.intro.map((p, i) => (
+            <p className="reveal" key={i}>
+              {p}
+            </p>
+          ))}
+
+          <p className="about-mediums reveal">
+            {about.mediums.map((m, i) => (
+              <span key={m}>
+                {m}
+                {i < about.mediums.length - 1 && <i aria-hidden="true"> · </i>}
+              </span>
+            ))}
           </p>
-          <p className="reveal">
-            His multidisciplinary approach combines <strong>finance</strong>, <strong>global culture</strong>,{" "}
-            <strong>software development</strong>, and <strong>visual communication</strong> into a body
-            of work that favors <strong>timeless systems over fleeting trends</strong> — with the
-            ambition of building a lasting creative institution rather than a single successful brand.
-          </p>
-          <p className="reveal">
-            That range isn't scattered; it's the point. A background in finance and operations taught
-            him how organizations actually run. Years of teaching taught him to make hard things clear.
-            NIL is where those disciplines meet: one house, many rooms.
-          </p>
+
+          <p className="reveal">{about.output}</p>
+
+          <div className="about-refrain reveal">
+            {about.refrain.map((l, i) => (
+              <p key={i} className={i === about.refrain.length - 1 ? "is-turn" : ""}>
+                {l}
+              </p>
+            ))}
+          </div>
+
+          <ol className="about-manifesto reveal">
+            {about.manifesto.map((l) => (
+              <li key={l}>{l}</li>
+            ))}
+          </ol>
+
+          <p className="about-method-lead reveal">{about.methodLead}</p>
+          <div className="about-method reveal">
+            {about.methodSteps.map((l) => (
+              <p key={l}>{l}</p>
+            ))}
+          </div>
+
+          <div className="about-thesis reveal">
+            {about.thesis.map((l, i) => (
+              <p key={i} className={i === about.thesis.length - 1 ? "is-final" : ""}>
+                {l}
+              </p>
+            ))}
+          </div>
+
+          <p className="about-sign reveal">{about.signature}</p>
         </div>
 
-        {/* Backstory */}
-        <div className="backstory">
-          <p className="eyebrow reveal">The backstory</p>
-          <figure className="backstory-photo reveal">
-            <img src="/art/yung-blesser.jpg" alt="Just Neal as a child, captioned Yung Blesser." loading="lazy" />
-            <figcaption>Yung Blesser — where it started.</figcaption>
-          </figure>
-          {backstory.map((b) => (
-            <div className="backstory-item reveal" key={b.q}>
-              <h2 className="backstory-q">{b.q}</h2>
-              <p className="backstory-a">{b.a}</p>
-            </div>
-          ))}
+        <div className="about-cta-row reveal">
+          <Link to="/work" className="btn btn-primary">
+            Explore the archive <span className="arr">→</span>
+          </Link>
+          <Link to="/connect" className="btn btn-ghost">
+            Work with me
+          </Link>
         </div>
 
         {/* Organization callout */}
@@ -67,21 +89,6 @@ export function About() {
             Visit <span className="arr">↗</span>
           </span>
         </a>
-
-        {/* Capabilities */}
-        <div className="about-capabilities">
-          <p className="eyebrow reveal">What I do</p>
-          <div className="about-caps reveal">
-            {capabilities.map((c) => (
-              <span className="about-cap" key={c.title}>
-                {c.title}
-              </span>
-            ))}
-          </div>
-          <Link to="/connect" className="btn btn-ghost about-cta reveal">
-            Work with me <span className="arr">→</span>
-          </Link>
-        </div>
       </div>
     </section>
   );

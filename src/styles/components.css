@@ -3679,3 +3679,132 @@ textarea.field {
     padding-block: 0.7rem;
   }
 }
+
+/* ── About — the Just Neal essay ────────────────────────────────────────── */
+.about-page .about-name {
+  margin: 0.4rem 0 1rem;
+}
+.about-opening {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4.4vw, 2.9rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.about-portrait {
+  max-width: 200px;
+  margin: clamp(1.8rem, 4vw, 2.8rem) 0 0;
+}
+.about-portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 4px rgba(24, 30, 40, 0.08), 0 14px 30px rgba(24, 30, 40, 0.12);
+}
+.about-portrait figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
+.about-body {
+  margin-top: clamp(2rem, 5vw, 3.4rem);
+  max-width: 42rem;
+}
+.about-body > p {
+  font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 1.1rem;
+}
+.about-mediums {
+  font-family: var(--serif) !important;
+  font-size: clamp(1.3rem, 3.2vw, 2rem) !important;
+  line-height: 1.35 !important;
+  color: var(--paper) !important;
+  margin: clamp(1.6rem, 3.5vw, 2.6rem) 0 !important;
+  max-width: 26ch;
+}
+.about-mediums i {
+  color: var(--gold);
+  font-style: normal;
+}
+.about-refrain {
+  margin: clamp(1.8rem, 4vw, 2.8rem) 0;
+}
+.about-refrain p {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3.6vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--text-2);
+}
+.about-refrain .is-turn {
+  color: var(--gold);
+}
+.about-manifesto {
+  list-style: none;
+  padding: 0;
+  margin: clamp(2.2rem, 5vw, 3.4rem) 0;
+  border-top: 1px solid var(--line);
+  max-width: 42rem;
+}
+.about-manifesto li {
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.3rem, 3.6vw, 2.1rem);
+  line-height: 1.05;
+  color: var(--paper);
+  padding: clamp(0.85rem, 2vw, 1.2rem) 0 clamp(0.85rem, 2vw, 1.2rem) 1.1rem;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid var(--gold);
+}
+.about-method-lead {
+  margin-top: 0.4rem;
+}
+.about-method {
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.25rem;
+}
+.about-method p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.3;
+  color: var(--paper);
+}
+.about-thesis {
+  margin-top: clamp(2.4rem, 5vw, 3.6rem);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.about-thesis p {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3.6vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--paper);
+  text-wrap: balance;
+}
+.about-thesis .is-final {
+  color: var(--gold);
+  margin-top: 0.5rem;
+}
+.about-sign {
+  margin-top: 1.6rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-2);
+}
+.about-cta-row {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin: clamp(2.4rem, 5vw, 3.6rem) 0;
+}
