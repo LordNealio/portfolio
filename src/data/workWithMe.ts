@@ -4,9 +4,19 @@
 // Booking CTAs use `bookingUrl` if set, else fall back to an email with a subject.
 // ─────────────────────────────────────────────────────────────────────────────
 export const WORK_WITH_ME = {
+  // Consulting contact — deliberately separate from the site's general email.
+  contactEmail: "YoungBlesser88@gmail.com",
+  contactDomain: "YoungBlesser.com",
+
   eyebrow: "Strategy · Systems · Research · AI · Creative Direction",
   title: "Bring me the problem.",
   intro: "I work best when the problem isn't completely defined yet.",
+  supporting:
+    "Some problems arrive clearly defined. Most don't. Before we talk about solutions, let's understand what we're actually looking at.",
+  heroCtas: {
+    primary: "Start with BizWiz",
+    secondary: "Book a working session",
+  },
   problems: [
     "A business that works—but shouldn't be this difficult to run.",
     "An idea you know has potential—but can't quite structure.",
@@ -17,15 +27,45 @@ export const WORK_WITH_ME = {
   ],
   bringThat: "Bring me that.",
 
+  // ── Philosophy — free-first ─────────────────────────────────────────────
   dontHire: {
-    title: "You probably don't need to hire me.",
+    eyebrow: "Philosophy",
+    title: "You don't have to pay me to learn from me.",
     body: [
       "If you need general information, use ChatGPT.",
       "If you want ideas, frameworks, examples, or inspiration, explore my Archive. I've already made a lot of my thinking available.",
+      "If you want to see your own situation more clearly, run BizWiz. It's free, and you keep the map.",
       "Don't pay me to tell you something you can find yourself.",
-      "Hire me when you want my attention applied specifically to your problem.",
+      "The paid relationship begins only when you want my attention applied specifically to your problem.",
       "That's different.",
     ],
+  },
+
+  // ── BizWiz — the free entry point ───────────────────────────────────────
+  bizwiz: {
+    eyebrow: "Free · No consultation required",
+    title: "Start with BizWiz.",
+    body: [
+      "BizWiz is a guided diagnostic. It walks you through the same questions I'd ask before working with you, then turns the map around and asks a few sharper ones.",
+      "You leave with your own Business Map — a clear picture of the problem — whether or not we ever talk.",
+      "Map it. See it. Question it. Improve it.",
+    ],
+    note: "Your answers stay on your device. If you want a second set of eyes afterward, you can send the map along.",
+    cta: "Start BizWiz",
+  },
+
+  // ── $100 — the minimum paid service ─────────────────────────────────────
+  review100: {
+    eyebrow: "$100 · Asynchronous review",
+    title: "What am I missing?",
+    lead: "You've done the thinking. You have the map. Sometimes you just need someone to look at it and tell you what you can't see from the inside.",
+    steps: [
+      { n: "01", h: "What I see", body: "How your situation reads to an outside systems-oriented mind." },
+      { n: "02", h: "What you may be missing", body: "The assumptions, blind spots, and unasked questions worth pressure-testing." },
+      { n: "03", h: "What I'd do next", body: "The move I'd make first, and why." },
+    ],
+    note: "This is the minimum paid service — a focused outside read, not a cheap consultation. Send your BizWiz map to make it sharper.",
+    cta: "Send my map for review — $100",
   },
 
   howIThink: {
@@ -50,6 +90,13 @@ export const WORK_WITH_ME = {
       { h: "Connect the dots.", body: ["The answer may already exist somewhere else—in another department, discipline, technology, industry, or way of thinking."] },
       { h: "Build the next move.", body: ["A strategy.", "A system.", "A prototype.", "A research plan.", "A workflow.", "An experiment.", "Or simply a much better question."] },
     ],
+  },
+
+  methodology: {
+    eyebrow: "Methodology",
+    maxim: "Before improving a system, understand the system.",
+    chain: ["Observe", "Map", "Question", "Diagnose", "Prioritize", "Improve", "Measure"],
+    note: "The same sequence runs underneath everything below — from a free map to a build.",
   },
 
   session: {
@@ -106,6 +153,51 @@ export const WORK_WITH_ME = {
     big: "Bring me the problem.",
     cta: "Book 60 minutes — $350",
     connectNote: "For partnerships, research, media, academic inquiries, and other collaborations, use Connect instead.",
+  },
+
+  // ── The whole ladder, at a glance ───────────────────────────────────────
+  ladder: {
+    eyebrow: "Ways to work together",
+    title: "Start where it makes sense.",
+    lead: "No obligation to climb. Most people get what they need in the first two rungs.",
+    rungs: [
+      { price: "$0", name: "Explore", body: "Read the Archive. Ideas, frameworks, and finished work — free.", to: "/work" },
+      { price: "$0", name: "Map", body: "Run BizWiz. Leave with your own Business Map.", to: "/bizwiz" },
+      { price: "$100", name: "Perspective", body: "Send the map. Get an outside read on what you're missing.", subject: "What am I missing? — $100 async review" },
+      { price: "$350", name: "Attention", body: "60 minutes on one problem. A working session, not a call.", subject: "Book a 60-minute session — $350" },
+      { price: "$1,500+", name: "Focus", body: "A half-day intensive for problems that need deeper work.", subject: "Intensive — half-day working session" },
+      { price: "$5,000+", name: "Build", body: "Strategy through prototype. Advisory available monthly.", subject: "Discuss a build / advisory engagement" },
+    ],
+  },
+
+  // ── BizWiz Toolkit — free resources ─────────────────────────────────────
+  toolkit: {
+    eyebrow: "BizWiz Toolkit · Free tools",
+    title: "Use the tools. Even if you never hire me.",
+    lead: "Working maps I use to think through a business. Yours to view, save, and print.",
+    tools: [
+      {
+        code: "001",
+        name: "The Problem Map",
+        status: "live" as const,
+        desc: "A single page for mapping a problem from every direction — what it is, what surrounds it, and where the friction really sits.",
+        img: "/art/tools/problem-map.jpg",
+        alt: "The Problem Map — a printable one-page diagnostic worksheet",
+      },
+      { code: "002", name: "The Process Map", status: "soon" as const, desc: "Trace a workflow step by step and find where time leaks out." },
+      { code: "003", name: "The Money Map", status: "soon" as const, desc: "Follow the money through the system — in, out, and stuck." },
+      { code: "004", name: "The AI Map", status: "soon" as const, desc: "Where AI actually belongs in your operation — and where it doesn't." },
+      { code: "005", name: "The Priority Map", status: "soon" as const, desc: "Sort everything you could do by leverage, not by noise." },
+    ],
+  },
+
+  contact: {
+    eyebrow: "Contact",
+    lines: [
+      "The best first step is BizWiz or the Archive — you'll get value before we ever speak.",
+      "When you're ready for my attention on your specific problem, reach out directly.",
+    ],
+    note: "For partnerships, research, media, and academic inquiries, use Connect instead.",
   },
 
   // Set a real booking link (Calendly, Stripe, etc.). Empty → email fallback.
