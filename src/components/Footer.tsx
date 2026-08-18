@@ -38,6 +38,7 @@ export function Footer() {
             <Link to="/ineed">iNeed$</Link>
             <a href="/monograph.html">The Book</a>
             <Link to="/about">About</Link>
+            <Link to="/work-with-me">Work with me</Link>
             <Link to="/connect">Connect</Link>
           </nav>
           <span className="muted footer-built serif-i">{nil.statement}</span>

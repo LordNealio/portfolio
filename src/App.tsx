@@ -14,6 +14,7 @@ import { Constellation } from "./pages/Constellation";
 import { PatronExperiment } from "./pages/PatronExperiment";
 import { TithingExperiment } from "./pages/TithingExperiment";
 import { ExhibitPage } from "./pages/ExhibitPage";
+import { WorkWithMe } from "./pages/WorkWithMe";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -59,6 +60,7 @@ export function App() {
           <Route path="/comments-admin" element={<CommentsAdmin />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/about" element={<About />} />
+          <Route path="/work-with-me" element={<WorkWithMe />} />
           <Route path="/now" element={<Now />} />
           <Route path="/connect" element={<Contact />} />
           <Route path="/contact" element={<Contact />} />

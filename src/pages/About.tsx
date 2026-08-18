@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { about, org } from "../data/site";
+import { about, org, capabilities } from "../data/site";
 import { useReveal } from "../lib/useReveal";
 
 export function About() {
@@ -68,11 +68,23 @@ export function About() {
           <p className="about-sign reveal">{about.signature}</p>
         </div>
 
+        {/* What I do */}
+        <div className="about-capabilities">
+          <p className="eyebrow reveal">What I do</p>
+          <div className="about-caps reveal">
+            {capabilities.map((c) => (
+              <span className="about-cap" key={c.title}>
+                {c.title}
+              </span>
+            ))}
+          </div>
+        </div>
+
         <div className="about-cta-row reveal">
           <Link to="/work" className="btn btn-primary">
             Explore the archive <span className="arr">→</span>
           </Link>
-          <Link to="/connect" className="btn btn-ghost">
+          <Link to="/work-with-me" className="btn btn-ghost">
             Work with me
           </Link>
         </div>
