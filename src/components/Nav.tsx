@@ -3,7 +3,9 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useMode } from "../lib/mode";
 
 const links = [
-  { to: "/store", label: "Store" },
+  { to: "/work", label: "Work" },
+  { to: "/work?lens=research", label: "Research" },
+  { to: "/work-with-me", label: "Consulting" },
   { to: "/about", label: "About" },
 ];
 
@@ -43,8 +45,8 @@ export function Nav() {
               {l.label}
             </NavLink>
           ))}
-          <Link className="nav-cta" to="/work">
-            Explore the Archive <span className="arr">→</span>
+          <Link className="nav-cta" to="/connect">
+            Connect <span className="arr">→</span>
           </Link>
         </nav>
 

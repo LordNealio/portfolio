@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   HOME — the conversion landing / router into the NIL ecosystem.
+   Scoped `.hl-*`. Mobile-first; reuses the site's tokens, .btn, .eyebrow,
+   .wrap, .reveal, and ProjectCard. No new dependencies.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.hl { --hl-max: 68rem; }
+
+/* ── Hero ─────────────────────────────────────────────────────────────── */
+.hl-hero {
+  padding: clamp(6.5rem, 16vw, 10.5rem) 0 clamp(3rem, 8vw, 5rem);
+  border-bottom: 1px solid var(--line);
+}
+.hl-hero-inner { max-width: var(--hl-max); }
+.hl-hero-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(2.6rem, 8.5vw, 5.4rem);
+  color: var(--paper);
+  margin: 0.6rem 0 0;
+  text-wrap: balance;
+  max-width: 18ch;
+}
+.hl-hero-h .serif-i { font-style: italic; color: var(--gold); }
+.hl-hero-sub {
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 1.9vw, 1.35rem);
+  line-height: 1.55;
+  color: var(--text-2);
+  max-width: 46ch;
+}
+.hl-cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: clamp(1.8rem, 4vw, 2.6rem); }
+
+/* ── Pillars ──────────────────────────────────────────────────────────── */
+.hl-pillar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.6rem, 3vw, 2.4rem);
+}
+.hl-pillar { border-top: 2px solid var(--gold); padding-top: 1.1rem; }
+.hl-pillar-n {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.hl-pillar-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--paper);
+  margin: 0.5rem 0 0.4rem;
+}
+.hl-pillar-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: clamp(1.05rem, 1.9vw, 1.25rem);
+  margin-bottom: 0.7rem;
+}
+.hl-pillar-body { color: var(--text-2); line-height: 1.6; font-size: 1rem; max-width: 44ch; }
+
+/* ── Router ───────────────────────────────────────────────────────────── */
+.hl-router { scroll-margin-top: 5.5rem; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.hl-router-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: clamp(1.6rem, 4vw, 2.4rem);
+}
+.hl-route {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1.4rem, 3.5vw, 2rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--panel);
+  transition: border-color 0.25s, transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.hl-route:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.hl-route-label {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  color: var(--paper);
+  line-height: 1.1;
+}
+.hl-route-body { color: var(--text-2); line-height: 1.55; font-size: 1rem; }
+.hl-route-cta {
+  margin-top: 0.4rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  color: var(--gold);
+}
+
+/* ── Offer ($100) ─────────────────────────────────────────────────────── */
+.hl-offer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  align-items: start;
+}
+.hl-offer-h {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0.3rem 0 1.2rem;
+}
+.hl-offer-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); max-width: 40rem; }
+.hl-offer-list li {
+  padding: 0.7rem 0 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid var(--gold);
+  color: var(--text);
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.4;
+}
+.hl-offer-card {
+  display: grid;
+  justify-items: start;
+  gap: 0.5rem;
+  padding: clamp(1.6rem, 4vw, 2.2rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: var(--panel);
+}
+.hl-offer-price { font-family: var(--serif); font-size: clamp(2.6rem, 7vw, 3.6rem); color: var(--gold); line-height: 1; }
+.hl-offer-name {
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  color: var(--paper);
+}
+.hl-offer-desc { color: var(--text-2); line-height: 1.6; font-size: 1rem; margin: 0.6rem 0 0.4rem; }
+.hl-offer-card .btn { margin-top: 0.6rem; }
+.hl-offer-more { margin-top: 0.4rem; color: var(--text-3); font-weight: 600; font-size: 0.9rem; }
+.hl-offer-more:hover { color: var(--gold); }
+
+/* ── Split sections (BizWiz / Worksheet) ──────────────────────────────── */
+.hl-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+.hl-split-h {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-top: 0.3rem;
+}
+.hl-split-body > p { color: var(--text-2); line-height: 1.65; font-size: clamp(1.05rem, 1.7vw, 1.2rem); max-width: 46ch; margin-bottom: 1.4rem; }
+
+/* ── Credibility ──────────────────────────────────────────────────────── */
+.hl-about-body {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  line-height: 1.4;
+  color: var(--text);
+  max-width: 40ch;
+  margin-bottom: 1.8rem;
+  text-wrap: balance;
+}
+
+/* ── Final CTA ────────────────────────────────────────────────────────── */
+.hl-final { text-align: center; }
+.hl-final-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  color: var(--paper);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.hl-final-h .serif-i { font-style: italic; color: var(--gold); }
+.hl-final-sub { margin: 1.2rem auto 0; color: var(--text-2); font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 40ch; }
+.hl-final .hl-cta-row { justify-content: center; }
+
+/* ── Desktop ──────────────────────────────────────────────────────────── */
+@media (min-width: 720px) {
+  .hl-pillar-grid { grid-template-columns: repeat(3, 1fr); }
+  .hl-router-grid { grid-template-columns: 1fr 1fr; }
+  .hl-offer-inner { grid-template-columns: 1.1fr 0.9fr; }
+  .hl-split { grid-template-columns: 0.8fr 1.2fr; }
+}

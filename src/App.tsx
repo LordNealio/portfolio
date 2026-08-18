@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
+import { House } from "./pages/House";
 import { Work } from "./pages/Work";
 import { ProjectDetail } from "./pages/ProjectDetail";
 import { Vision } from "./pages/Vision";
@@ -43,6 +44,7 @@ export function App() {
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/house" element={<House />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<ProjectDetail />} />
           <Route path="/store" element={<Store />} />

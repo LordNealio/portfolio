@@ -14,6 +14,7 @@ import "./styles/spend.css";
 import "./styles/tithing.css";
 import "./styles/exhibit.css";
 import "./styles/bizwiz.css";
+import "./styles/home.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

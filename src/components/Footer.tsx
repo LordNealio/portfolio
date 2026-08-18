@@ -33,6 +33,7 @@ export function Footer() {
           </span>
           <nav className="footer-nav" aria-label="Footer">
             <Link to="/work">Explore the Archive</Link>
+            <Link to="/house">The House</Link>
             <Link to="/store">Store</Link>
             <Link to="/constellation">Constellation</Link>
             <Link to="/ineed">iNeed$</Link>
