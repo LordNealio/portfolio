@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { site, nil, philosophy } from "../data/site";
 import { projects } from "../data/projects";
 import { ArchiveList } from "../components/ArchiveList";
+import { ArchiveIndex } from "../components/ArchiveIndex";
 import { useReveal } from "../lib/useReveal";
 
 const paths = [
@@ -49,6 +50,9 @@ export function Home() {
           <span className="hero-scroll-line" />
         </div>
       </section>
+
+      {/* ── THE ARCHIVE INDEX (scale) ── */}
+      <ArchiveIndex />
 
       {/* ── START HERE ── */}
       <section className="section start-here">

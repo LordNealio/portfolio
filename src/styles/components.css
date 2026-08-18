@@ -3491,3 +3491,72 @@ textarea.field {
 .ineed-banner .btn-lg {
   margin-top: 0.6rem;
 }
+
+/* ── The Archive Index (scale) — annual-report / catalogue device ───────── */
+.archive-index .ai-head {
+  max-width: 30ch;
+  margin-bottom: clamp(2rem, 5vw, 3.4rem);
+}
+.ai-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+}
+.ai-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr minmax(0, 34ch);
+  gap: 1.4rem 1.8rem;
+  align-items: baseline;
+  padding: clamp(1.1rem, 2.4vw, 1.7rem) 0;
+  border-top: 1px solid var(--line);
+}
+.ai-n {
+  font-family: var(--sans);
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  color: var(--ink, var(--paper));
+  font-variant-numeric: tabular-nums;
+}
+.ai-label {
+  align-self: center;
+  font-family: var(--sans);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+.ai-note {
+  align-self: center;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-3);
+  text-align: right;
+}
+.ai-row--more .ai-n {
+  color: var(--gold);
+}
+.ai-cta {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+@media (max-width: 640px) {
+  .ai-row {
+    grid-template-columns: 3.2rem 1fr;
+    gap: 0.4rem 1rem;
+    padding: 1.1rem 0;
+  }
+  .ai-n {
+    grid-row: span 2;
+    font-size: 2rem;
+  }
+  .ai-label {
+    align-self: end;
+  }
+  .ai-note {
+    grid-column: 2;
+    text-align: left;
+    align-self: start;
+  }
+}
