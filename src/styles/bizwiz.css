@@ -1,0 +1,342 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   BIZWIZ — a guided diagnostic wizard. Uses the site's editorial palette; one
+   question at a time, generous whitespace, large tap targets, mobile-first.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.bizwiz {
+  --bw-line: var(--line);
+}
+.bw-wrap {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+.bw-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1.4rem, 4vw, 2.4rem);
+}
+.bw-back-link {
+  font-size: 0.85rem;
+  color: var(--text-2);
+  transition: color 0.25s;
+}
+.bw-back-link:hover {
+  color: var(--gold);
+}
+.bw-kicker {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.bw-progress {
+  height: 3px;
+  background: var(--line);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: clamp(2rem, 6vw, 3.4rem);
+}
+.bw-progress-bar {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 100px;
+  transition: width 0.45s var(--ease);
+}
+
+.bw-step-n {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.bw-step-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  color: var(--paper);
+  text-wrap: balance;
+}
+.bw-step-prompt {
+  margin-top: 1rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--text-2);
+  max-width: 40ch;
+}
+
+.bw-fields {
+  margin-top: clamp(1.8rem, 5vw, 2.8rem);
+  display: grid;
+  gap: 1.6rem;
+}
+.bw-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.7rem;
+}
+.bw-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.bw-choice {
+  min-height: 50px;
+  padding: 0.7em 1.2em;
+  border: 1px solid var(--line-strong);
+  border-radius: 100px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s var(--ease);
+}
+.bw-choice.sm {
+  min-height: 42px;
+  font-size: 0.9rem;
+  padding: 0.5em 1em;
+}
+.bw-choice:hover {
+  border-color: var(--gold);
+}
+.bw-choice.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #0a0a0a;
+  font-weight: 600;
+}
+.bw-input {
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+.bw-input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-dim);
+}
+.bw-hint {
+  color: var(--text-3);
+  font-size: 0.9rem;
+}
+
+.bw-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: clamp(2rem, 5vw, 3rem);
+}
+.bw-btn {
+  min-height: 50px;
+  padding: 0.8em 1.6em;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.3s var(--ease);
+}
+.bw-btn:active {
+  transform: scale(0.98);
+}
+.bw-btn.primary {
+  background: var(--gold);
+  color: #0a0a0a;
+}
+.bw-btn.primary:hover {
+  background: var(--gold-soft);
+}
+.bw-btn.primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.bw-btn.ghost {
+  border-color: var(--line-strong);
+  color: var(--text);
+  background: transparent;
+}
+.bw-btn.ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.bw-btn.ghost:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.bw-skip-note {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+
+/* ── Results — Your Business Map ─────────────────────────────────────────── */
+.bw-results-head {
+  margin-bottom: clamp(1.8rem, 5vw, 2.8rem);
+}
+.bw-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.bw-map-cell {
+  background: var(--panel);
+  padding: clamp(1.1rem, 2.6vw, 1.6rem);
+}
+.bw-map-h {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+.bw-map-note {
+  font-size: 0.76rem;
+  color: var(--text-3);
+  margin-bottom: 0.6rem;
+  font-style: italic;
+}
+.bw-map-lines {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.bw-map-lines li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text);
+  line-height: 1.45;
+  font-size: 0.98rem;
+}
+.bw-map-lines li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.bw-map-foot {
+  margin-top: 1rem;
+  text-align: right;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.bw-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+.bw-routes {
+  margin-top: clamp(2.6rem, 6vw, 4rem);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(2rem, 5vw, 3rem);
+}
+.bw-routes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+.bw-route {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--panel);
+  transition: border-color 0.25s, transform 0.3s var(--ease);
+}
+.bw-route:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.bw-route-price {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.bw-route-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--paper);
+}
+.bw-route-desc {
+  color: var(--text-2);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.bw-route-go {
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+.bw-route-more {
+  display: inline-block;
+  margin-top: 1.6rem;
+  color: var(--text-2);
+  font-weight: 600;
+}
+.bw-route-more:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 620px) {
+  .bw-map,
+  .bw-routes-grid {
+    grid-template-columns: 1fr;
+  }
+  .bw-nav .bw-btn {
+    flex: 1;
+  }
+}
+
+/* ── Print — just the Business Map ───────────────────────────────────────── */
+@media print {
+  .nav,
+  .footer,
+  .no-print {
+    display: none !important;
+  }
+  .bizwiz {
+    padding: 0 !important;
+  }
+  .bw-map {
+    border-color: #999;
+  }
+  .bw-map-cell {
+    background: #fff;
+    break-inside: avoid;
+  }
+}
