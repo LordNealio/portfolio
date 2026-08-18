@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLLING EXHIBIT — a vertical case-file gallery (in the spirit of the book).
+   Cream/bone ground so the light portrait slides read as framed objects; an ink
+   closing panel below the fold. Uses the site's design tokens.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.exhibit {
+  position: relative;
+  z-index: 1;
+  background: var(--ink-2, #eae4d5);
+  min-height: 100vh;
+  padding-bottom: clamp(0px, 3vw, 40px);
+}
+
+.exhibit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 92px;
+}
+.exhibit-back {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-2);
+  transition: color 0.25s;
+}
+.exhibit-back:hover {
+  color: var(--gold);
+}
+.exhibit-kicker {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.exhibit-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.exhibit-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* Cover */
+.exhibit-cover {
+  text-align: center;
+  padding: clamp(2.4rem, 8vw, 6rem) 0 clamp(1.4rem, 4vw, 2.6rem);
+}
+.exhibit-cover .exhibit-eyebrow {
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.exhibit-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  text-wrap: balance;
+}
+.exhibit-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: clamp(1.15rem, 3vw, 1.7rem);
+  margin-top: 0.8rem;
+}
+.exhibit-intro {
+  max-width: 54ch;
+  margin: 1.8rem auto 0;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--text-2);
+  font-size: clamp(1.02rem, 1.7vw, 1.2rem);
+  line-height: 1.6;
+}
+.exhibit-scroll {
+  margin-top: 2.4rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.exhibit-scroll span {
+  display: inline-block;
+  margin-left: 0.5em;
+  animation: exhibitBounce 2s var(--ease) infinite;
+}
+@keyframes exhibitBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exhibit-scroll span { animation: none; }
+}
+
+/* Slides */
+.exhibit-slides {
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+.exhibit-slide {
+  max-width: 384px;
+  margin: 0 auto clamp(3rem, 8vw, 6rem);
+  position: relative;
+}
+.exhibit-slide-num {
+  display: block;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.04em;
+}
+.exhibit-slide-num i {
+  color: var(--text-3);
+  font-style: normal;
+  font-size: 0.8em;
+}
+.exhibit-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(24, 30, 40, 0.08);
+  box-shadow: 0 2px 6px rgba(24, 30, 40, 0.14), 0 34px 64px rgba(24, 30, 40, 0.24);
+}
+
+/* Closing */
+.exhibit-end {
+  background: var(--ink, #16202b);
+  color: #f3ecd9;
+  text-align: center;
+  margin-top: clamp(2rem, 6vw, 4rem);
+  padding-block: clamp(3.4rem, 9vw, 7rem);
+}
+.exhibit-end .exhibit-eyebrow {
+  justify-content: center;
+  color: #e6cd8f;
+  margin-bottom: 1.4rem;
+}
+.exhibit-end .exhibit-eyebrow::before {
+  background: #c9a24b;
+}
+.exhibit-end-line {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1.25;
+  max-width: 22ch;
+  margin: 0 auto;
+  color: #f3ecd9;
+  text-wrap: balance;
+}
+.exhibit-end-note {
+  max-width: 60ch;
+  margin: 1.6rem auto 0;
+  color: rgba(243, 236, 217, 0.6);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.exhibit-end-cta {
+  margin-top: 2.2rem;
+}

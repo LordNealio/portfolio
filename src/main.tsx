@@ -12,6 +12,7 @@ import "./styles/fashion.css";
 import "./styles/patron.css";
 import "./styles/spend.css";
 import "./styles/tithing.css";
+import "./styles/exhibit.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

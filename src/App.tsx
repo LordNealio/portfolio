@@ -13,6 +13,7 @@ import { Store } from "./pages/Store";
 import { Constellation } from "./pages/Constellation";
 import { PatronExperiment } from "./pages/PatronExperiment";
 import { TithingExperiment } from "./pages/TithingExperiment";
+import { ExhibitPage } from "./pages/ExhibitPage";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -47,6 +48,7 @@ export function App() {
           <Route path="/ineed" element={<PatronExperiment />} />
           <Route path="/patron" element={<Navigate to="/ineed" replace />} />
           <Route path="/tithing" element={<TithingExperiment />} />
+          <Route path="/exhibit/:id" element={<ExhibitPage />} />
           <Route path="/inspirations" element={<Navigate to="/constellation" replace />} />
           <Route path="/journal" element={<Navigate to="/constellation" replace />} />
           <Route path="/study/n-word" element={<Study />} />
