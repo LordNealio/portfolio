@@ -3654,6 +3654,9 @@ textarea.field {
   margin-top: 0.3rem;
 }
 .ed-lens-clear {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--gold);
@@ -3669,3 +3672,10 @@ textarea.field {
 
 /* Featured work — "view all" spacing */
 .featured-all { margin-top: clamp(2rem, 4vw, 3rem); }
+
+/* Mobile: comfortable tap targets for the editorial archive list */
+@media (max-width: 640px) {
+  .ed-item {
+    padding-block: 0.7rem;
+  }
+}
