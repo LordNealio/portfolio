@@ -35,6 +35,7 @@ function ScrollToTop() {
 }
 
 export function App() {
+  const { pathname } = useLocation();
   return (
     <>
       <a href="#main" className="skip-link">
@@ -73,7 +74,8 @@ export function App() {
         </Routes>
       </main>
       <Footer />
-      <PlayerBar />
+      {/* The record rides along on the homepage only. */}
+      {pathname === "/" && <PlayerBar />}
     </>
   );
 }
