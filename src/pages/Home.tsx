@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { site, nil, philosophy } from "../data/site";
-import { projects } from "../data/projects";
+import { projects, LENSES } from "../data/projects";
 import { ArchiveList } from "../components/ArchiveList";
 import { ArchiveIndex } from "../components/ArchiveIndex";
 import { useReveal } from "../lib/useReveal";
@@ -53,6 +53,29 @@ export function Home() {
 
       {/* ── THE ARCHIVE INDEX (scale) ── */}
       <ArchiveIndex />
+
+      {/* ── ENTER BY DISCIPLINE (lenses) ── */}
+      <section className="section lenses">
+        <div className="wrap">
+          <header className="section-head reveal">
+            <p className="eyebrow">Ways in</p>
+            <h2 className="h1">
+              Enter the archive <span className="serif-i">by discipline.</span>
+            </h2>
+          </header>
+          <div className="lens-grid">
+            {LENSES.map((l) => (
+              <Link key={l.key} to={`/work?lens=${l.key}`} className="lens-card reveal">
+                <span className="lens-label">{l.label}</span>
+                <span className="lens-blurb">{l.blurb}</span>
+                <span className="lens-go" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── START HERE ── */}
       <section className="section start-here">

@@ -1251,6 +1251,30 @@ const PRIVATE_SLUGS = new Set<string>([
 ]);
 export const isLocked = (slug: string) => PRIVATE_SLUGS.has(slug);
 
+// ── Lenses — ways to enter the archive by discipline (navigation, not rebrand).
+// A lens matches by discipline union and/or an explicit slug set. Lens views
+// include chapters, so the depth nested inside the Lab surfaces when filtered.
+export interface Lens {
+  key: string;
+  label: string;
+  blurb: string;
+  disciplines?: Discipline[];
+  slugs?: string[];
+}
+export const LENSES: Lens[] = [
+  { key: "create", label: "Create", blurb: "Books, music, film, and design.", disciplines: ["Publishing", "Music", "Film", "Fashion", "Branding"] },
+  { key: "build", label: "Build", blurb: "Apps, platforms, and systems.", disciplines: ["Apps", "AI", "Technology", "Games"] },
+  { key: "investigate", label: "Investigate", blurb: "RapGod, ENIGMA, and the case files.", slugs: ["rapgod", "arizona-ponderer", "gnx", "mission-control", "blueface-salmon-p-chase"] },
+  { key: "research", label: "Research", blurb: "Original legal, scientific & linguistic frameworks.", disciplines: ["Research"] },
+  { key: "serve", label: "Serve", blurb: "Nonprofit, education, and AI-literacy work.", disciplines: ["Nonprofit", "Education"] },
+];
+export const getLens = (key: string | null | undefined) => LENSES.find((l) => l.key === key);
+export function matchesLens(p: Project, lens: Lens): boolean {
+  const byDiscipline = lens.disciplines ? projectDisciplines(p).some((d) => lens.disciplines!.includes(d)) : false;
+  const bySlug = lens.slugs ? lens.slugs.includes(p.slug) : false;
+  return byDiscipline || bySlug;
+}
+
 function workRank(slug: string): number {
   const i = WORK_ORDER.indexOf(slug);
   return i === -1 ? Number.POSITIVE_INFINITY : i;

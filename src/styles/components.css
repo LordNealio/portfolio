@@ -3560,3 +3560,109 @@ textarea.field {
     align-self: start;
   }
 }
+
+/* Private works — neutral plate, never the artwork */
+.proj-private {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: 4 / 5;
+  background: repeating-linear-gradient(45deg, #16202b, #16202b 11px, #1b2733 11px, #1b2733 22px);
+  color: rgba(243, 236, 217, 0.55);
+}
+.proj-private-lock {
+  font-size: 1.5rem;
+  color: var(--gold);
+}
+.proj-private-label {
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ── Enter by discipline (lenses) ───────────────────────────────────────── */
+.lens-grid {
+  border-top: 1px solid var(--line);
+}
+.lens-card {
+  display: grid;
+  grid-template-columns: minmax(7rem, 13rem) 1fr auto;
+  gap: 0.5rem 2rem;
+  align-items: baseline;
+  padding: clamp(1.1rem, 2.4vw, 1.7rem) 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.3s;
+}
+.lens-label {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  color: var(--ink, var(--paper));
+  transition: color 0.3s;
+}
+.lens-blurb {
+  align-self: center;
+  color: var(--text-2);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+}
+.lens-go {
+  align-self: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+  transition: transform 0.4s var(--ease);
+}
+.lens-card:hover .lens-label {
+  color: var(--gold);
+}
+.lens-card:hover .lens-go {
+  transform: translateX(5px);
+}
+@media (max-width: 640px) {
+  .lens-card {
+    grid-template-columns: 1fr auto;
+    gap: 0.3rem 1rem;
+  }
+  .lens-blurb {
+    grid-column: 1;
+    align-self: start;
+  }
+  .lens-go {
+    grid-row: 1;
+    grid-column: 2;
+  }
+}
+
+/* Lens context banner in the archive */
+.ed-lens-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 0.4rem 0 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+.ed-lens-blurb {
+  margin-top: 0.3rem;
+}
+.ed-lens-clear {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.ed-lens-clear .arr {
+  transition: transform 0.4s var(--ease);
+  display: inline-block;
+}
+.ed-lens-clear:hover .arr {
+  transform: translateX(4px);
+}
