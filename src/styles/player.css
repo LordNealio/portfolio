@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PLAYER BAR — a persistent, dismissible SoundCloud mini-player. Fixed to the
+   bottom; plays across SPA navigation. Scoped `.pbar-*`.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Off-screen audio host — kept in the DOM (not display:none) so audio survives. */
+.pbar-frame {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  bottom: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: max-content;
+  bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: calc(100% - 1.6rem);
+  padding: 0.45rem 0.55rem 0.45rem 0.5rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: saturate(1.1);
+}
+
+.pbar-btn {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #0a0a0a;
+  display: grid;
+  place-items: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), background 0.2s;
+}
+.pbar-btn:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+.pbar-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Play triangle (CSS) */
+.pbar-ico-play {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent #0a0a0a;
+  margin-left: 2px;
+}
+/* Pause bars */
+.pbar-ico {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.pbar-ico i {
+  width: 4px;
+  height: 15px;
+  background: #0a0a0a;
+  border-radius: 1px;
+}
+
+.pbar-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+.pbar-kicker {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.pbar-title {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 46vw;
+}
+
+.pbar-close {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.55;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+.pbar-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 420px) {
+  .pbar-title {
+    max-width: 40vw;
+  }
+}

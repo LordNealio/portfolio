@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
+import { PlayerBar } from "./components/PlayerBar";
 import { Home } from "./pages/Home";
 import { House } from "./pages/House";
 import { Work } from "./pages/Work";
@@ -72,6 +73,7 @@ export function App() {
         </Routes>
       </main>
       <Footer />
+      <PlayerBar />
     </>
   );
 }
