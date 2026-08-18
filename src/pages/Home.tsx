@@ -67,7 +67,7 @@ const ROUTES = [
 export function Home() {
   useReveal([]);
   useEffect(() => {
-    document.title = "Justin Neal — I connect ideas other people keep separate";
+    document.title = "Justin Neal — I find the connections other people miss";
     return () => {
       document.title = "NIL · Just Neal — Name. Image. Likeness.";
     };
@@ -84,7 +84,7 @@ export function Home() {
         <div className="wrap hl-hero-inner">
           <p className="eyebrow reveal">Just Neal · Research · Systems · Strategy · Story</p>
           <h1 className="hl-hero-h reveal">
-            I connect ideas <span className="serif-i">other people keep separate.</span>
+            I find the connections <span className="serif-i">other people miss.</span>
           </h1>
           <p className="hl-hero-sub reveal">
             I turn complex ideas, overlooked connections, and unfinished concepts into research,
@@ -280,13 +280,26 @@ export function Home() {
             </h2>
           </header>
           <p className="hl-about-body reveal">
-            My background moves through finance, operations, research, technology, culture, education,
-            and creative work. The common thread is the same: understand the system, find what others
-            are overlooking, and build something clearer from it.
+            Accountant by training. Systems thinker by practice. My background moves through finance,
+            operations, research, technology, culture, education, and creative work. The common thread
+            is the same: understand the system, find what others are overlooking, and build something
+            clearer from it.
           </p>
           <Link to="/about" className="btn btn-ghost reveal" onClick={() => track("about")}>
             About Justin <span className="arr">→</span>
           </Link>
+        </div>
+      </section>
+
+      {/* ── EPIGRAPH ─────────────────────────────────────────────────────── */}
+      <section className="hl-epigraph">
+        <div className="wrap">
+          <blockquote className="hl-epigraph-q reveal">
+            “Know he a genius, he just can't claim it,
+            <br />
+            cuz they left him no platforms to explain it.”
+          </blockquote>
+          <cite className="hl-epigraph-cite reveal">— Nipsey Hussle, “Dedication”</cite>
         </div>
       </section>
 

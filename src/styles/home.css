@@ -180,6 +180,36 @@ html { scroll-behavior: smooth; }
   text-wrap: balance;
 }
 
+/* ── Epigraph (homage) ────────────────────────────────────────────────── */
+.hl-epigraph {
+  padding: clamp(3.5rem, 10vw, 6.5rem) 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.hl-epigraph-q {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  line-height: 1.3;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+.hl-epigraph-cite {
+  display: block;
+  margin-top: clamp(1.2rem, 3vw, 1.8rem);
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--gold);
+}
+
 /* ── Final CTA ────────────────────────────────────────────────────────── */
 .hl-final { text-align: center; }
 .hl-final-h {
