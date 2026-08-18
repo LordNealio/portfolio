@@ -3666,3 +3666,6 @@ textarea.field {
 .ed-lens-clear:hover .arr {
   transform: translateX(4px);
 }
+
+/* Featured work — "view all" spacing */
+.featured-all { margin-top: clamp(2rem, 4vw, 3rem); }
