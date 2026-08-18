@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { site, nil, philosophy } from "../data/site";
 import { projects, LENSES, isExhibited } from "../data/projects";
-import { ArchiveList } from "../components/ArchiveList";
 import { ArchiveIndex } from "../components/ArchiveIndex";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
@@ -114,23 +113,6 @@ export function Home() {
           <p className="nil-scripture reveal">
             {nil.scriptures.map((s) => s.ref).join("  ·  ")}
           </p>
-        </div>
-      </section>
-
-      {/* ── THE ARCHIVE ── */}
-      <section className="section" id="archive">
-        <div className="wrap">
-          <header className="section-head reveal">
-            <p className="eyebrow">The Archive · {projects.length} works</p>
-            <h2 className="h1">
-              A body of work, <span className="serif-i">one room at a time.</span>
-            </h2>
-            <p className="lead">
-              Fashion, AI, publishing, film, education, and research — held in a single house. Hover to
-              glimpse a work; open it to enter.
-            </p>
-          </header>
-          <ArchiveList />
         </div>
       </section>
 
