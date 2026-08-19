@@ -78,6 +78,7 @@ export const WORK_WITH_ME = {
   },
 
   process: {
+    maxim: "Before improving a system, understand the system.",
     title: "The process.",
     steps: [
       { h: "See the system.", body: ["Before fixing the problem, understand what surrounds it.", "People. Process. Money. Technology. Information. Incentives."] },
@@ -86,13 +87,6 @@ export const WORK_WITH_ME = {
       { h: "Connect the dots.", body: ["The answer may already exist somewhere else—in another department, discipline, technology, industry, or way of thinking."] },
       { h: "Build the next move.", body: ["A strategy.", "A system.", "A prototype.", "A research plan.", "A workflow.", "An experiment.", "Or simply a much better question."] },
     ],
-  },
-
-  methodology: {
-    eyebrow: "Methodology",
-    maxim: "Before improving a system, understand the system.",
-    chain: ["Observe", "Map", "Question", "Diagnose", "Prioritize", "Improve", "Measure"],
-    note: "The same sequence runs underneath everything below — from a free map to a build.",
   },
 
   session: {

@@ -256,23 +256,9 @@ export function WorkWithMe() {
 
         <hr className="ww-rule" />
 
-        {/* Methodology */}
-        <section className="ww-block ww-method">
-          <p className="eyebrow reveal">{W.methodology.eyebrow}</p>
-          <p className="ww-maxim reveal">{W.methodology.maxim}</p>
-          <ol className="ww-chain reveal">
-            {W.methodology.chain.map((c, i) => (
-              <li key={c}>
-                <span className="ww-chain-n">{String(i + 1).padStart(2, "0")}</span>
-                {c}
-              </li>
-            ))}
-          </ol>
-          <p className="ww-fine reveal">{W.methodology.note}</p>
-        </section>
-
         {/* The process */}
-        <section className="ww-block">
+        <section className="ww-block ww-method">
+          <p className="ww-maxim reveal">{W.process.maxim}</p>
           <h2 className="ww-h reveal">{W.process.title}</h2>
           <ol className="ww-process">
             {W.process.steps.map((s, i) => (
