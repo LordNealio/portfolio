@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <script>
+      try {
+        var m = localStorage.getItem("nil-mode");
+        if (m) document.documentElement.setAttribute("data-mode", m);
+      } catch (e) {}
+    </script>
+    <title>ENIGMA — Just Neal</title>
+    <meta
+      name="description"
+      content="Four questions about music — then a pattern that shouldn't exist. A mystery from 1939 to 1999. Enter the case files."
+    />
+    <link rel="canonical" href="https://justinneal.dev/enter" />
+
+    <!-- Open Graph / social — the ENIGMA on-ramp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NIL · Just Neal" />
+    <meta property="og:url" content="https://justinneal.dev/enter" />
+    <meta property="og:title" content="ENIGMA — 4 questions about music, before I show you something strange" />
+    <meta
+      property="og:description"
+      content="Four questions about music — then a pattern that shouldn't exist. A mystery from 1939 to 1999. Enter the case files."
+    />
+    <meta property="og:image" content="https://justinneal.dev/art/enigma/01.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ENIGMA — 4 questions about music, before I show you something strange" />
+    <meta
+      name="twitter:description"
+      content="Four questions about music — then a pattern that shouldn't exist. A mystery from 1939 to 1999. Enter the case files."
+    />
+    <meta name="twitter:image" content="https://justinneal.dev/art/enigma/01.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
