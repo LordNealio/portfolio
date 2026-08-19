@@ -1,16 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { site, nil, philosophy } from "../data/site";
-import { projects, LENSES, isExhibited } from "../data/projects";
-import { ArchiveIndex } from "../components/ArchiveIndex";
-import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 
-// A small curated set — the exhibited works — as an invitation into the archive.
-const featured = projects.filter((p) => isExhibited(p.slug));
-
-// The House — the full "here is the body of work" experience. This was the
-// original homepage; it now lives at /house so the root can act as a router.
+// The House — a short brand / manifesto overview. The full archive-browsing
+// experience (featured works, discipline lenses, the archive index) lives on
+// /work; the idea and biography live on /about and /vision. This page is the
+// distinct "house" moment: identity, the idea behind it, and a way to support it.
 export function House() {
   useReveal([]);
   useEffect(() => {
@@ -51,55 +47,6 @@ export function House() {
         <div className="hero-scroll" aria-hidden="true">
           <span>Enter</span>
           <span className="hero-scroll-line" />
-        </div>
-      </section>
-
-      {/* ── THE ARCHIVE INDEX (scale) ── */}
-      <ArchiveIndex />
-
-      {/* ── ENTER BY DISCIPLINE (lenses) ── */}
-      <section className="section lenses">
-        <div className="wrap">
-          <header className="section-head reveal">
-            <p className="eyebrow">Ways in</p>
-            <h2 className="h1">
-              Enter the archive <span className="serif-i">by discipline.</span>
-            </h2>
-          </header>
-          <div className="lens-grid">
-            {LENSES.map((l) => (
-              <Link key={l.key} to={`/work?lens=${l.key}`} className="lens-card reveal">
-                <span className="lens-label">{l.label}</span>
-                <span className="lens-blurb">{l.blurb}</span>
-                <span className="lens-go" aria-hidden="true">
-                  →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FEATURED WORK ── */}
-      <section className="section featured">
-        <div className="wrap">
-          <header className="section-head reveal">
-            <p className="eyebrow">Featured work</p>
-            <h2 className="h1">
-              A few to <span className="serif-i">start with.</span>
-            </h2>
-            <p className="lead">
-              A small selection from the archive — not everything, just enough to make you curious.
-            </p>
-          </header>
-          <div className="index-grid">
-            {featured.map((p) => (
-              <ProjectCard key={p.slug} project={p} size="index" />
-            ))}
-          </div>
-          <Link to="/work" className="btn btn-ghost featured-all reveal">
-            View all work <span className="arr">→</span>
-          </Link>
         </div>
       </section>
 
