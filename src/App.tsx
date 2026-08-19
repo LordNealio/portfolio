@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { PlayerBar } from "./components/PlayerBar";
+import { EnigmaOnboarding } from "./components/EnigmaOnboarding";
 import { Home } from "./pages/Home";
 import { House } from "./pages/House";
 import { Work } from "./pages/Work";
@@ -85,6 +86,8 @@ export function App() {
       {!isGate && <Footer />}
       {/* The record rides along on the homepage only. */}
       {pathname === "/" && <PlayerBar />}
+      {/* First-visit ENIGMA onboarding — greets homepage visitors, then reveals the site. */}
+      {pathname === "/" && <EnigmaOnboarding />}
       <Analytics />
     </>
   );

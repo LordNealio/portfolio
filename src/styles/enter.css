@@ -14,6 +14,22 @@
   overflow: hidden;
 }
 
+/* First-visit onboarding overlay — the gate rendered above the homepage. */
+.enigma-onboard {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  animation: enigma-fade 0.4s var(--ease);
+}
+.enigma-onboard .gate {
+  height: 100%;
+  min-height: 100%;
+}
+@keyframes enigma-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Chrome */
 .gate-top {
   display: flex;
@@ -29,6 +45,10 @@
   letter-spacing: 0.12em;
   font-size: 0.95rem;
   color: var(--ink);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 .gate-mark-sub { color: var(--text-3); font-weight: 500; }
 .gate-skip {
@@ -112,6 +132,12 @@
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   transition: border-color 0.25s, background 0.25s, transform 0.3s var(--ease);
+}
+button.gate-door {
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
 }
 .gate-door:hover { border-color: var(--gold); transform: translateY(-2px); }
 .gate-door.lead {
