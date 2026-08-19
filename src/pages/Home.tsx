@@ -193,14 +193,14 @@ export function Home() {
           </div>
           <div className="hl-offer-card reveal">
             <span className="hl-offer-price">$100</span>
-            <span className="hl-offer-name">Strategy Session</span>
+            <span className="hl-offer-name">“What am I missing?”</span>
             <p className="hl-offer-desc">
-              A focused working session to clarify the problem, identify the leverage point, and
-              determine the next move. An accessible way to start — not cheap consulting.
+              A focused outside read: what I see, what you may be missing, and what I'd do next. The
+              accessible way to start — not cheap consulting.
             </p>
             <a
               className="btn btn-primary"
-              href={`mailto:${CONSULT_EMAIL}?subject=${encodeURIComponent("$100 Strategy Session")}`}
+              href={`mailto:${CONSULT_EMAIL}?subject=${encodeURIComponent("What am I missing? — $100 async review")}`}
               onClick={() => track("start_100")}
             >
               Start with $100 <span className="arr">→</span>
