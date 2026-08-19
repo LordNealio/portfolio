@@ -1,0 +1,191 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE GATE — campaign on-ramp (/enter, /enigma, /christie, /gnx).
+   Full-screen, immersive; the ENIGMA slides as a swipeable carousel, then three
+   doors. Site nav/footer are hidden on these routes (see App). Scoped `.gate-*`.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.gate {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+/* Chrome */
+.gate-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.9rem, 3vw, 1.4rem) clamp(1rem, 4vw, 2rem);
+  padding-top: calc(clamp(0.9rem, 3vw, 1.4rem) + env(safe-area-inset-top, 0px));
+}
+.gate-mark {
+  font-family: var(--sans);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.gate-mark-sub { color: var(--text-3); font-weight: 500; }
+.gate-skip {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.7;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, color 0.2s;
+}
+.gate-skip:hover { opacity: 1; color: var(--gold); }
+
+/* Carousel */
+.gate-track {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gate-track::-webkit-scrollbar { display: none; }
+
+.gate-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem clamp(1rem, 4vw, 2rem) 1rem;
+}
+.gate-slide img {
+  max-width: min(92vw, 440px);
+  max-height: 74svh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  user-select: none;
+}
+
+/* Doors panel */
+.gate-doors { align-items: center; }
+.gate-doors-inner {
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+.gate-doors-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+.gate-doors-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(1.4rem, 4vw, 2rem);
+  text-wrap: balance;
+}
+.gate-doors-grid { display: grid; gap: 0.8rem; }
+.gate-door {
+  display: grid;
+  gap: 0.25rem;
+  padding: clamp(1rem, 3.5vw, 1.4rem);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s, background 0.25s, transform 0.3s var(--ease);
+}
+.gate-door:hover { border-color: var(--gold); transform: translateY(-2px); }
+.gate-door.lead {
+  border-color: var(--gold);
+  background: rgba(154, 118, 40, 0.12);
+}
+.gate-door-label {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.gate-door-name {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--ink);
+  line-height: 1.1;
+}
+.gate-door-desc { color: var(--text-2); font-size: 0.92rem; line-height: 1.45; }
+.gate-door-go {
+  margin-top: 0.3rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Controls */
+.gate-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: clamp(0.8rem, 3vw, 1.2rem);
+  padding-bottom: calc(clamp(0.9rem, 3vw, 1.3rem) + env(safe-area-inset-bottom, 0px));
+}
+.gate-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+.gate-arrow:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.gate-arrow:disabled { opacity: 0.25; cursor: default; }
+.gate-dots { display: flex; align-items: center; gap: 0.5rem; }
+.gate-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s var(--ease);
+}
+.gate-dot.on { background: var(--gold); transform: scale(1.35); }
+.gate-dot.end {
+  border-radius: 2px;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.gate-dot.end.on { background: var(--gold); }
+
+@media (min-width: 720px) {
+  .gate-doors-grid { grid-template-columns: repeat(3, 1fr); }
+  .gate-door.lead { grid-column: 1 / -1; }
+}

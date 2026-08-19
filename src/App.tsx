@@ -18,6 +18,7 @@ import { TithingExperiment } from "./pages/TithingExperiment";
 import { ExhibitPage } from "./pages/ExhibitPage";
 import { WorkWithMe } from "./pages/WorkWithMe";
 import { BizWiz } from "./pages/BizWiz";
+import { Enter } from "./pages/Enter";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -34,18 +35,25 @@ function ScrollToTop() {
   return null;
 }
 
+const GATE_ROUTES = new Set(["/enter", "/enigma", "/christie", "/gnx"]);
+
 export function App() {
   const { pathname } = useLocation();
+  const isGate = GATE_ROUTES.has(pathname);
   return (
     <>
       <a href="#main" className="skip-link">
         Skip to content
       </a>
       <ScrollToTop />
-      <Nav />
+      {!isGate && <Nav />}
       <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/enter" element={<Enter />} />
+          <Route path="/enigma" element={<Enter />} />
+          <Route path="/christie" element={<Enter />} />
+          <Route path="/gnx" element={<Enter />} />
           <Route path="/house" element={<House />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<ProjectDetail />} />
@@ -73,7 +81,7 @@ export function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
+      {!isGate && <Footer />}
       {/* The record rides along on the homepage only. */}
       {pathname === "/" && <PlayerBar />}
     </>
