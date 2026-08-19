@@ -5,57 +5,56 @@ import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 import { track } from "../lib/track";
 
-// Consulting inquiries route here (kept separate from the site's general email).
-const CONSULT_EMAIL = "YoungBlesser88@gmail.com";
 const WORKSHEET = "/art/tools/problem-map.jpg";
 
 const PILLARS = [
   {
     n: "01",
     title: "See",
-    tag: "Find the signal.",
-    body: "Research, pattern recognition, interdisciplinary thinking, synthesis, overlooked relationships, hidden opportunities.",
+    tag: "Notice the signal.",
+    body: "Patterns, questions, and overlooked relationships — across music, language, culture, systems, and meaning.",
   },
   {
     n: "02",
     title: "Structure",
-    tag: "Turn complexity into a system.",
-    body: "Frameworks, workflows, strategy, product concepts, processes, research architecture, operational design.",
+    tag: "Make the complexity legible.",
+    body: "Turn a tangle of ideas into a frame you can hold — a map, a system, a way of seeing it.",
   },
   {
     n: "03",
     title: "Build",
-    tag: "Make the idea usable.",
-    body: "Apps, tools, experiences, books, visual frameworks, prototypes, campaigns, experiments.",
+    tag: "Make it usable.",
+    body: "Apps, tools, books, experiments, investigations — things you can actually read, try, or share.",
   },
 ];
 
-const ROUTES = [
+// Ways to explore — paths into the world, not a sales funnel.
+const EXPLORE = [
   {
-    evt: "router_idea",
-    label: "I have an idea",
-    body: "Help me clarify it, structure it, or turn it into something real.",
-    cta: "Build with me",
-    to: "/bizwiz",
+    evt: "work_selected",
+    label: "The work",
+    body: "Apps, books, film, research, systems, experiments — the whole archive.",
+    cta: "Explore",
+    to: "/work",
   },
   {
-    evt: "router_problem",
-    label: "I have a problem",
-    body: "Help me see what I'm missing and design a better system.",
-    cta: "Work through it",
-    to: "/work-with-me",
+    evt: "research_selected",
+    label: "The research",
+    body: "Original legal, scientific, and linguistic investigations.",
+    cta: "Read",
+    to: "/work?lens=research",
   },
   {
-    evt: "router_lab",
-    label: "I want to explore the Lab",
-    body: "Follow the investigations across music, language, identity, culture, systems, and meaning.",
-    cta: "Enter the Lab",
+    evt: "project_selected",
+    label: "The Lab",
+    body: "RapGod, ENIGMA, and the case files — cultural investigation in progress.",
+    cta: "Enter",
     to: "/work?lens=investigate",
   },
   {
-    evt: "router_collab",
-    label: "I want to collaborate",
-    body: "Artists, researchers, organizations, builders, educators, and curious people.",
+    evt: "connect_selected",
+    label: "A conversation",
+    body: "Artists, researchers, organizations, builders, and the curious.",
     cta: "Connect",
     to: "/connect",
   },
@@ -64,15 +63,12 @@ const ROUTES = [
 export function Home() {
   useReveal([]);
   useEffect(() => {
-    document.title = "Justin Neal — I find the connections other people miss";
+    document.title = "Just Neal — I find the connections other people miss";
+    track("homepage_view");
     return () => {
       document.title = "NIL · Just Neal — Name. Image. Likeness.";
     };
   }, []);
-
-  // The href="#router" anchor does the scrolling natively (robust everywhere,
-  // respects scroll-margin-top); the handler only records the conversion event.
-  const goStart = () => track("start_here");
 
   return (
     <div className="hl">
@@ -84,25 +80,25 @@ export function Home() {
             I find the connections <span className="serif-i">other people miss.</span>
           </h1>
           <p className="hl-hero-sub reveal">
-            I turn complex ideas, overlooked connections, and unfinished concepts into research,
-            systems, tools, stories, and experiences people can actually use.
+            A working archive of research, investigations, tools, writing, and things being built —
+            connected less by a category than by a way of seeing.
           </p>
           <div className="hl-cta-row reveal">
-            <a href="#router" className="btn btn-primary btn-lg" onClick={goStart}>
-              Start here <span className="arr">→</span>
-            </a>
             <Link
               to="/work"
-              className="btn btn-ghost btn-lg"
-              onClick={() => track("explore_work", { from: "hero" })}
+              className="btn btn-primary btn-lg"
+              onClick={() => track("work_selected", { cta_location: "hero" })}
             >
-              Explore the Archive
+              Explore the work <span className="arr">→</span>
             </Link>
+            <a href="#explore" className="btn btn-ghost btn-lg" onClick={() => track("start_here")}>
+              Where do I start?
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ── PILLARS ──────────────────────────────────────────────────────── */}
+      {/* ── POINT OF VIEW ────────────────────────────────────────────────── */}
       <section className="section hl-pillars">
         <div className="wrap">
           <div className="hl-pillar-grid">
@@ -118,23 +114,47 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── THE ROUTER ───────────────────────────────────────────────────── */}
-      <section className="section hl-router" id="router">
+      {/* ── SELECTED WORK (evidence leads) ───────────────────────────────── */}
+      <section className="section hl-featured">
         <div className="wrap">
           <header className="section-head reveal">
-            <p className="eyebrow">Start here</p>
+            <p className="eyebrow">Selected work</p>
             <h2 className="h1">
-              What brought you <span className="serif-i">here?</span>
+              A few to <span className="serif-i">start with.</span>
+            </h2>
+            <p className="lead">
+              A small selection from the archive — enough to show the range, not everything at once.
+            </p>
+          </header>
+          <div className="index-grid">
+            {featured.map((p) => (
+              <div key={p.slug} onClick={() => track("project_selected", { slug: p.slug })}>
+                <ProjectCard project={p} size="index" />
+              </div>
+            ))}
+          </div>
+          <Link
+            to="/work"
+            className="btn btn-ghost featured-all reveal"
+            onClick={() => track("work_selected", { cta_location: "featured" })}
+          >
+            See all work <span className="arr">→</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* ── WAYS TO EXPLORE ──────────────────────────────────────────────── */}
+      <section className="section hl-router" id="explore">
+        <div className="wrap">
+          <header className="section-head reveal">
+            <p className="eyebrow">Ways to explore</p>
+            <h2 className="h1">
+              Follow what <span className="serif-i">interests you.</span>
             </h2>
           </header>
           <div className="hl-router-grid">
-            {ROUTES.map((r) => (
-              <Link
-                key={r.evt}
-                to={r.to}
-                className="hl-route reveal"
-                onClick={() => track(r.evt)}
-              >
+            {EXPLORE.map((r) => (
+              <Link key={r.evt} to={r.to} className="hl-route reveal" onClick={() => track(r.evt, { cta_location: "explore" })}>
                 <span className="hl-route-label">{r.label}</span>
                 <span className="hl-route-body">{r.body}</span>
                 <span className="hl-route-cta">
@@ -146,128 +166,55 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED WORK ────────────────────────────────────────────────── */}
-      <section className="section hl-featured">
+      {/* ── PARTICIPATE — don't just look, enter ─────────────────────────── */}
+      <section className="section hl-participate">
         <div className="wrap">
           <header className="section-head reveal">
-            <p className="eyebrow">Featured work</p>
+            <p className="eyebrow">Participate</p>
             <h2 className="h1">
-              A few to <span className="serif-i">start with.</span>
+              Don't just look. <span className="serif-i">Enter.</span>
             </h2>
-            <p className="lead">
-              A small selection from the archive — enough to show the range, not everything at once.
-            </p>
+            <p className="lead">Some of the work is meant to be used, not only read. A couple of things you can try right now.</p>
           </header>
-          <div className="index-grid">
-            {featured.map((p) => (
-              <div key={p.slug} onClick={() => track("featured_project", { slug: p.slug })}>
-                <ProjectCard project={p} size="index" />
+          <div className="hl-participate-grid">
+            <div className="hl-part reveal">
+              <span className="hl-part-kicker">A tool I built</span>
+              <h3 className="hl-part-h">BizWiz</h3>
+              <p className="hl-part-body">
+                Have an idea or problem you're trying to organize? Run it through BizWiz. It maps it
+                back to you — free, and you keep the map.
+              </p>
+              <Link to="/bizwiz" className="btn btn-primary" onClick={() => track("bizwiz_started", { cta_location: "home" })}>
+                Try BizWiz <span className="arr">→</span>
+              </Link>
+            </div>
+            <div className="hl-part reveal">
+              <span className="hl-part-kicker">Free framework</span>
+              <h3 className="hl-part-h">The Problem Map</h3>
+              <p className="hl-part-body">
+                A one-page framework to get a problem out of your head and onto something you can see.
+                Yours to view and print.
+              </p>
+              <div className="hl-cta-row">
+                <a
+                  className="btn btn-primary"
+                  href={WORKSHEET}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => track("tool_started", { tool: "worksheet" })}
+                >
+                  Open it <span className="arr">→</span>
+                </a>
+                <a className="btn btn-ghost" href={WORKSHEET} download onClick={() => track("tool_started", { tool: "worksheet_save" })}>
+                  Save / print <span className="arr">↓</span>
+                </a>
               </div>
-            ))}
-          </div>
-          <Link
-            to="/work"
-            className="btn btn-ghost featured-all reveal"
-            onClick={() => track("see_all_work")}
-          >
-            See all work <span className="arr">→</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* ── CONSULTING / $100 ENTRY OFFER ────────────────────────────────── */}
-      <section className="section hl-offer">
-        <div className="wrap hl-offer-inner">
-          <div className="hl-offer-lead reveal">
-            <p className="eyebrow">Consulting</p>
-            <h2 className="hl-offer-h">Bring me the mess.</h2>
-            <ul className="hl-offer-list">
-              <li>An idea you can't organize.</li>
-              <li>A project that isn't clicking.</li>
-              <li>A system that feels harder than it should.</li>
-              <li>A connection you think might matter.</li>
-            </ul>
-          </div>
-          <div className="hl-offer-card reveal">
-            <span className="hl-offer-price">$100</span>
-            <span className="hl-offer-name">“What am I missing?”</span>
-            <p className="hl-offer-desc">
-              A focused outside read: what I see, what you may be missing, and what I'd do next. The
-              accessible way to start — not cheap consulting.
-            </p>
-            <a
-              className="btn btn-primary"
-              href={`mailto:${CONSULT_EMAIL}?subject=${encodeURIComponent("What am I missing? — $100 async review")}`}
-              onClick={() => track("start_100")}
-            >
-              Start with $100 <span className="arr">→</span>
-            </a>
-            <Link
-              to="/work-with-me"
-              className="hl-offer-more"
-              onClick={() => track("consulting_details")}
-            >
-              See how it works →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── BIZWIZ ───────────────────────────────────────────────────────── */}
-      <section className="section hl-bizwiz">
-        <div className="wrap hl-split">
-          <div className="reveal">
-            <p className="eyebrow">Not ready to talk yet?</p>
-            <h2 className="hl-split-h">Start with BizWiz.</h2>
-          </div>
-          <div className="hl-split-body reveal">
-            <p>
-              A guided diagnostic that helps organize your idea, problem, audience, resources,
-              constraints, and next move — before we ever speak. Free, and you keep the map.
-            </p>
-            <Link to="/bizwiz" className="btn btn-primary" onClick={() => track("open_bizwiz")}>
-              Open BizWiz <span className="arr">→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FREE RESOURCE ────────────────────────────────────────────────── */}
-      <section className="section hl-worksheet">
-        <div className="wrap hl-split">
-          <div className="reveal">
-            <p className="eyebrow">Free resource</p>
-            <h2 className="hl-split-h">Start on paper.</h2>
-          </div>
-          <div className="hl-split-body reveal">
-            <p>
-              Use this one-page framework to get the problem out of your head and onto something you
-              can see.
-            </p>
-            <div className="hl-cta-row">
-              <a
-                className="btn btn-primary"
-                href={WORKSHEET}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => track("worksheet_view")}
-              >
-                View worksheet <span className="arr">→</span>
-              </a>
-              <a
-                className="btn btn-ghost"
-                href={WORKSHEET}
-                download
-                onClick={() => track("worksheet_save")}
-              >
-                Save / print <span className="arr">↓</span>
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CREDIBILITY ──────────────────────────────────────────────────── */}
+      {/* ── PERSPECTIVE ──────────────────────────────────────────────────── */}
       <section className="section hl-about">
         <div className="wrap">
           <header className="section-head reveal">
@@ -282,7 +229,7 @@ export function Home() {
             is the same: understand the system, find what others are overlooking, and build something
             clearer from it.
           </p>
-          <Link to="/about" className="btn btn-ghost reveal" onClick={() => track("about")}>
+          <Link to="/about" className="btn btn-ghost reveal" onClick={() => track("navigation_click", { label: "About", to: "/about", cta_location: "home" })}>
             About Justin <span className="arr">→</span>
           </Link>
         </div>
@@ -300,31 +247,38 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ────────────────────────────────────────────────────── */}
+      {/* ── CONNECT ──────────────────────────────────────────────────────── */}
       <section className="section hl-final">
         <div className="wrap">
           <h2 className="hl-final-h reveal">
-            What are you trying to <span className="serif-i">make happen?</span>
+            If our paths <span className="serif-i">intersect.</span>
           </h2>
           <p className="hl-final-sub reveal">
-            Send me the idea, problem, question, project, or opportunity.
+            Collaborators, researchers, artists, organizations, the curious — send me the idea,
+            question, project, or opportunity.
           </p>
           <div className="hl-cta-row reveal">
             <Link
               to="/connect"
               className="btn btn-primary btn-lg"
-              onClick={() => track("start_conversation")}
+              onClick={() => track("connect_selected", { cta_location: "final" })}
             >
               Start a conversation <span className="arr">→</span>
             </Link>
             <Link
               to="/work"
               className="btn btn-ghost btn-lg"
-              onClick={() => track("explore_work", { from: "final" })}
+              onClick={() => track("work_selected", { cta_location: "final" })}
             >
-              Explore the Archive
+              Explore the work
             </Link>
           </div>
+          <p className="hl-workwith reveal">
+            Want my attention on a specific problem?{" "}
+            <Link to="/work-with-me" className="ilink" onClick={() => track("work_with_me_selected", { cta_location: "home" })}>
+              Ways to work with me →
+            </Link>
+          </p>
         </div>
       </section>
     </div>

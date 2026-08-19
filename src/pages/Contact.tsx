@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { site } from "../data/site";
 import { useReveal } from "../lib/useReveal";
+import { track } from "../lib/track";
 
 // Paste your free Web3Forms access key here to turn on the form (the recipient
 // email is stored by Web3Forms against this key — it is NEVER in this code or the
@@ -9,6 +11,8 @@ const WEB3FORMS_KEY = "";
 
 const invites = [
   "Collaborators & co-founders",
+  "Researchers & people contributing to an investigation",
+  "Anyone who wants to work with me directly",
   "Investors",
   "Developers & designers",
   "Nonprofit partners",
@@ -23,6 +27,7 @@ function ContactForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
+    track("inquiry_started", { method: "form" });
     const data = new FormData(e.currentTarget);
     data.append("access_key", WEB3FORMS_KEY);
     data.append("subject", "New message from the NIL site");
@@ -31,6 +36,7 @@ function ContactForm() {
       const json = await res.json();
       if (json.success) {
         setStatus("ok");
+        track("inquiry_submitted", { method: "form" });
         e.currentTarget.reset();
       } else {
         setStatus("error");
@@ -81,11 +87,22 @@ export function Contact() {
           <ContactForm />
         ) : (
           <div className="contact-cta reveal">
-            <a className="btn btn-primary btn-lg" href={`mailto:${site.contact.email}`}>
+            <a
+              className="btn btn-primary btn-lg"
+              href={`mailto:${site.contact.email}`}
+              onClick={() => track("inquiry_started", { method: "mailto" })}
+            >
               Send a message <span className="arr">→</span>
             </a>
           </div>
         )}
+
+        <p className="contact-workwith reveal">
+          Want my direct help on a specific problem?{" "}
+          <Link to="/work-with-me" className="ilink" onClick={() => track("work_with_me_selected", { cta_location: "connect" })}>
+            See the ways to work together →
+          </Link>
+        </p>
 
         <div className="contact-invites reveal">
           <p className="eyebrow">Especially glad to hear from</p>

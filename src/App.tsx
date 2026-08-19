@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { PlayerBar } from "./components/PlayerBar";
@@ -84,6 +85,7 @@ export function App() {
       {!isGate && <Footer />}
       {/* The record rides along on the homepage only. */}
       {pathname === "/" && <PlayerBar />}
+      <Analytics />
     </>
   );
 }

@@ -169,6 +169,47 @@ html { scroll-behavior: smooth; }
 }
 .hl-split-body > p { color: var(--text-2); line-height: 1.65; font-size: clamp(1.05rem, 1.7vw, 1.2rem); max-width: 46ch; margin-bottom: 1.4rem; }
 
+/* ── Participate ──────────────────────────────────────────────────────── */
+.hl-participate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: clamp(1.4rem, 4vw, 2rem);
+}
+.hl-part {
+  padding: clamp(1.4rem, 3.5vw, 2rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: var(--panel);
+}
+.hl-part-kicker {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hl-part-h {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  color: var(--paper);
+  line-height: 1.05;
+  margin: 0.4rem 0 0.6rem;
+}
+.hl-part-body {
+  color: var(--text-2);
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 44ch;
+  margin-bottom: 1.3rem;
+}
+.hl-workwith {
+  margin-top: 1.6rem;
+  color: var(--text-3);
+  font-size: 0.95rem;
+}
+
 /* ── Credibility ──────────────────────────────────────────────────────── */
 .hl-about-body {
   font-family: var(--serif);
@@ -231,4 +272,5 @@ html { scroll-behavior: smooth; }
   .hl-router-grid { grid-template-columns: 1fr 1fr; }
   .hl-offer-inner { grid-template-columns: 1.1fr 0.9fr; }
   .hl-split { grid-template-columns: 0.8fr 1.2fr; }
+  .hl-participate-grid { grid-template-columns: 1fr 1fr; }
 }

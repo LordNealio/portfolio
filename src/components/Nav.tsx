@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useMode } from "../lib/mode";
+import { track } from "../lib/track";
 
 const links = [
   { to: "/work", label: "Work" },
   { to: "/work?lens=research", label: "Research" },
-  { to: "/work-with-me", label: "Consulting" },
   { to: "/about", label: "About" },
 ];
 
@@ -41,11 +41,20 @@ export function Nav() {
 
         <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary">
           {links.map((l) => (
-            <NavLink key={l.to} to={l.to} className={({ isActive }) => (isActive ? "active" : "")}>
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) => (isActive ? "active" : "")}
+              onClick={() => track("navigation_click", { label: l.label, to: l.to })}
+            >
               {l.label}
             </NavLink>
           ))}
-          <Link className="nav-cta" to="/connect">
+          <Link
+            className="nav-cta"
+            to="/connect"
+            onClick={() => track("navigation_click", { label: "Connect", to: "/connect" })}
+          >
             Connect <span className="arr">→</span>
           </Link>
         </nav>

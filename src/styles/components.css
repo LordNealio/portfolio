@@ -1322,6 +1322,13 @@
   margin: 2.6rem 0;
   flex-wrap: wrap;
 }
+.contact-workwith {
+  color: var(--text-3);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
 .btn-lg {
   padding: 1.05em 1.8em;
   font-size: 1.02rem;
