@@ -69,7 +69,7 @@ export function App() {
           <Route path="/bizwiz" element={<BizWiz />} />
           <Route path="/now" element={<Now />} />
           <Route path="/connect" element={<Contact />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Navigate to="/connect" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
