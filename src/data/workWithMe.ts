@@ -71,14 +71,10 @@ export const WORK_WITH_ME = {
   howIThink: {
     title: "How I think.",
     body: [
-      "My foundation is in accounting.",
-      "I earned bachelor's and master's degrees in the field, which trained me to follow evidence, reconcile inconsistencies, understand complex systems, and make thousands of individual pieces resolve into a coherent whole.",
-      "I'm Kaizen-certified, with formal training in continuous improvement and process optimization.",
-      "I've taught, worked across complex organizations, studied internationally, lived abroad, and spent years building across disciplines.",
-      "Today my work spans software, AI, research, finance, education, books, music, film, brands, nonprofit initiatives, and experimental systems.",
       "Different problems require different tools.",
       "I don't sell one tool. I help determine which tool the problem actually needs.",
     ],
+    aboutNote: "The full background — accounting, Kaizen, years building across disciplines — is on",
   },
 
   process: {

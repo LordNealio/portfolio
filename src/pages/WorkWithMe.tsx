@@ -303,6 +303,13 @@ export function WorkWithMe() {
               </p>
             ))}
           </div>
+          <p className="ww-fine reveal">
+            {W.howIThink.aboutNote}{" "}
+            <Link to="/about" className="ilink">
+              About
+            </Link>
+            .
+          </p>
         </section>
 
         <hr className="ww-rule" />
