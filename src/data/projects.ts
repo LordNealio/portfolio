@@ -1289,6 +1289,11 @@ export const projects: Project[] = [...core, ...houseProjects].sort(
 export const featuredProjects = projects.filter((p) => p.featured);
 export const nonFeatured = projects.filter((p) => !p.featured);
 
+// The exhibited set — the pinned WORK_ORDER works, in order. Single source for
+// the home page's featured selection (the archive top uses a chapter-filtered
+// variant of the same idea).
+export const exhibitedProjects = projects.filter((p) => isExhibited(p.slug));
+
 // Chapters — works folded under a parent (hidden from the grid, shown on the parent).
 export const CHAPTER_SLUGS = new Set(projects.filter((p) => p.chapterOf).map((p) => p.slug));
 export const chaptersOf = (slug: string) => projects.filter((p) => p.chapterOf === slug);

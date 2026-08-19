@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { projects, isExhibited } from "../data/projects";
+import { exhibitedProjects as featured } from "../data/projects";
 import { ProjectCard } from "../components/ProjectCard";
 import { useReveal } from "../lib/useReveal";
 import { track } from "../lib/track";
@@ -8,9 +8,6 @@ import { track } from "../lib/track";
 // Consulting inquiries route here (kept separate from the site's general email).
 const CONSULT_EMAIL = "YoungBlesser88@gmail.com";
 const WORKSHEET = "/art/tools/problem-map.jpg";
-
-// A curated set — the exhibited works — as the featured selection.
-const featured = projects.filter((p) => isExhibited(p.slug));
 
 const PILLARS = [
   {
