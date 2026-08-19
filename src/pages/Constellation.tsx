@@ -120,7 +120,7 @@ export function Constellation() {
           ))}
           <div className="invite-cta">
             <Link to="/work" className="btn btn-primary">
-              Explore the work <span className="arr">→</span>
+              Explore the Archive <span className="arr">→</span>
             </Link>
             <Link to="/connect" className="btn btn-ghost">
               Propose a collaboration

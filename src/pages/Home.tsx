@@ -99,7 +99,7 @@ export function Home() {
               className="btn btn-ghost btn-lg"
               onClick={() => track("explore_work", { from: "hero" })}
             >
-              Explore the work
+              Explore the Archive
             </Link>
           </div>
         </div>
@@ -325,7 +325,7 @@ export function Home() {
               className="btn btn-ghost btn-lg"
               onClick={() => track("explore_work", { from: "final" })}
             >
-              Explore the work
+              Explore the Archive
             </Link>
           </div>
         </div>

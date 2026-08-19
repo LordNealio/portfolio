@@ -137,7 +137,7 @@ export function LabGateway({ project }: { project: Project }) {
                 Enter the lab <span className="arr">↓</span>
               </a>
               <Link to="/work" className="btn btn-ghost">
-                Explore the work
+                Explore the Archive
               </Link>
             </div>
           </header>

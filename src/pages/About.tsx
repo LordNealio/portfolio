@@ -82,7 +82,7 @@ export function About() {
 
         <div className="about-cta-row reveal">
           <Link to="/work" className="btn btn-primary">
-            Explore the archive <span className="arr">→</span>
+            Explore the Archive <span className="arr">→</span>
           </Link>
           <Link to="/work-with-me" className="btn btn-ghost">
             Work with me
