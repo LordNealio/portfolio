@@ -49,10 +49,10 @@ const ROUTES = [
     to: "/work-with-me",
   },
   {
-    evt: "router_research",
-    label: "I want to explore the research",
+    evt: "router_lab",
+    label: "I want to explore the Lab",
     body: "Follow the investigations across music, language, identity, culture, systems, and meaning.",
-    cta: "Enter the lab",
+    cta: "Enter the Lab",
     to: "/work?lens=investigate",
   },
   {
