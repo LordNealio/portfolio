@@ -5,14 +5,13 @@ import { track } from "../lib/track";
 // THE GATE FLOW — the first thing visitors meet:
 //   choice (G1) → Curious Path (the ENIGMA carousel) OR Answer the Riddle (G2)
 //   riddle → correct → Access Granted (G3) → enter the site
-// The riddle points at Christie's "And Then There Were None" (preceded by the
-// counting-rhyme titles). Accepted answers are the sanitized ones — Indians /
-// Soldiers — never the erased slur, which is treated as simply incorrect.
+// The riddle nods to Christie's "And Then There Were None" — the answer is
+// none / zero / nil (and NIL is the house name, hidden in plain sight).
 type Step = "choice" | "curious" | "riddle" | "granted";
 
 function riddleAccepts(raw: string): boolean {
-  const n = raw.toLowerCase().replace(/[^a-z]/g, "");
-  return n.includes("indian") || n.includes("soldier");
+  const n = raw.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return ["none", "0", "zero", "nil", "nothing", "null"].includes(n);
 }
 
 export function EnigmaGate({
@@ -117,7 +116,7 @@ export function EnigmaGate({
           <div className="gx-screen gx-riddle">
             <span className="gx-num">02</span>
             <h1 className="gx-h gx-riddle-h">
-              Before there were none, what were there <span className="red">10 little of?</span>
+              And then there were… <span className="red">how many?</span>
             </h1>
             <form className="gx-form" onSubmit={submit}>
               <input
