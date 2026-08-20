@@ -1,4 +1,6 @@
+# This site is intentionally kept out of search indexes.
+# The server sends X-Robots-Tag: noindex, nofollow on every response and each
+# page also carries a noindex meta tag. Crawling is left ALLOWED on purpose —
+# a crawler must be able to fetch the page to see the noindex and drop it.
 User-agent: *
-Allow: /
-
-Sitemap: https://justinneal.dev/sitemap.xml
+Disallow:
