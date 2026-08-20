@@ -14,6 +14,292 @@
   overflow: hidden;
 }
 
+/* ── Gate flow — choice (G1) / riddle (G2) / access granted (G3) ────────── */
+.gate-flow {
+  --gx-red: #d23a2c;
+  --gx-cond: "Oswald", var(--sans);
+  --gx-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --gx-dim: #b4afa6;
+  --gx-faint: #8a857d;
+  background: #0b0b0c;
+}
+.gate-flow .red { color: var(--gx-red); }
+
+.gx-top { align-items: center; }
+.gx-brand {
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+  color: var(--ink);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.gx-eyebrow {
+  font-family: var(--gx-cond);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+}
+.gx-enigma {
+  font-family: var(--gx-cond);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 0.8rem;
+  color: var(--ink);
+}
+
+.gx-stage {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.4rem, 5vw, 2.4rem) clamp(1.3rem, 6vw, 3rem);
+}
+.gx-screen {
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.gx-num {
+  display: block;
+  width: fit-content;
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  line-height: 1;
+  color: var(--ink);
+  border-bottom: 3px solid var(--gx-red);
+  padding-bottom: 0.08em;
+  margin-bottom: clamp(1.3rem, 5vw, 2.2rem);
+}
+.gx-h {
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  font-size: clamp(2.3rem, 9vw, 4rem);
+  color: var(--ink);
+  text-wrap: balance;
+}
+.gx-sub {
+  font-family: var(--gx-mono);
+  color: var(--gx-dim);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+/* Choice options */
+.gx-options {
+  display: grid;
+  gap: 1rem;
+  margin: clamp(1.8rem, 6vw, 2.6rem) 0;
+}
+.gx-option {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  padding: clamp(1rem, 3.5vw, 1.4rem);
+  border: 1px solid #3a3a3d;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.25s var(--ease);
+}
+.gx-option:hover {
+  border-color: var(--gx-red);
+  transform: translateY(-2px);
+}
+.gx-option-ic {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--ink);
+}
+.gx-q {
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--gx-mono);
+  font-size: 1.3rem;
+}
+.gx-option-txt {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.gx-option-txt b {
+  font-family: var(--gx-cond);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  color: var(--ink);
+}
+.gx-option-txt small {
+  font-family: var(--gx-mono);
+  color: var(--gx-faint);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.gx-option-go {
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+.gx-foot {
+  text-align: center;
+  font-family: var(--gx-mono);
+  color: var(--gx-dim);
+  font-size: 0.98rem;
+  margin-top: clamp(1.2rem, 5vw, 2rem);
+}
+
+/* Riddle */
+.gx-riddle-h {
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+}
+.gx-form {
+  margin-top: clamp(1.6rem, 6vw, 2.4rem);
+  display: grid;
+  gap: 1rem;
+}
+.gx-input {
+  width: 100%;
+  font-family: var(--gx-mono);
+  font-size: 1.1rem;
+  padding: 1rem 1.1rem;
+  background: #161617;
+  border: 1px solid #3a3a3d;
+  color: var(--ink);
+}
+.gx-input::placeholder { color: #6f6a63; }
+.gx-input:focus-visible {
+  outline: none;
+  border-color: var(--gx-red);
+}
+.gx-submit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--gx-cond);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
+  color: var(--gx-red);
+  background: transparent;
+  border: 1px solid var(--gx-red);
+  padding: 0.85em 1.8em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.gx-submit:hover {
+  background: var(--gx-red);
+  color: #0b0b0c;
+}
+.gx-hint {
+  font-family: var(--gx-mono);
+  color: var(--gx-dim);
+  font-size: 0.98rem;
+  margin-top: 1.4rem;
+}
+.gx-wrong { color: #e0a39c; }
+.gx-alt {
+  margin-top: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--gx-mono);
+  color: var(--gx-faint);
+  font-size: 0.9rem;
+}
+.gx-alt:hover { color: var(--gx-red); }
+
+/* Access granted */
+.gx-granted { text-align: center; }
+.gx-correct {
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+}
+.gx-correct-sub {
+  font-family: var(--gx-mono);
+  color: var(--gx-dim);
+  margin-top: 0.4rem;
+}
+.gx-rule {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #555;
+  margin: clamp(1.2rem, 4vw, 2rem) auto;
+}
+.gx-granted-h {
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  font-size: clamp(2.8rem, 12vw, 4.8rem);
+  color: var(--ink);
+}
+.gx-x {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 3px solid var(--gx-red);
+  color: var(--gx-red);
+  margin: clamp(1.4rem, 5vw, 2.2rem) auto;
+  box-shadow: 0 0 30px rgba(210, 58, 44, 0.45);
+}
+.gx-welcome {
+  font-family: var(--gx-mono);
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+}
+.gx-enter {
+  margin-top: clamp(1.6rem, 5vw, 2.4rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--gx-cond);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.15rem;
+  background: var(--ink);
+  color: #0b0b0c;
+  border: none;
+  padding: 0.9em 2em;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease);
+}
+.gx-enter:hover { transform: translateY(-2px); }
+.gx-lock {
+  font-family: var(--gx-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: #6f6a63;
+  margin-top: clamp(1.6rem, 5vw, 2.4rem);
+}
+
 /* First-visit onboarding overlay — the gate rendered above the homepage. */
 .enigma-onboard {
   position: fixed;

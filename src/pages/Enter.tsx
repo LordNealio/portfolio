@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { EnigmaCarousel, EnigmaDoor } from "../components/EnigmaCarousel";
+import { EnigmaGate } from "../components/EnigmaGate";
+import { EnigmaDoor } from "../components/EnigmaCarousel";
 import { track } from "../lib/track";
 
 // THE GATE — the campaign on-ramp (/enter, /enigma, /christie, /gnx). The
@@ -49,5 +50,5 @@ export function Enter() {
     onActivate: () => track("gate_door_site"),
   });
 
-  return <EnigmaCarousel doors={doors} onMark={() => navigate("/")} />;
+  return <EnigmaGate doors={doors} onEnterSite={() => navigate("/")} onMark={() => navigate("/")} />;
 }

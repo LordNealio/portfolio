@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { EnigmaCarousel, EnigmaDoor } from "./EnigmaCarousel";
+import { EnigmaGate } from "./EnigmaGate";
+import { EnigmaDoor } from "./EnigmaCarousel";
 import { track } from "../lib/track";
 
 // First-visit onboarding: the ENIGMA carousel greets visitors on the homepage,
@@ -82,10 +83,10 @@ export function EnigmaOnboarding() {
 
   return (
     <div className="enigma-onboard">
-      <EnigmaCarousel
+      <EnigmaGate
         doors={doors}
+        onEnterSite={() => enterSite("enigma_onboarding_enter")}
         onMark={() => enterSite("enigma_onboarding_mark")}
-        onSkip={() => enterSite("enigma_onboarding_skip")}
       />
     </div>
   );
