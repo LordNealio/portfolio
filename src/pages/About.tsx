@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { about, org, capabilities } from "../data/site";
 import { useReveal } from "../lib/useReveal";
+import { PlayerBar } from "../components/PlayerBar";
 
 export function About() {
   useReveal([]);
   return (
+    <>
     <section className="section page-top about-page">
       <div className="wrap about-inner">
         <header className="about-hero">
@@ -103,5 +105,10 @@ export function About() {
         </a>
       </div>
     </section>
+    <PlayerBar
+      trackUrl="https://soundcloud.com/cudderland/just-what-i-am-explicit"
+      label="Kid Cudi — “Just What I Am”"
+    />
+    </>
   );
 }
