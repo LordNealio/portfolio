@@ -76,6 +76,7 @@ export interface StoryCarousel {
   title: string;
   intro?: string;
   images: { src: string; alt: string }[];
+  video?: { embed: string; caption?: string }; // an embedded video shown under the carousel
 }
 
 export interface Project {
@@ -579,6 +580,10 @@ const core: Project[] = [
         { src: "/art/donda/08.jpg", alt: "Question 07 — Hamilton: No Child Left Behind was signed at Hamilton High School — my high school. The path so far: Gloria, Hurricane, Justin, Neal, Come to Life, Phoenix, Hamilton. (8 of 9)" },
         { src: "/art/donda/09.jpg", alt: "Four more songs — Jesus Lord (Jay Electronica), Pure Souls (my son Sol), the number 24 (Kobe / my son's birthday), and the Moon (my daughter Luna). Eleven connections. (9 of 9)" },
       ],
+      video: {
+        embed: "https://archive.org/embed/copy-of-god-mode-theory-proven-kanye-and-me-1",
+        caption: "The connections, in motion — a video walk-through of the Donda thread.",
+      },
     },
     role: "Researcher and author of the framework and the documented notes.",
     audience: "A canonical reference the other cultural projects draw from.",

@@ -3345,6 +3345,34 @@ textarea.field {
   gap: 1rem;
   margin-top: 1.1rem;
 }
+.story-video {
+  margin: clamp(1.6rem, 5vw, 2.6rem) auto 0;
+  max-width: 760px;
+}
+.story-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(24, 30, 40, 0.14), 0 22px 48px rgba(24, 30, 40, 0.24);
+}
+.story-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.story-video-cap {
+  margin-top: 0.8rem;
+  text-align: center;
+  color: var(--text-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
 .story-count {
   font-family: var(--grotesk, var(--sans));
   font-size: 0.85rem;

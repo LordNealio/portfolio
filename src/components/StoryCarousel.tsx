@@ -133,6 +133,21 @@ export function StoryCarousel({ data }: { data: StoryCarouselData }) {
         </footer>
       )}
 
+      {data.video && (
+        <figure className="story-video">
+          <div className="story-video-frame">
+            <iframe
+              src={data.video.embed}
+              title={`${data.title} — video`}
+              allow="fullscreen; encrypted-media"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          {data.video.caption && <figcaption className="story-video-cap">{data.video.caption}</figcaption>}
+        </figure>
+      )}
+
       {zoom &&
         current &&
         createPortal(
