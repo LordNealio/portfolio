@@ -5,7 +5,6 @@ import { track } from "../lib/track";
 
 const links = [
   { to: "/work", label: "Work" },
-  { to: "/work?lens=research", label: "Research" },
   { to: "/about", label: "About" },
 ];
 
