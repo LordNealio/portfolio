@@ -6,6 +6,7 @@
 export interface ExhibitSlide {
   src: string;
   alt: string;
+  custom?: string; // renders a bespoke HTML slide (by key) instead of the image
 }
 
 export interface Exhibit {
@@ -42,7 +43,7 @@ export const EXHIBITS: Exhibit[] = [
       { src: "/art/exhibits/christie-dmx/a03.jpg", alt: "1999 — 60 years later, DMX releases '…And Then There Was X.' Christie: None; DMX: X; but X = 10. Why does 10 matter? (3 of 9)" },
       { src: "/art/exhibits/christie-dmx/a04.jpg", alt: "Follow the number: Christie counts 10 → 9 → 8 → … → None; DMX replaces None with X; in Roman numerals X = 10. 10 → None → X → 10. Coincidence, or worth digging? (4 of 9)" },
       { src: "/art/exhibits/christie-dmx/a05.jpg", alt: "The number led back to a word: Christie's original 1939 title used a racial slur. The title changed; the word disappeared. Where did the word come from? (5 of 9)" },
-      { src: "/art/exhibits/christie-dmx/a06.jpg", alt: "Beyond coincidence — one pattern in three forms: 10 (the number murdered), X (the Roman numeral for ten), and the erased original title and those it replaced. X → 10 → None / 0. (6 of 9)" },
+      { src: "", custom: "etymology", alt: "Etymology & identity — one slur crossed many native lands. The word was historically applied to dark-skinned natives across the Philippines (Indigenous Negrito peoples), Central America (the Garifuna), the United States (ODB / Shinnecock), and Hawaii (King Kamehameha I / Native Hawaiian). If it meant 'a dark-skinned native,' what does it mean that it anchored most deeply in the United States — and what might that reveal about land, race, and identity in America? (6 of 9)" },
       { src: "/art/exhibits/christie-dmx/a07.jpg", alt: "The word travels: the same slur, anchored in America, was applied to dark-skinned natives across India, Australia, the Pacific Islands, and the Americas. Why is only the American called African? (7 of 9)" },
       { src: "/art/exhibits/christie-dmx/a08.jpg", alt: "The woodpile clue: Christie uses the idiom again — 'They do it with mirrors.' A concealed motive or unknown factor [OED 1989], attested by 1889 and in Thornton's 'American Glossary' (1912). What undisclosed fact changes the case? (8 of 9)" },
       { src: "/art/exhibits/christie-dmx/a09.jpg", alt: "The title trail: one story, multiple titles — the censored 1939 UK title, 'And Then There Were None' (1940 US), and 'Ten Little Indians' (1954–1966 US paperbacks). Slur → None → Indians. What changed — language, identity, or both? (9 of 9)" },

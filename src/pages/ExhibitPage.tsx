@@ -60,18 +60,22 @@ export function ExhibitPage() {
 
       {/* Slides — a seamless vertical scroll, like turning the pages of a file */}
       <div className="exhibit-slides">
-        {exhibit.slides.map((s, i) => (
-          <figure className="exhibit-slide" key={s.src}>
-            <img
-              src={s.src}
-              alt={s.alt}
-              width={1024}
-              height={1536}
-              loading={i < 2 ? "eager" : "lazy"}
-              decoding="async"
-            />
-          </figure>
-        ))}
+        {exhibit.slides.map((s, i) =>
+          s.custom === "etymology" ? (
+            <EtymologySlide key={`custom-${i}`} />
+          ) : (
+            <figure className="exhibit-slide" key={s.src}>
+              <img
+                src={s.src}
+                alt={s.alt}
+                width={1024}
+                height={1536}
+                loading={i < 2 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </figure>
+          )
+        )}
       </div>
 
       {/* Closing */}
@@ -89,5 +93,47 @@ export function ExhibitPage() {
       {/* Soundtrack — a dismissible mini-player, if the exhibit has one */}
       {exhibit.audio && <PlayerBar trackUrl={exhibit.audio.url} label={exhibit.audio.label} />}
     </article>
+  );
+}
+
+// Slide 06 — rebuilt from A6a in the ENIGMA portrait style (black / red / cream)
+// so it flows with the rest of the file. The four-people photo block is lifted
+// from the source as an "evidence clipping"; the argument is set as type.
+function EtymologySlide() {
+  return (
+    <section className="exhibit-slide ety" aria-label="Slide 6 — Etymology & Identity">
+      <div className="ety-head">
+        <span className="ety-num">06</span>
+        <span className="ety-enigma">ENIGMA</span>
+      </div>
+      <h2 className="ety-title">
+        Etymology &amp; <span className="ety-red">Identity</span>
+      </h2>
+      <p className="ety-sub">One slur crossed many native lands.</p>
+
+      <figure className="ety-evidence">
+        <img
+          src="/art/exhibits/christie-dmx/a06-evidence.jpg"
+          alt="Four peoples the slur was historically applied to: Indigenous Negrito peoples (Philippines), the Garifuna (Central America), ODB / Shinnecock (United States), and King Kamehameha I / Native Hawaiian (Hawaii)."
+          width={1140}
+          height={540}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <p className="ety-line">If “nigger” was historically used to mean “a dark-skinned native,”</p>
+      <p className="ety-line ety-red">
+        what does it mean that the word became most deeply anchored in the United States?
+      </p>
+      <p className="ety-line">
+        What might that reveal about the history of land, race, and identity in America?
+      </p>
+
+      <div className="ety-foot">
+        <span>06 / 10</span>
+        <span>Follow the word →</span>
+      </div>
+    </section>
   );
 }
