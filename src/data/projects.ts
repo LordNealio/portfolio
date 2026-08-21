@@ -553,8 +553,8 @@ const core: Project[] = [
     slug: "rapgod",
     title: "RapGod",
     audioBar: {
-      url: "https://soundcloud.com/austin-hawkins-9/thinkin-intermission-slowed-dom-kennedy",
-      label: "Dom Kennedy — “Thinkin Intermission” (slowed)",
+      url: "https://soundcloud.com/chancetherapper/all-we-got-feat-kanye-west-chicago-childrens-choir",
+      label: "Chance the Rapper — “All We Got”",
     },
     subtitle: "The Neal / Nil / Kneel music-symbolism archive",
     summary:
