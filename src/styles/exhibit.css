@@ -149,6 +149,54 @@
   }
 }
 
+/* Coda — a closing embedded montage. */
+.exhibit-coda {
+  padding: clamp(2.6rem, 9vw, 5rem) 0 clamp(1rem, 4vw, 2rem);
+  text-align: center;
+  border-top: 1px solid var(--line);
+  margin-top: clamp(1.4rem, 5vw, 2.4rem);
+}
+.exhibit-coda-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--paper);
+  margin: 0.4rem 0 0.8rem;
+}
+.exhibit-coda-lead {
+  color: var(--text-2);
+  max-width: 48ch;
+  margin: 0 auto clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.6;
+  font-size: clamp(1rem, 1.9vw, 1.15rem);
+}
+.exhibit-coda-frame {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(24, 30, 40, 0.28);
+}
+.exhibit-coda-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.exhibit-coda-note {
+  margin-top: 1rem;
+  color: var(--text-3);
+  font-size: 0.85rem;
+}
+
 /* Slide 06 — the ENIGMA-styled Etymology & Identity page (rebuilt from A6a). */
 .ety {
   --ety-cond: "Oswald", var(--sans);

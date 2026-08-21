@@ -78,6 +78,27 @@ export function ExhibitPage() {
         )}
       </div>
 
+      {/* Coda — a closing montage */}
+      {exhibit.coda && (
+        <section className="exhibit-coda">
+          <div className="wrap">
+            <p className="exhibit-eyebrow reveal">{exhibit.coda.eyebrow}</p>
+            <h2 className="exhibit-coda-title reveal">{exhibit.coda.title}</h2>
+            <p className="exhibit-coda-lead reveal">{exhibit.coda.lead}</p>
+            <div className="exhibit-coda-frame reveal">
+              <iframe
+                src={exhibit.coda.embed}
+                title={`${exhibit.title} — coda`}
+                allow="fullscreen; encrypted-media"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            {exhibit.coda.note && <p className="exhibit-coda-note reveal">{exhibit.coda.note}</p>}
+          </div>
+        </section>
+      )}
+
       {/* Closing */}
       <footer className="exhibit-end">
         <div className="wrap">

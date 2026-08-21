@@ -19,6 +19,7 @@ export interface Exhibit {
   closing: { line: string; note?: string };
   slides: ExhibitSlide[];
   audio?: { url: string; label: string }; // optional SoundCloud track for a bottom mini-player
+  coda?: { eyebrow: string; title: string; lead: string; embed: string; note?: string }; // a closing embedded video/montage
 }
 
 export const EXHIBITS: Exhibit[] = [
@@ -37,6 +38,13 @@ export const EXHIBITS: Exhibit[] = [
       note: "The images are finalized case files, presented as-is. Historical word-usage is documented, not endorsed — this is an inquiry into how meaning changes, not a claim.",
     },
     audio: { url: "https://soundcloud.com/dmx-music/fame-album-version-edited", label: "DMX — “Fame”" },
+    coda: {
+      eyebrow: "Coda",
+      title: "Intermission",
+      lead: "A closing montage — Malcolm X on land, indigeneity, and what's owed, cut against the X of …And Then There Was X and Dom Kennedy. Press play.",
+      embed: "https://archive.org/embed/a-real-ngga-intermission-1",
+      note: "A montage assembled for this file; the underlying works belong to their artists.",
+    },
     slides: [
       { src: "/art/exhibits/christie-dmx/a01.jpg", alt: "Case #1 — 'And then there was…' A mystery from 1939 to 1999: Agatha Christie × DMX. What connects them? (1 of 9)" },
       { src: "/art/exhibits/christie-dmx/a02.jpg", alt: "1939 — Agatha Christie publishes the novel now known as 'And Then There Were None' — but that wasn't its original title. Follow the title. (2 of 9)" },
