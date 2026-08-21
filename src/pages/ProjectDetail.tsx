@@ -156,7 +156,7 @@ export function ProjectDetail() {
                 <div className="detail-links">
                   {project.studyPath && (
                     <Link className="btn btn-primary" to={project.studyPath}>
-                      Enter the study (preview) <span className="arr">→</span>
+                      {project.studyPathLabel || "Enter the study (preview)"} <span className="arr">→</span>
                     </Link>
                   )}
                   {project.moduleLink && (

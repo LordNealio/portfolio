@@ -99,6 +99,7 @@ export interface Project {
   // lookbook lightbox (project.gallery) at `start`. Coordinates are percentages of the image.
   featureHotspots?: { label: string; left: number; top: number; width: number; height: number; start?: number }[];
   studyPath?: string; // internal route to a participant research experience
+  studyPathLabel?: string; // custom label for the studyPath button (defaults to "Enter the study (preview)")
   moduleLink?: { label: string; href: string }; // a direct link to a companion module (e.g. an education module)
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
@@ -598,6 +599,45 @@ const core: Project[] = [
     links: [{ label: "Live app", href: "https://rap-god.vercel.app/onboarding", verified: true }],
     relatedProjects: ["seven-temples-tour"],
     note: "A research archive with a strict verbatim rule; the symbolism is documented, not invented.",
+  },
+  {
+    slug: "enigma",
+    title: "ENIGMA",
+    subtitle: "A gate, a riddle, and a chain of case files",
+    summary:
+      "An interactive front door: choose the curious path or answer a riddle to earn your way in, then follow the investigation.",
+    category: "Games & Interactive",
+    tags: ["Investigation", "Interactive", "Cultural analysis", "Christie × DMX"],
+    status: "live",
+    year: "2026",
+    featured: false,
+    disciplines: ["Culture", "Research"],
+    kind: "Experience",
+    accent: "#d23a2c",
+    image: "/art/enigma/gate-cover.jpg",
+    imageFit: "cover",
+    role: "Concept, design, writing, and build — the investigation and the experience around it.",
+    audience: "Anyone who lands on YoungBlesser — the gate is the site's front door.",
+    problem:
+      "A body of cultural investigation is easy to scroll past. It needed a way in that rewards curiosity instead of explaining itself.",
+    solution:
+      "A choice gate: take the curious path — a swipeable ENIGMA carousel of four questions about music that resolve into a pattern — or answer a riddle to earn entry. Either way opens the case files, starting with Agatha Christie × DMX.",
+    features: [
+      "A choice gate — take the curious path, or answer the riddle to prove you saw it",
+      "The ENIGMA intro carousel: four questions about music, then a pattern that shouldn't exist",
+      "Case #1 — Agatha Christie × DMX: nine files tracing a title, a number, and an erased word",
+      "Doors into the wider archive once you're through",
+      "Shown once per visitor, and reachable any time at /enter",
+    ],
+    technology: ["React", "TypeScript", "Vite"],
+    process:
+      "Built as the site's onboarding and catalogued here as a work in its own right. Sensitive material is handled as critical analysis — the erased 1939 title is named and shown censored, never reproduced.",
+    studyPath: "/enter",
+    studyPathLabel: "Enter ENIGMA",
+    moduleLink: { label: "Read the case file · Christie × DMX", href: "/exhibit/christie-dmx" },
+    links: [],
+    relatedProjects: ["rapgod"],
+    note: "The gate is the site's front door; this entry is that same experience, catalogued as a work.",
   },
 
   // ── 13. MINDWRITE (origin) ────────────────────────────────────────────────
@@ -1232,6 +1272,7 @@ const WORK_ORDER = [
   "mindvault",
   "the-lab",
   "rapgod",
+  "enigma",
   "nil-label",
   "mirror",
   "spend-dat-shit",
@@ -1264,7 +1305,7 @@ export interface Lens {
 export const LENSES: Lens[] = [
   { key: "create", label: "Create", blurb: "Books, music, film, and design.", disciplines: ["Publishing", "Music", "Film", "Fashion", "Branding"] },
   { key: "build", label: "Build", blurb: "Apps, platforms, and systems.", disciplines: ["Apps", "AI", "Technology", "Games"] },
-  { key: "investigate", label: "Investigate", blurb: "RapGod, ENIGMA, and the case files.", slugs: ["rapgod", "arizona-ponderer", "gnx", "mission-control", "blueface-salmon-p-chase"] },
+  { key: "investigate", label: "Investigate", blurb: "RapGod, ENIGMA, and the case files.", slugs: ["enigma", "rapgod", "arizona-ponderer", "gnx", "mission-control", "blueface-salmon-p-chase"] },
   { key: "research", label: "Research", blurb: "Original legal, scientific & linguistic frameworks.", disciplines: ["Research"] },
   { key: "serve", label: "Serve", blurb: "Nonprofit, education, and AI-literacy work.", disciplines: ["Nonprofit", "Education"] },
 ];
