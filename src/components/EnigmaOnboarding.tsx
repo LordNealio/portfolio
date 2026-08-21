@@ -13,13 +13,21 @@ export function EnigmaOnboarding() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // `?gate` forces the gate to show even for a returning visitor — a durable
+    // preview/demo link that works on the root (no deep-link routing needed).
+    let forced = false;
     try {
-      if (!localStorage.getItem(SEEN)) {
-        setShow(true);
-        track("enigma_onboarding_view");
-      }
+      forced = new URLSearchParams(window.location.search).has("gate");
     } catch {
       /* ignore */
+    }
+    try {
+      if (forced || !localStorage.getItem(SEEN)) {
+        setShow(true);
+        track("enigma_onboarding_view", forced ? { forced: true } : undefined);
+      }
+    } catch {
+      setShow(true);
     }
   }, []);
 
