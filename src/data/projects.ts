@@ -154,6 +154,8 @@ const core: Project[] = [
     image: "/mindvault.svg",
     imageFit: "contain",
     feature: "/art/mindvault-overview.jpg",
+    audioEmbed:
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpimpcofficial%2Fgitcha-mind-right&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     chaptersTitle: "The origin",
     chaptersIntro:
       "MindVault began as MindWrite — a published 90-day meditation journal and the founding nonprofit initiative that seeded the whole ecosystem. The book is the origin the app grew out of.",
