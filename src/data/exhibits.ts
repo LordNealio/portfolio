@@ -37,7 +37,7 @@ export const EXHIBITS: Exhibit[] = [
       line: "What started as a music question became a question about language, classification, and identity.",
       note: "The images are finalized case files, presented as-is. Historical word-usage is documented, not endorsed — this is an inquiry into how meaning changes, not a claim.",
     },
-    audio: { url: "https://soundcloud.com/dmx-music/fame-album-version-edited", label: "DMX — “Fame”" },
+    audio: { url: "https://soundcloud.com/theawesomegregdawson/my-niggas-ft-dmx", label: "DMX" },
     coda: {
       eyebrow: "Coda",
       title: "Intermission",
