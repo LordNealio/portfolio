@@ -891,7 +891,6 @@ const houseProjects: Project[] = [
       { label: "Olympic polo", left: 24, top: 15, width: 11, height: 70, start: 1 },
       { label: "NIL 1989 polo", left: 35, top: 15, width: 12, height: 70, start: 2 },
       { label: "I AM / 22 tee", left: 51, top: 15, width: 12, height: 70, start: 3 },
-      { label: "MAG scripture tee", left: 65, top: 15, width: 12, height: 70, start: 11 },
       { label: "Cloud tee", left: 78, top: 38, width: 15, height: 48, start: 5 },
     ],
     role:
@@ -928,15 +927,6 @@ const houseProjects: Project[] = [
       "/fashion/7.jpg",
       "/fashion/8.jpg",
       "/fashion/9.jpg",
-      "/fashion/10.jpg",
-      "/fashion/nila.jpg",
-      "/fashion/mag.jpg",
-      "/fashion/whitemag.jpg",
-      "/fashion/suce.jpg",
-      "/fashion/suce2.jpg",
-      "/fashion/nilwinterh.jpg",
-      "/fashion/nilwintero.jpg",
-      "/fashion/nilwinterp.jpg",
     ],
     relatedProjects: ["rapgod", "gloria"],
     note:
