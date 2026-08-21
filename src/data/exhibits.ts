@@ -29,7 +29,7 @@ export const EXHIBITS: Exhibit[] = [
     title: "Agatha Christie × DMX",
     subtitle: "A mystery from 1939 → 1999",
     intro: [
-      "One case, told across nine files: how a novel's changing titles and a rapper's changing name open a question about numbers, words, etymology, classification, and identity.",
+      "One case, told across eleven files: how a novel's changing titles and a rapper's changing name open a question about numbers, words, etymology, classification, and identity.",
       "Scroll slowly. A clue is not a conclusion.",
     ],
     parent: { label: "RapGod", to: "/work/rapgod" },
@@ -50,11 +50,13 @@ export const EXHIBITS: Exhibit[] = [
       { src: "/art/exhibits/christie-dmx/a02.jpg", alt: "1939 — Agatha Christie publishes the novel now known as 'And Then There Were None' — but that wasn't its original title. Follow the title. (2 of 9)" },
       { src: "/art/exhibits/christie-dmx/a03.jpg", alt: "1999 — 60 years later, DMX releases '…And Then There Was X.' Christie: None; DMX: X; but X = 10. Why does 10 matter? (3 of 9)" },
       { src: "/art/exhibits/christie-dmx/a04.jpg", alt: "Follow the number: Christie counts 10 → 9 → 8 → … → None; DMX replaces None with X; in Roman numerals X = 10. 10 → None → X → 10. Coincidence, or worth digging? (4 of 9)" },
+      { src: "/art/exhibits/christie-dmx/ax.jpg", alt: "The meaning of DMX — 'Divine Master of the Unknown.' What does 'X' represent? The unknown, the unseen, the unwritten — the origins that were taken away. Malcolm X chose 'X' as his last name to reflect the unknown origins of those who were enslaved. X: a symbol, a question, a truth they tried to erase." },
       { src: "/art/exhibits/christie-dmx/a05.jpg", alt: "The number led back to a word: Christie's original 1939 title used a racial slur. The title changed; the word disappeared. Where did the word come from? (5 of 9)" },
       { src: "", custom: "etymology", alt: "Etymology & identity — one slur crossed many native lands. The word was historically applied to dark-skinned natives across the Philippines (Indigenous Negrito peoples), Central America (the Garifuna), the United States (ODB / Shinnecock), and Hawaii (King Kamehameha I / Native Hawaiian). If it meant 'a dark-skinned native,' what does it mean that it anchored most deeply in the United States — and what might that reveal about land, race, and identity in America? (6 of 9)" },
       { src: "/art/exhibits/christie-dmx/a07.jpg", alt: "The word travels: the same slur, anchored in America, was applied to dark-skinned natives across India, Australia, the Pacific Islands, and the Americas. Why is only the American called African? (7 of 9)" },
       { src: "/art/exhibits/christie-dmx/a08.jpg", alt: "The woodpile clue: Christie uses the idiom again — 'They do it with mirrors.' A concealed motive or unknown factor [OED 1989], attested by 1889 and in Thornton's 'American Glossary' (1912). What undisclosed fact changes the case? (8 of 9)" },
       { src: "/art/exhibits/christie-dmx/a09.jpg", alt: "The title trail: one story, multiple titles — the censored 1939 UK title, 'And Then There Were None' (1940 US), and 'Ten Little Indians' (1954–1966 US paperbacks). Slur → None → Indians. What changed — language, identity, or both? (9 of 9)" },
+      { src: "/art/exhibits/christie-dmx/a10.png", alt: "The case summary — Christie's title trail (1939 'Ten Little [censored slur]' → 1940 'Ten Little Indians' → 1944 'And Then There Were None') beside DMX = 'Divine Master of the Unknown,' where X = the unknown. What the case established: ten keeps recurring; a racialized name disappeared from the title; the replacement ends at None; DMX's name points to the unknown; and X is the universal symbol for an unknown. The title changed, the name disappeared, X means the unknown. So what, exactly, is X? The case remains open — next clue: X appears again, 25 years later." },
     ],
   },
 ];
