@@ -17,6 +17,7 @@ export interface Exhibit {
   parent: { label: string; to: string }; // where it lives / back link
   closing: { line: string; note?: string };
   slides: ExhibitSlide[];
+  audio?: { url: string; label: string }; // optional SoundCloud track for a bottom mini-player
 }
 
 export const EXHIBITS: Exhibit[] = [

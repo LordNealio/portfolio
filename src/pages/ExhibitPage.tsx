@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getExhibit } from "../data/exhibits";
 import { useReveal } from "../lib/useReveal";
+import { PlayerBar } from "../components/PlayerBar";
 
 export function ExhibitPage() {
   const { id } = useParams();
@@ -27,8 +28,6 @@ export function ExhibitPage() {
       </section>
     );
   }
-
-  const total = exhibit.slides.length;
 
   return (
     <article className="exhibit">
@@ -59,14 +58,18 @@ export function ExhibitPage() {
         </div>
       </header>
 
-      {/* Slides */}
-      <div className="wrap exhibit-slides">
+      {/* Slides — a seamless vertical scroll, like turning the pages of a file */}
+      <div className="exhibit-slides">
         {exhibit.slides.map((s, i) => (
-          <figure className="exhibit-slide reveal" key={s.src}>
-            <span className="exhibit-slide-num" aria-hidden="true">
-              {String(i + 1).padStart(2, "0")} <i>/ {total}</i>
-            </span>
-            <img src={s.src} alt={s.alt} loading={i === 0 ? "eager" : "lazy"} decoding="async" />
+          <figure className="exhibit-slide" key={s.src}>
+            <img
+              src={s.src}
+              alt={s.alt}
+              width={1024}
+              height={1536}
+              loading={i < 2 ? "eager" : "lazy"}
+              decoding="async"
+            />
           </figure>
         ))}
       </div>
@@ -82,6 +85,9 @@ export function ExhibitPage() {
           </Link>
         </div>
       </footer>
+
+      {/* Soundtrack — a dismissible mini-player, if the exhibit has one */}
+      {exhibit.audio && <PlayerBar trackUrl={exhibit.audio.url} label={exhibit.audio.label} />}
     </article>
   );
 }

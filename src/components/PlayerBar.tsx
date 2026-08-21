@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { track } from "../lib/track";
 
-// A persistent, dismissible mini-player. Lives outside <Routes>, so audio keeps
-// playing as visitors navigate the SPA. Autoplay is intentionally OFF — browsers
-// block sound until a user gesture, so the visitor presses play once.
-const TRACK_URL = "https://soundcloud.com/nipseyhussle/dedication-feat-kendrick-lamar";
-const TRACK_LABEL = "Nipsey Hussle — “Dedication”";
+// A persistent, dismissible mini-player. Autoplay is intentionally OFF — browsers
+// block sound until a user gesture, so the visitor presses play once. Reusable:
+// the homepage uses the default track; other pages (e.g. an exhibit) pass their own.
+const DEFAULT_TRACK = "https://soundcloud.com/nipseyhussle/dedication-feat-kendrick-lamar";
+const DEFAULT_LABEL = "Nipsey Hussle — “Dedication”";
 const SC_API = "https://w.soundcloud.com/player/api.js";
 
 declare global {
@@ -15,7 +15,13 @@ declare global {
   }
 }
 
-export function PlayerBar() {
+export function PlayerBar({
+  trackUrl = DEFAULT_TRACK,
+  label = DEFAULT_LABEL,
+}: {
+  trackUrl?: string;
+  label?: string;
+} = {}) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const widgetRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
@@ -75,7 +81,7 @@ export function PlayerBar() {
   }
 
   const src =
-    `https://w.soundcloud.com/player/?url=${encodeURIComponent(TRACK_URL)}` +
+    `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}` +
     "&auto_play=false&visual=false&hide_related=true&show_comments=false" +
     "&show_user=false&show_reposts=false&show_teaser=false&buying=false&sharing=false&download=false";
 
@@ -111,7 +117,7 @@ export function PlayerBar() {
           </button>
           <span className="pbar-label">
             <span className="pbar-kicker">{playing ? "Now playing" : "Play the record"}</span>
-            <span className="pbar-title">{TRACK_LABEL}</span>
+            <span className="pbar-title">{label}</span>
           </span>
           <button className="pbar-close" onClick={dismiss} aria-label="Hide music player">
             ×

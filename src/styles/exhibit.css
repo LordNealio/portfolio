@@ -111,36 +111,38 @@
 }
 
 /* Slides */
+/* Mobile-first: a seamless, gapless vertical scroll — full-bleed pages that
+   flow into one another like a digital book. */
 .exhibit-slides {
-  padding-top: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(0.6rem, 3vw, 1.4rem);
 }
 .exhibit-slide {
-  max-width: 384px;
-  margin: 0 auto clamp(3rem, 8vw, 6rem);
+  margin: 0;
   position: relative;
-}
-.exhibit-slide-num {
-  display: block;
-  text-align: center;
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--gold);
-  font-variant-numeric: tabular-nums;
-  margin-bottom: 0.9rem;
-  letter-spacing: 0.04em;
-}
-.exhibit-slide-num i {
-  color: var(--text-3);
-  font-style: normal;
-  font-size: 0.8em;
 }
 .exhibit-slide img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 10px;
-  border: 1px solid rgba(24, 30, 40, 0.08);
-  box-shadow: 0 2px 6px rgba(24, 30, 40, 0.14), 0 34px 64px rgba(24, 30, 40, 0.24);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Desktop / tablet: a tidy centered column with gentle separation. */
+@media (min-width: 720px) {
+  .exhibit-slides {
+    max-width: 460px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  .exhibit-slide {
+    margin-bottom: clamp(1.4rem, 3vw, 2.4rem);
+  }
+  .exhibit-slide img {
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(24, 30, 40, 0.14), 0 22px 44px rgba(24, 30, 40, 0.2);
+  }
 }
 
 /* Closing */
