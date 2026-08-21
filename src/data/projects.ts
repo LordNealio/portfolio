@@ -1068,6 +1068,7 @@ const houseProjects: Project[] = [
     pillars: ["Navigating Ignorance", "Especially Reparations"],
     title: "Blueface × Salmon P. Chase",
     subtitle: "The man on the $10,000 bill — currency, faith, and legacy.",
+    audioBar: { url: "https://soundcloud.com/ralphypoo/untitled-2-kendrick-lamar", label: "Kendrick Lamar — “untitled 08” (live)" },
     summary:
       "A conceptual artwork built on the real ten-thousand-dollar note, and on Salmon P. Chase — the man who put 'In God We Trust' on American money.",
     disciplines: ["Culture", "Publishing", "Branding"],
