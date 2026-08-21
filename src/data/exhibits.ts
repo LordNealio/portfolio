@@ -35,6 +35,7 @@ export const EXHIBITS: Exhibit[] = [
       line: "What started as a music question became a question about language, classification, and identity.",
       note: "The images are finalized case files, presented as-is. Historical word-usage is documented, not endorsed — this is an inquiry into how meaning changes, not a claim.",
     },
+    audio: { url: "https://soundcloud.com/dmx-music/fame-album-version-edited", label: "DMX — “Fame”" },
     slides: [
       { src: "/art/exhibits/christie-dmx/a01.jpg", alt: "Case #1 — 'And then there was…' A mystery from 1939 to 1999: Agatha Christie × DMX. What connects them? (1 of 9)" },
       { src: "/art/exhibits/christie-dmx/a02.jpg", alt: "1939 — Agatha Christie publishes the novel now known as 'And Then There Were None' — but that wasn't its original title. Follow the title. (2 of 9)" },
