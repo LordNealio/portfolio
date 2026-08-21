@@ -9,7 +9,7 @@ import { FashionExperience } from "../components/FashionExperience";
 import { LabGateway } from "../components/LabGateway";
 import { ImageCarousel } from "../components/ImageCarousel";
 import { StoryCarousel } from "../components/StoryCarousel";
-import { AudioEmbed } from "../components/AudioEmbed";
+import { PlayerBar } from "../components/PlayerBar";
 import { SpendDatShit } from "../components/spend/SpendDatShit";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
@@ -69,14 +69,29 @@ export function ProjectDetail() {
   const prev = idx > 0 ? projects[idx - 1] : projects[projects.length - 1];
   const next = idx < projects.length - 1 ? projects[idx + 1] : projects[0];
 
+  // A floating bottom mini-player (same as the home page), on any project with a track.
+  const audioBar = project.audioBar ? (
+    <PlayerBar trackUrl={project.audioBar.url} label={project.audioBar.label} />
+  ) : null;
+
   if (project.layout === "cinematic") {
-    return <FashionExperience project={project} />;
+    return <FashionExperience project={project} />; // renders its own lifted player
   }
   if (project.layout === "lab") {
-    return <LabGateway project={project} />;
+    return (
+      <>
+        <LabGateway project={project} />
+        {audioBar}
+      </>
+    );
   }
   if (project.layout === "carousel") {
-    return <ImageCarousel project={project} />;
+    return (
+      <>
+        <ImageCarousel project={project} />
+        {audioBar}
+      </>
+    );
   }
   if (project.layout === "spend") {
     return (
@@ -88,11 +103,7 @@ export function ProjectDetail() {
           </Link>
         </div>
         <SpendDatShit />
-        {project.audioEmbed && (
-          <div className="wrap spend-audio">
-            <AudioEmbed src={project.audioEmbed} title={project.title} />
-          </div>
-        )}
+        {audioBar}
       </div>
     );
   }
@@ -217,7 +228,6 @@ export function ProjectDetail() {
           </section>
         )}
 
-        {project.audioEmbed && <AudioEmbed src={project.audioEmbed} title={project.title} />}
 
         <div className="detail-cols">
           <div className="detail-main">
@@ -353,6 +363,7 @@ export function ProjectDetail() {
           </Link>
         </nav>
       </div>
+      {audioBar}
     </article>
   );
 }

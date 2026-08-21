@@ -155,8 +155,7 @@ const core: Project[] = [
     image: "/mindvault.svg",
     imageFit: "contain",
     feature: "/art/mindvault-overview.jpg",
-    audioEmbed:
-      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fpimpcofficial%2Fgitcha-mind-right&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    audioBar: { url: "https://soundcloud.com/pimpcofficial/gitcha-mind-right", label: "Pimp C — “Gitcha Mind Right”" },
     chaptersTitle: "The origin",
     chaptersIntro:
       "MindVault began as MindWrite — a published 90-day meditation journal and the founding nonprofit initiative that seeded the whole ecosystem. The book is the origin the app grew out of.",
@@ -192,8 +191,7 @@ const core: Project[] = [
   {
     slug: "mirror",
     title: "Mirror",
-    audioEmbed:
-      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fkendrick-lamar-music%2Fmirror&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    audioBar: { url: "https://soundcloud.com/kendrick-lamar-music/mirror", label: "Kendrick Lamar — “Mirror”" },
     subtitle: "A reflection tool for the people closest to you",
     summary:
       "A private iPhone web app that mirrors your own patterns in relationships — never a dossier on anyone else.",
@@ -554,8 +552,10 @@ const core: Project[] = [
   {
     slug: "rapgod",
     title: "RapGod",
-    audioEmbed:
-      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Faustin-hawkins-9%2Fthinkin-intermission-slowed-dom-kennedy&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    audioBar: {
+      url: "https://soundcloud.com/austin-hawkins-9/thinkin-intermission-slowed-dom-kennedy",
+      label: "Dom Kennedy — “Thinkin Intermission” (slowed)",
+    },
     subtitle: "The Neal / Nil / Kneel music-symbolism archive",
     summary:
       "A documented archive that maps symbolism across music through a personal framework of revelation, void, and recognition.",
@@ -729,8 +729,7 @@ const core: Project[] = [
   {
     slug: "spend-dat-shit",
     title: "Spend Dat Shit",
-    audioEmbed:
-      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fyungmiami-music%2Fspend-dat&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    audioBar: { url: "https://soundcloud.com/yungmiami-music/spend-dat", label: "Yung Miami — “Spend Dat”" },
     subtitle: "A satirical marketplace for spending a billionaire's fortune",
     summary:
       "An interactive, Prime-inspired parody store where you blow a billionaire's fortune on real-life relief, obscene luxury, and society-sized power moves — then the Future Oracle predicts your fate.",
@@ -856,6 +855,7 @@ const houseProjects: Project[] = [
     layout: "lab",
     image: "/art/the-lab.jpg",
     imageFit: "contain",
+    audioBar: { url: "https://soundcloud.com/kodak-black/kodak-black-no-flockin-freestyle", label: "Kodak Black — “No Flockin Freestyle”" },
     subtitle: "An Interdisciplinary Lab",
     summary:
       "A Black wHole is an interdisciplinary lab that investigates language, identity, history, culture, money, science, memory, and loss — then transforms those inquiries into studies, public media, and practical tools.",
