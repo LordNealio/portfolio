@@ -11,7 +11,7 @@ type Step = "choice" | "curious" | "riddle" | "granted";
 
 function riddleAccepts(raw: string): boolean {
   const n = raw.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return ["x", "10", "ten"].includes(n);
+  return ["x", "10", "ten", "dmx"].includes(n);
 }
 
 export function EnigmaGate({
@@ -116,7 +116,7 @@ export function EnigmaGate({
           <div className="gx-screen gx-riddle">
             <span className="gx-num">02</span>
             <h1 className="gx-h gx-riddle-h">
-              And then there was… <span className="red">what?</span>
+              And then there <span className="red">was…</span>
             </h1>
             <form className="gx-form" onSubmit={submit}>
               <input
@@ -138,10 +138,10 @@ export function EnigmaGate({
             </form>
             <p className={`gx-hint${wrong ? " gx-wrong" : ""}`}>
               {wrong ? (
-                "Not quite. Look again — it's hidden in plain sight."
+                "Not quite. Look again — what's my name?"
               ) : (
                 <>
-                  <span className="red">Hint:</span> It's hidden in plain sight.
+                  <span className="red">Hint:</span> What's my name?
                 </>
               )}
             </p>
