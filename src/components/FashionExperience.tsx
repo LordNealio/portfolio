@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Project } from "../data/projects";
+import { PlayerBar } from "./PlayerBar";
 
 /**
  * Full-screen cinematic slideshow for the fashion house. It takes over the
@@ -180,6 +181,11 @@ export function FashionExperience({ project }: { project: Project }) {
           →
         </button>
       </footer>
+      {project.audioBar && (
+        <div className="fx-player">
+          <PlayerBar trackUrl={project.audioBar.url} label={project.audioBar.label} />
+        </div>
+      )}
     </div>
   );
 }

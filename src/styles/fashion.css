@@ -2,6 +2,10 @@
    Fashion experience (.fx) — a full-screen cinematic slideshow that takes over
    the viewport. Cover → vision slides → the clickable NIL index → the lookbook.
    ───────────────────────────────────────────────────────────────────────────── */
+/* Lift the mini-player above the fashion nav footer so they don't collide. */
+.fx-player .pbar {
+  bottom: calc(5.6rem + env(safe-area-inset-bottom, 0px));
+}
 .fx {
   position: fixed;
   inset: 0;

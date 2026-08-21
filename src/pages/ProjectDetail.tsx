@@ -9,6 +9,7 @@ import { FashionExperience } from "../components/FashionExperience";
 import { LabGateway } from "../components/LabGateway";
 import { ImageCarousel } from "../components/ImageCarousel";
 import { StoryCarousel } from "../components/StoryCarousel";
+import { AudioEmbed } from "../components/AudioEmbed";
 import { SpendDatShit } from "../components/spend/SpendDatShit";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
@@ -87,6 +88,11 @@ export function ProjectDetail() {
           </Link>
         </div>
         <SpendDatShit />
+        {project.audioEmbed && (
+          <div className="wrap spend-audio">
+            <AudioEmbed src={project.audioEmbed} title={project.title} />
+          </div>
+        )}
       </div>
     );
   }
@@ -211,19 +217,7 @@ export function ProjectDetail() {
           </section>
         )}
 
-        {project.audioEmbed && (
-          <section className="detail-audio reveal">
-            <iframe
-              title={`${project.title} — listen`}
-              width="100%"
-              height="420"
-              scrolling="no"
-              frameBorder="no"
-              allow="autoplay"
-              src={project.audioEmbed}
-            />
-          </section>
-        )}
+        {project.audioEmbed && <AudioEmbed src={project.audioEmbed} title={project.title} />}
 
         <div className="detail-cols">
           <div className="detail-main">

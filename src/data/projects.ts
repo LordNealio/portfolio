@@ -103,6 +103,7 @@ export interface Project {
   studyPathLabel?: string; // custom label for the studyPath button (defaults to "Enter the study (preview)")
   moduleLink?: { label: string; href: string }; // a direct link to a companion module (e.g. an education module)
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
+  audioBar?: { url: string; label: string }; // a bottom mini-player (for full-screen layouts where an inline embed can't sit)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
   sections?: EssaySection[]; // long-form essay rendered on the detail page
   storyCarousel?: StoryCarousel; // an inline swipeable carousel of finished slides shown on the detail page
@@ -191,6 +192,8 @@ const core: Project[] = [
   {
     slug: "mirror",
     title: "Mirror",
+    audioEmbed:
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fkendrick-lamar-music%2Fmirror&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     subtitle: "A reflection tool for the people closest to you",
     summary:
       "A private iPhone web app that mirrors your own patterns in relationships — never a dossier on anyone else.",
@@ -551,6 +554,8 @@ const core: Project[] = [
   {
     slug: "rapgod",
     title: "RapGod",
+    audioEmbed:
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Faustin-hawkins-9%2Fthinkin-intermission-slowed-dom-kennedy&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     subtitle: "The Neal / Nil / Kneel music-symbolism archive",
     summary:
       "A documented archive that maps symbolism across music through a personal framework of revelation, void, and recognition.",
@@ -724,6 +729,8 @@ const core: Project[] = [
   {
     slug: "spend-dat-shit",
     title: "Spend Dat Shit",
+    audioEmbed:
+      "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fyungmiami-music%2Fspend-dat&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     subtitle: "A satirical marketplace for spending a billionaire's fortune",
     summary:
       "An interactive, Prime-inspired parody store where you blow a billionaire's fortune on real-life relief, obscene luxury, and society-sized power moves — then the Future Oracle predicts your fate.",
@@ -862,6 +869,7 @@ const houseProjects: Project[] = [
   {
     slug: "nil-label",
     title: "NIL — The Label",
+    audioBar: { url: "https://soundcloud.com/ninesomnia/takin-swag", label: "ninesomnia — “Takin' Swag”" },
     subtitle: "Name. Image. Likeness. — a heritage clothing house",
     summary:
       "A heritage clothing house in the American Ivy tradition — crest, monogram, and Olympic colors — where every collection is a chapter of one idea: from nothing (Nil), through humility (Kneel), to a name that lasts (Neal).",
