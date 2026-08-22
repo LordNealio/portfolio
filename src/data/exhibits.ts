@@ -75,7 +75,7 @@ export const EXHIBITS: Exhibit[] = [
       "Wyrd — Old English for fate — isn't a straight line but a web: past actions, present events, people, and circumstances shaping what comes next. Put an N at the center and listen for what repeats.",
       "Scroll slowly. A clue is not a conclusion.",
     ],
-    parent: { label: "RapGod", to: "/work/rapgod" },
+    parent: { label: "ENIGMA", to: "/work/enigma" },
     closing: {
       line: "Coincidence, or wyrd? Come with an open ear — leave with your own meaning.",
       note: "The images are finalized case files, presented as-is — an inquiry into pattern and fate, not a claim.",
