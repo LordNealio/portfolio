@@ -10,6 +10,7 @@ import { LabGateway } from "../components/LabGateway";
 import { ImageCarousel } from "../components/ImageCarousel";
 import { StoryCarousel } from "../components/StoryCarousel";
 import { PlayerBar } from "../components/PlayerBar";
+import { exhibitsForParent } from "../data/exhibits";
 import { SpendDatShit } from "../components/spend/SpendDatShit";
 import { Comments } from "../components/Comments";
 import { ProjectCard } from "../components/ProjectCard";
@@ -206,6 +207,22 @@ export function ProjectDetail() {
         {project.chaptersFirst && chaptersBlock}
 
         {project.storyCarousel && <StoryCarousel data={project.storyCarousel} />}
+
+        {exhibitsForParent(`/work/${project.slug}`).length > 0 && (
+          <section className="detail-cases reveal">
+            <h2 className="h3 detail-cases-h">Case files</h2>
+            <div className="detail-cases-list">
+              {exhibitsForParent(`/work/${project.slug}`).map((e) => (
+                <Link key={e.id} to={`/exhibit/${e.id}`} className="detail-case">
+                  <span className="detail-case-eyebrow">{e.eyebrow}</span>
+                  <span className="detail-case-title">{e.title}</span>
+                  <span className="detail-case-sub">{e.subtitle}</span>
+                  <span className="detail-case-go">Open the file <span className="arr">→</span></span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {project.feature &&
           (project.featureHotspots && project.featureHotspots.length > 0 && project.gallery && project.gallery.length > 0 ? (

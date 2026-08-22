@@ -3349,6 +3349,57 @@ textarea.field {
   margin: clamp(1.6rem, 5vw, 2.6rem) auto 0;
   max-width: 760px;
 }
+
+/* Case files — links to the exhibits parented to a project (e.g. RapGod). */
+.detail-cases {
+  margin: clamp(2rem, 6vw, 3.2rem) 0;
+}
+.detail-cases-h {
+  margin-bottom: 1rem;
+}
+.detail-cases-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.detail-case {
+  display: grid;
+  gap: 0.3rem;
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: var(--panel);
+  transition: border-color 0.25s, transform 0.3s var(--ease);
+}
+.detail-case:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+.detail-case-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.detail-case-title {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  color: var(--paper);
+  line-height: 1.05;
+}
+.detail-case-sub {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.detail-case-go {
+  margin-top: 0.4rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 0.9rem;
+}
 .story-video-frame {
   position: relative;
   width: 100%;

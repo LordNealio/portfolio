@@ -607,7 +607,6 @@ const core: Project[] = [
     technology: ["Next.js 14", "CSV data model", "React"],
     process: "Multi-value fields are delimited and every interpretation is quoted from the documented notes — never fabricated.",
     futureVision: "Continue documenting and feed the archive into cultural presentations like The 7 Temples Tour.",
-    moduleLink: { label: "Enter the case file · Christie × DMX", href: "/exhibit/christie-dmx" },
     links: [{ label: "Live app", href: "https://rap-god.vercel.app/onboarding", verified: true }],
     relatedProjects: ["seven-temples-tour"],
     note: "A research archive with a strict verbatim rule; the symbolism is documented, not invented.",
