@@ -95,7 +95,7 @@ export const EXHIBITS: Exhibit[] = [
         src: "/art/exhibits/nwyrd/n5.jpg",
         alt: "The N-WYRD Mix — 'The God Frequency': a sequence of songs, words, names, and sounds as one piece. Press play; enter the frequency. (5 of 6)",
         videoEmbed: "https://archive.org/embed/nwyrd-mix-1",
-        videoBox: { left: 19, top: 41, width: 62, height: 25 },
+        videoBox: { left: 0, top: 43, width: 100, height: 42 },
       },
       { src: "/art/exhibits/nwyrd/n6.jpg", alt: "What did you hear — coincidence, or wyrd? (6 of 6)" },
     ],
