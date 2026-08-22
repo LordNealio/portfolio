@@ -75,6 +75,9 @@ export function ProjectDetail() {
     <PlayerBar trackUrl={project.audioBar.url} label={project.audioBar.label} />
   ) : null;
 
+  // Case files (exhibits) that live under this work — shown as buttons in the hero.
+  const caseFiles = exhibitsForParent(`/work/${project.slug}`);
+
   if (project.layout === "cinematic") {
     return <FashionExperience project={project} />; // renders its own lifted player
   }
@@ -170,7 +173,7 @@ export function ProjectDetail() {
               <h1 className="display detail-title">{project.title}</h1>
               <p className="h3 detail-subtitle muted serif-i">{project.subtitle}</p>
               <p className="lead detail-summary">{project.summary}</p>
-              {(project.links.length > 0 || project.studyPath || project.moduleLink) && (
+              {(project.links.length > 0 || project.studyPath || project.moduleLink || caseFiles.length > 0) && (
                 <div className="detail-links">
                   {project.studyPath && (
                     <Link className="btn btn-primary" to={project.studyPath}>
@@ -182,6 +185,11 @@ export function ProjectDetail() {
                       {project.moduleLink.label} <span className="arr">→</span>
                     </Link>
                   )}
+                  {caseFiles.map((e) => (
+                    <Link key={e.id} className="btn btn-ghost" to={`/exhibit/${e.id}`}>
+                      {e.title} <span className="arr">→</span>
+                    </Link>
+                  ))}
                   {project.links.map((l) => (
                     <a key={l.href} className="btn btn-primary" href={l.href} target="_blank" rel="noreferrer">
                       {l.label} <span className="arr">↗</span>
@@ -208,21 +216,6 @@ export function ProjectDetail() {
 
         {project.storyCarousel && <StoryCarousel data={project.storyCarousel} />}
 
-        {exhibitsForParent(`/work/${project.slug}`).length > 0 && (
-          <section className="detail-cases reveal">
-            <h2 className="h3 detail-cases-h">Case files</h2>
-            <div className="detail-cases-list">
-              {exhibitsForParent(`/work/${project.slug}`).map((e) => (
-                <Link key={e.id} to={`/exhibit/${e.id}`} className="detail-case">
-                  <span className="detail-case-eyebrow">{e.eyebrow}</span>
-                  <span className="detail-case-title">{e.title}</span>
-                  <span className="detail-case-sub">{e.subtitle}</span>
-                  <span className="detail-case-go">Open the file <span className="arr">→</span></span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        )}
 
         {project.feature &&
           (project.featureHotspots && project.featureHotspots.length > 0 && project.gallery && project.gallery.length > 0 ? (

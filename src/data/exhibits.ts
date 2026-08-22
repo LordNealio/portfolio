@@ -33,7 +33,7 @@ export const EXHIBITS: Exhibit[] = [
       "One case, told across eleven files: how a novel's changing titles and a rapper's changing name open a question about numbers, words, etymology, classification, and identity.",
       "Scroll slowly. A clue is not a conclusion.",
     ],
-    parent: { label: "RapGod", to: "/work/rapgod" },
+    parent: { label: "ENIGMA", to: "/work/enigma" },
     closing: {
       line: "What started as a music question became a question about language, classification, and identity.",
       note: "The images are finalized case files, presented as-is. Historical word-usage is documented, not endorsed — this is an inquiry into how meaning changes, not a claim.",

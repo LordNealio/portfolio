@@ -645,7 +645,6 @@ const core: Project[] = [
       "Built as the site's onboarding and catalogued here as a work in its own right. Sensitive material is handled as critical analysis — the erased 1939 title is named and shown censored, never reproduced.",
     studyPath: "/enter",
     studyPathLabel: "Enter ENIGMA",
-    moduleLink: { label: "Read the case file · Christie × DMX", href: "/exhibit/christie-dmx" },
     links: [],
     relatedProjects: ["rapgod"],
     note: "The gate is the site's front door; this entry is that same experience, catalogued as a work.",
