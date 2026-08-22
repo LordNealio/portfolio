@@ -80,6 +80,13 @@ export const EXHIBITS: Exhibit[] = [
       line: "Coincidence, or wyrd? Come with an open ear — leave with your own meaning.",
       note: "The images are finalized case files, presented as-is — an inquiry into pattern and fate, not a claim.",
     },
+    coda: {
+      eyebrow: "The Mix",
+      title: "The God Frequency",
+      lead: "A sequence of songs, words, names, and sounds as one piece. Press play, and listen for what repeats.",
+      embed: "https://archive.org/embed/nwyrd-mix-1",
+      note: "A montage assembled for this file; the underlying works belong to their artists.",
+    },
     slides: [
       { src: "/art/exhibits/nwyrd/n1.jpg", alt: "In the beginning was the word — and you followed it. This is where the journey turns inward. (1 of 6)" },
       { src: "/art/exhibits/nwyrd/n2.jpg", alt: "What is Wyrd? Old English for fate, destiny, what comes to pass — but not a fixed future. Think of wyrd as a web: past actions, present events, people and circumstances shaping what comes next. Wyrd in works: Throne of Blood (1957), Macbeth, Beowulf. Not a straight line — a web. (2 of 6)" },
