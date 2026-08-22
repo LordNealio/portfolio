@@ -1,22 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import type { Exhibit } from "../data/exhibits";
+import type { Exhibit, ExhibitSlide } from "../data/exhibits";
 
 // A full-screen, click-through case experience (exhibit mode: "carousel"). It
 // takes over the viewport — the rest of the site sits under it — and pages
-// through the slides one at a time, with the coda video embedded after slide 4.
-type Step = { kind: "slide"; src: string; alt: string } | { kind: "video" } | { kind: "closing" };
+// through the slides one at a time. A slide can carry an embedded video, dropped
+// into a region of its artwork (e.g. a baked-in "play" area).
+type Step = { kind: "slide"; slide: ExhibitSlide } | { kind: "closing" };
 
 export function ExhibitExperience({ exhibit }: { exhibit: Exhibit }) {
   const nav = useNavigate();
   const touchX = useRef<number | null>(null);
 
-  // slides, with the coda video inserted right after the 4th slide, then a close.
-  const steps: Step[] = [];
-  exhibit.slides.forEach((s, i) => {
-    steps.push({ kind: "slide", src: s.src, alt: s.alt });
-    if (i === 3 && exhibit.coda) steps.push({ kind: "video" });
-  });
+  const steps: Step[] = exhibit.slides.map((slide) => ({ kind: "slide" as const, slide }));
   steps.push({ kind: "closing" });
 
   const len = steps.length;
@@ -67,26 +63,32 @@ export function ExhibitExperience({ exhibit }: { exhibit: Exhibit }) {
           touchX.current = null;
         }}
       >
-        {cur.kind === "slide" && (
-          <button className="nx-slide" onClick={() => go(1)} aria-label="Next">
-            <img src={cur.src} alt={cur.alt} />
-          </button>
-        )}
-
-        {cur.kind === "video" && exhibit.coda && (
-          <div className="nx-video">
-            <p className="nx-video-title">{exhibit.coda.title}</p>
-            <div className="nx-video-frame">
-              <iframe
-                src={exhibit.coda.embed}
-                title={exhibit.coda.title}
-                allow="fullscreen; encrypted-media"
-                allowFullScreen
-              />
+        {cur.kind === "slide" &&
+          (cur.slide.videoEmbed && cur.slide.videoBox ? (
+            <div className="nx-slide nx-media">
+              <img src={cur.slide.src} alt={cur.slide.alt} />
+              <div
+                className="nx-media-video"
+                style={{
+                  left: `${cur.slide.videoBox.left}%`,
+                  top: `${cur.slide.videoBox.top}%`,
+                  width: `${cur.slide.videoBox.width}%`,
+                  height: `${cur.slide.videoBox.height}%`,
+                }}
+              >
+                <iframe
+                  src={cur.slide.videoEmbed}
+                  title={`${exhibit.title} — mix`}
+                  allow="fullscreen; encrypted-media"
+                  allowFullScreen
+                />
+              </div>
             </div>
-            <p className="nx-video-lead">{exhibit.coda.lead}</p>
-          </div>
-        )}
+          ) : (
+            <button className="nx-slide" onClick={() => go(1)} aria-label="Next">
+              <img src={cur.slide.src} alt={cur.slide.alt} />
+            </button>
+          ))}
 
         {cur.kind === "closing" && (
           <div className="nx-closing">
@@ -108,7 +110,7 @@ export function ExhibitExperience({ exhibit }: { exhibit: Exhibit }) {
           {steps.map((s, i) => (
             <button
               key={i}
-              className={`nx-dot ${i === step ? "on" : ""} ${s.kind === "video" ? "vid" : ""}`}
+              className={`nx-dot ${i === step ? "on" : ""} ${s.kind === "slide" && s.slide.videoEmbed ? "vid" : ""}`}
               onClick={() => setStep(i)}
               aria-label={`Step ${i + 1}`}
               aria-current={i === step}

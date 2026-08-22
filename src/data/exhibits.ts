@@ -7,6 +7,10 @@ export interface ExhibitSlide {
   src: string;
   alt: string;
   custom?: string; // renders a bespoke HTML slide (by key) instead of the image
+  // An embedded video overlaid on a region of the slide image (percentages of the
+  // image box) — e.g. dropped into a "play" area baked into the artwork.
+  videoEmbed?: string;
+  videoBox?: { left: number; top: number; width: number; height: number };
 }
 
 export interface Exhibit {
@@ -82,19 +86,17 @@ export const EXHIBITS: Exhibit[] = [
       line: "Coincidence, or wyrd? Come with an open ear — leave with your own meaning.",
       note: "The images are finalized case files, presented as-is — an inquiry into pattern and fate, not a claim.",
     },
-    coda: {
-      eyebrow: "The Mix",
-      title: "The God Frequency",
-      lead: "A sequence of songs, words, names, and sounds as one piece. Press play, and listen for what repeats.",
-      embed: "https://archive.org/embed/nwyrd-mix-1",
-      note: "A montage assembled for this file; the underlying works belong to their artists.",
-    },
     slides: [
       { src: "/art/exhibits/nwyrd/n1.jpg", alt: "In the beginning was the word — and you followed it. This is where the journey turns inward. (1 of 6)" },
       { src: "/art/exhibits/nwyrd/n2.jpg", alt: "What is Wyrd? Old English for fate, destiny, what comes to pass — but not a fixed future. Think of wyrd as a web: past actions, present events, people and circumstances shaping what comes next. Wyrd in works: Throne of Blood (1957), Macbeth, Beowulf. Not a straight line — a web. (2 of 6)" },
       { src: "/art/exhibits/nwyrd/n3.jpg", alt: "N + Wyrd: put N at the centre of the web — music, books, people, place, time, and world all connecting. The centre connects: N-WYRD. (3 of 6)" },
       { src: "/art/exhibits/nwyrd/n4.jpg", alt: "Listen first. Don't solve it, don't search for it — just listen. What repeats? What connects? What did you notice? Come with an open ear; leave with your own meaning. (4 of 6)" },
-      { src: "/art/exhibits/nwyrd/n5.jpg", alt: "The N-WYRD Mix — 'The God Frequency': a sequence of songs, words, names, and sounds as one piece. Press play; enter the frequency. (5 of 6)" },
+      {
+        src: "/art/exhibits/nwyrd/n5.jpg",
+        alt: "The N-WYRD Mix — 'The God Frequency': a sequence of songs, words, names, and sounds as one piece. Press play; enter the frequency. (5 of 6)",
+        videoEmbed: "https://archive.org/embed/nwyrd-mix-1",
+        videoBox: { left: 19, top: 41, width: 62, height: 25 },
+      },
       { src: "/art/exhibits/nwyrd/n6.jpg", alt: "What did you hear — coincidence, or wyrd? (6 of 6)" },
     ],
   },
