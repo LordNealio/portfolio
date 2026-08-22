@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getExhibit, ExhibitSlide } from "../data/exhibits";
+import { getExhibit } from "../data/exhibits";
 import { useReveal } from "../lib/useReveal";
 import { PlayerBar } from "../components/PlayerBar";
+import { ExhibitExperience } from "../components/ExhibitExperience";
 
 export function ExhibitPage() {
   const { id } = useParams();
@@ -27,6 +28,11 @@ export function ExhibitPage() {
         </div>
       </section>
     );
+  }
+
+  // Full-screen click-through experience (takes over the viewport).
+  if (exhibit.mode === "carousel") {
+    return <ExhibitExperience exhibit={exhibit} />;
   }
 
   return (
@@ -58,29 +64,25 @@ export function ExhibitPage() {
         </div>
       </header>
 
-      {/* Slides — a click-through carousel, or a seamless vertical scroll */}
-      {exhibit.mode === "carousel" ? (
-        <ExhibitCarousel slides={exhibit.slides} />
-      ) : (
-        <div className="exhibit-slides">
-          {exhibit.slides.map((s, i) =>
-            s.custom === "etymology" ? (
-              <EtymologySlide key={`custom-${i}`} />
-            ) : (
-              <figure className="exhibit-slide" key={s.src}>
-                <img
-                  src={s.src}
-                  alt={s.alt}
-                  width={1024}
-                  height={1536}
-                  loading={i < 2 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-              </figure>
-            )
-          )}
-        </div>
-      )}
+      {/* Slides — a seamless vertical scroll, like turning the pages of a file */}
+      <div className="exhibit-slides">
+        {exhibit.slides.map((s, i) =>
+          s.custom === "etymology" ? (
+            <EtymologySlide key={`custom-${i}`} />
+          ) : (
+            <figure className="exhibit-slide" key={s.src}>
+              <img
+                src={s.src}
+                alt={s.alt}
+                width={1024}
+                height={1536}
+                loading={i < 2 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </figure>
+          )
+        )}
+      </div>
 
       {/* Coda — a closing montage */}
       {exhibit.coda && (
@@ -132,71 +134,6 @@ export function ExhibitPage() {
       {/* Soundtrack — a dismissible mini-player, if the exhibit has one */}
       {exhibit.audio && <PlayerBar trackUrl={exhibit.audio.url} label={exhibit.audio.label} />}
     </article>
-  );
-}
-
-// A click-through carousel of the case-file slides (one at a time), for exhibits
-// with mode: "carousel". Prev/next, dots, counter, keyboard arrows, touch-swipe.
-function ExhibitCarousel({ slides }: { slides: ExhibitSlide[] }) {
-  const [i, setI] = useState(0);
-  const touchX = useRef<number | null>(null);
-  const len = slides.length;
-  const idx = len ? ((i % len) + len) % len : 0;
-  const go = (d: number) => setI((x) => x + d);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") go(1);
-      else if (e.key === "ArrowLeft") go(-1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [len]);
-
-  const cur = slides[idx];
-  return (
-    <div className="exhibit-carousel">
-      <div
-        className="exhibit-carousel-stage"
-        onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
-        onTouchEnd={(e) => {
-          if (touchX.current === null) return;
-          const dx = e.changedTouches[0].clientX - touchX.current;
-          if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
-          touchX.current = null;
-        }}
-      >
-        <button className="exhibit-carousel-arrow left" onClick={() => go(-1)} aria-label="Previous slide">
-          ‹
-        </button>
-        <div className="exhibit-carousel-frame">
-          {cur.custom === "etymology" ? (
-            <EtymologySlide />
-          ) : (
-            <img src={cur.src} alt={cur.alt} width={1024} height={1536} decoding="async" />
-          )}
-        </div>
-        <button className="exhibit-carousel-arrow right" onClick={() => go(1)} aria-label="Next slide">
-          ›
-        </button>
-      </div>
-      <div className="exhibit-carousel-foot">
-        <span className="exhibit-carousel-count">
-          {String(idx + 1).padStart(2, "0")} / {String(len).padStart(2, "0")}
-        </span>
-        <div className="exhibit-carousel-dots">
-          {slides.map((_, n) => (
-            <button
-              key={n}
-              className={`exhibit-carousel-dot ${n === idx ? "on" : ""}`}
-              onClick={() => setI(n)}
-              aria-label={`Go to slide ${n + 1}`}
-              aria-current={n === idx}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }
 
