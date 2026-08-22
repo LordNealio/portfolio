@@ -20,6 +20,7 @@ export interface Exhibit {
   slides: ExhibitSlide[];
   audio?: { url: string; label: string }; // optional SoundCloud track for a bottom mini-player
   coda?: { eyebrow: string; title: string; lead: string; embed: string; note?: string }; // a closing embedded video/montage
+  sources?: { label: string; url: string }[]; // reference links shown at the end
 }
 
 export const EXHIBITS: Exhibit[] = [
@@ -45,6 +46,12 @@ export const EXHIBITS: Exhibit[] = [
       embed: "https://archive.org/embed/a-real-ngga-intermission-1",
       note: "A montage assembled for this file; the underlying works belong to their artists.",
     },
+    sources: [
+      { label: "Etymonline — word history", url: "https://www.etymonline.com/word/nigger" },
+      { label: "Wikipedia — And Then There Were None", url: "https://en.wikipedia.org/wiki/And_Then_There_Were_None" },
+      { label: "Wikipedia — the “woodpile” idiom", url: "https://en.wikipedia.org/wiki/Nigger_in_the_woodpile" },
+      { label: "Wikipedia — DMX", url: "https://en.wikipedia.org/wiki/DMX" },
+    ],
     slides: [
       { src: "/art/exhibits/christie-dmx/a01.jpg", alt: "Case #1 — 'And then there was…' A mystery from 1939 to 1999: Agatha Christie × DMX. What connects them? (1 of 9)" },
       { src: "/art/exhibits/christie-dmx/a02.jpg", alt: "1939 — Agatha Christie publishes the novel now known as 'And Then There Were None' — but that wasn't its original title. Follow the title. (2 of 9)" },

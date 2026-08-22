@@ -105,6 +105,20 @@ export function ExhibitPage() {
           <p className="exhibit-eyebrow reveal">End of file</p>
           <p className="exhibit-end-line reveal">{exhibit.closing.line}</p>
           {exhibit.closing.note && <p className="exhibit-end-note reveal">{exhibit.closing.note}</p>}
+          {exhibit.sources && exhibit.sources.length > 0 && (
+            <div className="exhibit-sources reveal">
+              <p className="exhibit-eyebrow">Sources</p>
+              <ul className="exhibit-sources-list">
+                {exhibit.sources.map((s) => (
+                  <li key={s.url}>
+                    <a href={s.url} target="_blank" rel="noreferrer noopener">
+                      {s.label} <span aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <Link to={exhibit.parent.to} className="btn btn-primary exhibit-end-cta reveal">
             Back to {exhibit.parent.label} <span className="arr">→</span>
           </Link>

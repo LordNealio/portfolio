@@ -149,6 +149,34 @@
   }
 }
 
+/* Sources — reference links at the end of the file. */
+.exhibit-sources {
+  margin: clamp(1.6rem, 5vw, 2.4rem) auto 0;
+  max-width: 40rem;
+}
+.exhibit-sources .exhibit-eyebrow {
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+.exhibit-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+  text-align: center;
+}
+.exhibit-sources-list a {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.exhibit-sources-list a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
 /* Coda — a closing embedded montage. */
 .exhibit-coda {
   padding: clamp(2.6rem, 9vw, 5rem) 0 clamp(1rem, 4vw, 2rem);
