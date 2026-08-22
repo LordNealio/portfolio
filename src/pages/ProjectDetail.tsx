@@ -187,7 +187,7 @@ export function ProjectDetail() {
                   )}
                   {caseFiles.map((e) => (
                     <Link key={e.id} className="btn btn-ghost" to={`/exhibit/${e.id}`}>
-                      {e.title} <span className="arr">→</span>
+                      Read the case file · {e.title} <span className="arr">→</span>
                     </Link>
                   ))}
                   {project.links.map((l) => (
