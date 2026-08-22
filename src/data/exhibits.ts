@@ -17,6 +17,7 @@ export interface Exhibit {
   intro: string[];
   parent: { label: string; to: string }; // where it lives / back link
   closing: { line: string; note?: string };
+  mode?: "scroll" | "carousel"; // seamless vertical scroll (default) or a click-through carousel
   slides: ExhibitSlide[];
   audio?: { url: string; label: string }; // optional SoundCloud track for a bottom mini-player
   coda?: { eyebrow: string; title: string; lead: string; embed: string; note?: string }; // a closing embedded video/montage
@@ -76,6 +77,7 @@ export const EXHIBITS: Exhibit[] = [
       "Scroll slowly. A clue is not a conclusion.",
     ],
     parent: { label: "ENIGMA", to: "/work/enigma" },
+    mode: "carousel",
     closing: {
       line: "Coincidence, or wyrd? Come with an open ear — leave with your own meaning.",
       note: "The images are finalized case files, presented as-is — an inquiry into pattern and fate, not a claim.",

@@ -149,6 +149,82 @@
   }
 }
 
+/* Click-through carousel (exhibit mode: "carousel"). */
+.exhibit-carousel {
+  padding: clamp(0.8rem, 3vw, 1.6rem) clamp(1rem, 4vw, 2rem) 0;
+  max-width: 520px;
+  margin-inline: auto;
+}
+.exhibit-carousel-stage {
+  position: relative;
+  touch-action: pan-y;
+}
+.exhibit-carousel-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.exhibit-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(10, 12, 16, 0.55);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+.exhibit-carousel-arrow:hover {
+  background: rgba(10, 12, 16, 0.85);
+}
+.exhibit-carousel-arrow.left {
+  left: clamp(0.2rem, 2vw, 0.6rem);
+}
+.exhibit-carousel-arrow.right {
+  right: clamp(0.2rem, 2vw, 0.6rem);
+}
+.exhibit-carousel-foot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.exhibit-carousel-count {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+.exhibit-carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+.exhibit-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--line-strong);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s var(--ease);
+}
+.exhibit-carousel-dot.on {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
 /* Sources — reference links at the end of the file. */
 .exhibit-sources {
   margin: clamp(1.6rem, 5vw, 2.4rem) auto 0;
