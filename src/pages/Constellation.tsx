@@ -8,6 +8,7 @@ import {
   CONSTELLATION_DISCLAIMER,
 } from "../data/people";
 import { useReveal } from "../lib/useReveal";
+import { PlayerBar } from "../components/PlayerBar";
 
 const GROUP_ORDER = [
   "Music, Story & Creative Vision",
@@ -130,6 +131,7 @@ export function Constellation() {
 
         <p className="constellation-disclaimer">{CONSTELLATION_DISCLAIMER}</p>
       </div>
+      <PlayerBar trackUrl="https://soundcloud.com/bruiserwolf/holla-at-ya-mans" label="Bruiser Wolf — 'Holla at Ya Mans'" />
     </section>
   );
 }
