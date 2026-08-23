@@ -129,6 +129,23 @@
   box-shadow: none;
 }
 
+/* Video-only slide (no image, just an embedded player) */
+.exhibit-slide--video {
+  background: #000;
+}
+.exhibit-video-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 vertical */
+}
+.exhibit-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* Desktop / tablet: a tidy centered column with gentle separation. */
 @media (min-width: 720px) {
   .exhibit-slides {

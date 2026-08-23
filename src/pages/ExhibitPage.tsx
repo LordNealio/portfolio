@@ -69,6 +69,18 @@ export function ExhibitPage() {
         {exhibit.slides.map((s, i) =>
           s.custom === "etymology" ? (
             <EtymologySlide key={`custom-${i}`} />
+          ) : s.videoEmbed && !s.src ? (
+            <figure className="exhibit-slide exhibit-slide--video" key={`video-${i}`}>
+              <div className="exhibit-video-frame">
+                <iframe
+                  src={s.videoEmbed}
+                  title={s.alt}
+                  allow="fullscreen; encrypted-media"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </figure>
           ) : (
             <figure className="exhibit-slide" key={s.src}>
               <img

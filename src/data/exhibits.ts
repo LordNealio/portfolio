@@ -85,6 +85,12 @@ export const EXHIBITS: Exhibit[] = [
       line: "Three letters. How many meanings? The pattern connects — but where does it lead?",
       note: "The images are finalized case files, presented as-is — an inquiry into pattern, language, and meaning, not a claim.",
     },
+    coda: {
+      eyebrow: "Coda",
+      title: "The Frequency",
+      lead: "Press play.",
+      embed: "https://www.youtube.com/embed/YFfN2Geu1p8",
+    },
     slides: [
       { src: "/art/exhibits/gnx/gnx01.jpg", alt: "Case #2 — 25 Years Later. 1999: DMX, '…And Then There Was X.' 2024: Kendrick Lamar, GNX. Two cars face each other — one white, one black. (1 of 12)" },
       { src: "/art/exhibits/gnx/gnx02.jpg", alt: "Previously: Case #1 — The Origin of X. Agatha Christie's title trail (1939 slur → 1940 'Ten Little Indians' → 1944 'And Then There Were None') beside DMX = 'Divine Master of the Unknown.' The title changed, the name disappeared, None became X. 25 years later → GNX. Case #1 left us with one question: so what's all this mean — and why does it matter? (2 of 12)" },
@@ -93,6 +99,7 @@ export const EXHIBITS: Exhibit[] = [
       { src: "/art/exhibits/gnx/gnx05.jpg", alt: "What could G mean? If G · N · X is a code, G could be the key that connects it all. GNX tracks examined: TV Off ('This that Alpha and Omega,' Revelation 1:8), Reincarnated (Ecclesiastes 3:11), Man at the Garden (Genesis 2:15, 3:8, John 20:15), Squabble Up ('Gods knows, I am…' — 'I am' is God's name, Exodus 3:14), Wacced Out Murals ('Know you a God,' Psalm 82:6), Gloria (glory, SZA — Euphoria). Do you lack the heart to glorify Euphoria to make it His? (5 of 12)" },
       { src: "/art/exhibits/gnx/gnx06.jpg", alt: "Gloria → Euphoria. 6½ months before SZA wanted to take Gloria to Euphoria on GNX. The Wiz: 'Everything they say about me is true.' What else is hiding in Euphoria? (6 of 12)" },
       { src: "/art/exhibits/gnx/gnx07.jpg", alt: "What's hiding in Euphoria? Clue 01: YNW Melly — Kendrick says 'In 8 bars… I'm YNW Melly.' Y·N·W = Young · N[—] · World → N = N-word? The unknown 'N' just appeared in Euphoria. Clue 02: DMX on The Breakfast Club (2011) about Drake — Kendrick channels DMX's energy in Euphoria with 'I hate the way…' Clue 03: Kendrick on Silent Hill — 'Peekaboo, can't hide behind your money dawg' — a clear shot at Aubrey. Clue 04: Peekaboo on GNX samples Willie Hale's 'Give Me a Helping Hand.' Did Euphoria just give us the N? (7 of 12)" },
+      { src: "", videoEmbed: "https://www.youtube.com/embed/mkf176UlDgI", alt: "DMX on The Breakfast Club — 'I don't like anything about Drake' (YouTube Short)" },
       { src: "/art/exhibits/gnx/gnx08.jpg", alt: "Did we account for everything? Go back to X. Three meanings: 1. The Number — X = 10 in Roman numerals. 2. The Unknown — X is the variable in mathematics; DMX = Divine Master of the Unknown. 3. The Christ — X = Chi (Χ), the Greek letter that is the first letter of Christos (ΧΡΙΣΤΟΣ) — 'Christ.' X as an abbreviation for Christ. XXX? (8 of 12)" },
       { src: "/art/exhibits/gnx/gnx09.jpg", alt: "The X Connects — from helping hands to Peekaboo. 01: XXXTentacion's warning to Drake ('If anybody tries to kill me, it was Drake'). 02: XXXTentacion started the #HelpingHandChallenge before Drake's God's Plan. 03: Kendrick on Silent Hill — 'Peekaboo, can't hide behind your money dawg.' 04: Peekaboo on GNX samples 'Give a Helping Hand.' X → XXX → Drake → God's Plan. Is XXXTentacion's murder a mystery? (9 of 12)" },
       { src: "/art/exhibits/gnx/gnx10.jpg", alt: "Now read GNX again. Three letters, three possibilities. G → God? Evidence from GNX: Man at the Garden, Squabble Up ('I am'), Wacced Out Murals ('Know you a God'), Gloria (glory, same root). N → N-word? Evidence from Euphoria: YNW Melly, the N in YNW, Kendrick's warning to Drake. X → 10 / Unknown / Christ? Evidence from the investigation: Roman numeral, the variable, DMX, Chi = Christos. Three letters. How many meanings? Is there one reading that accounts for all of them? (10 of 12)" },
