@@ -11,10 +11,32 @@
     -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(24,30,40,.16);border-radius:100px;
     padding:.5em 1em;text-decoration:none;box-shadow:0 6px 18px rgba(24,30,40,.14);transition:background .2s,border-color .2s}
   .book-nav:hover{border-color:#9a7628;color:#9a7628}
-  @media print{.book-nav{display:none}}
+  .book-actions{position:fixed;top:14px;right:14px;z-index:50;display:flex;gap:.45rem}
+  .book-actions a,.book-actions button{font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#16202b;background:rgba(251,248,240,.86);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(24,30,40,.16);border-radius:100px;
+    padding:.5em 1em;text-decoration:none;box-shadow:0 6px 18px rgba(24,30,40,.14);transition:background .2s,border-color .2s;cursor:pointer;display:inline-flex;align-items:center;gap:.4em}
+  .book-actions a:hover,.book-actions button:hover{border-color:#9a7628;color:#9a7628}
+  .book-actions .ico{font-style:normal;font-size:.82rem;line-height:1}
+  .book-actions .toast{position:fixed;top:56px;right:14px;font-family:system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:.72rem;letter-spacing:.1em;color:#9a7628;background:rgba(251,248,240,.96);border:1px solid rgba(154,118,40,.3);
+    border-radius:100px;padding:.45em 1em;box-shadow:0 4px 12px rgba(24,30,40,.12);opacity:0;transform:translateY(-6px);
+    transition:opacity .25s,transform .25s;pointer-events:none}
+  .book-actions .toast.show{opacity:1;transform:translateY(0)}
+  @media print{.book-nav,.book-actions{display:none}}
 </style>
 </head><body>
 <a class="book-nav" href="/">&#8592; Back to NIL</a>
+<div class="book-actions">
+  <a href="/NIL-Monograph.pdf" download><i class="ico">&#8595;</i> Download</a>
+  <button onclick="shareBook()"><i class="ico">&#8599;</i> Share</button>
+  <span class="toast" id="share-toast">Link copied</span>
+</div>
+<script>
+function shareBook(){var u=window.location.href,t='NIL — A Monograph';
+if(navigator.share){navigator.share({title:t,url:u}).catch(function(){});}
+else{navigator.clipboard.writeText(u).then(function(){var el=document.getElementById('share-toast');el.classList.add('show');setTimeout(function(){el.classList.remove('show')},1800)})}}
+</script>
 <style>
   :root {
     --paper: #f2ede1; --paper-2: #eae4d5; --page: #fbf8f0;
