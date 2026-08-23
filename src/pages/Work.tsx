@@ -1,4 +1,5 @@
 import { ArchiveList } from "../components/ArchiveList";
+import { PlayerBar } from "../components/PlayerBar";
 import { useReveal } from "../lib/useReveal";
 
 export function Work() {
@@ -16,6 +17,7 @@ export function Work() {
         <p className="ed-script reveal">Select a project to open</p>
         <ArchiveList />
       </div>
+      <PlayerBar trackUrl="https://soundcloud.com/kanyewest/whatever-works" label="Kanye West — 'Whatever Works'" />
     </section>
   );
 }
