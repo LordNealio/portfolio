@@ -672,4 +672,12 @@
 
 </div>
 
+<!-- Floating SoundCloud player -->
+<div id="sc-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:rgba(22,32,43,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(154,118,40,.25);padding:6px 12px;display:flex;align-items:center;gap:10px;font-family:system-ui,-apple-system,sans-serif;font-size:.72rem;color:rgba(243,236,217,.7)">
+  <button onclick="document.getElementById('sc-bar').remove()" style="background:none;border:none;color:rgba(243,236,217,.5);cursor:pointer;font-size:1rem;padding:2px 6px;line-height:1" aria-label="Dismiss player">✕</button>
+  <span style="letter-spacing:.12em;text-transform:uppercase;white-space:nowrap">Kanye West — 'Remote Control Pt 2'</span>
+  <iframe id="sc-widget" style="flex:1;min-width:0;height:20px;border:none;opacity:.85" allow="autoplay"
+    src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fkanyewest%2Fremote-control-pt-2&color=%239a7628&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+</div>
+
 </body></html>
