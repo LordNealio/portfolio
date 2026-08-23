@@ -614,11 +614,11 @@ const core: Project[] = [
   {
     slug: "enigma",
     title: "ENIGMA",
-    subtitle: "A gate, a riddle, and a chain of case files",
+    subtitle: "A gate, a riddle, and a growing chain of case files",
     summary:
-      "An interactive front door: choose the curious path or answer a riddle to earn your way in, then follow the investigation.",
+      "An interactive front door and a living investigation — choose the curious path or answer a riddle, then follow the case files as they unfold across music, language, and identity.",
     category: "Games & Interactive",
-    tags: ["Investigation", "Interactive", "Cultural analysis", "Christie × DMX"],
+    tags: ["Investigation", "Interactive", "Cultural analysis", "Christie × DMX", "GNX", "NWyrd"],
     status: "live",
     year: "2026",
     featured: false,
@@ -632,17 +632,18 @@ const core: Project[] = [
     problem:
       "A body of cultural investigation is easy to scroll past. It needed a way in that rewards curiosity instead of explaining itself.",
     solution:
-      "A choice gate: take the curious path — a swipeable ENIGMA carousel of four questions about music that resolve into a pattern — or answer a riddle to earn entry. Either way opens the case files, starting with Agatha Christie × DMX.",
+      "A choice gate: take the curious path — a swipeable ENIGMA carousel of four questions about music that resolve into a pattern — or answer a riddle to earn entry. Either way opens a chain of case files that trace patterns across music, language, history, and identity.",
     features: [
       "A choice gate — take the curious path, or answer the riddle to prove you saw it",
       "The ENIGMA intro carousel: four questions about music, then a pattern that shouldn't exist",
-      "Case #1 — Agatha Christie × DMX: nine files tracing a title, a number, and an erased word",
-      "Doors into the wider archive once you're through",
+      "Case #1 — Agatha Christie × DMX: a title, a number, and an erased word",
+      "Case #2 — GNX: three letters, three possibilities, 25 years later",
+      "Case #3 — NWyrd: coincidence, or fate? An immersive listening experience",
       "Shown once per visitor, and reachable any time at /enter",
     ],
     technology: ["React", "TypeScript", "Vite"],
     process:
-      "Built as the site's onboarding and catalogued here as a work in its own right. Sensitive material is handled as critical analysis — the erased 1939 title is named and shown censored, never reproduced.",
+      "Built as the site's onboarding and catalogued here as a work in its own right. Each case file is a self-contained investigation that connects to the others. Sensitive material is handled as critical analysis — historical language is documented, not endorsed.",
     studyPath: "/enter",
     studyPathLabel: "Enter ENIGMA",
     links: [],
