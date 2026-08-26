@@ -1799,6 +1799,32 @@ textarea.field {
   background: #000;
 }
 
+/* ═══ DETAIL video embeds (YouTube / external) ═══ */
+.detail-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1.2rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.detail-video-embed {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+}
+.detail-video-embed iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+.detail-video-embed .video-caption {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: var(--bg);
+}
+
 /* ═══ DETAIL feature image (infographic / ad) ═══ */
 .detail-feature {
   margin-bottom: clamp(2.5rem, 5vw, 4rem);

@@ -105,6 +105,7 @@ export interface Project {
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   audioBar?: { url: string; label: string }; // a bottom mini-player (for full-screen layouts where an inline embed can't sit)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
+  videos?: { embed: string; caption?: string }[]; // YouTube / external embeds rendered at the bottom of the detail page
   sections?: EssaySection[]; // long-form essay rendered on the detail page
   storyCarousel?: StoryCarousel; // an inline swipeable carousel of finished slides shown on the detail page
   books?: Book[]; // a reading list rendered on the detail page
@@ -1124,6 +1125,12 @@ const houseProjects: Project[] = [
     imageFit: "contain",
     gallery: ["/art/bigben.jpg"],
     sections: charmQuarkBigBen,
+    videos: [
+      { embed: "https://www.youtube.com/embed/gnnDrzd7iJg" },
+      { embed: "https://www.youtube.com/embed/Q4Yaf49ZiVg" },
+      { embed: "https://www.youtube.com/embed/HA77jS1P8nA" },
+      { embed: "https://www.youtube.com/embed/lLYhpqNLnvQ" },
+    ],
     note: "A conceptual art piece — interpretation is the artist's own.",
   }),
   house({

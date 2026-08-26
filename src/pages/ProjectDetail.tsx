@@ -344,6 +344,22 @@ export function ProjectDetail() {
           <Gallery title={project.sections ? "The image" : "Lookbook"} images={project.gallery} />
         )}
 
+        {project.videos && project.videos.length > 0 && (
+          <section className="detail-videos">
+            {project.videos.map((v, i) => (
+              <div className="detail-video-embed reveal" key={i}>
+                <iframe
+                  src={v.embed}
+                  title={v.caption || `Video ${i + 1}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                {v.caption && <p className="video-caption">{v.caption}</p>}
+              </div>
+            ))}
+          </section>
+        )}
+
         {related.length > 0 && (
           <section className="detail-related">
             <h2 className="h2 reveal">Related work</h2>
