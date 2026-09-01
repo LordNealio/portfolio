@@ -1091,6 +1091,7 @@ const houseProjects: Project[] = [
       { embed: "https://www.youtube.com/embed/pnkuV5ugUeU" },
       { embed: "https://www.youtube.com/embed/HR00q7SolTA" },
       { embed: "https://www.youtube.com/embed/UQU80dRRxqU" },
+      { embed: "https://www.youtube.com/embed/WlyxAiVPeH8" },
     ],
   }),
   house({
