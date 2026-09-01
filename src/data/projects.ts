@@ -1082,6 +1082,10 @@ const houseProjects: Project[] = [
     imageDark: true,
     gallery: ["/art/chase.jpg"],
     note: "A conceptual art piece. Historical facts about Salmon P. Chase are accurate.",
+    videos: [
+      { embed: "https://www.youtube.com/embed/czEJ5R16N48" },
+      { embed: "https://www.youtube.com/embed/iZ8eT4m3NhU" },
+    ],
   }),
   house({
     slug: "gnx",
