@@ -49,7 +49,7 @@ export const reconveneApi = {
 
   async submit(draft: Draft, elapsedMs: number, honeypot: string): Promise<SubmitResult> {
     if (!RECONVENE_ENABLED) return { ok: false, reason: "disabled" };
-    const r = await post("/api/reconvene/submit", { draft, elapsedMs, hp: honeypot });
+    const r = await post("/api/reconvene?action=submit", { draft, elapsedMs, hp: honeypot });
     if (!r) return { ok: false, reason: "offline" };
     if (r.status === 403) return { ok: false, reason: "disabled" };
     if (r.status === 400 || r.status === 422 || r.status === 429) {
@@ -62,7 +62,7 @@ export const reconveneApi = {
 
   async addition(payload: AdditionPayload, elapsedMs: number, honeypot: string): Promise<SubmitResult> {
     if (!RECONVENE_ENABLED) return { ok: false, reason: "disabled" };
-    const r = await post("/api/reconvene/addition", { ...payload, elapsedMs, hp: honeypot });
+    const r = await post("/api/reconvene?action=addition", { ...payload, elapsedMs, hp: honeypot });
     if (!r) return { ok: false, reason: "offline" };
     if (r.status === 403) return { ok: false, reason: "disabled" };
     if (r.status === 400 || r.status === 422 || r.status === 429) {
@@ -77,7 +77,7 @@ export const reconveneApi = {
   async results(): Promise<ResultsPayload | null> {
     if (!RECONVENE_ENABLED) return null;
     try {
-      const r = await fetch("/api/reconvene/results");
+      const r = await fetch("/api/reconvene?action=results");
       if (!r.ok) return null;
       return (await r.json()) as ResultsPayload;
     } catch {

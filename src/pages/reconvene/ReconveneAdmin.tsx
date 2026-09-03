@@ -33,7 +33,7 @@ export function ReconveneAdmin() {
     setBusy(kind);
     setStatus(null);
     try {
-      const r = await fetch(`/api/reconvene/admin/export?kind=${kind}`, {
+      const r = await fetch(`/api/reconvene?action=export&kind=${kind}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (r.status === 401) {

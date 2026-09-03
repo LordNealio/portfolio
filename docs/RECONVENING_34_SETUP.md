@@ -22,6 +22,24 @@ on collection is a deliberate, two-key action described below.
 | `/study/r-word/34/sources` | Sources & method |
 | `/study/r-word/34/admin` | CSV export (token, unlinked) |
 
+## The API is one function, not four
+
+Vercel's Hobby plan allows **12 serverless functions per deployment** and this
+project already runs 9. Four separate endpoint files made 13 and the deploy was
+rejected at "Deploying outputs" (the build itself succeeds, which makes this
+failure easy to misread). So all four actions live in `api/reconvene.ts` and
+dispatch on a query parameter:
+
+| Action | Route |
+| --- | --- |
+| Submit a review | `POST /api/reconvene?action=submit` |
+| Send a contribution | `POST /api/reconvene?action=addition` |
+| Read aggregate results | `GET /api/reconvene?action=results` |
+| Admin CSV | `GET /api/reconvene?action=export&kind=…` |
+
+**Before adding another endpoint anywhere in this repo, count the files under
+`api/`.** At 12 the next one fails the deploy.
+
 ## Turning collection on
 
 Both keys are required. Either one alone writes nothing.
@@ -140,7 +158,7 @@ value is correct and a fake link is not.
 - The whole review works with no account and no contact details.
 - Contact rows are written **only** with an explicit consent checkbox; the API
   rejects contact data without it (`422 consent_required`).
-- `/api/reconvene/results` returns aggregate counts only — never names, contact
+- `/api/reconvene?action=results` returns aggregate counts only — never names, contact
   details, or free text.
 - The admin export separates `contacts` from `submissions`/`answers`/`comments`,
   so response data and personal data are never handed out in one file by default.
