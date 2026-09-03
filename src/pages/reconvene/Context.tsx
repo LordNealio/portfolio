@@ -82,6 +82,21 @@ export function ReconveneContext() {
       </section>
 
       <section className="rec-sec">
+        <div className="rec-card">
+          <span className="rec-kicker">Companion case file</span>
+          <h3 style={{ marginTop: 6 }}>How September 6 surfaced</h3>
+          <p style={{ marginBottom: 10 }}>
+            The date came out of a music question first. <i>untitled unmastered.</i> carries
+            seven exact dates across eight tracks, and Track 08 is stamped 09.06.2014 — the
+            same day of the year the delegates adopted the thirty-four, 166 years earlier.
+          </p>
+          <Link className="rec-btn ghost" to="/exhibit/untitled">
+            Open the case file →
+          </Link>
+        </div>
+      </section>
+
+      <section className="rec-sec">
         <h2>Where to begin</h2>
         <p>{RECONVENE.beginThree}</p>
         <div className="rec-actions">

@@ -138,6 +138,48 @@ export const EXHIBITS: Exhibit[] = [
       { src: "/art/exhibits/nwyrd/n6.jpg", alt: "What did you hear — coincidence, or wyrd? (6 of 6)" },
     ],
   },
+  {
+    id: "untitled",
+    eyebrow: "An ENIGMA case file",
+    title: "untitled unmastered.",
+    subtitle: "Case No. 4 — the dates are not footnotes",
+    intro: [
+      "Eight tracks, seven exact dates and one historical range. Read as a set, the timestamps behave less like release notes and more like a second archive — land, labour, rights, revolt, satellites, coups and courts, all filed under a day of the year.",
+      "One of those days is September 6. Scroll slowly. A clue is not a conclusion.",
+    ],
+    parent: { label: "ENIGMA", to: "/work/enigma" },
+    mode: "carousel",
+    closing: {
+      line: "Eight songs, thirty-four minutes, and an account still open.",
+      note: "The images are finalized case files, presented as-is. The historical facts on each card are checkable; the connections between them are interpretation, and the personal entries are testimony rather than proof. Nothing here claims the artist intended any of it.",
+    },
+    sources: [
+      { label: "Wikipedia — untitled unmastered.", url: "https://en.wikipedia.org/wiki/Untitled_Unmastered" },
+      { label: "Colored Conventions Project — the 1848 proceedings", url: "https://omeka.coloredconventions.org/items/show/280" },
+    ],
+    slides: [
+      { src: "/art/exhibits/untitled/s01.webp", alt: "01 — The dates are not footnotes. Fact: eight tracks carry seven exact dates and one historical range. Connection: the album can be read as a second archive. An evidence board of pinned photographs strung with red thread, a calendar torn to August 19, 2026. (1 of 20)" },
+      { src: "/art/exhibits/untitled/s02.webp", alt: "02 — The complete date order. Fact: 05.28.2013 → 06.23 → 06.30 → 08.14 → 08.19 → 09.06 → 09.21.2014 → 2014–2016. Connection: the chronology is different from the track order. A timeline marking all eight dates. (2 of 20)" },
+      { src: "/art/exhibits/untitled/s03.webp", alt: "03 — The 2014–2016 crisis. Fact: Ferguson, Tamir Rice, Baltimore, Charleston, Flint and the rise of Black Lives Matter defined the period. Connection: Track 07 carries that crisis atmosphere without one fixed date. Protesters silhouetted with raised hands, a Black Lives Matter placard, and water bottles. (3 of 20)" },
+      { src: "/art/exhibits/untitled/s04.webp", alt: "04 — 05.28, land was taken. Fact: Andrew Jackson signed the Indian Removal Act May 28, 1830. Connection: the album's earliest date opens with Indigenous displacement and contested land. A map of the United States traced with red forced-removal routes. (4 of 20)" },
+      { src: "/art/exhibits/untitled/s05.webp", alt: "05 — 05.28, Black citizenship fought. Fact: the Black 54th Massachusetts left Boston May 28, 1863 to fight in the Civil War. Connection: removal and Black military citizenship occupy the same date. Soldiers of the 54th standing in formation beneath the flag. (5 of 20)" },
+      { src: "/art/exhibits/untitled/s06.webp", alt: "06 — 06.23, workers' power was limited. Fact: Taft–Hartley became law June 23, 1947, restricting organized labor. Connection: the date asks who may organize, work and hold collective power. A broken chain beside the Act. (6 of 20)" },
+      { src: "/art/exhibits/untitled/s07.webp", alt: "07 — 06.23, rights were expanded. Fact: Title IX became law June 23, 1972. Connection: the same date contains both restriction and expanded civil rights. The statute laid across an empty classroom. (7 of 20)" },
+      { src: "/art/exhibits/untitled/s08.webp", alt: "08 — 06.30, a literal cosmic crash. Fact: the Tunguska explosion occurred June 30, 1908. Connection: Track 06's date intersects the title Cosmic Crashout. An airburst flattening a forest. (8 of 20)" },
+      { src: "/art/exhibits/untitled/s09.webp", alt: "09 — 06.30, stars, sovereignty, Corvettes. Fact: Robert Lawrence was selected June 30, 1957; the first Corvette was completed June 30, 1953. Connection: Black space travel and the Corvette share Track 06's date. An astronaut beside a 1953 Corvette against a starfield. (9 of 20)" },
+      { src: "/art/exhibits/untitled/s10.webp", alt: "10 — 08.14, revolution and protection. Fact: Bois Caïman is traditionally dated August 14, 1791; Social Security was signed August 14, 1935. Connection: the date joins revolt against power with government responsibility. A torchlit gathering above the Social Security Act. (10 of 20)" },
+      { src: "/art/exhibits/untitled/s11.webp", alt: "11 — 08.19, image, signal, receiver. Fact: photography was announced August 19, 1839; Syncom 3 launched August 19, 1964. Connection: the date concerns who sends the image and who receives it. A bellows camera below a satellite broadcasting over Earth. (11 of 20)" },
+      { src: "/art/exhibits/untitled/s12.webp", alt: "12 — 08.19, a hidden hand. Fact: the CIA- and British-backed Iran coup culminated August 19, 1953. Connection: manipulation can intensify conflict without erasing real prejudice or valid grievances. A puppeteer's hand strung over a map of Iran. (12 of 20)" },
+      { src: "/art/exhibits/untitled/s13.webp", alt: "13 — 08.19 also found me. Fact: I returned to the album August 19, 2026 — 12 years after Track 01's date. Connection: it is also my wedding and home anniversary; attention, not proof. A calendar reading August 19, 2026 beside two wedding bands and a house key. (13 of 20)" },
+      { src: "/art/exhibits/untitled/s14.webp", alt: "14 — 09.06, Track 08: bluefaces. Fact: Kendrick dated Track 08 September 6, 2014; its lyrics join blue faces, banks and Corvettes. Connection: the imagery opens a path through Salmon P. Chase and 'In God We Trust' toward reparations. Chase beside an 1864 two-cent coin and a dollar bill. (14 of 20)" },
+      { src: "/art/exhibits/untitled/s15.webp", alt: "15 — 09.06, 34 resolutions. Fact: Black delegates adopted 34 resolutions in Cleveland on September 6, 1848. Connection: Track 08 bears the same date 166 years later, 09.06.2014. A convention hall crowd beneath a ledger reading 34 RESOLUTIONS, and the line 09.06.1848 → 09.06.2014. (15 of 20)" },
+      { src: "/art/exhibits/untitled/s16.webp", alt: "16 — Macy Gray opens 34th Street. Fact: Macy Gray was born September 6 in Canton, Ohio. Connection: an associative bridge — Ohio → Macy Gray → Macy's → Miracle on 34th Street. A singer at a microphone beside a Macy's 34th Street marquee and the state of Ohio. (16 of 20)" },
+      { src: "/art/exhibits/untitled/s17.webp", alt: "17 — Mail, money and national belief. Fact: the 1947 film uses federal mail; the 1994 remake uses 'In God We Trust' on money. Connection: both turn public belief into evidence a court recognizes. Scales of justice between a US Mail sack and an In God We Trust placard. (17 of 20)" },
+      { src: "/art/exhibits/untitled/s18.webp", alt: "18 — 09.21, memory, peace, independence. Fact: 'Yes, Virginia' was published September 21; Nkrumah was born September 21; the UN marks Peace Day. Connection: Track 05's mental strain meets belief, forgetting and incomplete freedom. A newspaper, a brain, a portrait, scales and a peace bell. (18 of 20)" },
+      { src: "/art/exhibits/untitled/s19.webp", alt: "19 — 09.21, Track 05: justice. Three short lyric fragments chain the words loopholes, justice, justify and obituary. Connection: legal language becomes a chain about violence and the unequal price of justice. A courthouse, scales bound in chain, and an obituary. (19 of 20)" },
+      { src: "/art/exhibits/untitled/s20.webp", alt: "20 — Released 3/4. Runtime: 34 minutes. Fact: the album was released March 4, 2016 with eight songs and a displayed 34-minute runtime. Connection: 3/4 → 34 → 34th Street → the unfinished account. A ledger stamped ACCOUNT STILL OPEN. (20 of 20)" },
+    ],
+  },
 ];
 
 export const getExhibit = (id: string) => EXHIBITS.find((e) => e.id === id);
