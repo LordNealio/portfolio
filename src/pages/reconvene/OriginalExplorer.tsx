@@ -10,6 +10,7 @@ import {
   REC_BASE,
   Progress,
   StandingNotice,
+  Filters,
 } from "../../components/reconvene/ReconveneShell";
 import { OriginalCard } from "../../components/reconvene/ResolutionCard";
 import { useReconveneDraft } from "../../lib/useReconveneDraft";
@@ -68,7 +69,7 @@ export function OriginalExplorer() {
           onChange={(e) => setQ(e.target.value)}
           style={{ marginTop: 10 }}
         />
-        <div className="rec-filters">
+        <Filters label={`Filter${cat ? ` · ${cat}` : ""}${onlyUnreviewed ? " · unreviewed" : ""}`}>
           <button
             type="button"
             className="rec-chip"
@@ -96,7 +97,7 @@ export function OriginalExplorer() {
           >
             Unreviewed only
           </button>
-        </div>
+        </Filters>
       </div>
 
       <p className="rec-fine" aria-live="polite" style={{ marginBottom: 12 }}>

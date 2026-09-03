@@ -91,6 +91,27 @@ export function StandingNotice() {
   );
 }
 
+/** Filters, folded away. Twelve chips wrap to five rows on a phone — 251px of a
+ *  812px screen — so they sit behind a disclosure that is open on wide screens
+ *  and closed on narrow ones. */
+export function Filters({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  const wide =
+    typeof window !== "undefined" &&
+    window.matchMedia("(min-width: 761px)").matches;
+  return (
+    <details className="rec-filterbox" open={wide}>
+      <summary>{label}</summary>
+      <div className="rec-filters">{children}</div>
+    </details>
+  );
+}
+
 /** Progress readout. Never nags; the count is informational only. */
 export function Progress({ done, total }: { done: number; total: number }) {
   const pct = total ? Math.round((done / total) * 100) : 0;

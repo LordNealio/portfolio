@@ -482,6 +482,51 @@
   color: #fff;
 }
 
+/* Disclosures — filters and per-card comments */
+.rec-filterbox,
+.rec-commentbox {
+  margin-top: 10px;
+}
+.rec-filterbox > summary,
+.rec-commentbox > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid var(--r-line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--r-ink-2);
+  background: var(--r-paper);
+}
+.rec-filterbox > summary::-webkit-details-marker,
+.rec-commentbox > summary::-webkit-details-marker {
+  display: none;
+}
+.rec-filterbox > summary::before,
+.rec-commentbox > summary::before {
+  content: "+";
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--r-gold);
+}
+.rec-filterbox[open] > summary::before,
+.rec-commentbox[open] > summary::before {
+  content: "\2212";
+}
+.rec-filterbox > summary:hover,
+.rec-commentbox > summary:hover {
+  border-color: var(--r-ink-2);
+  color: var(--r-ink);
+}
+.rec-filterbox[open] > .rec-filters {
+  margin-top: 10px;
+}
+
 /* Progress */
 .rec-progress {
   display: flex;
@@ -686,6 +731,48 @@
   flex-wrap: wrap;
   gap: 8px 16px;
   margin-bottom: 12px;
+}
+
+/* ── Phones ───────────────────────────────────────────────────────────────────
+   A sticky toolbar 362px tall under a 73px nav left barely half an 812px screen
+   for the actual resolutions, so on narrow screens it scrolls away like normal
+   content and the masthead is tightened. */
+@media (max-width: 760px) {
+  .rec-toolbar {
+    position: static;
+    padding: 10px 0;
+  }
+  .rec-mast {
+    padding-top: calc(72px + 10px);
+  }
+  .rec-mast-top {
+    gap: 3px 10px;
+    margin-bottom: 6px;
+  }
+  .rec-back {
+    margin-bottom: 8px;
+  }
+  .rec-mast h1 {
+    font-size: clamp(1.32rem, 5.6vw, 1.75rem);
+    margin-bottom: 4px;
+  }
+  .rec-invite {
+    font-size: 0.87rem;
+    margin-bottom: 12px;
+  }
+  .rec-body {
+    padding-top: 20px;
+  }
+  .rec-card {
+    padding: 14px 13px;
+  }
+  .rec-sec {
+    margin-bottom: 26px;
+  }
+  /* Full-width buttons stack more predictably than wrapped pills on a phone. */
+  .rec-actions .rec-btn {
+    flex: 1 1 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

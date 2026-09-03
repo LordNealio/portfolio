@@ -215,18 +215,23 @@ function Choices({
         </div>
       )}
 
-      <div className="rec-comment">
-        <label className="rec-label" htmlFor={`${gid}-c`}>
-          {commentLabel}
-        </label>
-        <textarea
-          id={`${gid}-c`}
-          className="rec-textarea"
-          value={answer.comment || ""}
-          maxLength={2000}
-          onChange={(e) => onChange({ ...answer, comment: e.target.value })}
-        />
-      </div>
+      {/* Folded away by default: an always-open textarea added ~115px to every
+          one of the 68 cards, which on a phone is most of a screen per card. */}
+      <details className="rec-commentbox" open={!!answer.comment}>
+        <summary>{answer.comment ? "Your comment" : "Add a comment (optional)"}</summary>
+        <div className="rec-comment">
+          <label className="sr-only" htmlFor={`${gid}-c`}>
+            {commentLabel}
+          </label>
+          <textarea
+            id={`${gid}-c`}
+            className="rec-textarea"
+            value={answer.comment || ""}
+            maxLength={2000}
+            onChange={(e) => onChange({ ...answer, comment: e.target.value })}
+          />
+        </div>
+      </details>
 
       {answer.choice && (
         <p className="rec-fine" style={{ margin: "8px 0 0" }}>
