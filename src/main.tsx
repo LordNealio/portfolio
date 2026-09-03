@@ -8,6 +8,7 @@ import "./styles/components.css";
 import "./styles/supreme.css";
 import "./styles/study.css";
 import "./styles/cipher.css";
+import "./styles/reconvene.css";
 import "./styles/fashion.css";
 import "./styles/patron.css";
 import "./styles/spend.css";

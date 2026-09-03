@@ -102,6 +102,7 @@ export interface Project {
   studyPath?: string; // internal route to a participant research experience
   studyPathLabel?: string; // custom label for the studyPath button (defaults to "Enter the study (preview)")
   moduleLink?: { label: string; href: string }; // a direct link to a companion module (e.g. an education module)
+  companionLinks?: { label: string; href: string }[]; // further chapters of the same project (e.g. Reconvening the 34)
   audioEmbed?: string; // an embeddable player URL (e.g. SoundCloud w.soundcloud.com/player)
   audioBar?: { url: string; label: string }; // a bottom mini-player (for full-screen layouts where an inline embed can't sit)
   video?: string; // a self-hosted video file (path in /public) rendered as an HTML5 player
@@ -1182,6 +1183,9 @@ const houseProjects: Project[] = [
     role: "Researcher and designer — original study by Just Neal.",
     studyPath: "/study/r-word",
     moduleLink: { label: "Education Module · The Big Payback", href: "/study/r-word/module" },
+    companionLinks: [
+      { label: "Reconvening the 34 · Ohio 1848 → 2026", href: "/study/r-word/34" },
+    ],
     note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",
   }),
   house({

@@ -25,6 +25,16 @@ import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
 import { RWordModule } from "./pages/RWordModule";
+import { ReconveneContext } from "./pages/reconvene/Context";
+import { OriginalExplorer } from "./pages/reconvene/OriginalExplorer";
+import { ProposedExplorer } from "./pages/reconvene/ProposedExplorer";
+import { ReconveneCompare } from "./pages/reconvene/Compare";
+import { ReconveneBallot } from "./pages/reconvene/Ballot";
+import { ReconveneAdditions } from "./pages/reconvene/Additions";
+import { ReconveneResults } from "./pages/reconvene/Results";
+import { ReconveneAssembly } from "./pages/reconvene/Assembly";
+import { ReconveneSources } from "./pages/reconvene/Sources";
+import { ReconveneAdmin } from "./pages/reconvene/ReconveneAdmin";
 import { StudyAdmin } from "./pages/StudyAdmin";
 import { CommentsAdmin } from "./pages/CommentsAdmin";
 import { NotFound } from "./pages/NotFound";
@@ -72,6 +82,17 @@ export function App() {
           <Route path="/study/n-word/admin" element={<StudyAdmin />} />
           <Route path="/study/r-word" element={<StudyReparations />} />
           <Route path="/study/r-word/module" element={<RWordModule />} />
+          {/* Reconvening the 34 — a chapter of The R Word. */}
+          <Route path="/study/r-word/34" element={<ReconveneContext />} />
+          <Route path="/study/r-word/34/original" element={<OriginalExplorer />} />
+          <Route path="/study/r-word/34/proposed" element={<ProposedExplorer />} />
+          <Route path="/study/r-word/34/compare" element={<ReconveneCompare />} />
+          <Route path="/study/r-word/34/review" element={<ReconveneBallot />} />
+          <Route path="/study/r-word/34/additions" element={<ReconveneAdditions />} />
+          <Route path="/study/r-word/34/results" element={<ReconveneResults />} />
+          <Route path="/study/r-word/34/assembly" element={<ReconveneAssembly />} />
+          <Route path="/study/r-word/34/sources" element={<ReconveneSources />} />
+          <Route path="/study/r-word/34/admin" element={<ReconveneAdmin />} />
           <Route path="/comments-admin" element={<CommentsAdmin />} />
           <Route path="/vision" element={<Vision />} />
           <Route path="/about" element={<About />} />

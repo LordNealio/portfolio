@@ -173,7 +173,11 @@ export function ProjectDetail() {
               <h1 className="display detail-title">{project.title}</h1>
               <p className="h3 detail-subtitle muted serif-i">{project.subtitle}</p>
               <p className="lead detail-summary">{project.summary}</p>
-              {(project.links.length > 0 || project.studyPath || project.moduleLink || caseFiles.length > 0) && (
+              {(project.links.length > 0 ||
+                project.studyPath ||
+                project.moduleLink ||
+                project.companionLinks?.length ||
+                caseFiles.length > 0) && (
                 <div className="detail-links">
                   {project.studyPath && (
                     <Link className="btn btn-primary" to={project.studyPath}>
@@ -185,6 +189,11 @@ export function ProjectDetail() {
                       {project.moduleLink.label} <span className="arr">→</span>
                     </Link>
                   )}
+                  {project.companionLinks?.map((l) => (
+                    <Link key={l.href} className="btn btn-ghost" to={l.href}>
+                      {l.label} <span className="arr">→</span>
+                    </Link>
+                  ))}
                   {caseFiles.map((e) => (
                     <Link key={e.id} className="btn btn-ghost" to={`/exhibit/${e.id}`}>
                       Read the case file · {e.title} <span className="arr">→</span>

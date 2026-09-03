@@ -72,6 +72,9 @@ export function RWordModule() {
                 <Link to="/study/r-word" className="study-btn primary">
                   Take the study →
                 </Link>
+                <Link to="/study/r-word/34" className="study-btn ghost">
+                  Reconvening the 34 →
+                </Link>
                 <Link to="/work/reparations" className="study-btn ghost">
                   Back to the project
                 </Link>

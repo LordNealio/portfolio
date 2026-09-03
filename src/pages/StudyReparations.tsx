@@ -214,6 +214,11 @@ export function StudyReparations() {
               The module presents each argument together with its limitations and counterarguments. You
               are not asked to reach any particular conclusion.
             </p>
+            <p className="study-fine">
+              A companion chapter, <Link to="/study/r-word/34">Reconvening the 34</Link>, studies the
+              1848 Colored National Convention in Ohio and invites review of a proposed new
+              thirty-four. It is community feedback rather than part of this study.
+            </p>
           </div>
         );
       case 1:
