@@ -35,6 +35,7 @@ import { ReconveneResults } from "./pages/reconvene/Results";
 import { ReconveneAssembly } from "./pages/reconvene/Assembly";
 import { ReconveneSources } from "./pages/reconvene/Sources";
 import { ReconveneAdmin } from "./pages/reconvene/ReconveneAdmin";
+import { OriginalWizard } from "./pages/reconvene/OriginalWizard";
 import { StudyAdmin } from "./pages/StudyAdmin";
 import { CommentsAdmin } from "./pages/CommentsAdmin";
 import { NotFound } from "./pages/NotFound";
@@ -85,6 +86,7 @@ export function App() {
           {/* Reconvening the 34 — a chapter of The R Word. */}
           <Route path="/study/r-word/34" element={<ReconveneContext />} />
           <Route path="/study/r-word/34/original" element={<OriginalExplorer />} />
+          <Route path="/study/r-word/34/review-original" element={<OriginalWizard />} />
           <Route path="/study/r-word/34/proposed" element={<ProposedExplorer />} />
           <Route path="/study/r-word/34/compare" element={<ReconveneCompare />} />
           <Route path="/study/r-word/34/review" element={<ReconveneBallot />} />

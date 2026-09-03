@@ -119,11 +119,14 @@ export function OriginalExplorer() {
       </div>
 
       <div className="rec-actions">
-        <Link className="rec-btn" to={`${REC_BASE}/proposed`}>
-          Next: the Proposed New 34 →
+        <Link className="rec-btn" to={`${REC_BASE}/review-original`}>
+          Review the Original 34 &rarr;
+        </Link>
+        <Link className="rec-btn ghost" to={`${REC_BASE}/proposed`}>
+          Next: the Proposed New 34 &rarr;
         </Link>
         <Link className="rec-btn ghost" to={`${REC_BASE}/review`}>
-          Go to the ballot
+          Go to the full ballot
         </Link>
       </div>
     </ReconveneShell>
