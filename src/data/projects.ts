@@ -1180,6 +1180,7 @@ const houseProjects: Project[] = [
     disciplines: ["Nonprofit", "Culture", "Research"],
     kind: "Research",
     accent: "#2c3a2c",
+    image: "/art/r-word.jpg",
     role: "Researcher and designer — original study by Just Neal.",
     studyPath: "/study/r-word",
     moduleLink: { label: "Education Module · The Big Payback", href: "/study/r-word/module" },
