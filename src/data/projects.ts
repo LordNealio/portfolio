@@ -1184,6 +1184,7 @@ const houseProjects: Project[] = [
     studyPath: "/study/r-word",
     moduleLink: { label: "Education Module · The Big Payback", href: "/study/r-word/module" },
     companionLinks: [
+      { label: "Review the Original 34", href: "/study/r-word/34/review-original" },
       { label: "Reconvening the 34 · Ohio 1848 → 2026", href: "/study/r-word/34" },
     ],
     note: "A participant research experience, currently in Preview / Educational Demonstration Mode — no data is collected. Formal enrollment requires a backend and ethical/IRB review.",

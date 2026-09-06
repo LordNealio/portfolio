@@ -12,14 +12,9 @@ export const REC_BASE = "/study/r-word/34";
 const TABS: { to: string; label: string; end?: boolean }[] = [
   { to: REC_BASE, label: "Context", end: true },
   { to: `${REC_BASE}/original`, label: "The Original 34" },
-  { to: `${REC_BASE}/proposed`, label: "The Proposed New 34" },
-  { to: `${REC_BASE}/compare`, label: "Compare" },
-  { to: `${REC_BASE}/review-original`, label: "Review the Original 34" },
-  { to: `${REC_BASE}/review`, label: "Full ballot" },
-  { to: `${REC_BASE}/additions`, label: "Add to it" },
+  { to: `${REC_BASE}/review-original`, label: "Review" },
   { to: `${REC_BASE}/results`, label: "Results" },
-  { to: `${REC_BASE}/assembly`, label: "September 6" },
-  { to: `${REC_BASE}/sources`, label: "Sources & method" },
+  { to: `${REC_BASE}/sources`, label: "Sources" },
 ];
 
 export function ReconveneShell({
