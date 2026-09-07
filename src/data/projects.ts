@@ -650,6 +650,9 @@ const core: Project[] = [
     studyPathLabel: "Enter ENIGMA",
     links: [],
     relatedProjects: ["rapgod"],
+    videos: [
+      { embed: "https://archive.org/embed/chase-untitled", caption: "Why does 34 keep showing up? From the 1848 Colored National Convention to Salmon P. Chase, Kendrick Lamar, and beyond." },
+    ],
     note: "The gate is the site's front door; this entry is that same experience, catalogued as a work.",
   },
 
@@ -1084,6 +1087,7 @@ const houseProjects: Project[] = [
     gallery: ["/art/chase.jpg"],
     note: "A conceptual art piece. Historical facts about Salmon P. Chase are accurate.",
     videos: [
+      { embed: "https://archive.org/embed/chase-untitled", caption: "Why does 34 keep showing up? From the 1848 Colored National Convention to Salmon P. Chase, Kendrick Lamar, and beyond." },
       { embed: "https://www.youtube.com/embed/czEJ5R16N48" },
       { embed: "https://www.youtube.com/embed/iZ8eT4m3NhU" },
       { embed: "https://www.youtube.com/embed/3x_hgarnW3Q" },
