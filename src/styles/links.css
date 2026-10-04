@@ -20,13 +20,15 @@
   text-align: center;
   margin-bottom: 2rem;
 }
-.linktree-crest {
-  display: block;
-  margin: 0 auto 1rem;
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--line-strong), 0 12px 28px -16px rgba(0, 0, 0, 0.4);
+.linktree-eyebrow {
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-wrap: balance;
+}
+.linktree-eyebrow::before {
+  display: none;
 }
 .linktree-title {
   font-family: var(--serif);
@@ -37,8 +39,8 @@
 }
 .linktree-sub {
   margin-top: 0.5rem;
-  font-family: var(--sans);
-  font-size: 0.95rem;
+  font-family: var(--serif);
+  font-size: 1.1rem;
   color: var(--text-2);
 }
 .linktree-list {
@@ -65,6 +67,75 @@
   box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.35);
 }
 .linktree-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+/* The lab — featured: deep ink card so it reads first. */
+.linktree-link--feature {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.linktree-link--feature .linktree-desc {
+  color: var(--ink);
+  opacity: 0.78;
+}
+.linktree-link--feature .linktree-label,
+.linktree-link--feature .linktree-arr,
+.linktree-bw-h {
+  color: var(--gold-soft);
+}
+/* Dark theme inverts the card to cream, so the gold must deepen to stay legible. */
+:root[data-theme="dark"] .linktree-link--feature .linktree-label,
+:root[data-theme="dark"] .linktree-link--feature .linktree-arr,
+:root[data-theme="dark"] .linktree-bw-h {
+  color: #8a6a1f;
+}
+
+/* MindWrite — one card, two doors, wearing its own mark. */
+.linktree-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 22px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+.linktree-mark {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.linktree-card-body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.linktree-doors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.linktree-door {
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.linktree-door:hover,
+.linktree-door:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.linktree-door:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
