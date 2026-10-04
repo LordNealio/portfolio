@@ -33,7 +33,7 @@ export function Nav() {
   return (
     <header className={`nav ${scrolled ? "nav--solid" : ""}`}>
       <div className="nav-inner wrap">
-        <Link to="/" className="brand" aria-label="NIL — Just Neal, home">
+        <Link to="/home" className="brand" aria-label="NIL — Just Neal, home">
           <span className="brand-mark">NIL</span>
           <span className="brand-name">Just&nbsp;Neal</span>
         </Link>

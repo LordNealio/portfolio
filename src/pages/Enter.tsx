@@ -46,9 +46,9 @@ export function Enter() {
     label: "The full body of work",
     name: "Enter the site",
     desc: "Research · Systems · Strategy · Story.",
-    to: "/",
+    to: "/home",
     onActivate: () => track("gate_door_site"),
   });
 
-  return <EnigmaGate doors={doors} onEnterSite={() => navigate("/")} onMark={() => navigate("/")} />;
+  return <EnigmaGate doors={doors} onEnterSite={() => navigate("/home")} onMark={() => navigate("/home")} />;
 }
