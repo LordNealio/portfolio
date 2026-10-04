@@ -13,21 +13,19 @@ type LinkItem = {
   external?: boolean;
 };
 
+// MindWrite gets one card with two doors — the journal and the app are one
+// brand, and the card carries the MindWrite mark rather than the page header.
+const MINDWRITE = {
+  label: "The journal + the app",
+  name: "MindWrite",
+  desc: "The 90-day journal method. Capture → Examine → Connect → Create.",
+  doors: [
+    { key: "mindwrite", label: "Journal", to: "/work/mindwrite" },
+    { key: "mindvault", label: "App", to: "/work/mindvault" },
+  ],
+};
+
 const LINKS: LinkItem[] = [
-  {
-    key: "mindwrite",
-    label: "The book",
-    name: "MindWrite",
-    desc: "The 90-day journal method. Capture → Examine → Connect → Create.",
-    to: "/work/mindwrite",
-  },
-  {
-    key: "mindvault",
-    label: "The app",
-    name: "MindVault",
-    desc: "The journal in your pocket — when the notebook isn't with you.",
-    to: "/work/mindvault",
-  },
   {
     key: "archive",
     label: "The work",
@@ -64,12 +62,36 @@ export function Links() {
     <section className="linktree">
       <div className="linktree-inner">
         <header className="linktree-head">
-          <img className="linktree-crest" src="/mindwrite-mark.svg" alt="" width={112} height={112} />
+          <p className="eyebrow linktree-eyebrow">Just Neal · Research · Systems · Strategy · Story</p>
           <h1 className="linktree-title">YoungBlesser</h1>
-          <p className="linktree-sub">Justin Neal · Research, systems, strategy &amp; story.</p>
+          <p className="linktree-sub">
+            I find the connections <span className="serif-i">other people miss.</span>
+          </p>
         </header>
 
         <ul className="linktree-list">
+          <li>
+            <div className="linktree-card">
+              <img className="linktree-mark" src="/mindwrite-mark.svg" alt="" width={56} height={56} />
+              <div className="linktree-card-body">
+                <span className="linktree-label">{MINDWRITE.label}</span>
+                <span className="linktree-name">{MINDWRITE.name}</span>
+                <span className="linktree-desc">{MINDWRITE.desc}</span>
+                <div className="linktree-doors">
+                  {MINDWRITE.doors.map((d) => (
+                    <Link
+                      key={d.key}
+                      className="linktree-door"
+                      to={d.to}
+                      onClick={() => track("linktree_click", { key: d.key, to: d.to })}
+                    >
+                      {d.label} <span aria-hidden="true">→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </li>
           {LINKS.map((l) => {
             const body = (
               <>
