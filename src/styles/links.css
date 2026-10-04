@@ -23,8 +23,10 @@
 .linktree-crest {
   display: block;
   margin: 0 auto 1rem;
-  width: 64px;
-  height: 64px;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--line-strong), 0 12px 28px -16px rgba(0, 0, 0, 0.4);
 }
 .linktree-title {
   font-family: var(--serif);

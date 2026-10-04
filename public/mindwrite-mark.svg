@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300" role="img" aria-label="MindWrite">
+  <defs>
+    <clipPath id="mw-disc"><circle cx="150" cy="150" r="150"/></clipPath>
+  </defs>
+  <circle cx="150" cy="150" r="150" fill="#ECE6DA"/>
+  <g clip-path="url(#mw-disc)" style="isolation:isolate">
+    <circle cx="118" cy="125" r="83" fill="#E0AE2A"/>
+    <polygon points="110,130 253,110 272,250 132,272" fill="#4A69A8" style="mix-blend-mode:multiply"/>
+    <circle cx="207" cy="110" r="45" fill="#D8463A" style="mix-blend-mode:multiply" opacity="0.95"/>
+  </g>
+</svg>
