@@ -70,6 +70,28 @@
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
+/* The lab — featured: deep ink card so it reads first. */
+.linktree-link--feature {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.linktree-link--feature .linktree-desc {
+  color: var(--ink);
+  opacity: 0.78;
+}
+.linktree-link--feature .linktree-label,
+.linktree-link--feature .linktree-arr,
+.linktree-bw-h {
+  color: var(--gold-soft);
+}
+/* Dark theme inverts the card to cream, so the gold must deepen to stay legible. */
+:root[data-theme="dark"] .linktree-link--feature .linktree-label,
+:root[data-theme="dark"] .linktree-link--feature .linktree-arr,
+:root[data-theme="dark"] .linktree-bw-h {
+  color: #8a6a1f;
+}
+
 /* MindWrite — one card, two doors, wearing its own mark. */
 .linktree-card {
   display: flex;

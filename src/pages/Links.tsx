@@ -13,6 +13,16 @@ type LinkItem = {
   external?: boolean;
 };
 
+// The lab leads — it's where people take part in the research and where the
+// public learning resources live, so it gets the featured (dark) card.
+const LAB: LinkItem = {
+  key: "lab",
+  label: "The lab · Take part",
+  name: "A Black wHole",
+  desc: "Join the research, or learn from the open studies and public resources.",
+  to: "/work/the-lab",
+};
+
 // MindWrite gets one card with two doors — the journal and the app are one
 // brand, and the card carries the MindWrite mark rather than the page header.
 const MINDWRITE = {
@@ -70,6 +80,22 @@ export function Links() {
         </header>
 
         <ul className="linktree-list">
+          <li>
+            <Link
+              className="linktree-link linktree-link--feature"
+              to={LAB.to}
+              onClick={() => track("linktree_click", { key: LAB.key, to: LAB.to })}
+            >
+              <span className="linktree-label">{LAB.label}</span>
+              <span className="linktree-name">
+                A Black w<span className="linktree-bw-h">H</span>ole
+              </span>
+              <span className="linktree-desc">{LAB.desc}</span>
+              <span className="linktree-arr" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </li>
           <li>
             <div className="linktree-card">
               <img className="linktree-mark" src="/mindwrite-mark.svg" alt="" width={56} height={56} />
