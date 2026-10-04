@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { PlayerBar } from "./components/PlayerBar";
-import { EnigmaOnboarding } from "./components/EnigmaOnboarding";
 import { Home } from "./pages/Home";
 import { House } from "./pages/House";
 import { Work } from "./pages/Work";
@@ -21,6 +20,7 @@ import { ExhibitPage } from "./pages/ExhibitPage";
 import { WorkWithMe } from "./pages/WorkWithMe";
 import { BizWiz } from "./pages/BizWiz";
 import { Enter } from "./pages/Enter";
+import { Links } from "./pages/Links";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -48,7 +48,7 @@ function ScrollToTop() {
   return null;
 }
 
-const GATE_ROUTES = new Set(["/enter", "/enigma", "/christie", "/gnx"]);
+const GATE_ROUTES = new Set(["/", "/links", "/enter", "/enigma", "/christie", "/gnx"]);
 
 export function App() {
   const { pathname } = useLocation();
@@ -62,7 +62,10 @@ export function App() {
       {!isGate && <Nav />}
       <main id="main">
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* The link tree is the front door; the full homepage lives at /home. */}
+          <Route path="/" element={<Links />} />
+          <Route path="/links" element={<Navigate to="/" replace />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/enter" element={<Enter />} />
           <Route path="/enigma" element={<Enter />} />
           <Route path="/christie" element={<Enter />} />
@@ -108,9 +111,7 @@ export function App() {
       </main>
       {!isGate && <Footer />}
       {/* The record rides along on the homepage only. */}
-      {pathname === "/" && <PlayerBar />}
-      {/* First-visit ENIGMA onboarding — greets homepage visitors, then reveals the site. */}
-      {pathname === "/" && <EnigmaOnboarding />}
+      {pathname === "/home" && <PlayerBar />}
       <Analytics />
     </>
   );

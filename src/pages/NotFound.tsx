@@ -11,7 +11,7 @@ export function NotFound() {
         <p className="lead" style={{ marginInline: "auto", marginBlock: "1.4rem 2rem" }}>
           That page doesn't exist — but the work does.
         </p>
-        <Link to="/" className="btn btn-primary">
+        <Link to="/home" className="btn btn-primary">
           Back home <span className="arr">→</span>
         </Link>
       </div>

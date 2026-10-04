@@ -18,6 +18,7 @@ import "./styles/bizwiz.css";
 import "./styles/home.css";
 import "./styles/player.css";
 import "./styles/enter.css";
+import "./styles/links.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
