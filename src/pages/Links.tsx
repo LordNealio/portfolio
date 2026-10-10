@@ -2,62 +2,52 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { track } from "../lib/track";
 
-// THE LINK TREE — the front door at "/". One tap to each corner of the house;
-// the full homepage lives at /home. Site nav/footer are hidden here (see App).
-type LinkItem = {
+// THE LINK TREE — the front door at "/". MindWrite, MindVault, or the full
+// site; the homepage lives at /home. Site nav/footer are hidden here (see App).
+type Product = {
   key: string;
   label: string;
   name: string;
   desc: string;
   to: string;
-  external?: boolean;
+  mark: string;
+  markShape: "round" | "square";
 };
+type Door = { key: string; label: string; to: string };
 
-// The lab leads — it's where people take part in the research and where the
-// public learning resources live, so it gets the featured (dark) card.
-const LAB: LinkItem = {
-  key: "lab",
-  label: "The lab · Take part",
-  name: "A Black wHole",
-  desc: "Join the research, or learn from the open studies and public resources.",
-  to: "/work/the-lab",
-};
-
-// MindWrite gets one card with two doors — the journal and the app are one
-// brand, and the card carries the MindWrite mark rather than the page header.
-const MINDWRITE = {
-  label: "The journal + the app",
-  name: "MindWrite",
-  desc: "The 90-day journal method. Capture → Examine → Connect → Create.",
-  doors: [
-    { key: "mindwrite", label: "Journal", to: "/work/mindwrite" },
-    { key: "mindvault", label: "App", to: "/work/mindvault" },
-  ],
-};
-
-const LINKS: LinkItem[] = [
+// Each product wears its own mark: the MindWrite disc, the MindVault Mondrian.
+const PRODUCTS: Product[] = [
   {
-    key: "archive",
-    label: "The work",
-    name: "The Archive",
-    desc: "Apps, books, film, research, systems, experiments.",
-    to: "/work",
+    key: "mindwrite",
+    label: "The journal",
+    name: "MindWrite",
+    desc: "The 90-day journal method. Capture → Examine → Connect → Create.",
+    to: "/work/mindwrite",
+    mark: "/mindwrite-mark.svg",
+    markShape: "round",
   },
   {
-    key: "enigma",
-    label: "The mystery",
-    name: "The Enigma",
-    desc: "Four questions about music — then a pattern that shouldn't exist.",
-    to: "/enigma",
-  },
-  {
-    key: "home",
-    label: "Everything",
-    name: "Enter the site",
-    desc: "Research · Systems · Strategy · Story.",
-    to: "/home",
+    key: "mindvault",
+    label: "The app",
+    name: "MindVault",
+    desc: "The journal in your pocket — when the notebook isn't with you.",
+    to: "/work/mindvault",
+    mark: "/mindvault.svg",
+    markShape: "square",
   },
 ];
+
+// Everything else — the homepage, the apps, and the full archive share one card.
+const SITE = {
+  label: "Everything else",
+  name: "Enter the site",
+  desc: "Apps, tools, research, writing, and everything in between.",
+  doors: [
+    { key: "home", label: "Home", to: "/home" },
+    { key: "apps", label: "Apps", to: "/work?lens=build" },
+    { key: "archive", label: "Archive", to: "/work" },
+  ] as Door[],
+};
 
 export function Links() {
   useEffect(() => {
@@ -73,38 +63,48 @@ export function Links() {
       <div className="linktree-inner">
         <header className="linktree-head">
           <p className="eyebrow linktree-eyebrow">Just Neal · Research · Systems · Strategy · Story</p>
-          <h1 className="linktree-title">YoungBlesser</h1>
+          <h1 className="linktree-title">
+            YoungBlesser<span className="linktree-tld">.com</span>
+          </h1>
           <p className="linktree-sub">
             I find the connections <span className="serif-i">other people miss.</span>
           </p>
         </header>
 
         <ul className="linktree-list">
-          <li>
-            <Link
-              className="linktree-link linktree-link--feature"
-              to={LAB.to}
-              onClick={() => track("linktree_click", { key: LAB.key, to: LAB.to })}
-            >
-              <span className="linktree-label">{LAB.label}</span>
-              <span className="linktree-name">
-                A Black w<span className="linktree-bw-h">H</span>ole
-              </span>
-              <span className="linktree-desc">{LAB.desc}</span>
-              <span className="linktree-arr" aria-hidden="true">
-                →
-              </span>
-            </Link>
-          </li>
+          {PRODUCTS.map((p) => (
+            <li key={p.key}>
+              <Link
+                className="linktree-link linktree-link--mark"
+                to={p.to}
+                onClick={() => track("linktree_click", { key: p.key, to: p.to })}
+              >
+                <img
+                  className={`linktree-mark linktree-mark--${p.markShape}`}
+                  src={p.mark}
+                  alt=""
+                  width={56}
+                  height={56}
+                />
+                <span className="linktree-card-body">
+                  <span className="linktree-label">{p.label}</span>
+                  <span className="linktree-name">{p.name}</span>
+                  <span className="linktree-desc">{p.desc}</span>
+                </span>
+                <span className="linktree-arr" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            </li>
+          ))}
           <li>
             <div className="linktree-card">
-              <img className="linktree-mark" src="/mindwrite-mark.svg" alt="" width={56} height={56} />
               <div className="linktree-card-body">
-                <span className="linktree-label">{MINDWRITE.label}</span>
-                <span className="linktree-name">{MINDWRITE.name}</span>
-                <span className="linktree-desc">{MINDWRITE.desc}</span>
+                <span className="linktree-label">{SITE.label}</span>
+                <span className="linktree-name">{SITE.name}</span>
+                <span className="linktree-desc">{SITE.desc}</span>
                 <div className="linktree-doors">
-                  {MINDWRITE.doors.map((d) => (
+                  {SITE.doors.map((d) => (
                     <Link
                       key={d.key}
                       className="linktree-door"
@@ -118,32 +118,6 @@ export function Links() {
               </div>
             </div>
           </li>
-          {LINKS.map((l) => {
-            const body = (
-              <>
-                <span className="linktree-label">{l.label}</span>
-                <span className="linktree-name">{l.name}</span>
-                <span className="linktree-desc">{l.desc}</span>
-                <span className="linktree-arr" aria-hidden="true">
-                  {l.external ? "↗" : "→"}
-                </span>
-              </>
-            );
-            const onClick = () => track("linktree_click", { key: l.key, to: l.to });
-            return (
-              <li key={l.key}>
-                {l.external ? (
-                  <a className="linktree-link" href={l.to} target="_blank" rel="noreferrer" onClick={onClick}>
-                    {body}
-                  </a>
-                ) : (
-                  <Link className="linktree-link" to={l.to} onClick={onClick}>
-                    {body}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
         </ul>
       </div>
     </section>
