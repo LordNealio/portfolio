@@ -11,7 +11,7 @@ export function LockGate({ project, onUnlock }: { project: Project; onUnlock: ()
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (val.trim() === "67") onUnlock();
+    if (val.trim() === (project.lockCode ?? "67")) onUnlock();
     else setErr(true);
   };
 

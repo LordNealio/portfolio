@@ -129,6 +129,7 @@ export interface Project {
   links: ProjectLink[];
   relatedProjects: string[]; // slugs
   note?: string; // honest caveat shown on the detail page
+  lockCode?: string; // per-project access code (overrides the default "67")
 }
 
 export const STATUS_LABEL: Record<Status, string> = {
@@ -615,6 +616,7 @@ const core: Project[] = [
   },
   {
     slug: "enigma",
+    chapterOf: "rapgod",
     title: "ENIGMA",
     subtitle: "A gate, a riddle, and a growing chain of case files",
     summary:
@@ -940,6 +942,7 @@ const houseProjects: Project[] = [
     slug: "arizona-ponderer",
     chapterOf: "the-lab",
     kind: "Media",
+    lockCode: "1234",
     pillars: ["Navigating Ignorance", "Gaining Glory"],
     title: "Arizona Ponderer",
     subtitle: "An investigative broadsheet — Arizona's unanswered questions.",
@@ -1322,6 +1325,7 @@ export const isExhibited = (slug: string) => EXHIBITED.has(slug);
 // public, remove it. Nothing is deleted either way.
 const PRIVATE_SLUGS = new Set<string>([
   "pimps-paradise", // Project H.O.E — a sensitive, adults-only concept (kept behind the code by default)
+  "arizona-ponderer",
 ]);
 export const isLocked = (slug: string) => PRIVATE_SLUGS.has(slug);
 
