@@ -37,6 +37,9 @@
   letter-spacing: -0.01em;
   color: var(--text);
 }
+.linktree-tld {
+  color: var(--gold);
+}
 .linktree-sub {
   margin-top: 0.5rem;
   font-family: var(--serif);
@@ -70,29 +73,14 @@
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
-/* The lab — featured: deep ink card so it reads first. */
-.linktree-link--feature {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--ink);
-}
-.linktree-link--feature .linktree-desc {
-  color: var(--ink);
-  opacity: 0.78;
-}
-.linktree-link--feature .linktree-label,
-.linktree-link--feature .linktree-arr,
-.linktree-bw-h {
-  color: var(--gold-soft);
-}
-/* Dark theme inverts the card to cream, so the gold must deepen to stay legible. */
-:root[data-theme="dark"] .linktree-link--feature .linktree-label,
-:root[data-theme="dark"] .linktree-link--feature .linktree-arr,
-:root[data-theme="dark"] .linktree-bw-h {
-  color: #8a6a1f;
+/* Product cards — the whole card is the link, wearing the product's mark. */
+.linktree-link--mark {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* MindWrite — one card, two doors, wearing its own mark. */
+/* Enter the site — one card, several doors. */
 .linktree-card {
   display: flex;
   gap: 16px;
@@ -106,7 +94,13 @@
   flex: none;
   width: 56px;
   height: 56px;
+}
+.linktree-mark--round {
   border-radius: 50%;
+}
+.linktree-mark--square {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--line);
 }
 .linktree-card-body {
   display: grid;
