@@ -6,7 +6,7 @@
 // library only ever shows the two most recent versions of anything.
 //
 // A version plays from `embed` (an Archive.org / YouTube / Instagram embed URL)
-// or `src` (a file in /public, e.g. "/toye.mp4").
+// or `src` (a file in /public, e.g. "/videos/hamilton-all-love-v2.mp4").
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type VideoVersion = {
@@ -14,6 +14,7 @@ export type VideoVersion = {
   date?: string; // ISO date, shown when present
   embed?: string;
   src?: string;
+  poster?: string; // still shown before a `src` video plays
 };
 
 export type Video = {
@@ -22,6 +23,7 @@ export type Video = {
   series: string;
   desc: string;
   page?: { label: string; to: string }; // where the full story lives on the site
+  vertical?: boolean; // 9:16 reels get a portrait frame
   versions: VideoVersion[]; // newest first
 };
 
@@ -37,6 +39,17 @@ export const SERIES: { name: string; blurb: string }[] = [
 export const MAX_VERSIONS = 2;
 
 export const VIDEOS: Video[] = [
+  {
+    id: "hamilton-all-love",
+    title: "Hamilton — All Love",
+    series: "Phoenix & Hamilton",
+    desc: "Ye, meet a real Hamiltonian — Computer Love, California Love, and No Child Left Behind.",
+    page: { label: "RapGod", to: "/work/rapgod" },
+    vertical: true,
+    versions: [
+      { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
+    ],
+  },
   {
     id: "donda-thread",
     title: "God Mode Theory — Kanye & me",

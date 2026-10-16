@@ -43,6 +43,7 @@
 .vl-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  align-items: start;
   gap: 20px;
 }
 .vl-card {
@@ -57,6 +58,11 @@
   position: relative;
   aspect-ratio: 16 / 9;
   background: #000;
+}
+/* Vertical reels: a portrait frame, capped so it never towers over the row. */
+.vl-card--vertical .vl-frame {
+  aspect-ratio: 9 / 16;
+  max-height: 640px;
 }
 .vl-media {
   position: absolute;
