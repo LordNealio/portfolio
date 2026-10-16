@@ -21,6 +21,7 @@ import { WorkWithMe } from "./pages/WorkWithMe";
 import { BizWiz } from "./pages/BizWiz";
 import { Enter } from "./pages/Enter";
 import { Links } from "./pages/Links";
+import { Videos } from "./pages/Videos";
 import { Study } from "./pages/Study";
 import { StudyReparations } from "./pages/StudyReparations";
 import { Cipher } from "./pages/Cipher";
@@ -66,6 +67,7 @@ export function App() {
           <Route path="/" element={<Links />} />
           <Route path="/links" element={<Navigate to="/" replace />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/videos" element={<Videos />} />
           <Route path="/enter" element={<Enter />} />
           <Route path="/enigma" element={<Enter />} />
           <Route path="/christie" element={<Enter />} />
