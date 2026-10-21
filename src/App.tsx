@@ -68,6 +68,7 @@ export function App() {
           <Route path="/links" element={<Navigate to="/" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/videos" element={<Videos />} />
+          <Route path="/videos/:series" element={<Videos />} />
           <Route path="/enter" element={<Enter />} />
           <Route path="/enigma" element={<Enter />} />
           <Route path="/christie" element={<Enter />} />

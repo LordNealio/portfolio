@@ -5,6 +5,10 @@
 .vl-head {
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
+.vl-head .back-link {
+  display: table;
+  margin-bottom: 1.2rem;
+}
 .vl-head .lead {
   margin-top: 1rem;
 }
@@ -36,6 +40,14 @@
 }
 .vl-series-head {
   margin-bottom: 1.4rem;
+}
+.vl-series-link {
+  color: inherit;
+  text-decoration: none;
+}
+.vl-series-link:hover,
+.vl-series-link:focus-visible {
+  color: var(--gold);
 }
 .vl-series-head .muted {
   margin-top: 0.4rem;
@@ -125,4 +137,22 @@
 .vl-page:hover,
 .vl-page:focus-visible {
   text-decoration: underline;
+}
+
+/* Planned parts that aren't out yet. */
+.vl-soon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.vl-card--soon.vl-card--vertical .vl-frame {
+  aspect-ratio: 16 / 9;
 }

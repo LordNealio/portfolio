@@ -5,6 +5,9 @@
 // existing video: put it FIRST in that video's `versions` (newest first). The
 // library only ever shows the two most recent versions of anything.
 //
+// A video with no versions yet shows as "Coming soon" — list a planned part
+// before it's released and drop its file in when it's ready.
+//
 // A version plays from `embed` (an Archive.org / YouTube / Instagram embed URL)
 // or `src` (a file in /public, e.g. "/videos/hamilton-all-love-v2.mp4").
 // ─────────────────────────────────────────────────────────────────────────────
@@ -24,36 +27,81 @@ export type Video = {
   desc: string;
   page?: { label: string; to: string }; // where the full story lives on the site
   vertical?: boolean; // 9:16 reels get a portrait frame
-  versions: VideoVersion[]; // newest first
+  versions: VideoVersion[]; // newest first; empty = "Coming soon"
 };
 
 /** Series in the order they appear on the page. */
-export const SERIES: { name: string; blurb: string }[] = [
-  { name: "Phoenix & Hamilton", blurb: "The Donda thread — Gloria, Phoenix, Hamilton, and the connections in motion." },
-  { name: "34", blurb: "Why 34 keeps showing up — from 1848 to Salmon P. Chase to Kendrick." },
-  { name: "ENIGMA case files", blurb: "The mysteries, told in motion." },
-  { name: "Letters", blurb: "Messages in video form." },
+export const SERIES: { name: string; slug: string; blurb: string }[] = [
+  {
+    name: "The Hamiltonian Solution",
+    slug: "hamiltonian-solution",
+    blurb: "A five-part story from Hamilton, Ohio — Ye, Donda, Phoenix, Jay Electronica, Kid Cudi — and an epilogue that ties it together.",
+  },
+  { name: "The Donda thread", slug: "donda-thread", blurb: "Gloria, Hurricane, Justin, Neal — the connections in motion." },
+  { name: "34", slug: "34", blurb: "Why 34 keeps showing up — from 1848 to Salmon P. Chase to Kendrick." },
+  { name: "ENIGMA case files", slug: "enigma-case-files", blurb: "The mysteries, told in motion." },
+  { name: "Letters", slug: "letters", blurb: "Messages in video form." },
 ];
 
 /** How many versions of one video the library shows. */
 export const MAX_VERSIONS = 2;
 
 export const VIDEOS: Video[] = [
+  // ── The Hamiltonian Solution — in series order ──
   {
-    id: "hamilton-all-love",
-    title: "Hamilton — All Love",
-    series: "Phoenix & Hamilton",
+    id: "hamiltonian-1",
+    title: "Part I · H-Town! Love Story of Ye and The Bush",
+    series: "The Hamiltonian Solution",
     desc: "Ye, meet a real Hamiltonian — Computer Love, California Love, and No Child Left Behind.",
-    page: { label: "RapGod", to: "/work/rapgod" },
     vertical: true,
     versions: [
       { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
     ],
   },
   {
+    id: "hamiltonian-2",
+    title: "Part II · The Donda Dissertation",
+    series: "The Hamiltonian Solution",
+    desc: "What does Ye's mother have to do with a kid from Hamilton?",
+    vertical: true,
+    versions: [],
+  },
+  {
+    id: "hamiltonian-3",
+    title: "Part III · Up From the Ashes",
+    series: "The Hamiltonian Solution",
+    desc: "Phoenix, and the patterns: 777 · 111 · 333.",
+    vertical: true,
+    versions: [],
+  },
+  {
+    id: "hamiltonian-4",
+    title: "Part IV · Trill Jesus Is Lord",
+    series: "The Hamiltonian Solution",
+    desc: "June 4, waiting for Jay Electronica — and the path from kneel to Neal.",
+    vertical: true,
+    versions: [],
+  },
+  {
+    id: "hamiltonian-5",
+    title: "Part V · King Wizard",
+    series: "The Hamiltonian Solution",
+    desc: "Kid Cudi in Phoenix — \"This one's for Ye.\"",
+    vertical: true,
+    versions: [],
+  },
+  {
+    id: "hamiltonian-epilogue",
+    title: "Epilogue · The Hamiltonian Solution",
+    series: "The Hamiltonian Solution",
+    desc: "What do you call someone from Hamilton, Ohio? A Hamiltonian.",
+    vertical: true,
+    versions: [],
+  },
+  {
     id: "donda-thread",
     title: "God Mode Theory — Kanye & me",
-    series: "Phoenix & Hamilton",
+    series: "The Donda thread",
     desc: "The connections, in motion — a walk-through of the Donda thread: Gloria, Hurricane, Justin, Neal, Phoenix, Hamilton.",
     page: { label: "RapGod", to: "/work/rapgod" },
     versions: [{ label: "Video", embed: "https://archive.org/embed/copy-of-god-mode-theory-proven-kanye-and-me-1" }],
@@ -101,6 +149,8 @@ export const VIDEOS: Video[] = [
 ];
 
 /** The versions the library shows for a video: the newest MAX_VERSIONS. */
+export const getSeries = (slug: string | undefined) => SERIES.find((s) => s.slug === slug);
+
 export function shownVersions(v: Video): VideoVersion[] {
   return v.versions.slice(0, MAX_VERSIONS);
 }

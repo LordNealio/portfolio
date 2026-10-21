@@ -63,7 +63,7 @@ const EXPLORE = [
 export function Home() {
   useReveal([]);
   useEffect(() => {
-    document.title = "Just Neal — I find the connections other people miss";
+    document.title = "Just Neal — Following the threads, wherever they lead";
     track("homepage_view");
     return () => {
       document.title = "NIL · Just Neal — Name. Image. Likeness.";
@@ -77,7 +77,7 @@ export function Home() {
         <div className="wrap hl-hero-inner">
           <p className="eyebrow reveal">Just Neal · Research · Systems · Strategy · Story</p>
           <h1 className="hl-hero-h reveal">
-            I find the connections <span className="serif-i">other people miss.</span>
+            Following the threads, <span className="serif-i">wherever they lead.</span>
           </h1>
           <p className="hl-hero-sub reveal">
             A working archive of research, investigations, tools, writing, and things being built —
