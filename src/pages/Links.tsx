@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { track } from "../lib/track";
 
-// THE LINK TREE — the front door at "/". MindWrite, MindVault, the video
-// library, or the full site; the homepage lives at /home. Site nav/footer are
-// hidden here (see App).
+// THE LINK TREE — the front door at "/". MindWrite, MindVault, the Hamiltonian
+// video series, or the full site; the homepage lives at /home. Site nav/footer
+// are hidden here (see App).
 type Product = {
   key: string;
   label: string;
@@ -68,7 +68,7 @@ export function Links() {
             YoungBlesser<span className="linktree-tld">.com</span>
           </h1>
           <p className="linktree-sub">
-            I find the connections <span className="serif-i">other people miss.</span>
+            Following the threads, <span className="serif-i">wherever they lead.</span>
           </p>
         </header>
 
@@ -101,12 +101,12 @@ export function Links() {
           <li>
             <Link
               className="linktree-link"
-              to="/videos"
-              onClick={() => track("linktree_click", { key: "videos", to: "/videos" })}
+              to="/videos/hamiltonian-solution"
+              onClick={() => track("linktree_click", { key: "videos", to: "/videos/hamiltonian-solution" })}
             >
-              <span className="linktree-label">Videos &amp; reels</span>
-              <span className="linktree-name">The Video Library</span>
-              <span className="linktree-desc">Phoenix, Hamilton, 34, and the case files — the latest cuts.</span>
+              <span className="linktree-label">The video series</span>
+              <span className="linktree-name">The Hamiltonian Solution</span>
+              <span className="linktree-desc">A five-part story from Hamilton, Ohio — and an epilogue.</span>
               <span className="linktree-arr" aria-hidden="true">
                 →
               </span>

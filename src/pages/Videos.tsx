@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { SERIES, VIDEOS, Video, VideoVersion, shownVersions } from "../data/videos";
+import { Link, useParams } from "react-router-dom";
+import { SERIES, VIDEOS, Video, VideoVersion, getSeries, shownVersions } from "../data/videos";
 import { track } from "../lib/track";
+import { NotFound } from "./NotFound";
 
-// THE VIDEO LIBRARY — every video and reel, grouped by series. Each video shows
-// at most its two most recent versions (see data/videos.ts).
+// THE VIDEO LIBRARY — every video and reel, grouped by series (/videos), or a
+// single series on its own page (/videos/:series). Each video shows at most its
+// two most recent versions; a video with none yet shows "Coming soon".
 function Player({ version, title }: { version: VideoVersion; title: string }) {
   if (version.src) {
     return (
@@ -29,9 +31,13 @@ function VideoCard({ video }: { video: Video }) {
   const current = versions[active];
 
   return (
-    <article className={`vl-card ${video.vertical ? "vl-card--vertical" : ""}`}>
+    <article className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current ? "" : "vl-card--soon"}`}>
       <div className="vl-frame">
-        <Player key={active} version={current} title={video.title} />
+        {current ? (
+          <Player key={active} version={current} title={video.title} />
+        ) : (
+          <div className="vl-soon">Coming soon</div>
+        )}
       </div>
       <div className="vl-body">
         <h3 className="vl-title">{video.title}</h3>
@@ -66,40 +72,62 @@ function VideoCard({ video }: { video: Video }) {
 }
 
 export function Videos() {
+  const { series: seriesSlug } = useParams();
+  const only = getSeries(seriesSlug);
+
   useEffect(() => {
-    document.title = "Video Library — YoungBlesser";
-    track("videos_view");
+    document.title = `${only ? only.name : "Video Library"} — YoungBlesser`;
+    track("videos_view", only ? { series: only.slug } : undefined);
     return () => {
       document.title = "YoungBlesser";
     };
-  }, []);
+  }, [only]);
 
-  const series = SERIES.map((s) => ({ ...s, videos: VIDEOS.filter((v) => v.series === s.name) })).filter(
-    (s) => s.videos.length > 0
-  );
+  if (seriesSlug && !only) return <NotFound />;
+
+  const series = (only ? [only] : SERIES)
+    .map((s) => ({ ...s, videos: VIDEOS.filter((v) => v.series === s.name) }))
+    .filter((s) => s.videos.length > 0);
 
   return (
     <section className="section page-top vl">
       <div className="wrap">
-        <header className="vl-head">
-          <p className="eyebrow">Videos &amp; reels</p>
-          <h1 className="display">The Video Library</h1>
-          <p className="lead">Every video and reel, grouped by series — the most recent cuts first.</p>
-          <nav className="vl-jump" aria-label="Series">
-            {series.map((s) => (
-              <a key={s.name} href={`#${slug(s.name)}`} className="vl-chip">
-                {s.name}
-              </a>
-            ))}
-          </nav>
-        </header>
+        {only ? (
+          <header className="vl-head">
+            <Link to="/videos" className="back-link">
+              ← All videos
+            </Link>
+            <p className="eyebrow">A video series</p>
+            <h1 className="display">{only.name}</h1>
+            <p className="lead">{only.blurb}</p>
+          </header>
+        ) : (
+          <header className="vl-head">
+            <p className="eyebrow">Videos &amp; reels</p>
+            <h1 className="display">The Video Library</h1>
+            <p className="lead">Every video and reel, grouped by series — the most recent cuts first.</p>
+            <nav className="vl-jump" aria-label="Series">
+              {series.map((s) => (
+                <a key={s.slug} href={`#${s.slug}`} className="vl-chip">
+                  {s.name}
+                </a>
+              ))}
+            </nav>
+          </header>
+        )}
 
         {series.map((s) => (
-          <section key={s.name} id={slug(s.name)} className="vl-series">
-            <div className="vl-series-head">
-              <h2 className="h2">{s.name}</h2>
-              <p className="muted">{s.blurb}</p>
-            </div>
+          <section key={s.slug} id={s.slug} className="vl-series">
+            {!only && (
+              <div className="vl-series-head">
+                <h2 className="h2">
+                  <Link className="vl-series-link" to={`/videos/${s.slug}`}>
+                    {s.name}
+                  </Link>
+                </h2>
+                <p className="muted">{s.blurb}</p>
+              </div>
+            )}
             <div className="vl-grid">
               {s.videos.map((v) => (
                 <VideoCard key={v.id} video={v} />
@@ -110,8 +138,4 @@ export function Videos() {
       </div>
     </section>
   );
-}
-
-function slug(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
