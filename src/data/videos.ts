@@ -64,7 +64,9 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "What does Ye's mother have to do with a kid from Hamilton?",
     vertical: true,
-    versions: [],
+    versions: [
+      { label: "v8", date: "2026-10-22", src: "/videos/hamiltonian-part-2-v8.mp4", poster: "/videos/hamiltonian-part-2-v8.jpg" },
+    ],
   },
   {
     id: "hamiltonian-3",
