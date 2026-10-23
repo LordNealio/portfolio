@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { track } from "../lib/track";
 
 // THE LINK TREE — the front door at "/". MindWrite, MindVault, the Hamiltonian
-// video series, or the full site; the homepage lives at /home. Site nav/footer
+// video series, the 34 video, or the full site; the homepage lives at /home. Site nav/footer
 // are hidden here (see App).
 type Product = {
   key: string;
@@ -107,6 +107,20 @@ export function Links() {
               <span className="linktree-label">The video series</span>
               <span className="linktree-name">The Hamiltonian Solution</span>
               <span className="linktree-desc">A five-part story from Hamilton, Ohio — and an epilogue.</span>
+              <span className="linktree-arr" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="linktree-link"
+              to="/videos/34"
+              onClick={() => track("linktree_click", { key: "video-34", to: "/videos/34" })}
+            >
+              <span className="linktree-label">The 34 video</span>
+              <span className="linktree-name">Stranger Than Legal Fiction</span>
+              <span className="linktree-desc">A little tale of an accountant… and reparations.</span>
               <span className="linktree-arr" aria-hidden="true">
                 →
               </span>
