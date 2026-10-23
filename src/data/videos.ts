@@ -27,6 +27,7 @@ export type Video = {
   desc: string;
   page?: { label: string; to: string }; // where the full story lives on the site
   vertical?: boolean; // 9:16 reels get a portrait frame
+  cover?: string; // shown (with a "Coming soon" tag) while a video has no versions yet
   versions: VideoVersion[]; // newest first; empty = "Coming soon"
 };
 
@@ -55,6 +56,7 @@ export const VIDEOS: Video[] = [
     desc: "Ye, meet a real Hamiltonian — Computer Love, California Love, and No Child Left Behind.",
     vertical: true,
     versions: [
+      { label: "v8", date: "2026-10-19", src: "/videos/hamiltonian-part-1-v8.mp4", poster: "/videos/hamiltonian-part-1-cover.jpg" },
       { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
     ],
   },
@@ -64,6 +66,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "What does Ye's mother have to do with a kid from Hamilton?",
     vertical: true,
+    cover: "/videos/hamiltonian-part-2-cover.jpg",
     versions: [],
   },
   {
@@ -72,6 +75,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Phoenix, and the patterns: 777 · 111 · 333.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-3-cover.jpg",
     versions: [],
   },
   {
@@ -80,6 +84,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "June 4, waiting for Jay Electronica — and the path from kneel to Neal.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-4-cover.jpg",
     versions: [],
   },
   {
@@ -88,6 +93,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Kid Cudi in Phoenix — \"This one's for Ye.\"",
     vertical: true,
+    cover: "/videos/hamiltonian-part-5-cover.jpg",
     versions: [],
   },
   {
@@ -105,6 +111,16 @@ export const VIDEOS: Video[] = [
     desc: "The connections, in motion — a walk-through of the Donda thread: Gloria, Hurricane, Justin, Neal, Phoenix, Hamilton.",
     page: { label: "RapGod", to: "/work/rapgod" },
     versions: [{ label: "Video", embed: "https://archive.org/embed/copy-of-god-mode-theory-proven-kanye-and-me-1" }],
+  },
+  {
+    id: "stranger-than-legal-fiction",
+    title: "Stranger Than Legal Fiction · Part I",
+    series: "34",
+    desc: "A little tale of an accountant… and reparations. A Kendrick track dated 09.06, the 1848 Colored National Convention, and \"In God We Trust.\"",
+    vertical: true,
+    versions: [
+      { label: "v7", date: "2026-10-04", src: "/videos/stranger-than-legal-fiction-v7.mp4", poster: "/videos/stranger-than-legal-fiction-v7.jpg" },
+    ],
   },
   {
     id: "why-34",

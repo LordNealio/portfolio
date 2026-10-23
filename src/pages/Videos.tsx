@@ -31,10 +31,17 @@ function VideoCard({ video }: { video: Video }) {
   const current = versions[active];
 
   return (
-    <article className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current ? "" : "vl-card--soon"}`}>
+    <article
+      className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current ? "" : video.cover ? "vl-card--cover" : "vl-card--soon"}`}
+    >
       <div className="vl-frame">
         {current ? (
           <Player key={active} version={current} title={video.title} />
+        ) : video.cover ? (
+          <>
+            <img className="vl-media vl-cover" src={video.cover} alt={`${video.title} — cover`} loading="lazy" />
+            <span className="vl-cover-tag">Coming soon</span>
+          </>
         ) : (
           <div className="vl-soon">Coming soon</div>
         )}
