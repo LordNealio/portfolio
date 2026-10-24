@@ -14,6 +14,9 @@ type Product = {
   to: string;
   mark: string;
   markShape: "round" | "square";
+  // A product you can buy: the card offers the store and the site page side by side.
+  buy?: { label: string; href: string; badge: string };
+  pageLabel?: string;
 };
 type Door = { key: string; label: string; to: string };
 
@@ -27,6 +30,12 @@ const PRODUCTS: Product[] = [
     to: "/work/mindwrite",
     mark: "/mindwrite-mark.svg",
     markShape: "round",
+    buy: {
+      label: "Buy on Amazon",
+      href: "https://www.amazon.com/MindWrite-90-Day-Meditation-Journal/dp/B0C5PFZV2Z",
+      badge: "Available on Amazon",
+    },
+    pageLabel: "About the journal",
   },
   {
     key: "mindvault",
@@ -81,27 +90,63 @@ export function Links() {
         <ul className="linktree-list">
           {PRODUCTS.map((p) => (
             <li key={p.key}>
-              <Link
-                className="linktree-link linktree-link--mark"
-                to={p.to}
-                onClick={() => track("linktree_click", { key: p.key, to: p.to })}
-              >
-                <img
-                  className={`linktree-mark linktree-mark--${p.markShape}`}
-                  src={p.mark}
-                  alt=""
-                  width={56}
-                  height={56}
-                />
-                <span className="linktree-card-body">
-                  <span className="linktree-label">{p.label}</span>
-                  <span className="linktree-name">{p.name}</span>
-                  <span className="linktree-desc">{p.desc}</span>
-                </span>
-                <span className="linktree-arr" aria-hidden="true">
-                  →
-                </span>
-              </Link>
+              {p.buy ? (
+                <div className="linktree-card">
+                  <img
+                    className={`linktree-mark linktree-mark--${p.markShape}`}
+                    src={p.mark}
+                    alt=""
+                    width={56}
+                    height={56}
+                  />
+                  <div className="linktree-card-body">
+                    <span className="linktree-store">{p.buy.badge}</span>
+                    <span className="linktree-label">{p.label}</span>
+                    <span className="linktree-name">{p.name}</span>
+                    <span className="linktree-desc">{p.desc}</span>
+                    <div className="linktree-doors">
+                      <a
+                        className="linktree-door linktree-door--buy"
+                        href={p.buy.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => track("linktree_click", { key: `${p.key}-buy`, to: p.buy!.href })}
+                      >
+                        {p.buy.label} <span aria-hidden="true">↗</span>
+                      </a>
+                      <Link
+                        className="linktree-door"
+                        to={p.to}
+                        onClick={() => track("linktree_click", { key: p.key, to: p.to })}
+                      >
+                        {p.pageLabel ?? "Learn more"} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  className="linktree-link linktree-link--mark"
+                  to={p.to}
+                  onClick={() => track("linktree_click", { key: p.key, to: p.to })}
+                >
+                  <img
+                    className={`linktree-mark linktree-mark--${p.markShape}`}
+                    src={p.mark}
+                    alt=""
+                    width={56}
+                    height={56}
+                  />
+                  <span className="linktree-card-body">
+                    <span className="linktree-label">{p.label}</span>
+                    <span className="linktree-name">{p.name}</span>
+                    <span className="linktree-desc">{p.desc}</span>
+                  </span>
+                  <span className="linktree-arr" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              )}
             </li>
           ))}
           <li>
