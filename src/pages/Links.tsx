@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { VIDEOS, artOf } from "../data/videos";
 import { track } from "../lib/track";
 
 // THE LINK TREE — the front door at "/". MindWrite, MindVault, the Hamiltonian
@@ -37,6 +38,11 @@ const PRODUCTS: Product[] = [
     markShape: "square",
   },
 ];
+
+// Artwork for the Hamiltonian Solution card: each part's cover or poster, in order.
+const HAMILTONIAN_ART = VIDEOS.filter((v) => v.series === "The Hamiltonian Solution")
+  .map((v) => ({ id: v.id, src: artOf(v) }))
+  .filter((a): a is { id: string; src: string } => Boolean(a.src));
 
 // Everything else — the homepage, the apps, and the full archive share one card.
 const SITE = {
@@ -107,6 +113,13 @@ export function Links() {
               <span className="linktree-label">The video series</span>
               <span className="linktree-name">The Hamiltonian Solution</span>
               <span className="linktree-desc">A five-part story from Hamilton, Ohio — and an epilogue.</span>
+              {HAMILTONIAN_ART.length > 0 && (
+                <span className="linktree-art" aria-hidden="true">
+                  {HAMILTONIAN_ART.map((a) => (
+                    <img key={a.id} src={a.src} alt="" loading="lazy" />
+                  ))}
+                </span>
+              )}
               <span className="linktree-arr" aria-hidden="true">
                 →
               </span>

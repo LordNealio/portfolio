@@ -7,10 +7,17 @@ import { NotFound } from "./NotFound";
 // THE VIDEO LIBRARY — every video and reel, grouped by series (/videos), or a
 // single series on its own page (/videos/:series). Each video shows at most its
 // two most recent versions; a video with none yet shows "Coming soon".
-function Player({ version, title }: { version: VideoVersion; title: string }) {
+function Player({ version, title, fallbackPoster }: { version: VideoVersion; title: string; fallbackPoster?: string }) {
   if (version.src) {
     return (
-      <video className="vl-media" src={version.src} poster={version.poster} controls playsInline preload="metadata" />
+      <video
+        className="vl-media"
+        src={version.src}
+        poster={version.poster ?? fallbackPoster}
+        controls
+        playsInline
+        preload="metadata"
+      />
     );
   }
   return (
@@ -31,10 +38,17 @@ function VideoCard({ video }: { video: Video }) {
   const current = versions[active];
 
   return (
-    <article className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current ? "" : "vl-card--soon"}`}>
+    <article
+      className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current || video.cover ? "" : "vl-card--soon"}`}
+    >
       <div className="vl-frame">
         {current ? (
-          <Player key={active} version={current} title={video.title} />
+          <Player key={active} version={current} title={video.title} fallbackPoster={video.cover} />
+        ) : video.cover ? (
+          <>
+            <img className="vl-media vl-cover" src={video.cover} alt="" loading="lazy" />
+            <span className="vl-soon-badge">Coming soon</span>
+          </>
         ) : (
           <div className="vl-soon">Coming soon</div>
         )}

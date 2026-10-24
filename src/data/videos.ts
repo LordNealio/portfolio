@@ -27,6 +27,7 @@ export type Video = {
   desc: string;
   page?: { label: string; to: string }; // where the full story lives on the site
   vertical?: boolean; // 9:16 reels get a portrait frame
+  cover?: string; // artwork for the card — shown before release, and as the poster fallback
   versions: VideoVersion[]; // newest first; empty = "Coming soon"
 };
 
@@ -74,6 +75,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Phoenix, and the patterns: 777 · 111 · 333.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-3-cover.jpg",
     versions: [],
   },
   {
@@ -82,6 +84,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "June 4, waiting for Jay Electronica — and the path from kneel to Neal.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-4-cover.jpg",
     versions: [],
   },
   {
@@ -90,6 +93,7 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Kid Cudi in Phoenix — \"This one's for Ye.\"",
     vertical: true,
+    cover: "/videos/hamiltonian-part-5-cover.jpg",
     versions: [],
   },
   {
@@ -150,9 +154,14 @@ export const VIDEOS: Video[] = [
   },
 ];
 
-/** The versions the library shows for a video: the newest MAX_VERSIONS. */
 export const getSeries = (slug: string | undefined) => SERIES.find((s) => s.slug === slug);
 
+/** The versions the library shows for a video: the newest MAX_VERSIONS. */
 export function shownVersions(v: Video): VideoVersion[] {
   return v.versions.slice(0, MAX_VERSIONS);
+}
+
+/** Artwork for a video: its cover, else its newest version's poster. */
+export function artOf(v: Video): string | undefined {
+  return v.cover ?? v.versions[0]?.poster;
 }
