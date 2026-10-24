@@ -55,7 +55,9 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Ye, meet a real Hamiltonian — Computer Love, California Love, and No Child Left Behind.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-1-cover.jpg",
     versions: [
+      { label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-1-final.mp4" },
       { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
     ],
   },
@@ -65,7 +67,9 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "What does Ye's mother have to do with a kid from Hamilton?",
     vertical: true,
+    cover: "/videos/hamiltonian-part-2-cover.jpg",
     versions: [
+      { label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-2-final.mp4" },
       { label: "v8", date: "2026-10-22", src: "/videos/hamiltonian-part-2-v8.mp4", poster: "/videos/hamiltonian-part-2-v8.jpg" },
     ],
   },
@@ -76,7 +80,7 @@ export const VIDEOS: Video[] = [
     desc: "Phoenix, and the patterns: 777 · 111 · 333.",
     vertical: true,
     cover: "/videos/hamiltonian-part-3-cover.jpg",
-    versions: [],
+    versions: [{ label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-3-final.mp4" }],
   },
   {
     id: "hamiltonian-4",
