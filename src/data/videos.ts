@@ -27,7 +27,7 @@ export type Video = {
   desc: string;
   page?: { label: string; to: string }; // where the full story lives on the site
   vertical?: boolean; // 9:16 reels get a portrait frame
-  cover?: string; // shown (with a "Coming soon" tag) while a video has no versions yet
+  cover?: string; // artwork for the card — shown before release, and as the poster fallback
   versions: VideoVersion[]; // newest first; empty = "Coming soon"
 };
 
@@ -55,7 +55,9 @@ export const VIDEOS: Video[] = [
     series: "The Hamiltonian Solution",
     desc: "Ye, meet a real Hamiltonian — Computer Love, California Love, and No Child Left Behind.",
     vertical: true,
+    cover: "/videos/hamiltonian-part-1-cover.jpg",
     versions: [
+      { label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-1-final.mp4" },
       { label: "v8", date: "2026-10-19", src: "/videos/hamiltonian-part-1-v8.mp4", poster: "/videos/hamiltonian-part-1-cover.jpg" },
       { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
     ],
@@ -67,7 +69,10 @@ export const VIDEOS: Video[] = [
     desc: "What does Ye's mother have to do with a kid from Hamilton?",
     vertical: true,
     cover: "/videos/hamiltonian-part-2-cover.jpg",
-    versions: [],
+    versions: [
+      { label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-2-final.mp4" },
+      { label: "v8", date: "2026-10-22", src: "/videos/hamiltonian-part-2-v8.mp4", poster: "/videos/hamiltonian-part-2-v8.jpg" },
+    ],
   },
   {
     id: "hamiltonian-3",
@@ -76,7 +81,7 @@ export const VIDEOS: Video[] = [
     desc: "Phoenix, and the patterns: 777 · 111 · 333.",
     vertical: true,
     cover: "/videos/hamiltonian-part-3-cover.jpg",
-    versions: [],
+    versions: [{ label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-3-final.mp4" }],
   },
   {
     id: "hamiltonian-4",
@@ -164,9 +169,14 @@ export const VIDEOS: Video[] = [
   },
 ];
 
-/** The versions the library shows for a video: the newest MAX_VERSIONS. */
 export const getSeries = (slug: string | undefined) => SERIES.find((s) => s.slug === slug);
 
+/** The versions the library shows for a video: the newest MAX_VERSIONS. */
 export function shownVersions(v: Video): VideoVersion[] {
   return v.versions.slice(0, MAX_VERSIONS);
+}
+
+/** Artwork for a video: its cover, else its newest version's poster. */
+export function artOf(v: Video): string | undefined {
+  return v.cover ?? v.versions[0]?.poster;
 }

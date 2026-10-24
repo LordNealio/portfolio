@@ -151,6 +151,21 @@
   font-size: 0.88rem;
   color: var(--text-2);
 }
+/* The Hamiltonian Solution card — a strip of each part's artwork. */
+.linktree-art {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 6px;
+  margin-top: 12px;
+}
+.linktree-art img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--line);
+}
 .linktree-arr {
   position: absolute;
   right: 22px;
