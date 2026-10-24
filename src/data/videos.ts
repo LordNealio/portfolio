@@ -58,6 +58,7 @@ export const VIDEOS: Video[] = [
     cover: "/videos/hamiltonian-part-1-cover.jpg",
     versions: [
       { label: "Final", date: "2026-10-24", src: "/videos/hamiltonian-part-1-final.mp4" },
+      { label: "v8", date: "2026-10-19", src: "/videos/hamiltonian-part-1-v8.mp4", poster: "/videos/hamiltonian-part-1-cover.jpg" },
       { label: "v2", date: "2026-10-16", src: "/videos/hamilton-all-love-v2.mp4", poster: "/videos/hamilton-all-love-v2.jpg" },
     ],
   },
@@ -115,6 +116,16 @@ export const VIDEOS: Video[] = [
     desc: "The connections, in motion — a walk-through of the Donda thread: Gloria, Hurricane, Justin, Neal, Phoenix, Hamilton.",
     page: { label: "RapGod", to: "/work/rapgod" },
     versions: [{ label: "Video", embed: "https://archive.org/embed/copy-of-god-mode-theory-proven-kanye-and-me-1" }],
+  },
+  {
+    id: "stranger-than-legal-fiction",
+    title: "Stranger Than Legal Fiction · Part I",
+    series: "34",
+    desc: "A little tale of an accountant… and reparations. A Kendrick track dated 09.06, the 1848 Colored National Convention, and \"In God We Trust.\"",
+    vertical: true,
+    versions: [
+      { label: "v7", date: "2026-10-04", src: "/videos/stranger-than-legal-fiction-v7.mp4", poster: "/videos/stranger-than-legal-fiction-v7.jpg" },
+    ],
   },
   {
     id: "why-34",
