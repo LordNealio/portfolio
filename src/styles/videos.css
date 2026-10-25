@@ -173,3 +173,56 @@
   text-transform: uppercase;
   color: #fff;
 }
+
+/* Password-locked videos */
+.vl-cover--locked {
+  filter: blur(3px) brightness(0.45);
+}
+.vl-lock {
+  position: absolute;
+  inset: auto 12px 12px 12px;
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(10, 10, 10, 0.78);
+  color: #fff;
+  font-family: var(--sans);
+}
+.vl-lock-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.vl-lock-label {
+  font-size: 0.9rem;
+}
+.vl-lock-row {
+  display: flex;
+  gap: 8px;
+}
+.vl-lock-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 1rem;
+}
+.vl-lock-row button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+.vl-lock-err {
+  font-size: 0.82rem;
+  color: #ff9a9a;
+}

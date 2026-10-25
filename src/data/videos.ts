@@ -29,7 +29,21 @@ export type Video = {
   vertical?: boolean; // 9:16 reels get a portrait frame
   cover?: string; // artwork for the card — shown before release, and as the poster fallback
   versions: VideoVersion[]; // newest first; empty = "Coming soon"
+  /** Password-locked: versions' `src` is scrambled with the password (see unlockSrc); the card asks for it first. */
+  locked?: boolean;
 };
+
+/** Unscramble a locked video's src with the password the viewer typed. Returns null if it doesn't decode to a video path. */
+export function unlockSrc(enc: string, password: string): string | null {
+  try {
+    const raw = atob(enc);
+    let out = "";
+    for (let i = 0; i < raw.length; i++) out += String.fromCharCode(raw.charCodeAt(i) ^ password.charCodeAt(i % password.length));
+    return out.startsWith("/videos/") && out.endsWith(".mp4") ? out : null;
+  } catch {
+    return null;
+  }
+}
 
 /** Series in the order they appear on the page. */
 export const SERIES: { name: string; slug: string; blurb: string }[] = [
@@ -98,10 +112,13 @@ export const VIDEOS: Video[] = [
     id: "hamiltonian-5",
     title: "Part V · King Wizard",
     series: "The Hamiltonian Solution",
-    desc: "Kid Cudi in Phoenix — \"This one's for Ye.\"",
+    desc: "Kid Cudi in Phoenix — \"This one's for Ye.\" Locked preview.",
     vertical: true,
     cover: "/videos/hamiltonian-part-5-cover.jpg",
-    versions: [],
+    locked: true,
+    versions: [
+      { label: "v5", date: "2026-10-25", src: "GkdaUVRcRh5YQhwHAVMLAVBVUwMLAVcdWEEH", poster: "/videos/hamiltonian-part-5-cover.jpg" },
+    ],
   },
   {
     id: "hamiltonian-epilogue",
@@ -127,6 +144,46 @@ export const VIDEOS: Video[] = [
     vertical: true,
     versions: [
       { label: "v7", date: "2026-10-04", src: "/videos/stranger-than-legal-fiction-v7.mp4", poster: "/videos/stranger-than-legal-fiction-v7.jpg" },
+    ],
+  },
+  {
+    id: "stranger-than-legal-fiction-2",
+    title: "Stranger Than Legal Fiction · Part II",
+    series: "34",
+    desc: "Every road led back to reparations — John Stewart, the Black Green Lantern, and two names: O'Neil and Neal.",
+    vertical: true,
+    versions: [
+      { label: "Draft", date: "2026-10-25", src: "/videos/stranger-than-legal-fiction-part-2.mp4", poster: "/videos/stranger-than-legal-fiction-part-2.jpg" },
+    ],
+  },
+  {
+    id: "head-is-the-answer",
+    title: "Head Is the Answer",
+    series: "34",
+    desc: "Kendrick Lamar and SZA said it. I did the math. H-E-A-D = 18.",
+    vertical: true,
+    versions: [
+      { label: "M1", date: "2026-10-25", src: "/videos/head-is-the-answer.mp4", poster: "/videos/head-is-the-answer.jpg" },
+    ],
+  },
+  {
+    id: "the-head-is-18",
+    title: "The Head Is 18",
+    series: "34",
+    desc: "Why the head comes out to 18.",
+    vertical: true,
+    versions: [
+      { label: "Video", date: "2026-10-25", src: "/videos/the-head-is-18.mp4", poster: "/videos/the-head-is-18.jpg" },
+    ],
+  },
+  {
+    id: "big-daddy-from-cincinnati",
+    title: "Big Daddy From Cincinnati",
+    series: "34",
+    desc: "The man who first brought Kendrick Lamar to Ohio — and passed SZA's demo to Top Dawg.",
+    vertical: true,
+    versions: [
+      { label: "Video", date: "2026-10-25", src: "/videos/big-daddy-from-cincinnati.mp4", poster: "/videos/big-daddy-from-cincinnati.jpg" },
     ],
   },
   {
