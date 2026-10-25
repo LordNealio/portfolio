@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { SERIES, VIDEOS, Video, VideoVersion, getSeries, shownVersions } from "../data/videos";
+import { SERIES, VIDEOS, Video, VideoVersion, getSeries, shownVersions, unlockSrc } from "../data/videos";
 import { track } from "../lib/track";
 import { NotFound } from "./NotFound";
 
@@ -39,9 +39,68 @@ function Player({ version, title, fallbackPoster }: { version: VideoVersion; tit
   );
 }
 
+const keyFor = (id: string) => `vl-unlock-${id}`;
+function savedPassword(id: string): string {
+  try {
+    return sessionStorage.getItem(keyFor(id)) ?? "";
+  } catch {
+    return "";
+  }
+}
+
+function LockForm({ video, onUnlock }: { video: Video; onUnlock: (pw: string) => void }) {
+  const [pw, setPw] = useState("");
+  const [wrong, setWrong] = useState(false);
+  const first = video.versions[0]?.src ?? "";
+  return (
+    <form
+      className="vl-lock"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (unlockSrc(first, pw.trim())) {
+          try {
+            sessionStorage.setItem(keyFor(video.id), pw.trim());
+          } catch {
+            /* private mode: unlock for this view only */
+          }
+          track("video_unlock", { id: video.id });
+          onUnlock(pw.trim());
+        } else setWrong(true);
+      }}
+    >
+      <span className="vl-lock-title">Locked preview</span>
+      <label className="vl-lock-label" htmlFor={`pw-${video.id}`}>
+        Enter the password to watch
+      </label>
+      <div className="vl-lock-row">
+        <input
+          id={`pw-${video.id}`}
+          type="password"
+          inputMode="numeric"
+          autoComplete="off"
+          value={pw}
+          onChange={(e) => {
+            setPw(e.target.value);
+            setWrong(false);
+          }}
+        />
+        <button type="submit">Watch</button>
+      </div>
+      {wrong && <span className="vl-lock-err">That's not it — try again.</span>}
+    </form>
+  );
+}
+
 function VideoCard({ video }: { video: Video }) {
-  const versions = shownVersions(video);
+  const allVersions = shownVersions(video);
   const [active, setActive] = useState(0);
+  const [pw, setPw] = useState(() => (video.locked ? savedPassword(video.id) : ""));
+  const unlocked = !video.locked || (pw !== "" && !!unlockSrc(allVersions[0]?.src ?? "", pw));
+  const versions = video.locked
+    ? unlocked
+      ? allVersions.map((v) => ({ ...v, src: v.src ? unlockSrc(v.src, pw) ?? undefined : undefined }))
+      : []
+    : allVersions;
   const current = versions[active];
 
   return (
@@ -49,7 +108,12 @@ function VideoCard({ video }: { video: Video }) {
       className={`vl-card ${video.vertical ? "vl-card--vertical" : ""} ${current || video.cover ? "" : "vl-card--soon"}`}
     >
       <div className="vl-frame">
-        {current ? (
+        {video.locked && !unlocked ? (
+          <>
+            {video.cover && <img className="vl-media vl-cover vl-cover--locked" src={video.cover} alt="" loading="lazy" />}
+            <LockForm video={video} onUnlock={setPw} />
+          </>
+        ) : current ? (
           <Player key={active} version={current} title={video.title} fallbackPoster={video.cover} />
         ) : video.cover ? (
           <>

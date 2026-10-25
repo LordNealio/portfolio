@@ -129,6 +129,20 @@ export function Links() {
             <Link
               className="linktree-link"
               to="/videos/hamiltonian-solution"
+              onClick={() => track("linktree_click", { key: "hamiltonian-part-5", to: "/videos/hamiltonian-solution" })}
+            >
+              <span className="linktree-label">Locked preview · Part V</span>
+              <span className="linktree-name">King Wizard</span>
+              <span className="linktree-desc">Password required to watch.</span>
+              <span className="linktree-arr" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="linktree-link"
+              to="/videos/hamiltonian-solution"
               onClick={() => track("linktree_click", { key: "hamiltonian-part-4", to: "/videos/hamiltonian-solution" })}
             >
               <span className="linktree-label">New episode · Part IV</span>
@@ -145,9 +159,9 @@ export function Links() {
               to="/videos/34"
               onClick={() => track("linktree_click", { key: "video-34", to: "/videos/34" })}
             >
-              <span className="linktree-label">The 34 video</span>
-              <span className="linktree-name">Stranger Than Legal Fiction</span>
-              <span className="linktree-desc">A little tale of an accountant… and reparations.</span>
+              <span className="linktree-label">The 34 videos</span>
+              <span className="linktree-name">Stranger Than Legal Fiction · Parts I &amp; II</span>
+              <span className="linktree-desc">A little tale of an accountant… and reparations. Plus Head Is the Answer, The Head Is 18, and Big Daddy From Cincinnati.</span>
               <span className="linktree-arr" aria-hidden="true">
                 →
               </span>
