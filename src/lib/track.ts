@@ -6,6 +6,7 @@
 // experience based on it. No personal information is collected.
 // ─────────────────────────────────────────────────────────────────────────────
 import { track as vaTrack } from "@vercel/analytics";
+import { gcFromTrack } from "./goatcounter";
 
 type Props = Record<string, string | number | boolean | null | undefined>;
 
@@ -48,6 +49,7 @@ export function track(event: string, props?: Props) {
     const clean: Record<string, string | number | boolean | null> = {};
     for (const [k, v] of Object.entries(merged)) if (v !== undefined) clean[k] = v as string | number | boolean | null;
     vaTrack(event, clean);
+    gcFromTrack(event, clean);
     window.plausible?.(event, { props: clean });
     if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event, ...clean });
   } catch {

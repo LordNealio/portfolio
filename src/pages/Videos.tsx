@@ -17,6 +17,13 @@ function Player({ version, title, fallbackPoster }: { version: VideoVersion; tit
         controls
         playsInline
         preload="metadata"
+        onPlay={(e) => {
+          // Count the first play only, not every resume after a pause.
+          const el = e.currentTarget;
+          if (el.dataset.counted) return;
+          el.dataset.counted = "1";
+          track("video_play", { title: version.label ? `${title} (${version.label})` : title });
+        }}
       />
     );
   }

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
+import { gcPage } from "./lib/goatcounter";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { PlayerBar } from "./components/PlayerBar";
@@ -49,6 +50,15 @@ function ScrollToTop() {
   return null;
 }
 
+// One GoatCounter page view per route (the owner's phone stats dashboard).
+function CountPageViews() {
+  const { pathname, search } = useLocation();
+  useEffect(() => {
+    gcPage(pathname + search);
+  }, [pathname, search]);
+  return null;
+}
+
 const GATE_ROUTES = new Set(["/", "/links", "/enter", "/enigma", "/christie", "/gnx"]);
 
 export function App() {
@@ -60,6 +70,7 @@ export function App() {
         Skip to content
       </a>
       <ScrollToTop />
+      <CountPageViews />
       {!isGate && <Nav />}
       <main id="main">
         <Routes>
