@@ -90,7 +90,9 @@ export const VIDEOS: Video[] = [
     desc: "June 4, waiting for Jay Electronica — and the path from kneel to Neal.",
     vertical: true,
     cover: "/videos/hamiltonian-part-4-cover.jpg",
-    versions: [],
+    versions: [
+      { label: "v6", date: "2026-10-25", src: "/videos/hamiltonian-part-4-v6.mp4", poster: "/videos/hamiltonian-part-4-cover.jpg" },
+    ],
   },
   {
     id: "hamiltonian-5",
