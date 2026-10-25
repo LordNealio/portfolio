@@ -128,6 +128,20 @@ export function Links() {
           <li>
             <Link
               className="linktree-link"
+              to="/videos/hamiltonian-solution"
+              onClick={() => track("linktree_click", { key: "hamiltonian-part-4", to: "/videos/hamiltonian-solution" })}
+            >
+              <span className="linktree-label">New episode · Part IV</span>
+              <span className="linktree-name">Trill Jesus Is Lord</span>
+              <span className="linktree-desc">June 4, waiting for Jay Electronica — and the writing on the wall.</span>
+              <span className="linktree-arr" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="linktree-link"
               to="/videos/34"
               onClick={() => track("linktree_click", { key: "video-34", to: "/videos/34" })}
             >
